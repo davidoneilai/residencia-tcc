@@ -1,5 +1,7 @@
 # Mobile LLM Bench
 
+O repositório também contém um MVP Android independente: [AndroidLLMBench](AndroidLLMBench/README.md), com Kotlin, LiteRT-LM e CPU. As instruções abaixo continuam sendo do MVP iOS.
+
 Primeiro MVP de **Inferência Adaptativa de LLMs em Dispositivos Mobile**: somente characterization, com três experimentos locais, oito arquivos Swift e exportação JSON. Fontes criadas e revisadas estaticamente no Windows.
 
 **Não foi possível validar a compilação iOS porque o ambiente atual é Windows.** Compilação, resolução completa do SwiftPM, execução e medições no iPhone ainda estão pendentes. Nenhum resultado experimental foi simulado.

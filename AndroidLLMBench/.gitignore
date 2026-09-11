@@ -1,0 +1,13 @@
+.gradle/
+.kotlin/
+.idea/
+**/build/
+local.properties
+*.iml
+*.litertlm
+*.task
+*.safetensors
+*.gguf
+*.apk
+*.jks
+benchmark-results.json
