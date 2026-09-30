@@ -1,0 +1,5 @@
+mobile-adaptive-inference/.venv
+mobile-adaptive-inference/.file_locks
+mobile-adaptive-inference/__pycache__
+sauron/
+**/*.log
