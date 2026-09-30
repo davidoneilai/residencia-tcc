@@ -1,0 +1,5 @@
+# vLLM 0.29 já está no .venv. Instalar o resto depois, nunca na mesma resolução do vllm.
+openai
+pyyaml
+matplotlib
+bfcl-eval

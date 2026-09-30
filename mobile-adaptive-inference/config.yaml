@@ -1,0 +1,76 @@
+generation:
+  temperature: 0
+  max_tokens: 512
+  max_plan_tokens: 128
+  concurrency: 1
+  max_model_len: 8192
+
+models:
+  qwen3_1.7b:
+    hf: Qwen/Qwen3-1.7B
+    speculative:
+      method: ngram
+      num_speculative_tokens: 5
+      prompt_lookup_max: 4
+      prompt_lookup_min: 2
+  gemma4_e2b:
+    hf: google/gemma-4-E2B-it
+    assistant: google/gemma-4-E2B-it-assistant
+    speculative:
+      method: mtp
+      num_speculative_tokens: 2
+
+server:
+  host: 127.0.0.1
+  port: 8000
+  gpu_memory_utilization: 0.90
+
+# 10 primeiros IDs de cada arquivo oficial BFCL v4, ordem do JSONL.
+# CLI: simple_python, multiple, parallel, parallel_multiple.
+benchmarks:
+  bfcl:
+    categories:
+      simple:
+        - simple_python_0
+        - simple_python_1
+        - simple_python_2
+        - simple_python_3
+        - simple_python_4
+        - simple_python_5
+        - simple_python_6
+        - simple_python_7
+        - simple_python_8
+        - simple_python_9
+      multiple:
+        - multiple_0
+        - multiple_1
+        - multiple_2
+        - multiple_3
+        - multiple_4
+        - multiple_5
+        - multiple_6
+        - multiple_7
+        - multiple_8
+        - multiple_9
+      parallel:
+        - parallel_0
+        - parallel_1
+        - parallel_2
+        - parallel_3
+        - parallel_4
+        - parallel_5
+        - parallel_6
+        - parallel_7
+        - parallel_8
+        - parallel_9
+      multiple_parallel:
+        - parallel_multiple_0
+        - parallel_multiple_1
+        - parallel_multiple_2
+        - parallel_multiple_3
+        - parallel_multiple_4
+        - parallel_multiple_5
+        - parallel_multiple_6
+        - parallel_multiple_7
+        - parallel_multiple_8
+        - parallel_multiple_9
