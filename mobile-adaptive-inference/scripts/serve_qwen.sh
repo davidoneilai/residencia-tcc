@@ -10,6 +10,10 @@ case "$STRATEGY" in
     EXTRA+=(--no-enable-prefix-caching)
     EXTRA+=(--speculative-config '{"method":"ngram","num_speculative_tokens":5,"prompt_lookup_max":4,"prompt_lookup_min":2}')
     ;;
+  eagle3)
+    EXTRA+=(--no-enable-prefix-caching)
+    EXTRA+=(--speculative-config '{"method":"eagle3","model":"AngelSlim/Qwen3-1.7B_eagle3","num_speculative_tokens":2}')
+    ;;
   *) echo "estrategia desconhecida: $STRATEGY" >&2; exit 1 ;;
 esac
 exec vllm serve Qwen/Qwen3-1.7B \
