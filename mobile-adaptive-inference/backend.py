@@ -190,6 +190,11 @@ def serve_proxy(backend, host, port, strategy):
                         max_tokens=strategy.max_plan_tokens,
                     )
                     result = backend.complete(prompt + "\n" + plan["text"], max_tokens=max_tokens)
+                elif strategy.name == "nothink":
+                    # Qwen3 pula o raciocínio quando o prompt já fecha um <think> vazio.
+                    if not prompt.endswith("</think>\n\n"):
+                        prompt += "<think>\n\n</think>\n\n"
+                    result = backend.complete(prompt, max_tokens=max_tokens)
                 else:
                     result = backend.complete(prompt, max_tokens=max_tokens)
                 payload = _completion_response(result)

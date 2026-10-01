@@ -60,7 +60,7 @@ def stop_vllm():
 
 
 def start_vllm(model, strategy):
-    flag = "direct" if strategy == "plan_act" else strategy
+    flag = strategy if strategy in ("direct", "prefix", "speculative", "eagle3") else "direct"
     script = "serve_qwen.sh" if model == "qwen3_1.7b" else "serve_gemma.sh"
     stop_vllm()
     log = (ROOT / "vllm.log").open("w")
@@ -70,7 +70,7 @@ def start_vllm(model, strategy):
         stdout=log,
         stderr=subprocess.STDOUT,
     )
-    for _ in range(180):
+    for _ in range(240):
         if models_up("http://127.0.0.1:8000/v1/models", model):
             print("vllm up", model, flag)
             return proc
@@ -84,8 +84,10 @@ def make_strategy(backend, name, cfg):
     gen = cfg["generation"]
     if name == "plan_act":
         return PlanActStrategy(backend, gen["max_tokens"], gen["max_plan_tokens"])
-    if name in ("direct", "prefix", "speculative"):
-        return DirectStrategy(backend, gen["max_tokens"])
+    if name in ("direct", "prefix", "speculative", "nothink", "eagle3"):
+        strategy = DirectStrategy(backend, gen["max_tokens"])
+        strategy.name = name
+        return strategy
     raise SystemExit(f"estrategia desconhecida: {name}")
 
 
@@ -376,7 +378,7 @@ def run_appworld(model, strategy, cfg):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", required=True, choices=["qwen3_1.7b", "gemma4_e2b"])
-    parser.add_argument("--strategy", required=True, choices=["direct", "prefix", "speculative", "plan_act"])
+    parser.add_argument("--strategy", required=True, choices=["direct", "prefix", "speculative", "plan_act", "nothink", "eagle3"])
     parser.add_argument("--benchmark", required=True, choices=["toolcheck", "bfcl", "tau2", "appworld"])
     args = parser.parse_args()
     cfg = load_config()
