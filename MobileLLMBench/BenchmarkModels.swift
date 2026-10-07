@@ -1,12 +1,48 @@
 import Foundation
 
-enum Experiment: String, CaseIterable {
-    case appleBaseline, appleTool, mlxBaseline
+enum Strategy: String, CaseIterable, Identifiable {
+    case direct
+    case planAct = "plan_act"
+
+    var id: String { rawValue }
+
+    var title: String {
+        switch self {
+        case .direct: "Direto"
+        case .planAct: "Plano e ação"
+        }
+    }
+}
+
+enum PhoneTask: String, CaseIterable, Identifiable {
+    case ligar, faceTime, email, mensagem, calendario, lembrete, mapas, safari
+
+    var id: String { rawValue }
+
+    var title: String {
+        switch self {
+        case .ligar: "Ligar"
+        case .faceTime: "FaceTime"
+        case .email: "E-mail"
+        case .mensagem: "Mensagem"
+        case .calendario: "Calendário"
+        case .lembrete: "Lembrete"
+        case .mapas: "Mapas"
+        case .safari: "Safari"
+        }
+    }
 
     var prompt: String {
-        self == .appleTool
-            ? "Use a ferramenta disponível para calcular 137 + 284 e informe o resultado."
-            : "Explique em português, em uma única frase curta, por que o céu é azul."
+        switch self {
+        case .ligar: "Ligue para +15550100."
+        case .faceTime: "Faça uma chamada de FaceTime áudio para +15550102."
+        case .email: "Envie um e-mail para test@example.com com assunto Teste iPhone e corpo Olá, isto é um teste."
+        case .mensagem: "Envie uma mensagem para +15550101 dizendo Olá, isto é um teste."
+        case .calendario: "Crie um evento no calendário chamado Teste MobileLLMBench daqui a 60 minutos."
+        case .lembrete: "Crie um lembrete chamado Teste MobileLLMBench para daqui a 60 minutos."
+        case .mapas: "Abra uma rota de carro no Mapas até Apple Park, Cupertino."
+        case .safari: "Abra a página https://www.apple.com no Safari."
+        }
     }
 }
 
@@ -18,6 +54,8 @@ struct BenchmarkResult: Codable {
     var backend: String
     var model: String
     var experiment: String
+    var strategy: String
+    var plan: String?
     var promptCharacters: Int
     var inputTokens: Int?
     var outputTokens: Int?
@@ -43,7 +81,7 @@ struct BenchmarkResult: Codable {
     var error: String?
 
     enum CodingKeys: String, CodingKey {
-        case id, timestamp, device, osVersion, backend, model, experiment, promptCharacters
+        case id, timestamp, device, osVersion, backend, model, experiment, strategy, plan, promptCharacters
         case inputTokens, outputTokens, modelLoadMs, ttftMs, firstTextMs, totalMs
         case prefillTokensPerSecond, decodeTokensPerSecond, memoryBeforeMB, memoryAfterMB
         case thermalBefore, thermalAfter, batteryBefore, batteryAfter
@@ -51,7 +89,6 @@ struct BenchmarkResult: Codable {
         case response, success, error
     }
 
-    // encode(Optional) emits JSON null; synthesized encodeIfPresent would omit the key.
     func encode(to encoder: Encoder) throws {
         var c = encoder.container(keyedBy: CodingKeys.self)
         try c.encode(id, forKey: .id)
@@ -61,6 +98,8 @@ struct BenchmarkResult: Codable {
         try c.encode(backend, forKey: .backend)
         try c.encode(model, forKey: .model)
         try c.encode(experiment, forKey: .experiment)
+        try c.encode(strategy, forKey: .strategy)
+        try c.encode(plan, forKey: .plan)
         try c.encode(promptCharacters, forKey: .promptCharacters)
         try c.encode(inputTokens, forKey: .inputTokens)
         try c.encode(outputTokens, forKey: .outputTokens)
