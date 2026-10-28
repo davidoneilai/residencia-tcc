@@ -1,0 +1,127 @@
+{
+  "session_id": "DC484191-AD4D-4407-9339-4D955839D7E9",
+  "n_jobs": 48,
+  "policies": {
+    "direct": {
+      "n": 12,
+      "success": 0.5833333333333334,
+      "n_success": 7,
+      "mean_lat_ms": 27635.568677059684,
+      "mean_tokens": 550.6666666666666,
+      "length": 4,
+      "no_tool": 4,
+      "execution": 0,
+      "grade": 1,
+      "seq_n": 4,
+      "seq_success": 0.25,
+      "overhead_ms": 0.022656226065009832,
+      "by_kind": {
+        "single_tool": {
+          "n": 4,
+          "success": 1.0
+        },
+        "multi_tool": {
+          "n": 4,
+          "success": 0.5
+        },
+        "sequential": {
+          "n": 4,
+          "success": 0.25
+        }
+      },
+      "modes": {}
+    },
+    "nothink": {
+      "n": 12,
+      "success": 0.75,
+      "n_success": 9,
+      "mean_lat_ms": 6261.803375013794,
+      "mean_tokens": 63.75,
+      "length": 0,
+      "no_tool": 0,
+      "execution": 1,
+      "grade": 2,
+      "seq_n": 4,
+      "seq_success": 0.5,
+      "overhead_ms": 0.02240968751721084,
+      "by_kind": {
+        "single_tool": {
+          "n": 4,
+          "success": 0.75
+        },
+        "multi_tool": {
+          "n": 4,
+          "success": 1.0
+        },
+        "sequential": {
+          "n": 4,
+          "success": 0.5
+        }
+      },
+      "modes": {}
+    },
+    "budget_64": {
+      "n": 12,
+      "success": 0.5,
+      "n_success": 6,
+      "mean_lat_ms": 18696.011368049465,
+      "mean_tokens": 314.9166666666667,
+      "length": 0,
+      "no_tool": 0,
+      "execution": 1,
+      "grade": 5,
+      "seq_n": 4,
+      "seq_success": 0.25,
+      "overhead_ms": 0.02516664486999313,
+      "by_kind": {
+        "single_tool": {
+          "n": 4,
+          "success": 0.75
+        },
+        "multi_tool": {
+          "n": 4,
+          "success": 0.5
+        },
+        "sequential": {
+          "n": 4,
+          "success": 0.25
+        }
+      },
+      "modes": {}
+    },
+    "adaptive_step": {
+      "n": 12,
+      "success": 0.75,
+      "n_success": 9,
+      "mean_lat_ms": 13897.878097224748,
+      "mean_tokens": 152.0,
+      "length": 0,
+      "no_tool": 0,
+      "execution": 1,
+      "grade": 2,
+      "seq_n": 4,
+      "seq_success": 0.5,
+      "overhead_ms": 0.5182187499788901,
+      "by_kind": {
+        "single_tool": {
+          "n": 4,
+          "success": 1.0
+        },
+        "multi_tool": {
+          "n": 4,
+          "success": 0.75
+        },
+        "sequential": {
+          "n": 4,
+          "success": 0.5
+        }
+      },
+      "modes": {
+        "slow": 10,
+        "fast": 35
+      }
+    }
+  },
+  "exploratory": true,
+  "heldout90_untouched": true
+}

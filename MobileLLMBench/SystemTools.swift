@@ -1,54 +1,123 @@
+import Contacts
 import EventKit
 import Foundation
 import FoundationModels
 import UIKit
 
-actor ToolLog {
-    struct Mark: Sendable {
-        var name: String
-        var detail: String
-        var ms: Double
+enum PhonePrompt {
+    static let instructions = "Cumpra o pedido chamando as ferramentas necessárias, uma vez cada. Se o pedido citar uma pessoa pelo nome, busque o número com buscarContato antes. Copie os dados do pedido para os argumentos. Não afirme que a ação foi feita sem chamar a ferramenta."
+    static let maxToolRounds = 4
+
+    static func plan(_ prompt: String) -> String {
+        "\(prompt)\n\nEscreva um plano curto, no máximo 5 linhas, para responder. Não chame ferramentas ainda."
     }
 
-    private var marks: [Mark] = []
-
-    func add(name: String, detail: String, ms: Double) {
-        marks.append(Mark(name: name, detail: detail, ms: ms))
+    static func action(_ prompt: String, plan: String) -> String {
+        "\(prompt)\n\nPlano:\n\(plan)\n\nExecute o pedido chamando as ferramentas."
     }
-
-    func snapshot() -> [Mark] { marks }
 }
 
-func makeTools(log: ToolLog) -> [any Tool] {
+func makeTools(log: ToolLog, world: ToolWorld) -> [any Tool] {
     [
-        CallTool(log: log),
-        FaceTimeTool(log: log),
-        MailTool(log: log),
-        MessageTool(log: log),
-        CalendarTool(log: log),
-        ReminderTool(log: log),
-        MapsTool(log: log),
-        SafariTool(log: log),
+        CallTool(log: log, world: world),
+        FaceTimeTool(log: log, world: world),
+        MailTool(log: log, world: world),
+        MessageTool(log: log, world: world),
+        CalendarTool(log: log, world: world),
+        ReminderTool(log: log, world: world),
+        MapsTool(log: log, world: world),
+        SafariTool(log: log, world: world),
+        ContactTool(log: log, world: world),
     ]
 }
 
-private func traced(_ log: ToolLog, _ name: String, _ body: () async throws -> String) async throws -> String {
-    let started = ProcessInfo.processInfo.systemUptime
-    do {
-        let output = try await body()
-        let ms = (ProcessInfo.processInfo.systemUptime - started) * 1000
-        await log.add(name: name, detail: output, ms: ms)
-        return output
-    } catch {
-        let ms = (ProcessInfo.processInfo.systemUptime - started) * 1000
-        await log.add(name: name, detail: error.localizedDescription, ms: ms)
-        throw error
+enum AppleToolBridge {
+    static func install() {
+        RealToolBridge.perform = { id, arguments in
+            try await AppleActions.perform(id, arguments)
+        }
+    }
+}
+
+// Agenda sintética do benchmark. A execução real lê a agenda do iPhone em DeviceContacts.
+enum Contacts {
+    static let numbers = ["Ana": "+15550100", "Bruno": "+15550101", "Carla": "+15550102"]
+
+    static func lookup(_ name: String) throws -> String {
+        let key = name.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        guard let hit = numbers.first(where: { $0.key.lowercased() == key }) else {
+            throw BenchError.failed("Contato não encontrado: \(name).")
+        }
+        return "\(hit.key): \(hit.value)"
+    }
+}
+
+enum DeviceContacts {
+    static func lookup(_ name: String) async throws -> String {
+        let store = CNContactStore()
+        let status = CNContactStore.authorizationStatus(for: .contacts)
+        if status == .notDetermined {
+            guard try await store.requestAccess(for: .contacts) else {
+                throw BenchError.failed("Sem acesso aos Contatos.")
+            }
+        } else if status == .denied || status == .restricted {
+            throw BenchError.failed("Sem acesso aos Contatos. Autorize em Ajustes.")
+        }
+        let keys = [
+            CNContactGivenNameKey, CNContactFamilyNameKey, CNContactNicknameKey,
+            CNContactOrganizationNameKey, CNContactPhoneNumbersKey,
+        ] as [CNKeyDescriptor]
+        var candidates: [ContactMatch.Candidate] = []
+        try store.enumerateContacts(with: CNContactFetchRequest(keysToFetch: keys)) { contact, _ in
+            guard let candidate = Self.candidate(contact) else { return }
+            candidates.append(candidate)
+        }
+        let hits = ContactMatch.select(name, from: candidates)
+        guard !hits.isEmpty else {
+            let limited = CNContactStore.authorizationStatus(for: .contacts) == .limited
+            let hint = limited ? " O app só vê os contatos que você selecionou em Ajustes." : ""
+            throw BenchError.failed("Contato não encontrado: \(name).\(hint)")
+        }
+        return hits.map { "\($0.name): \($0.phone)" }.joined(separator: "\n")
+    }
+
+    private static func candidate(_ contact: CNContact) -> ContactMatch.Candidate? {
+        let number = contact.phoneNumbers.first { $0.label == CNLabelPhoneNumberMobile }?.value.stringValue
+            ?? contact.phoneNumbers.first?.value.stringValue
+        guard let number, let phone = ContactMatch.dialable(number) else { return nil }
+        let parts = [contact.givenName, contact.familyName].map { $0.trimmingCharacters(in: .whitespaces) }.filter { !$0.isEmpty }
+        let display = parts.joined(separator: " ")
+        let title = display.isEmpty
+            ? (contact.nickname.isEmpty ? contact.organizationName : contact.nickname)
+            : display
+        guard !title.isEmpty else { return nil }
+        return ContactMatch.Candidate(
+            name: title, phone: phone,
+            aliases: [contact.givenName, contact.familyName, contact.nickname, contact.organizationName, display])
+    }
+}
+
+struct ContactTool: Tool {
+    let log: ToolLog
+    let world: ToolWorld
+    let name = "buscarContato"
+    let description = "Busca o número de telefone de um contato pelo nome."
+
+    @Generable
+    struct Arguments {
+        @Guide(description: "Nome do contato")
+        var nome: String
+    }
+
+    func call(arguments: Arguments) async throws -> String {
+        try await ToolRuntime.execute(id: name, arguments: ["nome": .string(arguments.nome)], world: world, log: log)
     }
 }
 
 // tel: — Phone.app. https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/PhoneLinks/PhoneLinks.html
 struct CallTool: Tool {
     let log: ToolLog
+    let world: ToolWorld
     let name = "ligar"
     let description = "Liga para um número pelo app Telefone."
 
@@ -59,13 +128,14 @@ struct CallTool: Tool {
     }
 
     func call(arguments: Arguments) async throws -> String {
-        try await traced(log, name) { try await AppleActions.call(arguments.numero) }
+        try await ToolRuntime.execute(id: name, arguments: ["numero": .string(arguments.numero)], world: world, log: log)
     }
 }
 
 // facetime-audio: — FaceTime. Mesmo documento de URL schemes da Apple.
 struct FaceTimeTool: Tool {
     let log: ToolLog
+    let world: ToolWorld
     let name = "ligarFaceTime"
     let description = "Inicia uma chamada de FaceTime áudio."
 
@@ -76,13 +146,14 @@ struct FaceTimeTool: Tool {
     }
 
     func call(arguments: Arguments) async throws -> String {
-        try await traced(log, name) { try await AppleActions.faceTime(arguments.numero) }
+        try await ToolRuntime.execute(id: name, arguments: ["numero": .string(arguments.numero)], world: world, log: log)
     }
 }
 
 // mailto: — Mail.
 struct MailTool: Tool {
     let log: ToolLog
+    let world: ToolWorld
     let name = "enviarEmail"
     let description = "Abre o Mail com destinatário, assunto e corpo preenchidos."
 
@@ -97,15 +168,18 @@ struct MailTool: Tool {
     }
 
     func call(arguments: Arguments) async throws -> String {
-        try await traced(log, name) {
-            try await AppleActions.mail(arguments.destinatario, assunto: arguments.assunto, corpo: arguments.corpo)
-        }
+        try await ToolRuntime.execute(id: name, arguments: [
+            "destinatario": .string(arguments.destinatario),
+            "assunto": .string(arguments.assunto),
+            "corpo": .string(arguments.corpo),
+        ], world: world, log: log)
     }
 }
 
 // sms: — Messages.
 struct MessageTool: Tool {
     let log: ToolLog
+    let world: ToolWorld
     let name = "enviarMensagem"
     let description = "Abre o Mensagens com o número e o texto preenchidos."
 
@@ -118,15 +192,16 @@ struct MessageTool: Tool {
     }
 
     func call(arguments: Arguments) async throws -> String {
-        try await traced(log, name) {
-            try await AppleActions.message(arguments.numero, corpo: arguments.corpo)
-        }
+        try await ToolRuntime.execute(id: name, arguments: [
+            "numero": .string(arguments.numero), "corpo": .string(arguments.corpo),
+        ], world: world, log: log)
     }
 }
 
 // EventKit EKEvent — Calendário.
 struct CalendarTool: Tool {
     let log: ToolLog
+    let world: ToolWorld
     let name = "criarEvento"
     let description = "Grava um evento no Calendário do iPhone."
 
@@ -139,15 +214,16 @@ struct CalendarTool: Tool {
     }
 
     func call(arguments: Arguments) async throws -> String {
-        try await traced(log, name) {
-            try await AppleActions.event(arguments.titulo, minutos: arguments.minutos)
-        }
+        try await ToolRuntime.execute(id: name, arguments: [
+            "titulo": .string(arguments.titulo), "minutos": .int(arguments.minutos),
+        ], world: world, log: log)
     }
 }
 
 // EventKit EKReminder — Lembretes.
 struct ReminderTool: Tool {
     let log: ToolLog
+    let world: ToolWorld
     let name = "criarLembrete"
     let description = "Grava um lembrete no app Lembretes."
 
@@ -160,15 +236,16 @@ struct ReminderTool: Tool {
     }
 
     func call(arguments: Arguments) async throws -> String {
-        try await traced(log, name) {
-            try await AppleActions.reminder(arguments.titulo, minutos: arguments.minutos)
-        }
+        try await ToolRuntime.execute(id: name, arguments: [
+            "titulo": .string(arguments.titulo), "minutos": .int(arguments.minutos),
+        ], world: world, log: log)
     }
 }
 
 // https://maps.apple.com — Mapas.
 struct MapsTool: Tool {
     let log: ToolLog
+    let world: ToolWorld
     let name = "abrirRota"
     let description = "Abre uma rota de carro no Apple Mapas."
 
@@ -179,13 +256,14 @@ struct MapsTool: Tool {
     }
 
     func call(arguments: Arguments) async throws -> String {
-        try await traced(log, name) { try await AppleActions.maps(arguments.destino) }
+        try await ToolRuntime.execute(id: name, arguments: ["destino": .string(arguments.destino)], world: world, log: log)
     }
 }
 
 // https aberto pelo sistema — Safari.
 struct SafariTool: Tool {
     let log: ToolLog
+    let world: ToolWorld
     let name = "abrirSafari"
     let description = "Abre uma página https no Safari."
 
@@ -196,18 +274,86 @@ struct SafariTool: Tool {
     }
 
     func call(arguments: Arguments) async throws -> String {
-        try await traced(log, name) { try await AppleActions.safari(arguments.url) }
+        try await ToolRuntime.execute(id: name, arguments: ["url": .string(arguments.url)], world: world, log: log)
     }
 }
 
 @MainActor
 enum AppleActions {
+    static func perform(_ id: String, _ arguments: [String: ToolValue]) async throws -> ToolResult {
+        switch id {
+        case "ligar":
+            let numero = try ToolChecks.phone(arguments)
+            return ToolResult(output: try await call(numero), values: ["numero": .string(numero)])
+        case "ligarFaceTime":
+            let numero = try ToolChecks.phone(arguments)
+            return ToolResult(output: try await faceTime(numero), values: ["numero": .string(numero)])
+        case "enviarEmail":
+            let to = try ToolChecks.email(arguments)
+            let subject = try ToolChecks.requiredText(arguments, "assunto")
+            let body = try ToolChecks.requiredText(arguments, "corpo")
+            let output = try await mail(to, assunto: subject, corpo: body)
+            return ToolResult(output: output, values: [
+                "destinatario": .string(to), "assunto": .string(subject), "corpo": .string(body),
+            ])
+        case "enviarWhatsApp":
+            let numero = try ToolChecks.phone(arguments)
+            let body = (try? ToolChecks.requiredText(arguments, "corpo")) ?? ""
+            let output = try await whatsApp(numero, corpo: body)
+            return ToolResult(output: output, values: ["numero": .string(numero), "corpo": .string(body)])
+        case "enviarMensagem":
+            let numero = try ToolChecks.phone(arguments)
+            let body = try ToolChecks.requiredText(arguments, "corpo")
+            let output = try await message(numero, corpo: body)
+            return ToolResult(output: output, values: ["numero": .string(numero), "corpo": .string(body)])
+        case "criarEvento":
+            let title = try ToolChecks.requiredText(arguments, "titulo")
+            let minutes = try ToolChecks.minutes(arguments)
+            let output = try await event(title, minutos: minutes)
+            return ToolResult(output: output, values: ["titulo": .string(title), "minutos": .int(minutes)])
+        case "criarLembrete":
+            let title = try ToolChecks.requiredText(arguments, "titulo")
+            let minutes = try ToolChecks.minutes(arguments)
+            let output = try await reminder(title, minutos: minutes)
+            return ToolResult(output: output, values: ["titulo": .string(title), "minutos": .int(minutes)])
+        case "abrirRota":
+            let place = try ToolChecks.requiredText(arguments, "destino")
+            return ToolResult(output: try await maps(place), values: ["destino": .string(place)])
+        case "abrirSafari":
+            let url = try ToolChecks.https(arguments)
+            return ToolResult(output: try await safari(url), values: ["url": .string(url)])
+        case "buscarContato":
+            let name = try ToolChecks.requiredText(arguments, "nome")
+            let output = try await DeviceContacts.lookup(name)
+            let lines = output.split(separator: "\n").map(String.init)
+            var values: [String: ToolValue] = ["nome": .string(name)]
+            if lines.count == 1, let phone = lines[0].split(separator: " ").last.map(String.init) {
+                values["phone"] = .string(phone)
+            }
+            return ToolResult(output: output, values: values)
+        default:
+            throw BenchError.failed("Ferramenta desconhecida: \(id).")
+        }
+    }
+
     static func call(_ numero: String) async throws -> String {
         try await open(phoneURL("tel", numero))
     }
 
     static func faceTime(_ numero: String) async throws -> String {
         try await open(phoneURL("facetime-audio", numero))
+    }
+
+    static func whatsApp(_ numero: String, corpo: String) async throws -> String {
+        let digits = numero.filter(\.isNumber)
+        let text = encodedQuery(String(corpo.prefix(300)))
+        let native = URL(string: "whatsapp://send?phone=\(digits)" + (text.isEmpty ? "" : "&text=\(text)"))
+        let web = URL(string: "https://wa.me/\(digits)" + (text.isEmpty ? "" : "?text=\(text)"))
+        if let native, await UIApplication.shared.canOpenURL(native) {
+            return try await open(native)
+        }
+        guard let web else { throw BenchError.failed("Não foi possível montar o link do WhatsApp.") }
+        return try await open(web)
     }
 
     static func message(_ numero: String, corpo: String) async throws -> String {
@@ -226,7 +372,7 @@ enum AppleActions {
             throw BenchError.failed("Destinatário de e-mail inválido.")
         }
         let subject = encodedQuery(String(assunto.prefix(120)))
-        let body = encodedQuery(String(corpo.prefix(500)))
+        let body = encodedQuery(String(corpo.prefix(2000)))
         guard let url = URL(string: "mailto:\(to)?subject=\(subject)&body=\(body)") else {
             throw BenchError.failed("Não foi possível montar o e-mail.")
         }
@@ -305,8 +451,8 @@ enum AppleActions {
             throw BenchError.failed("O número precisa começar com + e o DDI.")
         }
         let digits = trimmed.dropFirst()
-        guard (8...15).contains(digits.count), digits.contains("555") else {
-            throw BenchError.failed("Neste teste o número precisa ser da faixa 555.")
+        guard (8...15).contains(digits.count) else {
+            throw BenchError.failed("O número precisa ter o DDI e entre 8 e 15 dígitos.")
         }
         guard let url = URL(string: "\(scheme):\(trimmed)") else {
             throw BenchError.failed("Não foi possível montar o link \(scheme).")

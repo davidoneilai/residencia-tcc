@@ -1,0 +1,5 @@
+model,strategy,category,n,n_success,success_rate,median_latency_ms,p90_latency_ms,mean_tokens,median_time_to_tool_ms,n_missing_latency,cold_n,warm_n,start_unspecified_n,cold_median_ms,warm_median_ms,exploratory
+mlx-community/Qwen3-1.7B-4bit,nothink,multi_tool,3,3,1.0,7925.057583313901,40026.246166671626,97.0,4450.541625032201,0,0,3,0,,7925.057583313901,True
+mlx-community/Qwen3-1.7B-4bit,nothink,sequential,2,1,0.5,43159.038520854665,82939.0712500317,53.5,3126.2007500045,0,0,2,0,,43159.038520854665,True
+mlx-community/Qwen3-1.7B-4bit,nothink,single_tool,3,2,0.6666666666666666,,,42.666666666666664,2863.4502083295956,0,1,2,0,5341.739833413158,6502.014687488554,True
+mlx-community/Qwen3-1.7B-4bit,nothink,all,8,6,0.75,,,65.75,3469.4487916713115,0,1,7,0,5341.739833413158,7835.174541629385,True

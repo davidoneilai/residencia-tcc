@@ -1,0 +1,28 @@
+{
+  "recorded_before_execution": true,
+  "task_set": "apple_step_pilot_12",
+  "note": "Famílias novas. Nenhum ID do held-out 90 ou residency-60. Queries distintas do Apple 150. Seleção por categoria, sem rótulos de política.",
+  "n": 12,
+  "mix": { "single_tool": 4, "multi_tool": 4, "sequential": 4 },
+  "policies": ["direct", "nothink", "budget_64", "adaptive_step"],
+  "repetitions": 1,
+  "do_not": [
+    "usar apple_heldout_90 para seleção ou ajuste",
+    "retreinar o roteador v3",
+    "ligar adaptive_step na aba Chat"
+  ],
+  "ids": [
+    { "id": "step_single_001", "category": "single_tool", "why": "número no prompt; caminho fast esperado" },
+    { "id": "step_single_002", "category": "single_tool", "why": "Safari com URL inédita" },
+    { "id": "step_single_003", "category": "single_tool", "why": "evento com título inédito Standup" },
+    { "id": "step_single_004", "category": "single_tool", "why": "lembrete inglês Pack charger" },
+    { "id": "step_multi_001", "category": "multi_tool", "why": "evento+lembrete; slow 64 na primeira rodada" },
+    { "id": "step_multi_002", "category": "multi_tool", "why": "e-mail+ligar" },
+    { "id": "step_multi_003", "category": "multi_tool", "why": "rota+Safari" },
+    { "id": "step_multi_004", "category": "multi_tool", "why": "SMS+lembrete" },
+    { "id": "step_seq_001", "category": "sequential", "why": "contato Ana → ligar; wording novo" },
+    { "id": "step_seq_002", "category": "sequential", "why": "Bruno → mensagem; wording novo" },
+    { "id": "step_seq_003", "category": "sequential", "why": "Elena → FaceTime; wording novo" },
+    { "id": "step_seq_004", "category": "sequential", "why": "lembrete + Diego → FaceTime" }
+  ]
+}

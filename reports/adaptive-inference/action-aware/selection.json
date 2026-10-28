@@ -1,0 +1,20 @@
+{
+  "recorded_before_execution": true,
+  "task_set": "apple_step_pilot_12",
+  "note": "Mesmas 12 famílias do AdaptiveStep. Não retocadas. Fora do held-out 90 e do residency-60. Políticas novas: nothink, nothink_runtime, action_aware.",
+  "n": 12,
+  "mix": { "single_tool": 4, "multi_tool": 4, "sequential": 4 },
+  "policies": ["nothink", "nothink_runtime", "action_aware"],
+  "repetitions": 1,
+  "do_not": [
+    "usar apple_heldout_90 para seleção ou ajuste",
+    "retreinar o roteador v3",
+    "ligar action_aware na aba Chat",
+    "criar tarefas novas para favorecer a política"
+  ],
+  "ids": [
+    "step_single_001", "step_single_002", "step_single_003", "step_single_004",
+    "step_multi_001", "step_multi_002", "step_multi_003", "step_multi_004",
+    "step_seq_001", "step_seq_002", "step_seq_003", "step_seq_004"
+  ]
+}

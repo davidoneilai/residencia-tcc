@@ -24,6 +24,9 @@ BFCL_MODEL = {
     "qwen3_1.7b": "Qwen/Qwen3-1.7B-FC",
     "gemma4_e2b": "google/gemma-4-E2B-it-FC",
 }
+# Budgets e early_exit sobem o mesmo servidor do direct; mudam só o que o proxy pede ao vLLM.
+STRATEGIES = ("direct", "prefix", "speculative", "nothink", "eagle3",
+              "budget64", "budget128", "budget256", "early_exit")
 ADD_TOOLS = [{
     "type": "function",
     "function": {
@@ -84,9 +87,14 @@ def make_strategy(backend, name, cfg):
     gen = cfg["generation"]
     if name == "plan_act":
         return PlanActStrategy(backend, gen["max_tokens"], gen["max_plan_tokens"])
-    if name in ("direct", "prefix", "speculative", "nothink", "eagle3"):
+    if name in STRATEGIES:
         strategy = DirectStrategy(backend, gen["max_tokens"])
         strategy.name = name
+        if name.startswith("budget"):
+            strategy.budget = int(name.removeprefix("budget"))
+        if name == "early_exit":
+            strategy.marker = gen["early_exit"]["marker"]
+            strategy.threshold = gen["early_exit"]["threshold"]
         return strategy
     raise SystemExit(f"estrategia desconhecida: {name}")
 
@@ -378,7 +386,7 @@ def run_appworld(model, strategy, cfg):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", required=True, choices=["qwen3_1.7b", "gemma4_e2b"])
-    parser.add_argument("--strategy", required=True, choices=["direct", "prefix", "speculative", "plan_act", "nothink", "eagle3"])
+    parser.add_argument("--strategy", required=True, choices=["plan_act", *STRATEGIES])
     parser.add_argument("--benchmark", required=True, choices=["toolcheck", "bfcl", "tau2", "appworld"])
     args = parser.parse_args()
     cfg = load_config()

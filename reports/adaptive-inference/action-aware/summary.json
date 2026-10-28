@@ -1,0 +1,316 @@
+{
+  "session_id": "02800F8E-2DC6-4F00-9645-D8523B1B660B",
+  "n_jobs": 36,
+  "policies": {
+    "nothink": {
+      "n": 12,
+      "success": 0.75,
+      "n_success": 9,
+      "mean_lat_ms": 2668.9081250030235,
+      "mean_tokens": 63.75,
+      "mean_rounds": 2.0,
+      "extra_calls": 1,
+      "recoveries": 0,
+      "tasks_with_recovery": 0,
+      "length": 0,
+      "no_tool": 0,
+      "execution": 1,
+      "grade": 2,
+      "seq_n": 4,
+      "seq_success": 0.5,
+      "overhead_ms": 0.018062525972103078,
+      "by_kind": {
+        "single_tool": {
+          "n": 4,
+          "success": 0.75
+        },
+        "multi_tool": {
+          "n": 4,
+          "success": 1.0
+        },
+        "sequential": {
+          "n": 4,
+          "success": 0.5
+        }
+      },
+      "triggers": {}
+    },
+    "nothink_runtime": {
+      "n": 12,
+      "success": 0.75,
+      "n_success": 9,
+      "mean_lat_ms": 3177.8614652866963,
+      "mean_tokens": 70.33333333333333,
+      "mean_rounds": 2.3333333333333335,
+      "extra_calls": 3,
+      "recoveries": 0,
+      "tasks_with_recovery": 0,
+      "length": 0,
+      "no_tool": 0,
+      "execution": 0,
+      "grade": 3,
+      "seq_n": 4,
+      "seq_success": 0.5,
+      "overhead_ms": 0.01944095129147172,
+      "by_kind": {
+        "single_tool": {
+          "n": 4,
+          "success": 0.75
+        },
+        "multi_tool": {
+          "n": 4,
+          "success": 1.0
+        },
+        "sequential": {
+          "n": 4,
+          "success": 0.5
+        }
+      },
+      "triggers": {}
+    },
+    "action_aware": {
+      "n": 12,
+      "success": 0.8333333333333334,
+      "n_success": 10,
+      "mean_lat_ms": 4772.030475694919,
+      "mean_tokens": 96.66666666666667,
+      "mean_rounds": 2.5,
+      "extra_calls": 5,
+      "recoveries": 3,
+      "tasks_with_recovery": 2,
+      "length": 0,
+      "no_tool": 0,
+      "execution": 0,
+      "grade": 2,
+      "seq_n": 4,
+      "seq_success": 0.75,
+      "overhead_ms": 0.04861460183747113,
+      "by_kind": {
+        "single_tool": {
+          "n": 4,
+          "success": 0.75
+        },
+        "multi_tool": {
+          "n": 4,
+          "success": 1.0
+        },
+        "sequential": {
+          "n": 4,
+          "success": 0.75
+        }
+      },
+      "triggers": {
+        "tool_error": 2,
+        "unresolved_dependency": 1
+      }
+    }
+  },
+  "tasks": [
+    {
+      "id": "step_multi_001",
+      "kind": "multi_tool",
+      "nothink": true,
+      "nothink_runtime": true,
+      "action_aware": true,
+      "recoveries": 0,
+      "recovery_success": false,
+      "extra_calls_aware": 0,
+      "lat_nothink": 4099.999874946661,
+      "lat_runtime": 4078.7274166941643,
+      "lat_aware": 2647.2158749820665,
+      "recovery_cost_ms": null,
+      "failure_aware": null,
+      "invalid_aware": 0,
+      "dup_aware": 0
+    },
+    {
+      "id": "step_multi_002",
+      "kind": "multi_tool",
+      "nothink": true,
+      "nothink_runtime": true,
+      "action_aware": true,
+      "recoveries": 0,
+      "recovery_success": false,
+      "extra_calls_aware": 0,
+      "lat_nothink": 2951.3975833542645,
+      "lat_runtime": 2780.770375044085,
+      "lat_aware": 2835.1022916613147,
+      "recovery_cost_ms": null,
+      "failure_aware": null,
+      "invalid_aware": 0,
+      "dup_aware": 0
+    },
+    {
+      "id": "step_multi_003",
+      "kind": "multi_tool",
+      "nothink": true,
+      "nothink_runtime": true,
+      "action_aware": true,
+      "recoveries": 0,
+      "recovery_success": false,
+      "extra_calls_aware": 0,
+      "lat_nothink": 4371.066291700117,
+      "lat_runtime": 4765.478208311833,
+      "lat_aware": 3883.8087499607354,
+      "recovery_cost_ms": null,
+      "failure_aware": null,
+      "invalid_aware": 0,
+      "dup_aware": 0
+    },
+    {
+      "id": "step_multi_004",
+      "kind": "multi_tool",
+      "nothink": true,
+      "nothink_runtime": true,
+      "action_aware": true,
+      "recoveries": 0,
+      "recovery_success": false,
+      "extra_calls_aware": 0,
+      "lat_nothink": 3700.3259583143517,
+      "lat_runtime": 2743.0418750736862,
+      "lat_aware": 2823.9436666481197,
+      "recovery_cost_ms": null,
+      "failure_aware": null,
+      "invalid_aware": 0,
+      "dup_aware": 0
+    },
+    {
+      "id": "step_seq_001",
+      "kind": "sequential",
+      "nothink": false,
+      "nothink_runtime": false,
+      "action_aware": true,
+      "recoveries": 1,
+      "recovery_success": true,
+      "extra_calls_aware": 0,
+      "lat_nothink": 1471.4934583753347,
+      "lat_runtime": 2418.177333311178,
+      "lat_aware": 15860.863750101998,
+      "recovery_cost_ms": 13442.68641679082,
+      "failure_aware": null,
+      "invalid_aware": 0,
+      "dup_aware": 0
+    },
+    {
+      "id": "step_seq_002",
+      "kind": "sequential",
+      "nothink": true,
+      "nothink_runtime": true,
+      "action_aware": true,
+      "recoveries": 0,
+      "recovery_success": false,
+      "extra_calls_aware": 0,
+      "lat_nothink": 3944.5367499720305,
+      "lat_runtime": 3593.964874977246,
+      "lat_aware": 3850.7642082404345,
+      "recovery_cost_ms": null,
+      "failure_aware": null,
+      "invalid_aware": 0,
+      "dup_aware": 0
+    },
+    {
+      "id": "step_seq_003",
+      "kind": "sequential",
+      "nothink": true,
+      "nothink_runtime": true,
+      "action_aware": true,
+      "recoveries": 0,
+      "recovery_success": false,
+      "extra_calls_aware": 0,
+      "lat_nothink": 2293.677333276719,
+      "lat_runtime": 2212.7232917118818,
+      "lat_aware": 2163.3855833206326,
+      "recovery_cost_ms": null,
+      "failure_aware": null,
+      "invalid_aware": 0,
+      "dup_aware": 0
+    },
+    {
+      "id": "step_seq_004",
+      "kind": "sequential",
+      "nothink": false,
+      "nothink_runtime": false,
+      "action_aware": false,
+      "recoveries": 2,
+      "recovery_success": false,
+      "extra_calls_aware": 4,
+      "lat_nothink": 2015.9759166417643,
+      "lat_runtime": 7672.938958276063,
+      "lat_aware": 16291.647000005469,
+      "recovery_cost_ms": 8618.708041729406,
+      "failure_aware": "grade",
+      "invalid_aware": 0,
+      "dup_aware": 4
+    },
+    {
+      "id": "step_single_001",
+      "kind": "single_tool",
+      "nothink": false,
+      "nothink_runtime": false,
+      "action_aware": false,
+      "recoveries": 0,
+      "recovery_success": false,
+      "extra_calls_aware": 1,
+      "lat_nothink": 2051.675791735761,
+      "lat_runtime": 2337.5076666707173,
+      "lat_aware": 1498.4015417285264,
+      "recovery_cost_ms": null,
+      "failure_aware": "grade",
+      "invalid_aware": 1,
+      "dup_aware": 0
+    },
+    {
+      "id": "step_single_002",
+      "kind": "single_tool",
+      "nothink": true,
+      "nothink_runtime": true,
+      "action_aware": true,
+      "recoveries": 0,
+      "recovery_success": false,
+      "extra_calls_aware": 0,
+      "lat_nothink": 2045.050458284095,
+      "lat_runtime": 1422.8305416181684,
+      "lat_aware": 1851.000833325088,
+      "recovery_cost_ms": null,
+      "failure_aware": null,
+      "invalid_aware": 0,
+      "dup_aware": 0
+    },
+    {
+      "id": "step_single_003",
+      "kind": "single_tool",
+      "nothink": true,
+      "nothink_runtime": true,
+      "action_aware": true,
+      "recoveries": 0,
+      "recovery_success": false,
+      "extra_calls_aware": 0,
+      "lat_nothink": 1305.6427499977872,
+      "lat_runtime": 1975.1157499849796,
+      "lat_aware": 1813.5279166745022,
+      "recovery_cost_ms": null,
+      "failure_aware": null,
+      "invalid_aware": 0,
+      "dup_aware": 0
+    },
+    {
+      "id": "step_single_004",
+      "kind": "single_tool",
+      "nothink": true,
+      "nothink_runtime": true,
+      "action_aware": true,
+      "recoveries": 0,
+      "recovery_success": false,
+      "extra_calls_aware": 0,
+      "lat_nothink": 1776.055333437398,
+      "lat_runtime": 2133.061291766353,
+      "lat_aware": 1744.704291690141,
+      "recovery_cost_ms": null,
+      "failure_aware": null,
+      "invalid_aware": 0,
+      "dup_aware": 0
+    }
+  ],
+  "exploratory": true,
+  "heldout90_untouched": true
+}

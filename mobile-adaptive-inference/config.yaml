@@ -2,6 +2,11 @@ generation:
   temperature: 0
   max_tokens: 512
   max_plan_tokens: 128
+  # budget64/128/256: s1 budget forcing (Muennighoff et al., 2025). Total de tokens continua em max_tokens.
+  # early_exit: DEER (Yang et al., ICLR 2026), lambda 0.95 e marcador "Wait" do paper.
+  early_exit:
+    marker: Wait
+    threshold: 0.95
   concurrency: 1
   max_model_len: 8192
 

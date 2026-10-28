@@ -1,0 +1,20 @@
+CHAT_BENCH_SUMMARY {
+  "fixedBest" : "fixed_plan_act",
+  "fixedSuccessRate" : 0.75,
+  "fixedTotalLatencyMs" : 240169,
+  "heuristicSuccessRate" : 0.72499999999999998,
+  "heuristicTotalLatencyMs" : 146007,
+  "n" : 40,
+  "oracleLatencyGainVsFixedMs" : 75810,
+  "oracleSuccessRate" : 0.80000000000000004,
+  "oracleTotalLatencyMs" : 164359
+}
+Test Case '-[MobileLLMBenchTests.ChatAdaptivePilotTests testPilotMatrix]' passed (519.595 seconds).
+Test Suite 'ChatAdaptivePilotTests' passed at 2026-10-19 17:13:53.494.
+	 Executed 1 test, with 0 failures (0 unexpected) in 519.595 (519.596) seconds
+Test Suite 'MobileLLMBenchTests.xctest' passed at 2026-10-19 17:13:53.494.
+	 Executed 1 test, with 0 failures (0 unexpected) in 519.595 (519.596) seconds
+Test Suite 'Selected tests' passed at 2026-10-19 17:13:53.494.
+	 Executed 1 test, with 0 failures (0 unexpected) in 519.595 (519.596) seconds
+2026-10-19 17:13:54.144 xcodebuild[84970:11540728] [MT] IDETestOperationsObserverDebug: 525.777 elapsed -- Testing started completed.
+2026-10-19 17:13:54.144 xcodebuild[84970:11540728] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start

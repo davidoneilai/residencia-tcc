@@ -1,0 +1,38 @@
+Entrega
+
+Duas matrizes no iPhone 16 Pro, 126 execuções, tudo rodando no aparelho. A primeira comparou Apple, Qwen3-1.7B e Gemma 4 E2B em 8 tarefas (48 execuções). A segunda testou 6 estratégias de raciocínio do Qwen em 13 tarefas (78 execuções). Resultados em results/. github: link
+
+1. Técnicas de aceleração. Implementei no app: sem thinking; budgets de 64 e 128 tokens (budget forcing do s1); e early-exit (DEER, ICLR 2026), que testa uma resposta a cada "Wait" do modelo e sai se a confiança passar de 0,95. Valem só para o Qwen: a Apple não expõe o raciocínio e o Gemma não tem raciocínio explícito.
+
+2. Tarefas Apple. 13 tarefas: 8 de uma ferramenta, 2 com várias e 3 sequenciais (buscar um contato e usar o número retornado).
+
+3. Benchmarks mobile. Foundation Models Bench integrado, com amostra de verificação. iOSWorld ficou de fora porque roda em simulador.
+
+4. Resultados (Qwen3-1.7B, 13 tarefas)
+
+Estratégia	Acertos	Tempo até a ferramenta	Tokens gerados	Tokens de entrada
+Direto	10/13	9,4 s	420	2.134
+Sem thinking	10/13	6,0 s	54	1.981
+Budget 64	9/13	13,0 s	213	4.194
+Budget 128	8/13	15,7 s	373	4.387
+Early-exit	10/13	19,4 s	392	4.362
+Plano + ação	9/13	17,3 s	640	2.405
+
+- Sem thinking foi 36% mais rápido, com 8x menos tokens e o mesmo acerto, igual ao que vimos no servidor. Mas errou as 3 sequenciais: o raciocínio ajuda quando é preciso reaproveitar um resultado.
+- Budgets geraram menos tokens, mas ficaram mais lentos: cada corte reprocessa o prompt inteiro, e os tokens de entrada dobraram.
+- Early-exit quase não agiu: em tarefas simples o Qwen não hesitou ("Wait" em só 4 de 13).
+- Erro mais comum: repetir a ferramenta depois de executada (10 de 22 falhas).
+
+Na primeira matriz, a Apple foi a mais rápida e leve (8/8 em 1,1 s, 67 MB), contra o Qwen (8/8 em 8,3 s, 1,3 GB) e o Gemma (7/8 em 3,4 s, 2,9 GB). Nas duas matrizes, plano + ação deixou tudo mais lento sem acertar mais.
+
+5. Métricas. Cada execução grava latência, tokens, memória, estado térmico e bateria. Energia por tarefa ainda não saiu: a bateria caiu de 90% para 65% em 78 execuções, grossa demais para dividir por tarefa. O app já marca cada tarefa para o Power Profiler.
+
+Conclusão: no celular, o custo está no raciocínio, e desligá-lo é hoje o maior ganho. Cortar no meio só compensa sem reprocessar o prompt.
+
+Ressalvas: uma execução por condição, ordem fixa e aparelho em estado térmico "serious" desde a 4ª execução.
+
+Planejamento
+- Reaproveitar o cache do prompt nos budgets e no early-exit e repetir.
+- Encerrar a tarefa quando a ferramenta já foi executada.
+- Rodar as 13 tarefas na Apple e no Gemma, 3 repetições em ordem aleatória com pausa térmica.
+- Medir energia por tarefa com o Power Profiler e rodar o Foundation Models Bench completo.

@@ -1,0 +1,6 @@
+model,strategy,category,bucket,kind,n
+mlx-community/Qwen3-1.7B-4bit,nothink,multi_tool,ok,ok,3
+mlx-community/Qwen3-1.7B-4bit,nothink,sequential,ok,ok,1
+mlx-community/Qwen3-1.7B-4bit,nothink,sequential,runtime,execution,1
+mlx-community/Qwen3-1.7B-4bit,nothink,single_tool,agent,grade,1
+mlx-community/Qwen3-1.7B-4bit,nothink,single_tool,ok,ok,2

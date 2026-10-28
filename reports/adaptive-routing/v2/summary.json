@@ -1,0 +1,2427 @@
+{
+  "input": "/Users/macbookpro/VSCODE/residencia-tcc/reports/adaptive-routing/on-device/variance-session.json",
+  "audit": {
+    "n_results": 540,
+    "finished": true,
+    "mixed_success_cells": 0,
+    "thermal": {
+      "ready": {
+        "n": 94,
+        "success_rate": 0.3723404255319149,
+        "mean_tokens_per_second": 44.501911767089396
+      },
+      "proceed_hot": {
+        "n": 446,
+        "success_rate": 0.3721973094170404,
+        "mean_tokens_per_second": 33.89668439390901
+      }
+    },
+    "prefix_cache": {
+      "n_first": 42,
+      "mean_prefill_first_ms": 2425.5076476505824,
+      "mean_prefill_rest_ms": 881.0697748479115,
+      "policy_first": {
+        "plan_act": 12,
+        "direct": 14,
+        "adaptive": 16
+      },
+      "thermal_first": {
+        "ready": 42
+      },
+      "sibling_success_flips": 0
+    },
+    "failures": {
+      "direct": {
+        "n": 180,
+        "failure_kind": {
+          "no_tool": 39,
+          "grade": 61,
+          "execution": 8
+        },
+        "stop_length": 42,
+        "stop_length_success": 3
+      },
+      "plan_act": {
+        "n": 180,
+        "failure_kind": {
+          "no_tool": 48,
+          "grade": 51,
+          "execution": 21
+        },
+        "stop_length": 63,
+        "stop_length_success": 12
+      },
+      "adaptive": {
+        "n": 180,
+        "failure_kind": {
+          "execution": 21,
+          "grade": 48,
+          "no_tool": 42
+        },
+        "stop_length": 48,
+        "stop_length_success": 3
+      }
+    },
+    "full60": {
+      "n": 60,
+      "success_rate": 0.4,
+      "route_diffs": 0,
+      "success_flips": [
+        {
+          "task_id": "apple_multi_009",
+          "full60_success": true,
+          "variance_success": false,
+          "route_full": "direct",
+          "route_var": "direct",
+          "error_full": "",
+          "error_var": "Avalia\u00e7\u00e3o: argumentos de enviarMensagem n\u00e3o batem com o esperado"
+        },
+        {
+          "task_id": "apple_amb_003",
+          "full60_success": true,
+          "variance_success": false,
+          "route_full": "direct",
+          "route_var": "direct",
+          "error_full": "",
+          "error_var": "Contato n\u00e3o encontrado: Jo\u00e3o."
+        },
+        {
+          "task_id": "apple_multi_004",
+          "full60_success": false,
+          "variance_success": true,
+          "route_full": "direct",
+          "route_var": "direct",
+          "error_full": "Avalia\u00e7\u00e3o: sem restri\u00e7\u00e3o de ordem",
+          "error_var": ""
+        }
+      ]
+    },
+    "report_corrections": {
+      "adaptive_vs_direct_tasks": "23/60 vs 24/60 (69 vs 72 runs), not 3 tasks",
+      "sequential_plan_winners": 2,
+      "sequential_oracle_runs": 9
+    }
+  },
+  "split_sizes": {
+    "train": 25,
+    "val": 15,
+    "test": 20
+  },
+  "test_families": [
+    "apple_amb_b0",
+    "apple_multi_b2",
+    "apple_seq_b0",
+    "apple_single_b2"
+  ],
+  "learned_name": "logistic",
+  "learned": {
+    "name": "logistic",
+    "candidates": [
+      "direct",
+      "plan_act"
+    ],
+    "weights": [
+      0.3127819090708549,
+      0.5926390527952122,
+      0.9698187465665493,
+      1.263654177311991,
+      0.0,
+      0.0,
+      0.2554061872132846,
+      0.16146753439291284,
+      0.22558272410573474,
+      -0.8993953214332132,
+      -0.9202097207040422,
+      0.5965993143054653,
+      -0.5575235676473166,
+      -1.7132769487575619,
+      -0.13468754529035207,
+      -0.696828134564836
+    ],
+    "bias": -1.0453998366213502,
+    "mean": [
+      57.88,
+      10.32,
+      3.64,
+      0.4,
+      0.0,
+      0.0,
+      0.4,
+      0.24,
+      1.72,
+      0.24,
+      0.48,
+      0.2,
+      0.44,
+      4.459895526695527,
+      0.04,
+      0.08
+    ],
+    "std": [
+      35.0489029785527,
+      6.2207395058787025,
+      4.353205715332091,
+      0.4898979485566357,
+      1.0,
+      1.0,
+      0.4898979485566357,
+      0.42708313008125237,
+      0.664529909033446,
+      0.4270831300812524,
+      0.64,
+      0.4,
+      0.5713142742834281,
+      0.5449308457257267,
+      0.19595917942265428,
+      0.27129319932501067
+    ],
+    "threshold": 0.5,
+    "feature_names": [
+      "char_len",
+      "word_count",
+      "digit_count",
+      "has_phone",
+      "has_email",
+      "has_url",
+      "is_english",
+      "contact_name_hits",
+      "tool_cue_count",
+      "seq_cue_count",
+      "multi_cue_count",
+      "ambig_cue_count",
+      "conjunction_count",
+      "avg_word_len",
+      "question_marks",
+      "negation_count"
+    ]
+  },
+  "full": {
+    "n": 60,
+    "fixed": {
+      "direct": {
+        "n": 60,
+        "success_rate": 0.4,
+        "total_latency_ms": 1517435.711375011,
+        "mean_latency_ms": 25290.595189583513,
+        "n_success": 24
+      },
+      "plan_act": {
+        "n": 60,
+        "success_rate": 0.3333333333333333,
+        "total_latency_ms": 1797601.8020831202,
+        "mean_latency_ms": 29960.03003471867,
+        "n_success": 20
+      }
+    },
+    "oracle": {
+      "n": 60,
+      "success_rate": 0.5,
+      "total_latency_ms": 1260133.3043333143,
+      "mean_latency_ms": 21002.221738888573,
+      "n_success": 30,
+      "choice_counts": {
+        "direct": 38,
+        "plan_act": 22
+      }
+    },
+    "complementarity": {
+      "only_a": 10,
+      "only_b": 6,
+      "both": 14,
+      "neither": 30
+    }
+  },
+  "holdout": [
+    {
+      "router": "fixed:direct",
+      "n": 20,
+      "success_rate": 0.3,
+      "n_success": 6,
+      "total_latency_ms": 462986.79508416296,
+      "mean_latency_ms": 23149.339754208147,
+      "router_overhead_ms": 0.5237091099843383,
+      "mean_router_overhead_ms": 0.026185455499216914,
+      "choice_counts": {
+        "direct": 20
+      },
+      "decisions": {
+        "correct": 14,
+        "success_loss": 2,
+        "latency_only": 4,
+        "errors": [
+          {
+            "task_id": "apple_amb_003",
+            "category": "ambiguous",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "success_loss",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_multi_012",
+            "category": "multi_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_multi_014",
+            "category": "multi_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_002",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_004",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_single_015",
+            "category": "single_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "success_loss",
+            "reason": "fixed"
+          }
+        ]
+      },
+      "by_category": {
+        "ambiguous": {
+          "n": 5,
+          "success_rate": 0.6,
+          "mean_latency_ms": 9678.748655777115
+        },
+        "multi_tool": {
+          "n": 5,
+          "success_rate": 0.0,
+          "mean_latency_ms": 36113.88951103047
+        },
+        "sequential": {
+          "n": 5,
+          "success_rate": 0.2,
+          "mean_latency_ms": 28479.0898474399
+        },
+        "single_tool": {
+          "n": 5,
+          "success_rate": 0.4,
+          "mean_latency_ms": 18325.63100258509
+        }
+      },
+      "split": "test",
+      "model": "qwen",
+      "success_ci": {
+        "mean": 0.3,
+        "lo": 0.1,
+        "hi": 0.5
+      }
+    },
+    {
+      "router": "fixed:plan_act",
+      "n": 20,
+      "success_rate": 0.25,
+      "n_success": 5,
+      "total_latency_ms": 558050.6208175404,
+      "mean_latency_ms": 27902.531040877024,
+      "router_overhead_ms": 0.5379982758313417,
+      "mean_router_overhead_ms": 0.026899913791567087,
+      "choice_counts": {
+        "plan_act": 20
+      },
+      "decisions": {
+        "correct": 6,
+        "success_loss": 3,
+        "latency_only": 11,
+        "errors": [
+          {
+            "task_id": "apple_amb_001",
+            "category": "ambiguous",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_amb_002",
+            "category": "ambiguous",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_amb_004",
+            "category": "ambiguous",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_amb_005",
+            "category": "ambiguous",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "success_loss",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_multi_011",
+            "category": "multi_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_multi_013",
+            "category": "multi_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_multi_015",
+            "category": "multi_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_001",
+            "category": "sequential",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_003",
+            "category": "sequential",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_005",
+            "category": "sequential",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "success_loss",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_single_011",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_single_012",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_single_013",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_single_014",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "success_loss",
+            "reason": "fixed"
+          }
+        ]
+      },
+      "by_category": {
+        "ambiguous": {
+          "n": 5,
+          "success_rate": 0.6,
+          "mean_latency_ms": 24980.787419419117
+        },
+        "multi_tool": {
+          "n": 5,
+          "success_rate": 0.0,
+          "mean_latency_ms": 33599.83228891312
+        },
+        "sequential": {
+          "n": 5,
+          "success_rate": 0.0,
+          "mean_latency_ms": 24298.108724690974
+        },
+        "single_tool": {
+          "n": 5,
+          "success_rate": 0.4,
+          "mean_latency_ms": 28731.3957304849
+        }
+      },
+      "split": "test",
+      "model": "qwen",
+      "success_ci": {
+        "mean": 0.25,
+        "lo": 0.1,
+        "hi": 0.45
+      },
+      "paired": {
+        "fixed": "direct",
+        "success_delta": {
+          "mean": -0.05,
+          "lo": -0.25,
+          "hi": 0.15
+        },
+        "latency_delta_ms": {
+          "mean": 4753.217536705781,
+          "lo": -3980.9313758315207,
+          "hi": 12039.255143364426
+        },
+        "n_better_success": 2,
+        "n_worse_success": 3,
+        "n_faster": 4,
+        "n_slower": 16
+      }
+    },
+    {
+      "router": "heuristic",
+      "n": 20,
+      "success_rate": 0.25,
+      "n_success": 5,
+      "total_latency_ms": 509029.00039047614,
+      "mean_latency_ms": 25451.450019523807,
+      "router_overhead_ms": 0.5544599844142795,
+      "mean_router_overhead_ms": 0.027722999220713973,
+      "choice_counts": {
+        "direct": 8,
+        "plan_act": 12
+      },
+      "decisions": {
+        "correct": 10,
+        "success_loss": 3,
+        "latency_only": 7,
+        "errors": [
+          {
+            "task_id": "apple_amb_003",
+            "category": "ambiguous",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "success_loss",
+            "reason": "short_single"
+          },
+          {
+            "task_id": "apple_multi_011",
+            "category": "multi_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "sequential_or_contact"
+          },
+          {
+            "task_id": "apple_multi_012",
+            "category": "multi_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "default"
+          },
+          {
+            "task_id": "apple_seq_001",
+            "category": "sequential",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "sequential_or_contact"
+          },
+          {
+            "task_id": "apple_seq_003",
+            "category": "sequential",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "sequential_or_contact"
+          },
+          {
+            "task_id": "apple_seq_005",
+            "category": "sequential",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "success_loss",
+            "reason": "sequential_or_contact"
+          },
+          {
+            "task_id": "apple_single_011",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "sequential_or_contact"
+          },
+          {
+            "task_id": "apple_single_012",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "sequential_or_contact"
+          },
+          {
+            "task_id": "apple_single_013",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "sequential_or_contact"
+          },
+          {
+            "task_id": "apple_single_014",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "success_loss",
+            "reason": "sequential_or_contact"
+          }
+        ]
+      },
+      "by_category": {
+        "ambiguous": {
+          "n": 5,
+          "success_rate": 0.6,
+          "mean_latency_ms": 9678.754413981613
+        },
+        "multi_tool": {
+          "n": 5,
+          "success_rate": 0.0,
+          "mean_latency_ms": 39097.53985840361
+        },
+        "sequential": {
+          "n": 5,
+          "success_rate": 0.0,
+          "mean_latency_ms": 24298.109500249848
+        },
+        "single_tool": {
+          "n": 5,
+          "success_rate": 0.4,
+          "mean_latency_ms": 28731.396305460174
+        }
+      },
+      "split": "test",
+      "model": "qwen",
+      "success_ci": {
+        "mean": 0.25,
+        "lo": 0.05,
+        "hi": 0.45
+      },
+      "paired": {
+        "fixed": "direct",
+        "success_delta": {
+          "mean": -0.05,
+          "lo": -0.2,
+          "hi": 0.1
+        },
+        "latency_delta_ms": {
+          "mean": 2302.136850774211,
+          "lo": -2385.242711801159,
+          "hi": 7486.927563959034
+        },
+        "n_better_success": 1,
+        "n_worse_success": 2,
+        "n_faster": 3,
+        "n_slower": 17
+      }
+    },
+    {
+      "router": "logistic",
+      "n": 20,
+      "success_rate": 0.3,
+      "n_success": 6,
+      "total_latency_ms": 506400.74634831405,
+      "mean_latency_ms": 25320.037317415703,
+      "router_overhead_ms": 0.5908759776502848,
+      "mean_router_overhead_ms": 0.02954379888251424,
+      "choice_counts": {
+        "direct": 16,
+        "plan_act": 4
+      },
+      "decisions": {
+        "correct": 12,
+        "success_loss": 2,
+        "latency_only": 6,
+        "errors": [
+          {
+            "task_id": "apple_amb_004",
+            "category": "ambiguous",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "p=0.547"
+          },
+          {
+            "task_id": "apple_amb_005",
+            "category": "ambiguous",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "success_loss",
+            "reason": "p=0.851"
+          },
+          {
+            "task_id": "apple_multi_012",
+            "category": "multi_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "p=0.167"
+          },
+          {
+            "task_id": "apple_multi_014",
+            "category": "multi_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "p=0.003"
+          },
+          {
+            "task_id": "apple_seq_001",
+            "category": "sequential",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "p=0.793"
+          },
+          {
+            "task_id": "apple_seq_002",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "p=0.069"
+          },
+          {
+            "task_id": "apple_seq_004",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "p=0.069"
+          },
+          {
+            "task_id": "apple_single_015",
+            "category": "single_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "success_loss",
+            "reason": "p=0.076"
+          }
+        ]
+      },
+      "by_category": {
+        "ambiguous": {
+          "n": 5,
+          "success_rate": 0.6,
+          "mean_latency_ms": 17987.906991589505
+        },
+        "multi_tool": {
+          "n": 5,
+          "success_rate": 0.0,
+          "mean_latency_ms": 36113.89298605111
+        },
+        "sequential": {
+          "n": 5,
+          "success_rate": 0.2,
+          "mean_latency_ms": 28852.71773080652
+        },
+        "single_tool": {
+          "n": 5,
+          "success_rate": 0.4,
+          "mean_latency_ms": 18325.631561215654
+        }
+      },
+      "split": "test",
+      "model": "qwen",
+      "success_ci": {
+        "mean": 0.3,
+        "lo": 0.1,
+        "hi": 0.5
+      },
+      "paired": {
+        "fixed": "direct",
+        "success_delta": {
+          "mean": 0.0,
+          "lo": -0.15,
+          "hi": 0.15
+        },
+        "latency_delta_ms": {
+          "mean": 2170.7232443111325,
+          "lo": 40.31968374620192,
+          "hi": 5263.6841366669005
+        },
+        "n_better_success": 1,
+        "n_worse_success": 1,
+        "n_faster": 0,
+        "n_slower": 20
+      }
+    },
+    {
+      "router": "decision_tree",
+      "n": 20,
+      "success_rate": 0.3,
+      "n_success": 6,
+      "total_latency_ms": 462986.8596220234,
+      "mean_latency_ms": 23149.34298110117,
+      "router_overhead_ms": 0.5882469704374671,
+      "mean_router_overhead_ms": 0.029412348521873355,
+      "choice_counts": {
+        "direct": 20
+      },
+      "decisions": {
+        "correct": 14,
+        "success_loss": 2,
+        "latency_only": 4,
+        "errors": [
+          {
+            "task_id": "apple_amb_003",
+            "category": "ambiguous",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "success_loss",
+            "reason": "digit_count<=5:True / avg_word_len<=3.88:True"
+          },
+          {
+            "task_id": "apple_multi_012",
+            "category": "multi_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:True / avg_word_len<=3.88:False"
+          },
+          {
+            "task_id": "apple_multi_014",
+            "category": "multi_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:True / avg_word_len<=3.88:False"
+          },
+          {
+            "task_id": "apple_seq_002",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:True / avg_word_len<=3.88:False"
+          },
+          {
+            "task_id": "apple_seq_004",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:True / avg_word_len<=3.88:False"
+          },
+          {
+            "task_id": "apple_single_015",
+            "category": "single_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "success_loss",
+            "reason": "digit_count<=5:True / avg_word_len<=3.88:False"
+          }
+        ]
+      },
+      "by_category": {
+        "ambiguous": {
+          "n": 5,
+          "success_rate": 0.6,
+          "mean_latency_ms": 9678.756096951354
+        },
+        "multi_tool": {
+          "n": 5,
+          "success_rate": 0.0,
+          "mean_latency_ms": 36113.892336057805
+        },
+        "sequential": {
+          "n": 5,
+          "success_rate": 0.2,
+          "mean_latency_ms": 28479.091372014955
+        },
+        "single_tool": {
+          "n": 5,
+          "success_rate": 0.4,
+          "mean_latency_ms": 18325.632119380556
+        }
+      },
+      "split": "test",
+      "model": "qwen",
+      "success_ci": {
+        "mean": 0.3,
+        "lo": 0.1,
+        "hi": 0.5
+      },
+      "paired": {
+        "fixed": "direct",
+        "success_delta": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "latency_delta_ms": {
+          "mean": 0.029462558450177312,
+          "lo": 0.024460454005748034,
+          "hi": 0.03430205397307873
+        },
+        "n_better_success": 0,
+        "n_worse_success": 0,
+        "n_faster": 0,
+        "n_slower": 20
+      }
+    },
+    {
+      "n": 20,
+      "success_rate": 0.4,
+      "total_latency_ms": 390114.86214026035,
+      "mean_latency_ms": 19505.74310701302,
+      "n_success": 8,
+      "choice_counts": {
+        "direct": 14,
+        "plan_act": 6
+      },
+      "router": "oracle",
+      "router_overhead_ms": 0.230320799164474,
+      "mean_router_overhead_ms": 0.0115160399582237,
+      "by_category": {
+        "ambiguous": {
+          "n": 5,
+          "success_rate": 0.8,
+          "mean_latency_ms": 13844.616310503723
+        },
+        "multi_tool": {
+          "n": 5,
+          "success_rate": 0.0,
+          "mean_latency_ms": 22908.973424357442
+        },
+        "sequential": {
+          "n": 5,
+          "success_rate": 0.2,
+          "mean_latency_ms": 21605.210902141796
+        },
+        "single_tool": {
+          "n": 5,
+          "success_rate": 0.6,
+          "mean_latency_ms": 19664.171791049106
+        }
+      },
+      "success_ci": {
+        "mean": 0.4,
+        "lo": 0.2,
+        "hi": 0.6
+      },
+      "decisions": {
+        "correct": 20,
+        "success_loss": 0,
+        "latency_only": 0
+      },
+      "split": "test",
+      "model": "qwen"
+    }
+  ],
+  "holdout_order": [
+    "fixed:direct",
+    "fixed:plan_act",
+    "heuristic",
+    "logistic",
+    "decision_tree",
+    "oracle"
+  ],
+  "in_sample": [
+    {
+      "router": "fixed:direct",
+      "n": 60,
+      "success_rate": 0.4,
+      "n_success": 24,
+      "total_latency_ms": 1517437.2892990166,
+      "mean_latency_ms": 25290.62148831694,
+      "router_overhead_ms": 1.5779240056872368,
+      "mean_router_overhead_ms": 0.026298733428120613,
+      "choice_counts": {
+        "direct": 60
+      },
+      "decisions": {
+        "correct": 38,
+        "success_loss": 6,
+        "latency_only": 16,
+        "errors": [
+          {
+            "task_id": "apple_amb_003",
+            "category": "ambiguous",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "success_loss",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_multi_002",
+            "category": "multi_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_multi_006",
+            "category": "multi_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "success_loss",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_multi_009",
+            "category": "multi_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_multi_010",
+            "category": "multi_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_multi_012",
+            "category": "multi_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_multi_014",
+            "category": "multi_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_002",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_004",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_006",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_007",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_008",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_009",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "success_loss",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_010",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_012",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_014",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_016",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_017",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "success_loss",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_020",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_single_007",
+            "category": "single_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "success_loss",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_single_008",
+            "category": "single_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_single_015",
+            "category": "single_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "success_loss",
+            "reason": "fixed"
+          }
+        ]
+      },
+      "by_category": {
+        "ambiguous": {
+          "n": 10,
+          "success_rate": 0.8,
+          "mean_latency_ms": 11009.45773626833
+        },
+        "multi_tool": {
+          "n": 15,
+          "success_rate": 0.26666666666666666,
+          "mean_latency_ms": 37124.279614077466
+        },
+        "sequential": {
+          "n": 20,
+          "success_rate": 0.05,
+          "mean_latency_ms": 27209.906453532552
+        },
+        "single_tool": {
+          "n": 15,
+          "success_rate": 0.7333333333333333,
+          "mean_latency_ms": 20418.692576968006
+        }
+      },
+      "split": "all60_replay",
+      "model": "qwen",
+      "success_ci": {
+        "mean": 0.4,
+        "lo": 0.2833333333333333,
+        "hi": 0.5333333333333333
+      }
+    },
+    {
+      "router": "fixed:plan_act",
+      "n": 60,
+      "success_rate": 0.3333333333333333,
+      "n_success": 20,
+      "total_latency_ms": 1797603.4043750647,
+      "mean_latency_ms": 29960.056739584412,
+      "router_overhead_ms": 1.602291944436729,
+      "mean_router_overhead_ms": 0.02670486574061215,
+      "choice_counts": {
+        "plan_act": 60
+      },
+      "decisions": {
+        "correct": 22,
+        "success_loss": 10,
+        "latency_only": 28,
+        "errors": [
+          {
+            "task_id": "apple_amb_001",
+            "category": "ambiguous",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_amb_002",
+            "category": "ambiguous",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_amb_004",
+            "category": "ambiguous",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_amb_005",
+            "category": "ambiguous",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "success_loss",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_amb_006",
+            "category": "ambiguous",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_amb_007",
+            "category": "ambiguous",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_amb_008",
+            "category": "ambiguous",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "success_loss",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_amb_009",
+            "category": "ambiguous",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "success_loss",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_amb_010",
+            "category": "ambiguous",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "success_loss",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_multi_001",
+            "category": "multi_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_multi_003",
+            "category": "multi_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_multi_004",
+            "category": "multi_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "success_loss",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_multi_005",
+            "category": "multi_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "success_loss",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_multi_007",
+            "category": "multi_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_multi_008",
+            "category": "multi_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_multi_011",
+            "category": "multi_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_multi_013",
+            "category": "multi_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_multi_015",
+            "category": "multi_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_001",
+            "category": "sequential",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_003",
+            "category": "sequential",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_005",
+            "category": "sequential",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "success_loss",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_011",
+            "category": "sequential",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_013",
+            "category": "sequential",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_015",
+            "category": "sequential",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_018",
+            "category": "sequential",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_seq_019",
+            "category": "sequential",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_single_001",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_single_002",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_single_003",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "success_loss",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_single_004",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "success_loss",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_single_005",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_single_006",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_single_009",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_single_010",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_single_011",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_single_012",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_single_013",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "fixed"
+          },
+          {
+            "task_id": "apple_single_014",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "success_loss",
+            "reason": "fixed"
+          }
+        ]
+      },
+      "by_category": {
+        "ambiguous": {
+          "n": 10,
+          "success_rate": 0.5,
+          "mean_latency_ms": 25769.33025425533
+        },
+        "multi_tool": {
+          "n": 15,
+          "success_rate": 0.2,
+          "mean_latency_ms": 34246.629829570236
+        },
+        "sequential": {
+          "n": 20,
+          "success_rate": 0.1,
+          "mean_latency_ms": 25402.371964000245
+        },
+        "single_tool": {
+          "n": 15,
+          "success_rate": 0.6666666666666666,
+          "mean_latency_ms": 34544.21434059687
+        }
+      },
+      "split": "all60_replay",
+      "model": "qwen",
+      "success_ci": {
+        "mean": 0.3333333333333333,
+        "lo": 0.21666666666666667,
+        "hi": 0.45
+      },
+      "paired": {
+        "fixed": "direct",
+        "success_delta": {
+          "mean": -0.06666666666666667,
+          "lo": -0.2,
+          "hi": 0.06666666666666667
+        },
+        "latency_delta_ms": {
+          "mean": 4669.461428461363,
+          "lo": -663.4987706421983,
+          "hi": 9596.22178444535
+        },
+        "n_better_success": 6,
+        "n_worse_success": 10,
+        "n_faster": 18,
+        "n_slower": 42
+      }
+    },
+    {
+      "router": "heuristic",
+      "n": 60,
+      "success_rate": 0.38333333333333336,
+      "n_success": 23,
+      "total_latency_ms": 1469696.2920991548,
+      "mean_latency_ms": 24494.93820165258,
+      "router_overhead_ms": 1.661251881159842,
+      "mean_router_overhead_ms": 0.027687531352664035,
+      "choice_counts": {
+        "direct": 30,
+        "plan_act": 30
+      },
+      "decisions": {
+        "correct": 36,
+        "success_loss": 7,
+        "latency_only": 17,
+        "errors": [
+          {
+            "task_id": "apple_amb_003",
+            "category": "ambiguous",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "success_loss",
+            "reason": "short_single"
+          },
+          {
+            "task_id": "apple_multi_001",
+            "category": "multi_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "long_multi_tool"
+          },
+          {
+            "task_id": "apple_multi_003",
+            "category": "multi_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "long_multi_tool"
+          },
+          {
+            "task_id": "apple_multi_006",
+            "category": "multi_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "success_loss",
+            "reason": "ambiguous_prefer_direct"
+          },
+          {
+            "task_id": "apple_multi_008",
+            "category": "multi_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "long_multi_tool"
+          },
+          {
+            "task_id": "apple_multi_009",
+            "category": "multi_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "default"
+          },
+          {
+            "task_id": "apple_multi_011",
+            "category": "multi_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "sequential_or_contact"
+          },
+          {
+            "task_id": "apple_multi_012",
+            "category": "multi_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "default"
+          },
+          {
+            "task_id": "apple_seq_001",
+            "category": "sequential",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "sequential_or_contact"
+          },
+          {
+            "task_id": "apple_seq_003",
+            "category": "sequential",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "sequential_or_contact"
+          },
+          {
+            "task_id": "apple_seq_005",
+            "category": "sequential",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "success_loss",
+            "reason": "sequential_or_contact"
+          },
+          {
+            "task_id": "apple_seq_007",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "short_single"
+          },
+          {
+            "task_id": "apple_seq_009",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "success_loss",
+            "reason": "short_single"
+          },
+          {
+            "task_id": "apple_seq_011",
+            "category": "sequential",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "sequential_or_contact"
+          },
+          {
+            "task_id": "apple_seq_013",
+            "category": "sequential",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "sequential_or_contact"
+          },
+          {
+            "task_id": "apple_seq_015",
+            "category": "sequential",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "sequential_or_contact"
+          },
+          {
+            "task_id": "apple_seq_017",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "success_loss",
+            "reason": "short_single"
+          },
+          {
+            "task_id": "apple_seq_018",
+            "category": "sequential",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "sequential_or_contact"
+          },
+          {
+            "task_id": "apple_seq_019",
+            "category": "sequential",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "sequential_or_contact"
+          },
+          {
+            "task_id": "apple_single_007",
+            "category": "single_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "success_loss",
+            "reason": "default"
+          },
+          {
+            "task_id": "apple_single_011",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "sequential_or_contact"
+          },
+          {
+            "task_id": "apple_single_012",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "sequential_or_contact"
+          },
+          {
+            "task_id": "apple_single_013",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "sequential_or_contact"
+          },
+          {
+            "task_id": "apple_single_014",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "success_loss",
+            "reason": "sequential_or_contact"
+          }
+        ]
+      },
+      "by_category": {
+        "ambiguous": {
+          "n": 10,
+          "success_rate": 0.8,
+          "mean_latency_ms": 11009.460861053474
+        },
+        "multi_tool": {
+          "n": 15,
+          "success_rate": 0.26666666666666666,
+          "mean_latency_ms": 34938.21075725524
+        },
+        "sequential": {
+          "n": 20,
+          "success_rate": 0.0,
+          "mean_latency_ms": 23966.428364749303
+        },
+        "single_tool": {
+          "n": 15,
+          "success_rate": 0.7333333333333333,
+          "mean_latency_ms": 23746.663655653698
+        }
+      },
+      "split": "all60_replay",
+      "model": "qwen",
+      "success_ci": {
+        "mean": 0.38333333333333336,
+        "lo": 0.26666666666666666,
+        "hi": 0.5166666666666667
+      },
+      "paired": {
+        "fixed": "direct",
+        "success_delta": {
+          "mean": -0.016666666666666666,
+          "lo": -0.06666666666666667,
+          "hi": 0.03333333333333333
+        },
+        "latency_delta_ms": {
+          "mean": -795.6570559524055,
+          "lo": -4868.739621418839,
+          "hi": 2545.799402546577
+        },
+        "n_better_success": 1,
+        "n_worse_success": 2,
+        "n_faster": 13,
+        "n_slower": 47
+      }
+    },
+    {
+      "router": "logistic",
+      "n": 60,
+      "success_rate": 0.43333333333333335,
+      "n_success": 26,
+      "total_latency_ms": 1500997.209915542,
+      "mean_latency_ms": 25016.620165259035,
+      "router_overhead_ms": 1.7452071188017726,
+      "mean_router_overhead_ms": 0.029086785313362878,
+      "choice_counts": {
+        "direct": 47,
+        "plan_act": 13
+      },
+      "decisions": {
+        "correct": 37,
+        "success_loss": 4,
+        "latency_only": 19,
+        "errors": [
+          {
+            "task_id": "apple_amb_004",
+            "category": "ambiguous",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "p=0.547"
+          },
+          {
+            "task_id": "apple_amb_005",
+            "category": "ambiguous",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "success_loss",
+            "reason": "p=0.851"
+          },
+          {
+            "task_id": "apple_amb_006",
+            "category": "ambiguous",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "p=0.514"
+          },
+          {
+            "task_id": "apple_multi_002",
+            "category": "multi_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "p=0.317"
+          },
+          {
+            "task_id": "apple_multi_007",
+            "category": "multi_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "p=0.511"
+          },
+          {
+            "task_id": "apple_multi_008",
+            "category": "multi_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "p=0.921"
+          },
+          {
+            "task_id": "apple_multi_009",
+            "category": "multi_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "p=0.249"
+          },
+          {
+            "task_id": "apple_multi_012",
+            "category": "multi_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "p=0.167"
+          },
+          {
+            "task_id": "apple_multi_014",
+            "category": "multi_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "p=0.003"
+          },
+          {
+            "task_id": "apple_seq_001",
+            "category": "sequential",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "p=0.793"
+          },
+          {
+            "task_id": "apple_seq_002",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "p=0.069"
+          },
+          {
+            "task_id": "apple_seq_004",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "p=0.069"
+          },
+          {
+            "task_id": "apple_seq_006",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "p=0.048"
+          },
+          {
+            "task_id": "apple_seq_007",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "p=0.203"
+          },
+          {
+            "task_id": "apple_seq_008",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "p=0.048"
+          },
+          {
+            "task_id": "apple_seq_009",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "success_loss",
+            "reason": "p=0.357"
+          },
+          {
+            "task_id": "apple_seq_010",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "p=0.048"
+          },
+          {
+            "task_id": "apple_seq_014",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "p=0.009"
+          },
+          {
+            "task_id": "apple_seq_016",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "p=0.067"
+          },
+          {
+            "task_id": "apple_seq_017",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "success_loss",
+            "reason": "p=0.069"
+          },
+          {
+            "task_id": "apple_seq_020",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "p=0.015"
+          },
+          {
+            "task_id": "apple_single_006",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "p=0.610"
+          },
+          {
+            "task_id": "apple_single_015",
+            "category": "single_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "success_loss",
+            "reason": "p=0.076"
+          }
+        ]
+      },
+      "by_category": {
+        "ambiguous": {
+          "n": 10,
+          "success_rate": 0.8,
+          "mean_latency_ms": 16951.470140158202
+        },
+        "multi_tool": {
+          "n": 15,
+          "success_rate": 0.3333333333333333,
+          "mean_latency_ms": 32230.49861837644
+        },
+        "sequential": {
+          "n": 20,
+          "success_rate": 0.05,
+          "mean_latency_ms": 27013.662739645224
+        },
+        "single_tool": {
+          "n": 15,
+          "success_rate": 0.8,
+          "mean_latency_ms": 20516.784963027265
+        }
+      },
+      "split": "all60_replay",
+      "model": "qwen",
+      "success_ci": {
+        "mean": 0.43333333333333335,
+        "lo": 0.31666666666666665,
+        "hi": 0.5666666666666667
+      },
+      "paired": {
+        "fixed": "direct",
+        "success_delta": {
+          "mean": 0.03333333333333333,
+          "lo": -0.03333333333333333,
+          "hi": 0.1
+        },
+        "latency_delta_ms": {
+          "mean": -273.97575270992496,
+          "lo": -4120.12156200039,
+          "hi": 2494.3443216803844
+        },
+        "n_better_success": 3,
+        "n_worse_success": 1,
+        "n_faster": 5,
+        "n_slower": 55
+      }
+    },
+    {
+      "router": "decision_tree",
+      "n": 60,
+      "success_rate": 0.4,
+      "n_success": 24,
+      "total_latency_ms": 1592840.0532789915,
+      "mean_latency_ms": 26547.334221316523,
+      "router_overhead_ms": 1.8449596827849746,
+      "mean_router_overhead_ms": 0.030749328046416242,
+      "choice_counts": {
+        "direct": 45,
+        "plan_act": 15
+      },
+      "decisions": {
+        "correct": 33,
+        "success_loss": 6,
+        "latency_only": 21,
+        "errors": [
+          {
+            "task_id": "apple_amb_003",
+            "category": "ambiguous",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "success_loss",
+            "reason": "digit_count<=5:True / avg_word_len<=3.88:True"
+          },
+          {
+            "task_id": "apple_multi_002",
+            "category": "multi_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:True / avg_word_len<=3.88:False"
+          },
+          {
+            "task_id": "apple_multi_007",
+            "category": "multi_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:False / char_len<=41.5:False / contact_name_hits<=0.5:True"
+          },
+          {
+            "task_id": "apple_multi_008",
+            "category": "multi_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:False / char_len<=41.5:False / contact_name_hits<=0.5:True"
+          },
+          {
+            "task_id": "apple_multi_012",
+            "category": "multi_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:True / avg_word_len<=3.88:False"
+          },
+          {
+            "task_id": "apple_multi_014",
+            "category": "multi_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:True / avg_word_len<=3.88:False"
+          },
+          {
+            "task_id": "apple_seq_002",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:True / avg_word_len<=3.88:False"
+          },
+          {
+            "task_id": "apple_seq_004",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:True / avg_word_len<=3.88:False"
+          },
+          {
+            "task_id": "apple_seq_006",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:True / avg_word_len<=3.88:False"
+          },
+          {
+            "task_id": "apple_seq_007",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:True / avg_word_len<=3.88:False"
+          },
+          {
+            "task_id": "apple_seq_008",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:True / avg_word_len<=3.88:False"
+          },
+          {
+            "task_id": "apple_seq_009",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "success_loss",
+            "reason": "digit_count<=5:True / avg_word_len<=3.88:True"
+          },
+          {
+            "task_id": "apple_seq_010",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:True / avg_word_len<=3.88:False"
+          },
+          {
+            "task_id": "apple_seq_012",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:True / avg_word_len<=3.88:False"
+          },
+          {
+            "task_id": "apple_seq_014",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:True / avg_word_len<=3.88:False"
+          },
+          {
+            "task_id": "apple_seq_016",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:True / avg_word_len<=3.88:False"
+          },
+          {
+            "task_id": "apple_seq_017",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "success_loss",
+            "reason": "digit_count<=5:True / avg_word_len<=3.88:False"
+          },
+          {
+            "task_id": "apple_seq_020",
+            "category": "sequential",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:True / avg_word_len<=3.88:False"
+          },
+          {
+            "task_id": "apple_single_001",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:False / char_len<=41.5:True"
+          },
+          {
+            "task_id": "apple_single_002",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:False / char_len<=41.5:False / contact_name_hits<=0.5:True"
+          },
+          {
+            "task_id": "apple_single_003",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "success_loss",
+            "reason": "digit_count<=5:False / char_len<=41.5:True"
+          },
+          {
+            "task_id": "apple_single_004",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "success_loss",
+            "reason": "digit_count<=5:False / char_len<=41.5:False / contact_name_hits<=0.5:True"
+          },
+          {
+            "task_id": "apple_single_005",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:False / char_len<=41.5:True"
+          },
+          {
+            "task_id": "apple_single_006",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:False / char_len<=41.5:False / contact_name_hits<=0.5:True"
+          },
+          {
+            "task_id": "apple_single_009",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:False / char_len<=41.5:False / contact_name_hits<=0.5:True"
+          },
+          {
+            "task_id": "apple_single_010",
+            "category": "single_tool",
+            "chosen": "plan_act",
+            "oracle": "direct",
+            "kind": "latency_only",
+            "reason": "digit_count<=5:False / char_len<=41.5:False / contact_name_hits<=0.5:True"
+          },
+          {
+            "task_id": "apple_single_015",
+            "category": "single_tool",
+            "chosen": "direct",
+            "oracle": "plan_act",
+            "kind": "success_loss",
+            "reason": "digit_count<=5:True / avg_word_len<=3.88:False"
+          }
+        ]
+      },
+      "by_category": {
+        "ambiguous": {
+          "n": 10,
+          "success_rate": 0.8,
+          "mean_latency_ms": 11009.462440250598
+        },
+        "multi_tool": {
+          "n": 15,
+          "success_rate": 0.3333333333333333,
+          "mean_latency_ms": 31494.185674966622
+        },
+        "sequential": {
+          "n": 20,
+          "success_rate": 0.05,
+          "mean_latency_ms": 27209.910961768277
+        },
+        "single_tool": {
+          "n": 15,
+          "success_rate": 0.6666666666666666,
+          "mean_latency_ms": 31075.62830110805
+        }
+      },
+      "split": "all60_replay",
+      "model": "qwen",
+      "success_ci": {
+        "mean": 0.4,
+        "lo": 0.2833333333333333,
+        "hi": 0.5333333333333333
+      },
+      "paired": {
+        "fixed": "direct",
+        "success_delta": {
+          "mean": 0.0,
+          "lo": -0.06666666666666667,
+          "hi": 0.06666666666666667
+        },
+        "latency_delta_ms": {
+          "mean": 1256.7357983401353,
+          "lo": -2958.2473466218094,
+          "hi": 4645.085983959466
+        },
+        "n_better_success": 2,
+        "n_worse_success": 2,
+        "n_faster": 5,
+        "n_slower": 55
+      }
+    },
+    {
+      "n": 60,
+      "success_rate": 0.5,
+      "total_latency_ms": 1260133.3043333143,
+      "mean_latency_ms": 21002.221738888573,
+      "n_success": 30,
+      "choice_counts": {
+        "direct": 38,
+        "plan_act": 22
+      },
+      "router": "oracle",
+      "router_overhead_ms": 0.0,
+      "mean_router_overhead_ms": 0.0,
+      "by_category": {
+        "ambiguous": {
+          "n": 10,
+          "success_rate": 0.9,
+          "mean_latency_ms": 13092.378113900002
+        },
+        "multi_tool": {
+          "n": 15,
+          "success_rate": 0.3333333333333333,
+          "mean_latency_ms": 24684.034949065084
+        },
+        "sequential": {
+          "n": 20,
+          "success_rate": 0.15,
+          "mean_latency_ms": 22975.905477769753
+        },
+        "single_tool": {
+          "n": 15,
+          "success_rate": 0.8666666666666667,
+          "mean_latency_ms": 19962.05929352953
+        }
+      },
+      "success_ci": {
+        "mean": 0.5,
+        "lo": 0.38333333333333336,
+        "hi": 0.6166666666666667
+      },
+      "decisions": {
+        "correct": 60,
+        "success_loss": 0,
+        "latency_only": 0
+      }
+    }
+  ],
+  "lofo": {
+    "fixed": {
+      "n": 60,
+      "success_rate": 0.4,
+      "total_latency_ms": 1517437.5442526457,
+      "mean_latency_ms": 25290.625737544095
+    },
+    "heuristic": {
+      "n": 60,
+      "success_rate": 0.38333333333333336,
+      "total_latency_ms": 1469696.5932236828,
+      "mean_latency_ms": 24494.943220394714
+    },
+    "learned": {
+      "n": 60,
+      "success_rate": 0.35,
+      "total_latency_ms": 1565324.935586541,
+      "mean_latency_ms": 26088.74892644235
+    },
+    "oracle": {
+      "n": 60,
+      "success_rate": 0.5,
+      "total_latency_ms": 1260133.3043333143,
+      "mean_latency_ms": 21002.221738888573
+    }
+  },
+  "on_device_adaptive": {
+    "n": 60,
+    "success_rate": 0.38333333333333336,
+    "mean_latency_ms": 24208.656141202016
+  },
+  "best_fixed_train": "plan_act"
+}

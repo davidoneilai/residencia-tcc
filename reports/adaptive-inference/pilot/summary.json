@@ -1,0 +1,90 @@
+{
+  "session_id": "D376897F-5CB4-452A-8853-6A92B6BDCE62",
+  "n_jobs": 80,
+  "policies": {
+    "direct": {
+      "n": 20,
+      "success": 0.3,
+      "n_success": 6,
+      "mean_lat_ms": 24554.513054166455,
+      "mean_tokens": 499.7,
+      "mean_tools": 0.85,
+      "plans": 0,
+      "length": 11,
+      "no_tool": 10,
+      "execution": 0,
+      "grade": 4,
+      "overhead_ms": 0.009379175025969744,
+      "by_kind": {
+        "seq": 0.25,
+        "multi": 0.3333333333333333,
+        "single": 0.25,
+        "amb": 0.5
+      }
+    },
+    "plan_act": {
+      "n": 20,
+      "success": 0.3,
+      "n_success": 6,
+      "mean_lat_ms": 32610.886304167798,
+      "mean_tokens": 638.05,
+      "mean_tools": 1.1,
+      "plans": 20,
+      "length": 11,
+      "no_tool": 8,
+      "execution": 2,
+      "grade": 4,
+      "overhead_ms": 0.009847898036241531,
+      "by_kind": {
+        "seq": 0.25,
+        "multi": 0.3333333333333333,
+        "single": 0.25,
+        "amb": 0.5
+      }
+    },
+    "budgeted_direct": {
+      "n": 20,
+      "success": 0.4,
+      "n_success": 8,
+      "mean_lat_ms": 43224.89959372324,
+      "mean_tokens": 772.0,
+      "mean_tools": 1.95,
+      "plans": 4,
+      "length": 0,
+      "no_tool": 0,
+      "execution": 5,
+      "grade": 7,
+      "overhead_ms": 0.08243958582170308,
+      "by_kind": {
+        "seq": 0.375,
+        "multi": 0.6666666666666666,
+        "single": 0.25,
+        "amb": 0.0
+      }
+    },
+    "reactive_budget": {
+      "n": 20,
+      "success": 0.25,
+      "n_success": 5,
+      "mean_lat_ms": 43158.16195001826,
+      "mean_tokens": 780.65,
+      "mean_tools": 1.8,
+      "plans": 15,
+      "length": 0,
+      "no_tool": 1,
+      "execution": 4,
+      "grade": 10,
+      "overhead_ms": 0.09110834216699004,
+      "by_kind": {
+        "seq": 0.25,
+        "multi": 0.3333333333333333,
+        "single": 0.25,
+        "amb": 0.0
+      }
+    }
+  },
+  "state_probe": "sim. Self-check: no_progress\u2192plan, contato ok\u2192unresolved_dependency, contato ausente\u2192tool_error, tarefa conclu\u00edda\u2192continue. On-device seq_021: com Ana encontrada a P3 planejou `unresolved_dependency` e ligou; sem contato a ferramenta falhou (`Contato n\u00e3o encontrado`) e o loop parou.",
+  "probe_text": "Mesmo pedido `apple_seq_021`.\n- Contato encontrado: tools=['buscarContato: Ana: +15550100', 'ligarFaceTime: facetime-audio:+15550100']; eventos=['r0:gen:limit=512:got=276:calls=1:stop=stop:left=1772', 'r1:plan:unresolved_dependency:limit=64:left=1708', 'r1:gen:limit=512:got=141:calls=1:stop=stop:left=1567', 'r2:gen:limit=512:got=205:calls=0:stop=stop:left=1362']\n- Contato ausente: tools=['buscarContato: Contato n\u00e3o encontrado: Ana.']; eventos=[]\nTrajet\u00f3rias diferentes. No caso ausente o backend lan\u00e7a na ferramenta, ent\u00e3o o controlador n\u00e3o chega a um segundo turno (limita\u00e7\u00e3o: tool_error que throw interrompe o loop).",
+  "scale": "P2 sim, num recorte novo (length/no_tool desapareceu e o sucesso subiu). P3 ainda n\u00e3o: planeja demais e perde para Direct neste recorte.",
+  "exploratory": true
+}

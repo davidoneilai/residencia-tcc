@@ -1,0 +1,14 @@
+{
+  "input": "/Users/macbookpro/VSCODE/residencia-tcc/results/cross-model-2026-10-13.json",
+  "seed": "adaptive-routing-736194",
+  "strategies": [
+    "direct",
+    "plan_act"
+  ],
+  "models": [
+    "qwen",
+    "gemma",
+    "apple"
+  ],
+  "protocol": "offline_replay_from_cross_model_session"
+}

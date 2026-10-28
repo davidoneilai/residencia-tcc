@@ -1,0 +1,5 @@
+args=/var/containers/Bundle/Application/15BC153A-5703-4C21-9DDB-8EEF84F5E286/MobileLLMBench.app/MobileLLMBench
+run=variance-3rep
+taskLimit=nil
+router=heuristic
+fileConfig=Optional(["run": variance-3rep, "router": heuristic])

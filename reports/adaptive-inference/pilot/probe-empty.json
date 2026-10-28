@@ -1,0 +1,165 @@
+{
+  "appVersion" : "1.0 (1)",
+  "completedJobIDs" : [
+    "measured|1|qwen|reactive_budget|apple_seq_021"
+  ],
+  "config" : {
+    "categories" : [
+      "single_tool",
+      "multi_tool",
+      "sequential",
+      "ambiguous"
+    ],
+    "dataset" : "apple",
+    "datasetId" : "apple",
+    "evaluationVersion" : "apple-trajectory-1",
+    "executionMode" : "simulated",
+    "methodNote" : "Limites comuns: plano até 128 tokens, ação até 512 tokens, no máximo 4 rodadas de ferramenta, timeout térmico 180 s. Qwen3 controla o bloco <think>. Gemma não gera <think>. Apple Foundation Models não expõe raciocínio. Tokenizador, template e formato de ferramenta diferem entre MLX e Apple. Amostragem gulosa: o seed não muda os tokens.",
+    "orderSeed" : "736194",
+    "protocolId" : "model_specific",
+    "recoverySeconds" : 30,
+    "repetitions" : 1,
+    "requireCoolThermal" : false,
+    "shuffle" : false,
+    "strategies" : [
+      "reactive_budget"
+    ],
+    "taskIDs" : [
+      "apple_seq_021"
+    ],
+    "taskSetId" : "apple_reactive_probe_1",
+    "thermalTimeoutSeconds" : 180,
+    "warmup" : false
+  },
+  "energyAvailable" : false,
+  "energyReason" : "iOS não expõe joules ao app. O intervalo OSSignposter \"task\" (subsystem MobileLLMBench) continua no Power Profiler. batteryLevel não é energia.",
+  "finished" : true,
+  "jobs" : [
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Faça uma chamada de FaceTime áudio para a Ana.",
+      "runIndex" : 1,
+      "strategy" : "reactive_budget",
+      "taskID" : "apple_seq_021"
+    }
+  ],
+  "mlxSwiftLM" : "3.31.4",
+  "protocolVersion" : "2.0",
+  "results" : [
+    {
+      "appVersion" : "1.0 (1)",
+      "argumentsReason" : "Contato não encontrado: Ana.",
+      "backend" : "mlx",
+      "batteryAfter" : 0.8,
+      "batteryBefore" : 0.8,
+      "batteryLevelAfter" : 0.8,
+      "batteryLevelBefore" : 0.8,
+      "completionCorrect" : false,
+      "completionReason" : "efeito ausente: facetime",
+      "controllerTrace" : [
+
+      ],
+      "countsTowardAnalysis" : true,
+      "dataset" : "apple",
+      "datasetId" : "apple",
+      "decodeLatencyMs" : 7803.807020187378,
+      "decodeTokensPerSecond" : 35.3673533041022,
+      "device" : "iPhone17,1",
+      "duplicateToolCalls" : 0,
+      "error" : "Contato não encontrado: Ana.",
+      "evaluationVersion" : "apple-trajectory-1",
+      "executionMode" : "simulated",
+      "exitChecks" : null,
+      "exitedEarly" : null,
+      "experiment" : "apple_seq_021",
+      "failureKind" : "execution",
+      "firstTextMs" : 4107.073541730642,
+      "generatedTokens" : 276,
+      "id" : "0EF6778F-0CE1-4D9B-BABB-9A0A96861048",
+      "inferenceMs" : 11923.436166718602,
+      "inferenceSeed" : "736194",
+      "inputTokens" : 1088,
+      "invalidToolCalls" : 0,
+      "memoryAfterMB" : 1651.738576,
+      "memoryBeforeMB" : 44.876696,
+      "memoryUsageMB" : 1651.738576,
+      "mlxSwiftLM" : "3.31.4",
+      "model" : "mlx-community/Qwen3-1.7B-4bit",
+      "modelId" : "qwen",
+      "modelLoadMs" : 1209.1443749377504,
+      "orderSeed" : "736194",
+      "osVersion" : "Version 26.6.2 (Build 23G90)",
+      "outputTokens" : 276,
+      "phase" : "measured",
+      "plan" : null,
+      "planCount" : 0,
+      "planLatencyMs" : null,
+      "prefillLatencyMs" : 194.5669651031494,
+      "prefillTokensPerSecond" : 97.65275410410588,
+      "promptCharacters" : 46,
+      "protocolId" : "model_specific",
+      "protocolVersion" : "2.0",
+      "repeatedPrefillMs" : null,
+      "repetitions" : 1,
+      "response" : "",
+      "routerDecisionMs" : 0.0010833609849214554,
+      "routerReason" : "",
+      "runIndex" : 1,
+      "sampling" : "greedy",
+      "seedAffectsSampling" : false,
+      "selectionReason" : "faltou ligarFaceTime; extra ",
+      "sequenceReason" : "dependência fora de ordem ou valor não veio da ferramenta anterior",
+      "startKind" : "cold",
+      "stopReason" : "stop",
+      "strategy" : "reactive_budget",
+      "strategyId" : "reactive_budget",
+      "success" : false,
+      "taskId" : "apple_seq_021",
+      "taskKind" : "sequential",
+      "taskSetId" : "apple_reactive_probe_1",
+      "taskSuccess" : false,
+      "temperature" : 0,
+      "thermalAfter" : "serious",
+      "thermalBefore" : "serious",
+      "thermalGate" : "proceed_hot",
+      "thermalStateAfter" : "serious",
+      "thermalStateBefore" : "serious",
+      "thermalWaitMs" : null,
+      "thinkingTokens" : null,
+      "timeToFirstTokenMs" : 4107.073541730642,
+      "timeToFirstToolCallMs" : 11923.436166718602,
+      "timestamp" : "2026-10-20T23:11:59Z",
+      "tokenBudgetCap" : 2048,
+      "tokensPerSecond" : 35.3673533041022,
+      "toolArgumentsCorrect" : false,
+      "toolCallCount" : 1,
+      "toolCallingMode" : "prompt_requested",
+      "toolCalls" : [
+        {
+          "arguments" : {
+            "nome" : "Ana"
+          },
+          "error" : "Contato não encontrado: Ana.",
+          "index" : 0,
+          "tool" : "buscarContato",
+          "values" : {
+
+          }
+        }
+      ],
+      "toolExecutionMs" : 0.020000035874545574,
+      "toolSelectionCorrect" : false,
+      "toolSequenceCorrect" : false,
+      "toolTrace" : [
+        "buscarContato: Contato não encontrado: Ana."
+      ],
+      "totalLatencyMs" : 12180.657208431512,
+      "totalMs" : 13389.801583369263,
+      "ttftMs" : 194.5669651031494
+    }
+  ],
+  "sessionID" : "CDC2AE85-9F1E-452A-B92B-6501E06D918A",
+  "startedAt" : "2026-10-20T23:11:59Z"
+}

@@ -1,0 +1,28 @@
+{
+  "id": "2026-W44",
+  "week_number": 8,
+  "title": "Semana 8 — SLMs agênticos no iPhone: BFCL v4 AST",
+  "period": {"start": "2026-10-26", "end": "2026-11-01"},
+  "benchmark": "BFCL v4 AST",
+  "r1": {
+    "graded": "results/slm-bfcl/main-r1-graded.jsonl",
+    "sessions_glob": "results/slm-bfcl/main-r1-*.json",
+    "expected_measured": 880,
+    "exclude_globs": ["results/slm-bfcl/smoke*.json"]
+  },
+  "r2": {
+    "graded_glob": "results/slm-bfcl/rep2-*-graded.jsonl",
+    "sessions_glob": "results/slm-bfcl/rep2-*.json",
+    "expected_agents": ["minicpm5", "lfm25", "gemma4", "qwen35"]
+  },
+  "sources": [
+    "reports/slm-bfcl/selection.json",
+    "reports/slm-bfcl/REPORT.md",
+    "MobileLLMBench/BFCLv4AST.json",
+    "analysis/slm_bfcl/evaluate.py",
+    "analysis/slm_bfcl/analyze.py",
+    "analysis/slm_bfcl/freeze_sample.py",
+    "analysis/slm_bfcl/run_sessions.sh",
+    "analysis/slm_bfcl/device.sh"
+  ]
+}

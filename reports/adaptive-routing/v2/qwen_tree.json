@@ -1,0 +1,56 @@
+{
+  "name": "decision_tree",
+  "candidates": [
+    "direct",
+    "plan_act"
+  ],
+  "tree": {
+    "feature": 2,
+    "threshold": 5.0,
+    "left": {
+      "feature": 13,
+      "threshold": 3.875,
+      "left": {
+        "leaf": 0
+      },
+      "right": {
+        "leaf": 0
+      }
+    },
+    "right": {
+      "feature": 0,
+      "threshold": 41.5,
+      "left": {
+        "leaf": 1
+      },
+      "right": {
+        "feature": 7,
+        "threshold": 0.5,
+        "left": {
+          "leaf": 1
+        },
+        "right": {
+          "leaf": 1
+        }
+      }
+    }
+  },
+  "feature_names": [
+    "char_len",
+    "word_count",
+    "digit_count",
+    "has_phone",
+    "has_email",
+    "has_url",
+    "is_english",
+    "contact_name_hits",
+    "tool_cue_count",
+    "seq_cue_count",
+    "multi_cue_count",
+    "ambig_cue_count",
+    "conjunction_count",
+    "avg_word_len",
+    "question_marks",
+    "negation_count"
+  ]
+}

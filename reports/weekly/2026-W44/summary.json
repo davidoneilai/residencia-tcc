@@ -1,0 +1,1546 @@
+{
+ "week": "2026-W44",
+ "week_number": 8,
+ "generated_at": "2026-10-28T12:29:37Z",
+ "inference": "iPhone",
+ "evaluation": "Mac",
+ "r1": {
+  "n": 880,
+  "n_tasks": 40,
+  "models": [
+   "LFM2.5-2.6B-MLX-4bit",
+   "MiniCPM5-2B-MLX",
+   "Qwen3.5-2B-4bit",
+   "gemma-4-e2b-it-4bit"
+  ],
+  "main": [
+   {
+    "model": "LFM2.5-2.6B-MLX-4bit",
+    "strategy": "direct",
+    "n": 40,
+    "acc": 33,
+    "lat_mean": 16.213179113538352,
+    "lat_median": 13.193571000010706,
+    "prefill": 2.795711398124695,
+    "decode": 13.382826027274131,
+    "tin": 264.325,
+    "tout": 249.1,
+    "mem": 2080.5180625915527,
+    "fails": {
+     "invalid_arguments": 5,
+     "called_on_irrelevance": 2
+    },
+    "adaptive": false
+   },
+   {
+    "model": "LFM2.5-2.6B-MLX-4bit",
+    "strategy": "plan_act",
+    "n": 40,
+    "acc": 20,
+    "lat_mean": 39.19516730208998,
+    "lat_median": 35.30226460413542,
+    "prefill": 3.8234468907117845,
+    "decode": 25.95471445918083,
+    "tin": 692.075,
+    "tout": 606.325,
+    "mem": 2084.7564754486084,
+    "fails": {
+     "missing_call": 19,
+     "format_error": 1
+    },
+    "adaptive": false
+   },
+   {
+    "model": "LFM2.5-2.6B-MLX-4bit",
+    "strategy": "budget_64",
+    "n": 40,
+    "acc": 29,
+    "lat_mean": 12.37323845520732,
+    "lat_median": 11.602861499995925,
+    "prefill": 2.7660381883382796,
+    "decode": 5.912879562377929,
+    "tin": 264.325,
+    "tout": 135.625,
+    "mem": 2080.5042152404785,
+    "fails": {
+     "wrong_function": 3,
+     "format_error": 1,
+     "invalid_arguments": 4,
+     "called_on_irrelevance": 3
+    },
+    "adaptive": false
+   },
+   {
+    "model": "LFM2.5-2.6B-MLX-4bit",
+    "strategy": "ast_router",
+    "n": 40,
+    "acc": 33,
+    "lat_mean": 13.410061502089956,
+    "lat_median": 11.892395812494215,
+    "prefill": 2.782736176252365,
+    "decode": 9.771600982546806,
+    "tin": 264.325,
+    "tout": 193.25,
+    "mem": 2080.5180625915527,
+    "fails": {
+     "invalid_arguments": 4,
+     "called_on_irrelevance": 3
+    },
+    "adaptive": true
+   },
+   {
+    "model": "MiniCPM5-2B-MLX",
+    "strategy": "direct",
+    "n": 40,
+    "acc": 31,
+    "lat_mean": 42.16972187187639,
+    "lat_median": 37.92824625002686,
+    "prefill": 3.9600812971591948,
+    "decode": 38.167456126213075,
+    "tin": 394.55,
+    "tout": 565.15,
+    "mem": 1763.9479675292969,
+    "fails": {
+     "format_error": 4,
+     "length": 3,
+     "invalid_arguments": 2
+    },
+    "adaptive": false
+   },
+   {
+    "model": "MiniCPM5-2B-MLX",
+    "strategy": "plan_act",
+    "n": 40,
+    "acc": 33,
+    "lat_mean": 48.60137466980086,
+    "lat_median": 33.769185645796824,
+    "prefill": 4.421242508292198,
+    "decode": 35.54563045501709,
+    "tin": 904.5,
+    "tout": 602.75,
+    "mem": 1767.5573616027832,
+    "fails": {
+     "format_error": 5,
+     "length": 2
+    },
+    "adaptive": false
+   },
+   {
+    "model": "MiniCPM5-2B-MLX",
+    "strategy": "nothink",
+    "n": 40,
+    "acc": 34,
+    "lat_mean": 7.535737868759315,
+    "lat_median": 6.017214979161508,
+    "prefill": 3.957115551829338,
+    "decode": 3.5422579795122147,
+    "tin": 396.55,
+    "tout": 64.675,
+    "mem": 1764.7604751586914,
+    "fails": {
+     "invalid_arguments": 4,
+     "wrong_function": 1,
+     "called_on_irrelevance": 1
+    },
+    "adaptive": false
+   },
+   {
+    "model": "MiniCPM5-2B-MLX",
+    "strategy": "budget_64",
+    "n": 40,
+    "acc": 29,
+    "lat_mean": 14.79854250936187,
+    "lat_median": 13.383875437430106,
+    "prefill": 4.003612375259399,
+    "decode": 6.470005351305008,
+    "tin": 394.55,
+    "tout": 117.725,
+    "mem": 1776.0903091430664,
+    "fails": {
+     "called_on_irrelevance": 3,
+     "wrong_function": 5,
+     "invalid_arguments": 3
+    },
+    "adaptive": false
+   },
+   {
+    "model": "MiniCPM5-2B-MLX",
+    "strategy": "ast_router",
+    "n": 40,
+    "acc": 31,
+    "lat_mean": 29.97006250208069,
+    "lat_median": 20.045450479199644,
+    "prefill": 3.9256454765796662,
+    "decode": 26.00755024254322,
+    "tin": 395.1,
+    "tout": 389.225,
+    "mem": 1763.9479675292969,
+    "fails": {
+     "called_on_irrelevance": 1,
+     "format_error": 4,
+     "invalid_arguments": 3,
+     "length": 1
+    },
+    "adaptive": true
+   },
+   {
+    "model": "MiniCPM5-2B-MLX",
+    "strategy": "adaptive_step",
+    "n": 40,
+    "acc": 34,
+    "lat_mean": 8.709922851034207,
+    "lat_median": 6.324008520809002,
+    "prefill": 4.101174089312553,
+    "decode": 4.028761079907417,
+    "tin": 396.3,
+    "tout": 72.2,
+    "mem": 1764.7604751586914,
+    "fails": {
+     "wrong_function": 2,
+     "invalid_arguments": 3,
+     "called_on_irrelevance": 1
+    },
+    "adaptive": true
+   },
+   {
+    "model": "Qwen3.5-2B-4bit",
+    "strategy": "direct",
+    "n": 40,
+    "acc": 35,
+    "lat_mean": 21.21365894686314,
+    "lat_median": 16.05206383334007,
+    "prefill": 3.2883855432271956,
+    "decode": 17.89818432033062,
+    "tin": 458.75,
+    "tout": 341.775,
+    "mem": 2477.726749420166,
+    "fails": {
+     "invalid_arguments": 4,
+     "called_on_irrelevance": 1
+    },
+    "adaptive": false
+   },
+   {
+    "model": "Qwen3.5-2B-4bit",
+    "strategy": "plan_act",
+    "n": 40,
+    "acc": 28,
+    "lat_mean": 30.374599738538382,
+    "lat_median": 28.669215333356988,
+    "prefill": 3.7704957872629166,
+    "decode": 19.153566229343415,
+    "tin": 1033.2,
+    "tout": 453.675,
+    "mem": 2556.55486869812,
+    "fails": {
+     "missing_call": 2,
+     "length": 2,
+     "invalid_arguments": 4,
+     "wrong_function": 2,
+     "called_on_irrelevance": 2
+    },
+    "adaptive": false
+   },
+   {
+    "model": "Qwen3.5-2B-4bit",
+    "strategy": "nothink",
+    "n": 40,
+    "acc": 27,
+    "lat_mean": 17.749730611458652,
+    "lat_median": 9.87280104169622,
+    "prefill": 3.2480868220329286,
+    "decode": 14.473213776946068,
+    "tin": 460.75,
+    "tout": 291.475,
+    "mem": 2479.601749420166,
+    "fails": {
+     "length": 4,
+     "called_on_irrelevance": 2,
+     "invalid_arguments": 3,
+     "missing_call": 4
+    },
+    "adaptive": false
+   },
+   {
+    "model": "Qwen3.5-2B-4bit",
+    "strategy": "budget_64",
+    "n": 40,
+    "acc": 30,
+    "lat_mean": 15.882173390625393,
+    "lat_median": 13.501317020854913,
+    "prefill": 3.2583225846290587,
+    "decode": 8.492159548401833,
+    "tin": 458.75,
+    "tout": 196.025,
+    "mem": 2556.6349391937256,
+    "fails": {
+     "called_on_irrelevance": 3,
+     "invalid_arguments": 4,
+     "wrong_function": 3
+    },
+    "adaptive": false
+   },
+   {
+    "model": "Qwen3.5-2B-4bit",
+    "strategy": "ast_router",
+    "n": 40,
+    "acc": 33,
+    "lat_mean": 18.453189307302818,
+    "lat_median": 14.29730254173046,
+    "prefill": 3.378380647301674,
+    "decode": 15.047303467988968,
+    "tin": 459.3,
+    "tout": 289.375,
+    "mem": 2477.742374420166,
+    "fails": {
+     "invalid_arguments": 4,
+     "called_on_irrelevance": 2,
+     "length": 1
+    },
+    "adaptive": true
+   },
+   {
+    "model": "Qwen3.5-2B-4bit",
+    "strategy": "adaptive_step",
+    "n": 40,
+    "acc": 27,
+    "lat_mean": 17.107716710414387,
+    "lat_median": 10.274620999989565,
+    "prefill": 3.3480758339166643,
+    "decode": 13.200422218441963,
+    "tin": 460.5,
+    "tout": 263.9,
+    "mem": 2479.882999420166,
+    "fails": {
+     "missing_call": 3,
+     "length": 3,
+     "wrong_function": 2,
+     "called_on_irrelevance": 2,
+     "invalid_arguments": 3
+    },
+    "adaptive": true
+   },
+   {
+    "model": "gemma-4-e2b-it-4bit",
+    "strategy": "direct",
+    "n": 40,
+    "acc": 28,
+    "lat_mean": 37.89788690312416,
+    "lat_median": 37.26031704165507,
+    "prefill": 1.678467708826065,
+    "decode": 26.32012484073639,
+    "tin": 245.2,
+    "tout": 437.2,
+    "mem": 3056.9335746765137,
+    "fails": {
+     "invalid_arguments": 10,
+     "missing_call": 1,
+     "wrong_function": 1
+    },
+    "adaptive": false
+   },
+   {
+    "model": "gemma-4-e2b-it-4bit",
+    "strategy": "plan_act",
+    "n": 40,
+    "acc": 25,
+    "lat_mean": 45.41308281145466,
+    "lat_median": 41.74423824995756,
+    "prefill": 3.0394290149211884,
+    "decode": 25.2414331972599,
+    "tin": 623.05,
+    "tout": 532.225,
+    "mem": 3080.0283012390137,
+    "fails": {
+     "invalid_arguments": 13,
+     "length": 1,
+     "called_on_irrelevance": 1
+    },
+    "adaptive": false
+   },
+   {
+    "model": "gemma-4-e2b-it-4bit",
+    "strategy": "nothink",
+    "n": 40,
+    "acc": 31,
+    "lat_mean": 13.614695321873295,
+    "lat_median": 10.987925999972504,
+    "prefill": 1.7020610243082046,
+    "decode": 5.05626317858696,
+    "tin": 243.2,
+    "tout": 92.225,
+    "mem": 3054.1210746765137,
+    "fails": {
+     "invalid_arguments": 7,
+     "wrong_function": 1,
+     "called_on_irrelevance": 1
+    },
+    "adaptive": false
+   },
+   {
+    "model": "gemma-4-e2b-it-4bit",
+    "strategy": "budget_64",
+    "n": 40,
+    "acc": 25,
+    "lat_mean": 24.747494647910933,
+    "lat_median": 25.227112749998923,
+    "prefill": 1.7651554465293884,
+    "decode": 10.39622442126274,
+    "tin": 245.2,
+    "tout": 188.05,
+    "mem": 3071.6542778015137,
+    "fails": {
+     "wrong_function": 3,
+     "called_on_irrelevance": 2,
+     "invalid_arguments": 9,
+     "missing_call": 1
+    },
+    "adaptive": false
+   },
+   {
+    "model": "gemma-4-e2b-it-4bit",
+    "strategy": "ast_router",
+    "n": 40,
+    "acc": 29,
+    "lat_mean": 29.659664726039047,
+    "lat_median": 27.528750562516507,
+    "prefill": 1.807941871881485,
+    "decode": 20.52778405845165,
+    "tin": 244.65,
+    "tout": 355.075,
+    "mem": 3056.6689262390137,
+    "fails": {
+     "called_on_irrelevance": 1,
+     "invalid_arguments": 9,
+     "wrong_function": 1
+    },
+    "adaptive": true
+   },
+   {
+    "model": "gemma-4-e2b-it-4bit",
+    "strategy": "adaptive_step",
+    "n": 40,
+    "acc": 31,
+    "lat_mean": 17.60020599375421,
+    "lat_median": 14.0571414999431,
+    "prefill": 1.6215553671121596,
+    "decode": 5.524017551541329,
+    "tin": 243.45,
+    "tout": 101.025,
+    "mem": 3054.1054496765137,
+    "fails": {
+     "invalid_arguments": 7,
+     "wrong_function": 1,
+     "called_on_irrelevance": 1
+    },
+    "adaptive": true
+   }
+  ],
+  "best_fixed": {
+   "LFM2.5-2.6B-MLX-4bit": "direct",
+   "MiniCPM5-2B-MLX": "nothink",
+   "Qwen3.5-2B-4bit": "direct",
+   "gemma-4-e2b-it-4bit": "nothink"
+  },
+  "by_category": [
+   {
+    "model": "LFM2.5-2.6B-MLX-4bit",
+    "strategy": "direct",
+    "counts": {
+     "simple_python": 7,
+     "multiple": 6,
+     "parallel": 7,
+     "parallel_multiple": 7,
+     "irrelevance": 6
+    }
+   },
+   {
+    "model": "LFM2.5-2.6B-MLX-4bit",
+    "strategy": "plan_act",
+    "counts": {
+     "simple_python": 4,
+     "multiple": 2,
+     "parallel": 2,
+     "parallel_multiple": 4,
+     "irrelevance": 8
+    }
+   },
+   {
+    "model": "LFM2.5-2.6B-MLX-4bit",
+    "strategy": "budget_64",
+    "counts": {
+     "simple_python": 8,
+     "multiple": 7,
+     "parallel": 5,
+     "parallel_multiple": 4,
+     "irrelevance": 5
+    }
+   },
+   {
+    "model": "LFM2.5-2.6B-MLX-4bit",
+    "strategy": "ast_router",
+    "counts": {
+     "simple_python": 8,
+     "multiple": 6,
+     "parallel": 7,
+     "parallel_multiple": 7,
+     "irrelevance": 5
+    }
+   },
+   {
+    "model": "MiniCPM5-2B-MLX",
+    "strategy": "direct",
+    "counts": {
+     "simple_python": 6,
+     "multiple": 7,
+     "parallel": 5,
+     "parallel_multiple": 5,
+     "irrelevance": 8
+    }
+   },
+   {
+    "model": "MiniCPM5-2B-MLX",
+    "strategy": "plan_act",
+    "counts": {
+     "simple_python": 7,
+     "multiple": 8,
+     "parallel": 7,
+     "parallel_multiple": 3,
+     "irrelevance": 8
+    }
+   },
+   {
+    "model": "MiniCPM5-2B-MLX",
+    "strategy": "nothink",
+    "counts": {
+     "simple_python": 7,
+     "multiple": 7,
+     "parallel": 6,
+     "parallel_multiple": 7,
+     "irrelevance": 7
+    }
+   },
+   {
+    "model": "MiniCPM5-2B-MLX",
+    "strategy": "budget_64",
+    "counts": {
+     "simple_python": 7,
+     "multiple": 6,
+     "parallel": 6,
+     "parallel_multiple": 5,
+     "irrelevance": 5
+    }
+   },
+   {
+    "model": "MiniCPM5-2B-MLX",
+    "strategy": "ast_router",
+    "counts": {
+     "simple_python": 7,
+     "multiple": 7,
+     "parallel": 5,
+     "parallel_multiple": 5,
+     "irrelevance": 7
+    }
+   },
+   {
+    "model": "MiniCPM5-2B-MLX",
+    "strategy": "adaptive_step",
+    "counts": {
+     "simple_python": 7,
+     "multiple": 7,
+     "parallel": 6,
+     "parallel_multiple": 7,
+     "irrelevance": 7
+    }
+   },
+   {
+    "model": "Qwen3.5-2B-4bit",
+    "strategy": "direct",
+    "counts": {
+     "simple_python": 7,
+     "multiple": 6,
+     "parallel": 7,
+     "parallel_multiple": 8,
+     "irrelevance": 7
+    }
+   },
+   {
+    "model": "Qwen3.5-2B-4bit",
+    "strategy": "plan_act",
+    "counts": {
+     "simple_python": 5,
+     "multiple": 6,
+     "parallel": 5,
+     "parallel_multiple": 6,
+     "irrelevance": 6
+    }
+   },
+   {
+    "model": "Qwen3.5-2B-4bit",
+    "strategy": "nothink",
+    "counts": {
+     "simple_python": 6,
+     "multiple": 4,
+     "parallel": 5,
+     "parallel_multiple": 6,
+     "irrelevance": 6
+    }
+   },
+   {
+    "model": "Qwen3.5-2B-4bit",
+    "strategy": "budget_64",
+    "counts": {
+     "simple_python": 7,
+     "multiple": 6,
+     "parallel": 4,
+     "parallel_multiple": 8,
+     "irrelevance": 5
+    }
+   },
+   {
+    "model": "Qwen3.5-2B-4bit",
+    "strategy": "ast_router",
+    "counts": {
+     "simple_python": 6,
+     "multiple": 6,
+     "parallel": 7,
+     "parallel_multiple": 8,
+     "irrelevance": 6
+    }
+   },
+   {
+    "model": "Qwen3.5-2B-4bit",
+    "strategy": "adaptive_step",
+    "counts": {
+     "simple_python": 6,
+     "multiple": 4,
+     "parallel": 4,
+     "parallel_multiple": 7,
+     "irrelevance": 6
+    }
+   },
+   {
+    "model": "gemma-4-e2b-it-4bit",
+    "strategy": "direct",
+    "counts": {
+     "simple_python": 6,
+     "multiple": 5,
+     "parallel": 6,
+     "parallel_multiple": 3,
+     "irrelevance": 8
+    }
+   },
+   {
+    "model": "gemma-4-e2b-it-4bit",
+    "strategy": "plan_act",
+    "counts": {
+     "simple_python": 7,
+     "multiple": 4,
+     "parallel": 5,
+     "parallel_multiple": 2,
+     "irrelevance": 7
+    }
+   },
+   {
+    "model": "gemma-4-e2b-it-4bit",
+    "strategy": "nothink",
+    "counts": {
+     "simple_python": 7,
+     "multiple": 7,
+     "parallel": 6,
+     "parallel_multiple": 4,
+     "irrelevance": 7
+    }
+   },
+   {
+    "model": "gemma-4-e2b-it-4bit",
+    "strategy": "budget_64",
+    "counts": {
+     "simple_python": 7,
+     "multiple": 4,
+     "parallel": 4,
+     "parallel_multiple": 4,
+     "irrelevance": 6
+    }
+   },
+   {
+    "model": "gemma-4-e2b-it-4bit",
+    "strategy": "ast_router",
+    "counts": {
+     "simple_python": 8,
+     "multiple": 5,
+     "parallel": 6,
+     "parallel_multiple": 3,
+     "irrelevance": 7
+    }
+   },
+   {
+    "model": "gemma-4-e2b-it-4bit",
+    "strategy": "adaptive_step",
+    "counts": {
+     "simple_python": 7,
+     "multiple": 7,
+     "parallel": 6,
+     "parallel_multiple": 4,
+     "irrelevance": 7
+    }
+   }
+  ],
+  "vs_best": [
+   {
+    "model": "LFM2.5-2.6B-MLX-4bit",
+    "best_fixed": "direct",
+    "strategy": "ast_router",
+    "n": 40,
+    "d_acc": 0,
+    "d_acc_lo": -0.075,
+    "d_acc_hi": 0.075,
+    "d_lat": -2.803117611448397,
+    "d_lat_lo": -5.009890726051526,
+    "d_lat_hi": -0.9846777572762221,
+    "decisions": {
+     "budget_64": 11,
+     "direct": 29
+    },
+    "adaptive": true
+   },
+   {
+    "model": "LFM2.5-2.6B-MLX-4bit",
+    "best_fixed": "direct",
+    "strategy": "plan_act",
+    "n": 40,
+    "d_acc": -0.325,
+    "d_acc_lo": -0.5,
+    "d_acc_hi": -0.125,
+    "d_lat": 22.98198818855162,
+    "d_lat_lo": 18.332920660433594,
+    "d_lat_hi": 27.67830597500724,
+    "decisions": {},
+    "adaptive": false
+   },
+   {
+    "model": "LFM2.5-2.6B-MLX-4bit",
+    "best_fixed": "direct",
+    "strategy": "budget_64",
+    "n": 40,
+    "d_acc": -0.1,
+    "d_acc_lo": -0.225,
+    "d_acc_hi": 0.025,
+    "d_lat": -3.8399406583310336,
+    "d_lat_lo": -5.941852695823764,
+    "d_lat_hi": -1.949961532303132,
+    "decisions": {},
+    "adaptive": false
+   },
+   {
+    "model": "MiniCPM5-2B-MLX",
+    "best_fixed": "nothink",
+    "strategy": "ast_router",
+    "n": 40,
+    "d_acc": -0.075,
+    "d_acc_lo": -0.175,
+    "d_acc_hi": 0.025,
+    "d_lat": 22.434324633321374,
+    "d_lat_lo": 15.134102480183355,
+    "d_lat_hi": 30.13248912082927,
+    "decisions": {
+     "nothink": 11,
+     "direct": 29
+    },
+    "adaptive": true
+   },
+   {
+    "model": "MiniCPM5-2B-MLX",
+    "best_fixed": "nothink",
+    "strategy": "adaptive_step",
+    "n": 40,
+    "d_acc": 0,
+    "d_acc_lo": 0.0,
+    "d_acc_hi": 0.0,
+    "d_lat": 1.1741849822748918,
+    "d_lat_lo": 0.3418514197750483,
+    "d_lat_hi": 2.1824773041240406,
+    "decisions": {
+     "nothink": 35,
+     "budget_64": 5
+    },
+    "adaptive": true
+   },
+   {
+    "model": "MiniCPM5-2B-MLX",
+    "best_fixed": "nothink",
+    "strategy": "direct",
+    "n": 40,
+    "d_acc": -0.075,
+    "d_acc_lo": -0.2,
+    "d_acc_hi": 0.05,
+    "d_lat": 34.63398400311708,
+    "d_lat_lo": 26.822380707302365,
+    "d_lat_hi": 42.64050584687211,
+    "decisions": {},
+    "adaptive": false
+   },
+   {
+    "model": "MiniCPM5-2B-MLX",
+    "best_fixed": "nothink",
+    "strategy": "plan_act",
+    "n": 40,
+    "d_acc": -0.025,
+    "d_acc_lo": -0.175,
+    "d_acc_hi": 0.125,
+    "d_lat": 41.06563680104155,
+    "d_lat_lo": 33.09602059686731,
+    "d_lat_hi": 49.43322403333441,
+    "decisions": {},
+    "adaptive": false
+   },
+   {
+    "model": "MiniCPM5-2B-MLX",
+    "best_fixed": "nothink",
+    "strategy": "budget_64",
+    "n": 40,
+    "d_acc": -0.125,
+    "d_acc_lo": -0.225,
+    "d_acc_hi": -0.025,
+    "d_lat": 7.262804640602553,
+    "d_lat_lo": 5.610863708291435,
+    "d_lat_hi": 8.590527319782996,
+    "decisions": {},
+    "adaptive": false
+   },
+   {
+    "model": "Qwen3.5-2B-4bit",
+    "best_fixed": "direct",
+    "strategy": "ast_router",
+    "n": 40,
+    "d_acc": -0.05,
+    "d_acc_lo": -0.125,
+    "d_acc_hi": 0.0,
+    "d_lat": -2.7604696395603243,
+    "d_lat_lo": -7.132233857255779,
+    "d_lat_hi": 1.5916378135618288,
+    "decisions": {
+     "nothink": 11,
+     "direct": 29
+    },
+    "adaptive": true
+   },
+   {
+    "model": "Qwen3.5-2B-4bit",
+    "best_fixed": "direct",
+    "strategy": "adaptive_step",
+    "n": 40,
+    "d_acc": -0.2,
+    "d_acc_lo": -0.325,
+    "d_acc_hi": -0.075,
+    "d_lat": -4.105942236448755,
+    "d_lat_lo": -9.528752812484163,
+    "d_lat_hi": 1.6885463468614035,
+    "decisions": {
+     "nothink": 35,
+     "budget_64": 5
+    },
+    "adaptive": true
+   },
+   {
+    "model": "Qwen3.5-2B-4bit",
+    "best_fixed": "direct",
+    "strategy": "plan_act",
+    "n": 40,
+    "d_acc": -0.175,
+    "d_acc_lo": -0.325,
+    "d_acc_hi": -0.05,
+    "d_lat": 9.16094079167524,
+    "d_lat_lo": 4.995648511478794,
+    "d_lat_hi": 13.555735506262863,
+    "decisions": {},
+    "adaptive": false
+   },
+   {
+    "model": "Qwen3.5-2B-4bit",
+    "best_fixed": "direct",
+    "strategy": "nothink",
+    "n": 40,
+    "d_acc": -0.2,
+    "d_acc_lo": -0.325,
+    "d_acc_hi": -0.1,
+    "d_lat": -3.463928335404489,
+    "d_lat_lo": -9.138324836434913,
+    "d_lat_hi": 2.5535807448031846,
+    "decisions": {},
+    "adaptive": false
+   },
+   {
+    "model": "Qwen3.5-2B-4bit",
+    "best_fixed": "direct",
+    "strategy": "budget_64",
+    "n": 40,
+    "d_acc": -0.125,
+    "d_acc_lo": -0.225,
+    "d_acc_hi": -0.025,
+    "d_lat": -5.331485556237749,
+    "d_lat_lo": -8.909051357262069,
+    "d_lat_hi": -2.3389687885268358,
+    "decisions": {},
+    "adaptive": false
+   },
+   {
+    "model": "gemma-4-e2b-it-4bit",
+    "best_fixed": "nothink",
+    "strategy": "ast_router",
+    "n": 40,
+    "d_acc": -0.05,
+    "d_acc_lo": -0.175,
+    "d_acc_hi": 0.075,
+    "d_lat": 16.044969404165748,
+    "d_lat_lo": 10.460336455205105,
+    "d_lat_hi": 21.370124467700954,
+    "decisions": {
+     "nothink": 11,
+     "direct": 29
+    },
+    "adaptive": true
+   },
+   {
+    "model": "gemma-4-e2b-it-4bit",
+    "best_fixed": "nothink",
+    "strategy": "adaptive_step",
+    "n": 40,
+    "d_acc": 0,
+    "d_acc_lo": 0.0,
+    "d_acc_hi": 0.0,
+    "d_lat": 3.985510671880911,
+    "d_lat_lo": 0.9875135093840072,
+    "d_lat_hi": 6.957033632294042,
+    "decisions": {
+     "nothink": 35,
+     "budget_64": 5
+    },
+    "adaptive": true
+   },
+   {
+    "model": "gemma-4-e2b-it-4bit",
+    "best_fixed": "nothink",
+    "strategy": "direct",
+    "n": 40,
+    "d_acc": -0.075,
+    "d_acc_lo": -0.225,
+    "d_acc_hi": 0.075,
+    "d_lat": 24.28319158125087,
+    "d_lat_lo": 19.842092929180943,
+    "d_lat_hi": 28.860905434360028,
+    "decisions": {},
+    "adaptive": false
+   },
+   {
+    "model": "gemma-4-e2b-it-4bit",
+    "best_fixed": "nothink",
+    "strategy": "plan_act",
+    "n": 40,
+    "d_acc": -0.15,
+    "d_acc_lo": -0.275,
+    "d_acc_hi": -0.025,
+    "d_lat": 31.798387489581366,
+    "d_lat_lo": 27.29656673645659,
+    "d_lat_hi": 36.46406688749266,
+    "decisions": {},
+    "adaptive": false
+   },
+   {
+    "model": "gemma-4-e2b-it-4bit",
+    "best_fixed": "nothink",
+    "strategy": "budget_64",
+    "n": 40,
+    "d_acc": -0.15,
+    "d_acc_lo": -0.275,
+    "d_acc_hi": -0.05,
+    "d_lat": 11.132799326037638,
+    "d_lat_lo": 6.7889403687499,
+    "d_lat_hi": 15.404638190634433,
+    "decisions": {},
+    "adaptive": false
+   }
+  ],
+  "oracle": [
+   {
+    "model": "LFM2.5-2.6B-MLX-4bit",
+    "best_fixed": "direct",
+    "n": 40,
+    "best_acc": 33,
+    "oracle_fixed": 37,
+    "oracle_all": 37,
+    "extra": 4,
+    "cheap_lat": 14.185116899994318,
+    "best_lat": 16.213179113538352
+   },
+   {
+    "model": "MiniCPM5-2B-MLX",
+    "best_fixed": "nothink",
+    "n": 40,
+    "best_acc": 34,
+    "oracle_fixed": 38,
+    "oracle_all": 38,
+    "extra": 4,
+    "cheap_lat": 13.217252831251244,
+    "best_lat": 7.535737868759315
+   },
+   {
+    "model": "Qwen3.5-2B-4bit",
+    "best_fixed": "direct",
+    "n": 40,
+    "best_acc": 35,
+    "oracle_fixed": 36,
+    "oracle_all": 36,
+    "extra": 1,
+    "cheap_lat": 12.600392058331636,
+    "best_lat": 21.21365894686314
+   },
+   {
+    "model": "gemma-4-e2b-it-4bit",
+    "best_fixed": "nothink",
+    "n": 40,
+    "best_acc": 31,
+    "oracle_fixed": 34,
+    "oracle_all": 34,
+    "extra": 3,
+    "cheap_lat": 15.178046625002754,
+    "best_lat": 13.614695321873295
+   }
+  ],
+  "complementarity": {
+   "union": 38,
+   "intersection": 25,
+   "none": 2,
+   "solved": {
+    "LFM2.5-2.6B-MLX-4bit": 33,
+    "MiniCPM5-2B-MLX": 34,
+    "Qwen3.5-2B-4bit": 35,
+    "gemma-4-e2b-it-4bit": 31
+   },
+   "exclusive": {
+    "LFM2.5-2.6B-MLX-4bit": [],
+    "MiniCPM5-2B-MLX": [],
+    "Qwen3.5-2B-4bit": [],
+    "gemma-4-e2b-it-4bit": [
+     "simple_python_35"
+    ]
+   }
+  }
+ },
+ "r2": {
+  "agents": [
+   {
+    "agent": "minicpm5",
+    "label": "MiniCPM5-2B",
+    "status": "completa",
+    "n_measured": 80,
+    "n_planned": 80,
+    "thermal_before": {
+     "serious": 80
+    },
+    "n_graded": 80,
+    "finished": true,
+    "session": "rep2-minicpm5.json",
+    "strategies": [
+     "adaptive_step",
+     "nothink"
+    ],
+    "stability": [
+     {
+      "model": "MiniCPM5-2B-MLX",
+      "strategy": "nothink",
+      "r1_acc": 34,
+      "r2_acc": 34,
+      "n": 40,
+      "agree": 40,
+      "r1_lat": 7.535737868759315,
+      "r2_lat": 6.035280179159599
+     },
+     {
+      "model": "MiniCPM5-2B-MLX",
+      "strategy": "adaptive_step",
+      "r1_acc": 34,
+      "r2_acc": 34,
+      "n": 40,
+      "agree": 40,
+      "r1_lat": 8.709922851034207,
+      "r2_lat": 6.947692140605068
+     }
+    ]
+   },
+   {
+    "agent": "lfm25",
+    "label": "LFM2.5-2.6B",
+    "status": "ausente",
+    "n_measured": 0,
+    "n_planned": 0,
+    "thermal_before": {},
+    "n_graded": 0,
+    "finished": false,
+    "session": null,
+    "strategies": []
+   },
+   {
+    "agent": "gemma4",
+    "label": "Gemma 4 E2B",
+    "status": "incompleta",
+    "n_measured": 47,
+    "n_planned": 80,
+    "thermal_before": {
+     "nominal": 11,
+     "fair": 36
+    },
+    "n_graded": 0,
+    "finished": false,
+    "session": "rep2-gemma4.json",
+    "strategies": []
+   },
+   {
+    "agent": "qwen35",
+    "label": "Qwen3.5-2B",
+    "status": "ausente",
+    "n_measured": 0,
+    "n_planned": 0,
+    "thermal_before": {},
+    "n_graded": 0,
+    "finished": false,
+    "session": null,
+    "strategies": []
+   }
+  ],
+  "n_complete": 1,
+  "n_expected": 4,
+  "complete": false,
+  "gaps": [
+   "LFM2.5-2.6B: repetição 2 sem sessão no repositório",
+   "Gemma 4 E2B: sessão r2 interrompida (47/80 medidas, sem avaliação)",
+   "Qwen3.5-2B: repetição 2 sem sessão no repositório"
+  ]
+ },
+ "thermal": {
+  "n": 880,
+  "before": {
+   "serious": 879,
+   "fair": 1
+  },
+  "after": {
+   "serious": 880
+  },
+  "non_serious": [
+   {
+    "model": "MiniCPM5-2B-MLX",
+    "strategy": "plan_act",
+    "task": "irrelevance_30",
+    "before": "fair",
+    "after": "serious"
+   }
+  ]
+ },
+ "sessions_r1": [
+  {
+   "path": "results/slm-bfcl/main-r1-gemma4.json",
+   "name": "main-r1-gemma4.json",
+   "finished": true,
+   "n_jobs": 241,
+   "n_planned": 240,
+   "thermal_before": {
+    "serious": 240
+   },
+   "n_measured": 240,
+   "n_warmup": 1,
+   "n_results": 241,
+   "mlx": "3.31.4",
+   "protocol": "2.0",
+   "config": {
+    "categories": [
+     "simple_python",
+     "multiple",
+     "parallel",
+     "parallel_multiple",
+     "irrelevance"
+    ],
+    "dataset": "bfcl_ast",
+    "datasetId": "bfcl_ast",
+    "evaluationVersion": "bfcl-v4-ast-official-checker-mac",
+    "executionMode": "simulated",
+    "methodNote": "Limites comuns: plano até 128 tokens, ação até 512 tokens, no máximo 4 rodadas de ferramenta, timeout térmico 180 s. Qwen3 controla o bloco <think>. Gemma não gera <think>. Apple Foundation Models não expõe raciocínio. Tokenizador, template e formato de ferramenta diferem entre MLX e Apple. Amostragem gulosa: o seed não muda os tokens.",
+    "orderSeed": "20261027",
+    "protocolId": "slm_bfcl_v4_ast",
+    "recoverySeconds": 0,
+    "repetitions": 1,
+    "requireCoolThermal": false,
+    "shuffle": true,
+    "strategies": [
+     "direct",
+     "plan_act",
+     "nothink",
+     "budget_64",
+     "adaptive_step",
+     "ast_router"
+    ],
+    "taskIDs": [
+     "simple_python_35",
+     "simple_python_61",
+     "simple_python_76",
+     "simple_python_88",
+     "simple_python_106",
+     "simple_python_107",
+     "simple_python_219",
+     "simple_python_316",
+     "multiple_16",
+     "multiple_17",
+     "multiple_20",
+     "multiple_30",
+     "multiple_68",
+     "multiple_117",
+     "multiple_136",
+     "multiple_151",
+     "parallel_63",
+     "parallel_69",
+     "parallel_75",
+     "parallel_108",
+     "parallel_120",
+     "parallel_136",
+     "parallel_190",
+     "parallel_196",
+     "parallel_multiple_43",
+     "parallel_multiple_54",
+     "parallel_multiple_61",
+     "parallel_multiple_76",
+     "parallel_multiple_93",
+     "parallel_multiple_104",
+     "parallel_multiple_114",
+     "parallel_multiple_134",
+     "irrelevance_2",
+     "irrelevance_22",
+     "irrelevance_30",
+     "irrelevance_81",
+     "irrelevance_168",
+     "irrelevance_205",
+     "irrelevance_214",
+     "irrelevance_227"
+    ],
+    "taskSetId": "bfcl_v4_ast_frozen_40",
+    "thermalTimeoutSeconds": 0,
+    "warmup": true
+   },
+   "agents": [
+    "gemma4"
+   ],
+   "device": "iPhone17,1",
+   "os": "Version 26.6.2 (Build 23G90)",
+   "sampling": "greedy",
+   "temperature": 0,
+   "model": "mlx-community/gemma-4-e2b-it-4bit@238767527555cb75a05732a84dff5d6ba0dd6809",
+   "evaluation_version": "bfcl-v4-ast-official-checker-mac",
+   "sha256": "736aff4b4886fb82cf4f6a9eaba8b8fedced9288449deb4ff0d92e31ce31dea7",
+   "bytes": 1197641
+  },
+  {
+   "path": "results/slm-bfcl/main-r1-lfm25.json",
+   "name": "main-r1-lfm25.json",
+   "finished": true,
+   "n_jobs": 161,
+   "n_planned": 160,
+   "thermal_before": {
+    "serious": 160
+   },
+   "n_measured": 160,
+   "n_warmup": 1,
+   "n_results": 161,
+   "mlx": "3.31.4",
+   "protocol": "2.0",
+   "config": {
+    "categories": [
+     "simple_python",
+     "multiple",
+     "parallel",
+     "parallel_multiple",
+     "irrelevance"
+    ],
+    "dataset": "bfcl_ast",
+    "datasetId": "bfcl_ast",
+    "evaluationVersion": "bfcl-v4-ast-official-checker-mac",
+    "executionMode": "simulated",
+    "methodNote": "Limites comuns: plano até 128 tokens, ação até 512 tokens, no máximo 4 rodadas de ferramenta, timeout térmico 180 s. Qwen3 controla o bloco <think>. Gemma não gera <think>. Apple Foundation Models não expõe raciocínio. Tokenizador, template e formato de ferramenta diferem entre MLX e Apple. Amostragem gulosa: o seed não muda os tokens.",
+    "orderSeed": "20261027",
+    "protocolId": "slm_bfcl_v4_ast",
+    "recoverySeconds": 0,
+    "repetitions": 1,
+    "requireCoolThermal": false,
+    "shuffle": true,
+    "strategies": [
+     "direct",
+     "plan_act",
+     "budget_64",
+     "ast_router"
+    ],
+    "taskIDs": [
+     "simple_python_35",
+     "simple_python_61",
+     "simple_python_76",
+     "simple_python_88",
+     "simple_python_106",
+     "simple_python_107",
+     "simple_python_219",
+     "simple_python_316",
+     "multiple_16",
+     "multiple_17",
+     "multiple_20",
+     "multiple_30",
+     "multiple_68",
+     "multiple_117",
+     "multiple_136",
+     "multiple_151",
+     "parallel_63",
+     "parallel_69",
+     "parallel_75",
+     "parallel_108",
+     "parallel_120",
+     "parallel_136",
+     "parallel_190",
+     "parallel_196",
+     "parallel_multiple_43",
+     "parallel_multiple_54",
+     "parallel_multiple_61",
+     "parallel_multiple_76",
+     "parallel_multiple_93",
+     "parallel_multiple_104",
+     "parallel_multiple_114",
+     "parallel_multiple_134",
+     "irrelevance_2",
+     "irrelevance_22",
+     "irrelevance_30",
+     "irrelevance_81",
+     "irrelevance_168",
+     "irrelevance_205",
+     "irrelevance_214",
+     "irrelevance_227"
+    ],
+    "taskSetId": "bfcl_v4_ast_frozen_40",
+    "thermalTimeoutSeconds": 0,
+    "warmup": true
+   },
+   "agents": [
+    "lfm25"
+   ],
+   "device": "iPhone17,1",
+   "os": "Version 26.6.2 (Build 23G90)",
+   "sampling": "greedy",
+   "temperature": 0,
+   "model": "LiquidAI/LFM2.5-2.6B-MLX-4bit@04efa23776ce61ec34ec95ec34c859854c89542b",
+   "evaluation_version": "bfcl-v4-ast-official-checker-mac",
+   "sha256": "ce1a8b18b25d3cd85c5df71f1d1ea2f8da2853d44d686fd80099a67fbf5a7ee6",
+   "bytes": 810406
+  },
+  {
+   "path": "results/slm-bfcl/main-r1-minicpm5.json",
+   "name": "main-r1-minicpm5.json",
+   "finished": true,
+   "n_jobs": 241,
+   "n_planned": 240,
+   "thermal_before": {
+    "serious": 239,
+    "fair": 1
+   },
+   "n_measured": 240,
+   "n_warmup": 1,
+   "n_results": 241,
+   "mlx": "3.31.4",
+   "protocol": "2.0",
+   "config": {
+    "categories": [
+     "simple_python",
+     "multiple",
+     "parallel",
+     "parallel_multiple",
+     "irrelevance"
+    ],
+    "dataset": "bfcl_ast",
+    "datasetId": "bfcl_ast",
+    "evaluationVersion": "bfcl-v4-ast-official-checker-mac",
+    "executionMode": "simulated",
+    "methodNote": "Limites comuns: plano até 128 tokens, ação até 512 tokens, no máximo 4 rodadas de ferramenta, timeout térmico 180 s. Qwen3 controla o bloco <think>. Gemma não gera <think>. Apple Foundation Models não expõe raciocínio. Tokenizador, template e formato de ferramenta diferem entre MLX e Apple. Amostragem gulosa: o seed não muda os tokens.",
+    "orderSeed": "20261027",
+    "protocolId": "slm_bfcl_v4_ast",
+    "recoverySeconds": 0,
+    "repetitions": 1,
+    "requireCoolThermal": false,
+    "shuffle": true,
+    "strategies": [
+     "direct",
+     "plan_act",
+     "nothink",
+     "budget_64",
+     "adaptive_step",
+     "ast_router"
+    ],
+    "taskIDs": [
+     "simple_python_35",
+     "simple_python_61",
+     "simple_python_76",
+     "simple_python_88",
+     "simple_python_106",
+     "simple_python_107",
+     "simple_python_219",
+     "simple_python_316",
+     "multiple_16",
+     "multiple_17",
+     "multiple_20",
+     "multiple_30",
+     "multiple_68",
+     "multiple_117",
+     "multiple_136",
+     "multiple_151",
+     "parallel_63",
+     "parallel_69",
+     "parallel_75",
+     "parallel_108",
+     "parallel_120",
+     "parallel_136",
+     "parallel_190",
+     "parallel_196",
+     "parallel_multiple_43",
+     "parallel_multiple_54",
+     "parallel_multiple_61",
+     "parallel_multiple_76",
+     "parallel_multiple_93",
+     "parallel_multiple_104",
+     "parallel_multiple_114",
+     "parallel_multiple_134",
+     "irrelevance_2",
+     "irrelevance_22",
+     "irrelevance_30",
+     "irrelevance_81",
+     "irrelevance_168",
+     "irrelevance_205",
+     "irrelevance_214",
+     "irrelevance_227"
+    ],
+    "taskSetId": "bfcl_v4_ast_frozen_40",
+    "thermalTimeoutSeconds": 0,
+    "warmup": true
+   },
+   "agents": [
+    "minicpm5"
+   ],
+   "device": "iPhone17,1",
+   "os": "Version 26.6.2 (Build 23G90)",
+   "sampling": "greedy",
+   "temperature": 0,
+   "model": "openbmb/MiniCPM5-2B-MLX@8a9ad7539ac86281d0ac2b017ba04a5de53fe9a3",
+   "evaluation_version": "bfcl-v4-ast-official-checker-mac",
+   "sha256": "073f96f711bac7d9fd62d88080997ccdf8b81e10cbda30bbe1a9e1a55592c2f4",
+   "bytes": 1245419
+  },
+  {
+   "path": "results/slm-bfcl/main-r1-qwen35.json",
+   "name": "main-r1-qwen35.json",
+   "finished": true,
+   "n_jobs": 241,
+   "n_planned": 240,
+   "thermal_before": {
+    "serious": 240
+   },
+   "n_measured": 240,
+   "n_warmup": 1,
+   "n_results": 241,
+   "mlx": "3.31.4",
+   "protocol": "2.0",
+   "config": {
+    "categories": [
+     "simple_python",
+     "multiple",
+     "parallel",
+     "parallel_multiple",
+     "irrelevance"
+    ],
+    "dataset": "bfcl_ast",
+    "datasetId": "bfcl_ast",
+    "evaluationVersion": "bfcl-v4-ast-official-checker-mac",
+    "executionMode": "simulated",
+    "methodNote": "Limites comuns: plano até 128 tokens, ação até 512 tokens, no máximo 4 rodadas de ferramenta, timeout térmico 180 s. Qwen3 controla o bloco <think>. Gemma não gera <think>. Apple Foundation Models não expõe raciocínio. Tokenizador, template e formato de ferramenta diferem entre MLX e Apple. Amostragem gulosa: o seed não muda os tokens.",
+    "orderSeed": "20261027",
+    "protocolId": "slm_bfcl_v4_ast",
+    "recoverySeconds": 0,
+    "repetitions": 1,
+    "requireCoolThermal": false,
+    "shuffle": true,
+    "strategies": [
+     "direct",
+     "plan_act",
+     "nothink",
+     "budget_64",
+     "adaptive_step",
+     "ast_router"
+    ],
+    "taskIDs": [
+     "simple_python_35",
+     "simple_python_61",
+     "simple_python_76",
+     "simple_python_88",
+     "simple_python_106",
+     "simple_python_107",
+     "simple_python_219",
+     "simple_python_316",
+     "multiple_16",
+     "multiple_17",
+     "multiple_20",
+     "multiple_30",
+     "multiple_68",
+     "multiple_117",
+     "multiple_136",
+     "multiple_151",
+     "parallel_63",
+     "parallel_69",
+     "parallel_75",
+     "parallel_108",
+     "parallel_120",
+     "parallel_136",
+     "parallel_190",
+     "parallel_196",
+     "parallel_multiple_43",
+     "parallel_multiple_54",
+     "parallel_multiple_61",
+     "parallel_multiple_76",
+     "parallel_multiple_93",
+     "parallel_multiple_104",
+     "parallel_multiple_114",
+     "parallel_multiple_134",
+     "irrelevance_2",
+     "irrelevance_22",
+     "irrelevance_30",
+     "irrelevance_81",
+     "irrelevance_168",
+     "irrelevance_205",
+     "irrelevance_214",
+     "irrelevance_227"
+    ],
+    "taskSetId": "bfcl_v4_ast_frozen_40",
+    "thermalTimeoutSeconds": 0,
+    "warmup": true
+   },
+   "agents": [
+    "qwen35"
+   ],
+   "device": "iPhone17,1",
+   "os": "Version 26.6.2 (Build 23G90)",
+   "sampling": "greedy",
+   "temperature": 0,
+   "model": "mlx-community/Qwen3.5-2B-4bit@674aaa7240b91e8012fcad5d791b7dfe5ba90207",
+   "evaluation_version": "bfcl-v4-ast-official-checker-mac",
+   "sha256": "1b1939d33223a63fb440916c58dbc7215d3d1839ef394987cdf53be56273a24b",
+   "bytes": 1185004
+  }
+ ],
+ "gaps": [
+  "LFM2.5-2.6B: repetição 2 sem sessão no repositório",
+  "Gemma 4 E2B: sessão r2 interrompida (47/80 medidas, sem avaliação)",
+  "Qwen3.5-2B: repetição 2 sem sessão no repositório"
+ ],
+ "figures": [
+  "figures/quality_latency.png",
+  "figures/strategy_comparison.png",
+  "figures/latency_decomp.png"
+ ]
+}

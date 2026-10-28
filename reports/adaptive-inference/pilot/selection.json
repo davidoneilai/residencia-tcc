@@ -1,0 +1,105 @@
+{
+  "recorded_before_execution": true,
+  "source_matrix": "reports/adaptive-routing/v3/heldout90-session.json",
+  "note": "Estudo exploratório em tarefas já vistas. Não é evidência de generalização.",
+  "n": 20,
+  "mix": { "sequential": 8, "multi_tool": 6, "single_tool": 4, "ambiguous": 2 },
+  "criteria": [
+    "Só IDs do heldout-90, já medidos em Direct e Plan+Act.",
+    "8 sequenciais: sucesso Direct-only, Plan-only, ambos, ambos length/no_tool, e falha de execução após ferramenta (dependência).",
+    "6 multi: Direct-only, ambos sucesso, ambos no_tool, Plan-only, Direct sucesso + Plan no_tool.",
+    "4 single: ambos sucesso, ambos no_tool, Plan-only (Direct grade), Direct sucesso.",
+    "2 ambíguas: ambos sucesso (não agir) e ambos grade (ação indevida)."
+  ],
+  "ids": [
+    {
+      "id": "apple_seq_021",
+      "why": "Direct ok, Plan no_tool — planejamento inicial piora"
+    },
+    {
+      "id": "apple_seq_024",
+      "why": "Direct grade, Plan ok — planejamento inicial ajuda"
+    },
+    {
+      "id": "apple_seq_025",
+      "why": "Direct length/no_tool, Plan ok"
+    },
+    {
+      "id": "apple_seq_026",
+      "why": "ambos sucesso"
+    },
+    {
+      "id": "apple_seq_027",
+      "why": "ambos length/no_tool (caso duro)"
+    },
+    {
+      "id": "apple_seq_035",
+      "why": "Direct no_tool; Plan chama ferramenta e falha execução (número)"
+    },
+    {
+      "id": "apple_seq_042",
+      "why": "Direct grade (contato e para); Plan execution"
+    },
+    {
+      "id": "apple_seq_048",
+      "why": "Direct no_tool; Plan execution após buscarContato"
+    },
+    {
+      "id": "apple_multi_016",
+      "why": "Direct ok, Plan no_tool"
+    },
+    {
+      "id": "apple_multi_021",
+      "why": "ambos length/no_tool"
+    },
+    {
+      "id": "apple_multi_028",
+      "why": "Direct ok, Plan no_tool"
+    },
+    {
+      "id": "apple_multi_033",
+      "why": "ambos sucesso"
+    },
+    {
+      "id": "apple_multi_038",
+      "why": "Direct grade, Plan ok"
+    },
+    {
+      "id": "apple_multi_040",
+      "why": "Direct no_tool, Plan grade"
+    },
+    {
+      "id": "apple_single_016",
+      "why": "Direct grade, Plan ok"
+    },
+    {
+      "id": "apple_single_017",
+      "why": "ambos no_tool"
+    },
+    {
+      "id": "apple_single_021",
+      "why": "ambos sucesso"
+    },
+    {
+      "id": "apple_single_029",
+      "why": "ambos no_tool"
+    },
+    {
+      "id": "apple_amb_011",
+      "why": "ambos sucesso sem ferramenta"
+    },
+    {
+      "id": "apple_amb_014",
+      "why": "ambos grade (ação indevida)"
+    }
+  ],
+  "smoke_ids": ["apple_seq_027", "apple_single_021"],
+  "probe": {
+    "id": "apple_seq_021",
+    "policy": "reactive_budget",
+    "variants": [
+      "standard contacts (Ana encontrada)",
+      "empty contacts (buscarContato falha)"
+    ]
+  }
+}

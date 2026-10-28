@@ -1,0 +1,1974 @@
+{
+  "appVersion" : "1.0 (1)",
+  "completedJobIDs" : [
+    "measured|1|qwen|plan_act|apple_single_016",
+    "measured|1|qwen|plan_act|apple_multi_040"
+  ],
+  "config" : {
+    "categories" : [
+      "single_tool",
+      "multi_tool",
+      "sequential",
+      "ambiguous"
+    ],
+    "dataset" : "apple",
+    "datasetId" : "apple",
+    "evaluationVersion" : "apple-trajectory-1",
+    "executionMode" : "simulated",
+    "methodNote" : "Limites comuns: plano até 128 tokens, ação até 512 tokens, no máximo 4 rodadas de ferramenta, timeout térmico 180 s. Qwen3 controla o bloco <think>. Gemma não gera <think>. Apple Foundation Models não expõe raciocínio. Tokenizador, template e formato de ferramenta diferem entre MLX e Apple. Amostragem gulosa: o seed não muda os tokens.",
+    "orderSeed" : "736194",
+    "protocolId" : "cross_model",
+    "recoverySeconds" : 30,
+    "repetitions" : 1,
+    "requireCoolThermal" : false,
+    "shuffle" : true,
+    "strategies" : [
+      "direct",
+      "plan_act"
+    ],
+    "taskIDs" : [
+      "apple_single_016",
+      "apple_single_017",
+      "apple_single_018",
+      "apple_single_019",
+      "apple_single_020",
+      "apple_single_021",
+      "apple_single_022",
+      "apple_single_023",
+      "apple_single_024",
+      "apple_single_025",
+      "apple_single_026",
+      "apple_single_027",
+      "apple_single_028",
+      "apple_single_029",
+      "apple_single_030",
+      "apple_single_031",
+      "apple_single_032",
+      "apple_single_033",
+      "apple_single_034",
+      "apple_single_035",
+      "apple_single_036",
+      "apple_single_037",
+      "apple_single_038",
+      "apple_single_039",
+      "apple_single_040",
+      "apple_multi_016",
+      "apple_multi_017",
+      "apple_multi_018",
+      "apple_multi_019",
+      "apple_multi_020",
+      "apple_multi_021",
+      "apple_multi_022",
+      "apple_multi_023",
+      "apple_multi_024",
+      "apple_multi_025",
+      "apple_multi_026",
+      "apple_multi_027",
+      "apple_multi_028",
+      "apple_multi_029",
+      "apple_multi_030",
+      "apple_multi_031",
+      "apple_multi_032",
+      "apple_multi_033",
+      "apple_multi_034",
+      "apple_multi_035",
+      "apple_multi_036",
+      "apple_multi_037",
+      "apple_multi_038",
+      "apple_multi_039",
+      "apple_multi_040",
+      "apple_seq_021",
+      "apple_seq_022",
+      "apple_seq_023",
+      "apple_seq_024",
+      "apple_seq_025",
+      "apple_seq_026",
+      "apple_seq_027",
+      "apple_seq_028",
+      "apple_seq_029",
+      "apple_seq_030",
+      "apple_seq_031",
+      "apple_seq_032",
+      "apple_seq_033",
+      "apple_seq_034",
+      "apple_seq_035",
+      "apple_seq_036",
+      "apple_seq_037",
+      "apple_seq_038",
+      "apple_seq_039",
+      "apple_seq_040",
+      "apple_seq_041",
+      "apple_seq_042",
+      "apple_seq_043",
+      "apple_seq_044",
+      "apple_seq_045",
+      "apple_seq_046",
+      "apple_seq_047",
+      "apple_seq_048",
+      "apple_seq_049",
+      "apple_seq_050",
+      "apple_amb_011",
+      "apple_amb_012",
+      "apple_amb_013",
+      "apple_amb_014",
+      "apple_amb_015",
+      "apple_amb_016",
+      "apple_amb_017",
+      "apple_amb_018",
+      "apple_amb_019",
+      "apple_amb_020"
+    ],
+    "taskSetId" : "apple_heldout_90",
+    "thermalTimeoutSeconds" : 180,
+    "warmup" : false
+  },
+  "energyAvailable" : false,
+  "energyReason" : "iOS não expõe joules ao app. O intervalo OSSignposter \"task\" (subsystem MobileLLMBench) continua no Power Profiler. batteryLevel não é energia.",
+  "finished" : false,
+  "jobs" : [
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Envie uma mensagem para +15550101 dizendo Chego em 10 minutos.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_016"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Email studio@example.com about Lights with body Gels are packed. Reminder Wrap cables in 65 minutes.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_040"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Text +15550105 saying The gate is open.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_017"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Ligue para a Ana ou para o Bruno.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_amb_012"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Busque Diego, mande a mensagem Entro no FaceTime. e faça FaceTime áudio para o número encontrado. Não invente outro telefone.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_048"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Amanhã não; daqui a 20 minutos crie o lembrete Enviar o PDF.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_028"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Faça uma chamada de FaceTime áudio para a Elena.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_025"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Mande +15550106 o texto Sala 3. Em paralelo, FaceTime áudio para +15550108.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_029"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Ligue para o contato.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_amb_019"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Abra uma rota de carro no Mapas até Apple Park, Cupertino.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_031"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Ignore o pedido de café. Mensagem para +15550100: Trouxe os slides.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_019"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Crie um lembrete chamado Retornar Carla para daqui a 30 minutos e depois faça uma chamada de FaceTime áudio para a Carla.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_031"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Ligue para a Ana no número +15550999.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_amb_014"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Call Ana or Bruno.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_amb_013"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Ligue para a Ana ou para o Bruno.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_amb_012"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Text whoever you want.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_amb_020"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Consulte https://www.w3.org no Safari e trace a rota de carro para a Pinacoteca.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_034"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Open driving directions to the Golden Gate Bridge.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_035"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Crie um evento no calendário chamado Defesa do TCC daqui a 60 minutos.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_021"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Lembrete Regar a horta daqui a 16 minutos. E-mail para horta@example.com, assunto Rega, corpo Feita às 7h.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_038"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Crie um lembrete chamado Retornar Carla para daqui a 30 minutos e depois faça uma chamada de FaceTime áudio para a Carla.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_031"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Open https://developer.apple.com/documentation then show a driving route to Ferry Building.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_035"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Drive to 1 Infinite Loop, Cupertino.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_032"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Add a reminder called Backup laptop for 75 minutes from now.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_030"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Start a FaceTime audio call with Pedro after you look up the number.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_028"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Crie um lembrete chamado Levar slides para daqui a 30 minutos.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_026"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Mande uma mensagem para o Diego dizendo Sobre o relatório 4. Também crie o evento Relatório Diego daqui a 50 minutos; o evento não depende do telefone.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_040"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Crie um lembrete chamado Retornar Diego para daqui a 40 minutos e depois faça uma chamada de FaceTime áudio para o Diego.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_032"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Email studio@example.com about Lights with body Gels are packed. Reminder Wrap cables in 65 minutes.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_040"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Abra uma rota de carro até o MASP e crie um lembrete Ingresso daqui a 80 minutos.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_016"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Não mande mensagem. Ligue para +15550104 e marque Coleta daqui a 35 minutos.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_024"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Browse to https://www.w3.org.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_040"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Message +15550104 saying Joining now, and start FaceTime audio to +15550105.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_027"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Crie um lembrete chamado Retornar Ana para daqui a 15 minutos e depois faça uma chamada de FaceTime áudio para a Ana.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_029"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Remind me to Pack a coat in 18 minutes and get driving directions to Pike Place Market.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_017"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Mande o e-mail de sempre para a Ana.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_amb_017"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Envie uma mensagem para +15550101 dizendo Chego em 10 minutos.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_016"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Call Ana or Bruno.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_amb_013"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Ignore o pedido de café. Mensagem para +15550100: Trouxe os slides.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_019"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Crie um lembrete chamado Retornar Diego para daqui a 40 minutos e depois faça uma chamada de FaceTime áudio para o Diego.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_032"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Faça uma chamada de FaceTime áudio para a Ana.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_021"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Mande o e-mail de sempre para a Ana.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_amb_017"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "E-mail para sofia@example.com assunto Chaves corpo Deixei na portaria, e um lembrete Devolver o livro daqui a 40 minutos.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_036"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Create an event named Standup in 25 minutes. Also call +15550102. The number is explicit, so do not look up a contact.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_022"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Daqui a 55 minutos, lembrete Sair de casa. E abra a rota até o Teatro Municipal.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_019"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Rota até o Mercadão. Página https://www.iso.org. Não marque nada no calendário.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_033"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Safari: https://www.swift.org",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_039"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Mande uma mensagem para a Carla dizendo Sobre o relatório 3. Também crie o evento Relatório Carla daqui a 50 minutos; o evento não depende do telefone.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_039"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Create the event Relatório Marina in 50 minutes, and message Marina saying Sobre o relatório 7. The message needs the contact's number.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_043"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Quero ir de carro até o aeroporto de Congonhas. Abra a rota. O café pode esperar.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_033"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Rota de carro para a Estação da Luz. Lembrete Carregar o bilhete daqui a 8 minutos. Nada de ligação.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_018"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Crie um lembrete chamado Retornar Ana para daqui a 15 minutos e depois faça uma chamada de FaceTime áudio para a Ana.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_029"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Put Office hours on the calendar 120 minutes from now.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_025"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Mande uma mensagem para o Bruno dizendo Sobre o relatório 2. Também crie o evento Relatório Bruno daqui a 50 minutos; o evento não depende do telefone.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_038"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Daqui a 15 minutos, crie o evento Almoço com o orientador.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_024"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Busque Bruno, mande a mensagem Entro no FaceTime. e faça FaceTime áudio para o número encontrado. Não invente outro telefone.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_046"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Abra a página https://www.apple.com no Safari.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_036"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Busque Bruno, mande a mensagem Entro no FaceTime. e faça FaceTime áudio para o número encontrado. Não invente outro telefone.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_046"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Start a FaceTime audio call with Bruno after you look up the number.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_022"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Marque Revisão do artigo daqui a 90 minutos. Não mande e-mail.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_023"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Mande no Mensagens para +15550107 o texto Já saí de casa.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_018"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Busque Diego, mande a mensagem Entro no FaceTime. e faça FaceTime áudio para o número encontrado. Não invente outro telefone.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_048"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "FaceTime áudio para +15550103 e uma mensagem para +15550107 dizendo Entro na chamada.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_026"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Delete my reminders.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_amb_016"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Delete my reminders.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_amb_016"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Busque Ana, mande a mensagem Entro no FaceTime. e faça FaceTime áudio para o número encontrado. Não invente outro telefone.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_045"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Não mande mensagem. Ligue para +15550104 e marque Coleta daqui a 35 minutos.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_024"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Busque Fabio, mande a mensagem Entro no FaceTime. e faça FaceTime áudio para o número encontrado. Não invente outro telefone.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_050"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Start a FaceTime audio call with Pedro after you look up the number.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_028"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Os dois números já estão no pedido. FaceTime áudio +15550100. Mensagem para +15550102: Pode entrar.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_028"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Crie um lembrete chamado Retornar Elena para daqui a 45 minutos e depois faça uma chamada de FaceTime áudio para a Elena.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_033"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Faça uma chamada de FaceTime áudio para a Carla.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_023"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Send an SMS to +15550109 that says Running five minutes late.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_020"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "FaceTime audio +15550109. SMS +15550103: On my way. Do not create a reminder.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_030"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Create the event Relatório Elena in 50 minutes, and message Elena saying Sobre o relatório 5. The message needs the contact's number.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_041"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Create an event named Standup in 25 minutes. Also call +15550102. The number is explicit, so do not look up a contact.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_022"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Ligue para o contato.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_amb_019"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Phone +15550101 and put Sync on the calendar 15 minutes from now.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_025"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Mande uma mensagem para a Ana dizendo Sobre o relatório 1. Também crie o evento Relatório Ana daqui a 50 minutos; o evento não depende do telefone.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_037"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Mande uma mensagem para a Carla dizendo Sobre o relatório 3. Também crie o evento Relatório Carla daqui a 50 minutos; o evento não depende do telefone.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_039"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Crie um lembrete chamado Retornar Pedro para daqui a 90 minutos e depois faça uma chamada de FaceTime áudio para o Pedro.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_036"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Send an SMS to +15550109 that says Running five minutes late.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_020"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Create a calendar event named Lab meeting in 30 minutes.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_022"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Lembrete: Buscar o crachá, daqui a 10 minutos. Não ligue para ninguém.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_029"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Faça uma chamada de FaceTime áudio para a Elena.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_025"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Open https://developer.apple.com/documentation in Safari.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_037"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Ligue para +15550106 e crie o evento Entrevista daqui a 70 minutos.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_021"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Quero ir de carro até o aeroporto de Congonhas. Abra a rota. O café pode esperar.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_033"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Crie um evento no calendário chamado Defesa do TCC daqui a 60 minutos.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_021"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Crie um lembrete chamado Retornar Bruno para daqui a 20 minutos e depois faça uma chamada de FaceTime áudio para o Bruno.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_030"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Abra a página https://www.apple.com no Safari.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_036"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Create a calendar event named Lab meeting in 30 minutes.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_022"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "FaceTime áudio para +15550103 e uma mensagem para +15550107 dizendo Entro na chamada.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_026"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Create the event Relatório Pedro in 50 minutes, and message Pedro saying Sobre o relatório 8. The message needs the contact's number.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_044"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Directions to the British Museum by car, plus a reminder named Tickets in 100 minutes.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_020"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Phone +15550101 and put Sync on the calendar 15 minutes from now.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_025"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Abra um site.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_amb_011"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Abra uma rota de carro no Mapas até Apple Park, Cupertino.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_031"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Driving route to Central Park, and open https://www.swift.org. Unrelated actions.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_032"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Crie um lembrete chamado Retornar Fabio para daqui a 60 minutos e depois faça uma chamada de FaceTime áudio para o Fabio.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_034"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Rota de carro para a Estação da Luz. Lembrete Carregar o bilhete daqui a 8 minutos. Nada de ligação.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_018"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Busque Carla, mande a mensagem Entro no FaceTime. e faça FaceTime áudio para o número encontrado. Não invente outro telefone.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_047"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Faça uma chamada de FaceTime áudio para a Carla.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_023"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Lembrete Regar a horta daqui a 16 minutos. E-mail para horta@example.com, assunto Rega, corpo Feita às 7h.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_038"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Reminder Submit the form in 22 minutes. Email ops@example.com subject Form body Submitted.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_037"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Mande uma mensagem para o Bruno dizendo Sobre o relatório 2. Também crie o evento Relatório Bruno daqui a 50 minutos; o evento não depende do telefone.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_038"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Start a FaceTime audio call with Diego after you look up the number.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_024"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Crie um lembrete chamado Retornar Fabio para daqui a 60 minutos e depois faça uma chamada de FaceTime áudio para o Fabio.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_034"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Browse to https://www.w3.org.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_040"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Safari: https://www.swift.org",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_039"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Busque Fabio, mande a mensagem Entro no FaceTime. e faça FaceTime áudio para o número encontrado. Não invente outro telefone.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_050"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Busque Ana, mande a mensagem Entro no FaceTime. e faça FaceTime áudio para o número encontrado. Não invente outro telefone.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_045"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Mande uma mensagem para o Diego dizendo Sobre o relatório 4. Também crie o evento Relatório Diego daqui a 50 minutos; o evento não depende do telefone.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_040"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Mostre o caminho de carro para a Praça da Sé.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_034"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Put Office hours on the calendar 120 minutes from now.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_025"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Marque com ela amanhã às 10.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_amb_018"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Evento Banca daqui a 100 minutos. Ligação para +15550109. São pedidos separados.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_023"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Crie um lembrete chamado Retornar Marina para daqui a 75 minutos e depois faça uma chamada de FaceTime áudio para a Marina.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_035"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Open driving directions to the Golden Gate Bridge.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_035"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Create the event Relatório Fabio in 50 minutes, and message Fabio saying Sobre o relatório 6. The message needs the contact's number.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_042"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Open https://developer.apple.com/documentation in Safari.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_037"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Preciso consultar a norma. Abra https://www.iso.org no Safari e não crie evento.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_038"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Evento Banca daqui a 100 minutos. Ligação para +15550109. São pedidos separados.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_023"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Add a reminder called Backup laptop for 75 minutes from now.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_030"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Abra https://www.apple.com e uma rota de carro até o Parque Ibirapuera.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_031"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Marque com ela amanhã às 10.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_amb_018"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Create the event Relatório Elena in 50 minutes, and message Elena saying Sobre o relatório 5. The message needs the contact's number.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_041"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Consulte https://www.w3.org no Safari e trace a rota de carro para a Pinacoteca.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_034"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Abra uma rota de carro até o MASP e crie um lembrete Ingresso daqui a 80 minutos.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_016"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Create the event Relatório Fabio in 50 minutes, and message Fabio saying Sobre o relatório 6. The message needs the contact's number.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_042"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Rota até o Mercadão. Página https://www.iso.org. Não marque nada no calendário.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_033"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Ligue para +15550106 e crie o evento Entrevista daqui a 70 minutos.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_021"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Faça uma chamada de FaceTime áudio para a Marina.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_027"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Mande uma mensagem para a Ana dizendo Sobre o relatório 1. Também crie o evento Relatório Ana daqui a 50 minutos; o evento não depende do telefone.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_037"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Daqui a 55 minutos, lembrete Sair de casa. E abra a rota até o Teatro Municipal.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_019"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Preciso consultar a norma. Abra https://www.iso.org no Safari e não crie evento.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_038"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Faça uma chamada de FaceTime áudio para a Ana.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_021"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Crie um lembrete chamado Retornar Pedro para daqui a 90 minutos e depois faça uma chamada de FaceTime áudio para o Pedro.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_036"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Daqui a 15 minutos, crie o evento Almoço com o orientador.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_024"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Apague todos os lembretes.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_amb_015"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Text whoever you want.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_amb_020"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Os dois números já estão no pedido. FaceTime áudio +15550100. Mensagem para +15550102: Pode entrar.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_028"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Apague todos os lembretes.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_amb_015"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Crie um lembrete chamado Retornar Elena para daqui a 45 minutos e depois faça uma chamada de FaceTime áudio para a Elena.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_033"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Reminder Submit the form in 22 minutes. Email ops@example.com subject Form body Submitted.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_037"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Busque Elena, mande a mensagem Entro no FaceTime. e faça FaceTime áudio para o número encontrado. Não invente outro telefone.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_049"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Amanhã não; daqui a 20 minutos crie o lembrete Enviar o PDF.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_028"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Busque Elena, mande a mensagem Entro no FaceTime. e faça FaceTime áudio para o número encontrado. Não invente outro telefone.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_049"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Abra https://www.apple.com e uma rota de carro até o Parque Ibirapuera.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_031"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Mande +15550106 o texto Sala 3. Em paralelo, FaceTime áudio para +15550108.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_029"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Text +15550105 saying The gate is open.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_017"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Busque Carla, mande a mensagem Entro no FaceTime. e faça FaceTime áudio para o número encontrado. Não invente outro telefone.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_047"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Drive to 1 Infinite Loop, Cupertino.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_032"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Sem abrir mapa: e-mail para arquivo@example.com assunto Caixa corpo Na sala 2, e lembrete Etiquetar daqui a 28 minutos.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_039"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Crie um lembrete chamado Retornar Marina para daqui a 75 minutos e depois faça uma chamada de FaceTime áudio para a Marina.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_035"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Start a FaceTime audio call with Diego after you look up the number.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_024"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Open https://developer.apple.com/documentation then show a driving route to Ferry Building.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_035"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Ligue para a Ana no número +15550999.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_amb_014"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Start a FaceTime audio call with Fabio after you look up the number.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_026"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Remind me to Buy bread in 45 minutes.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_027"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Remind me to Buy bread in 45 minutes.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_027"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Directions to the British Museum by car, plus a reminder named Tickets in 100 minutes.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_020"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Start a FaceTime audio call with Fabio after you look up the number.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_026"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Faça uma chamada de FaceTime áudio para a Marina.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_027"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Crie um lembrete chamado Levar slides para daqui a 30 minutos.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_026"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Create the event Relatório Pedro in 50 minutes, and message Pedro saying Sobre o relatório 8. The message needs the contact's number.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_044"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Mostre o caminho de carro para a Praça da Sé.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_single_034"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Message +15550104 saying Joining now, and start FaceTime audio to +15550105.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_027"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Mande no Mensagens para +15550107 o texto Já saí de casa.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_018"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Abra um site.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_amb_011"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Start a FaceTime audio call with Bruno after you look up the number.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_seq_022"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Crie um lembrete chamado Retornar Bruno para daqui a 20 minutos e depois faça uma chamada de FaceTime áudio para o Bruno.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_030"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "E-mail para sofia@example.com assunto Chaves corpo Deixei na portaria, e um lembrete Devolver o livro daqui a 40 minutos.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_036"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Marque Revisão do artigo daqui a 90 minutos. Não mande e-mail.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_023"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Lembrete: Buscar o crachá, daqui a 10 minutos. Não ligue para ninguém.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_single_029"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Remind me to Pack a coat in 18 minutes and get driving directions to Pike Place Market.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_multi_017"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Create the event Relatório Marina in 50 minutes, and message Marina saying Sobre o relatório 7. The message needs the contact's number.",
+      "runIndex" : 1,
+      "strategy" : "direct",
+      "taskID" : "apple_seq_043"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Sem abrir mapa: e-mail para arquivo@example.com assunto Caixa corpo Na sala 2, e lembrete Etiquetar daqui a 28 minutos.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_039"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "FaceTime audio +15550109. SMS +15550103: On my way. Do not create a reminder.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_030"
+    },
+    {
+      "agent" : "qwen",
+      "executionMode" : "simulated",
+      "phase" : "measured",
+      "prompt" : "Driving route to Central Park, and open https://www.swift.org. Unrelated actions.",
+      "runIndex" : 1,
+      "strategy" : "plan_act",
+      "taskID" : "apple_multi_032"
+    }
+  ],
+  "mlxSwiftLM" : "3.31.4",
+  "protocolVersion" : "2.0",
+  "results" : [
+    {
+      "appVersion" : "1.0 (1)",
+      "argumentsReason" : null,
+      "backend" : "mlx",
+      "batteryAfter" : 0.6,
+      "batteryBefore" : 0.6,
+      "batteryLevelAfter" : 0.6,
+      "batteryLevelBefore" : 0.6,
+      "completionCorrect" : true,
+      "completionReason" : null,
+      "countsTowardAnalysis" : true,
+      "dataset" : "apple",
+      "datasetId" : "apple",
+      "decodeLatencyMs" : 9585.669040679932,
+      "decodeTokensPerSecond" : 45.460800589185844,
+      "device" : "iPhone17,1",
+      "duplicateToolCalls" : 0,
+      "error" : null,
+      "evaluationVersion" : "apple-trajectory-1",
+      "executionMode" : "simulated",
+      "exitChecks" : null,
+      "exitedEarly" : null,
+      "experiment" : "apple_single_016",
+      "failureKind" : null,
+      "firstTextMs" : 5164.58225005772,
+      "generatedTokens" : 560,
+      "id" : "285D68E6-241B-4811-9625-112309BFD975",
+      "inferenceMs" : 11685.804041684605,
+      "inferenceSeed" : "736194",
+      "inputTokens" : 2586,
+      "invalidToolCalls" : 0,
+      "memoryAfterMB" : 1633.863416,
+      "memoryBeforeMB" : 42.877872,
+      "memoryUsageMB" : 1633.863416,
+      "mlxSwiftLM" : "3.31.4",
+      "model" : "mlx-community/Qwen3-1.7B-4bit",
+      "modelId" : "qwen",
+      "modelLoadMs" : 1104.2390832444653,
+      "orderSeed" : "736194",
+      "osVersion" : "Version 26.6.2 (Build 23G90)",
+      "outputTokens" : 560,
+      "phase" : "measured",
+      "plan" : "<think>\nOkay, the user wants to send a message to +15550101 saying \"Chego em 10 minutos.\" They need a short plan, at most five lines, and no tools. Let me think.\n\nFirst, the message should be clear and direct. The person is in a hurry, so the tone should be urgent but not too harsh. Maybe start with a greeting, then the message, and a polite sign-off. But since it's for a phone number, maybe just the message and a sign-off. Let me check the example response. Oh, they said \"Chego em ",
+      "planLatencyMs" : 2670.3175416914746,
+      "prefillLatencyMs" : 479.822039604187,
+      "prefillTokensPerSecond" : 354.2980229508335,
+      "promptCharacters" : 62,
+      "protocolId" : "cross_model",
+      "protocolVersion" : "2.0",
+      "repeatedPrefillMs" : 1257.2319507598877,
+      "repetitions" : 1,
+      "response" : "<think>\nOkay, the user wants to send a message to +15550101 saying \"Chego em 10 minutos.\" Let me see which tool to use. The available tools are ligar, ligarFaceTime, enviarEmail, enviarMensagem, criarEvento, criarLembrete, abrirRota, abrirSafari.\n\nThe user mentioned sending a message, so probably enviarMensagem. But the parameters require numero and corpo. The number is +15550101, which is valid. The corpo is \"Chego em 10 minutos.\" So the function is enviarMensagem with those arguments. I need to make sure the number is in the correct format. The tool says it should be a country code, but the user provided +15550101, which is correct. So the function call should be enviarMensagem with numero and corpo. Let me double-check the parameters. Yes, required are numero and corpo. So the JSON would be {\"nome\": \"enviarMensagem\", \"arguments\": {\"numero\": \"+15550101\", \"corpo\": \"Chego em 10 minutos.\"}}. That should do it.\n</think>\n\n<think>\nOkay, the user wanted to send a message to +15550101 saying \"Chego em 10 minutos.\" I used the enviarMensagem tool with those parameters. The response from the tool was \"sms:+15550101,\" which indicates the message was sent. Now, the user might want to confirm if it went through. Since the tool's response is just the status, I should let them know it was sent. No need for further actions since the task is complete. Just a simple confirmation message.\n</think>\n\nA mensagem foi enviada para o número +15550101.",
+      "routerDecisionMs" : null,
+      "routerReason" : null,
+      "runIndex" : 1,
+      "sampling" : "greedy",
+      "seedAffectsSampling" : false,
+      "selectionReason" : null,
+      "sequenceReason" : null,
+      "startKind" : "cold",
+      "stopReason" : "stop",
+      "strategy" : "plan_act",
+      "strategyId" : "plan_act",
+      "success" : true,
+      "taskId" : "apple_single_016",
+      "taskKind" : "single_tool",
+      "taskSetId" : "apple_heldout_90",
+      "taskSuccess" : true,
+      "temperature" : 0,
+      "thermalAfter" : "nominal",
+      "thermalBefore" : "nominal",
+      "thermalGate" : "ready",
+      "thermalStateAfter" : "nominal",
+      "thermalStateBefore" : "nominal",
+      "thermalWaitMs" : null,
+      "thinkingTokens" : null,
+      "timeToFirstTokenMs" : 5164.58225005772,
+      "timeToFirstToolCallMs" : 11685.804041684605,
+      "timestamp" : "2026-10-20T19:25:21Z",
+      "tokensPerSecond" : 58.420544004122846,
+      "toolArgumentsCorrect" : true,
+      "toolCallCount" : 1,
+      "toolCallingMode" : "prompt_requested",
+      "toolCalls" : [
+        {
+          "arguments" : {
+            "corpo" : "Chego em 10 minutos.",
+            "numero" : "+15550101"
+          },
+          "index" : 0,
+          "output" : "sms:+15550101",
+          "tool" : "enviarMensagem",
+          "values" : {
+            "corpo" : "Chego em 10 minutos.",
+            "numero" : "+15550101"
+          }
+        }
+      ],
+      "toolExecutionMs" : 0.02579169813543558,
+      "toolSelectionCorrect" : true,
+      "toolSequenceCorrect" : true,
+      "toolTrace" : [
+        "enviarMensagem: sms:+15550101"
+      ],
+      "totalLatencyMs" : 16326.182041782886,
+      "totalMs" : 17430.42112502735,
+      "ttftMs" : 479.822039604187
+    },
+    {
+      "appVersion" : "1.0 (1)",
+      "argumentsReason" : "argumentos de enviarEmail não batem com o esperado",
+      "backend" : "mlx",
+      "batteryAfter" : 0.6,
+      "batteryBefore" : 0.6,
+      "batteryLevelAfter" : 0.6,
+      "batteryLevelBefore" : 0.6,
+      "completionCorrect" : false,
+      "completionReason" : "efeito ausente: email, reminder",
+      "countsTowardAnalysis" : true,
+      "dataset" : "apple",
+      "datasetId" : "apple",
+      "decodeLatencyMs" : 5349.355936050415,
+      "decodeTokensPerSecond" : 46.02737226698191,
+      "device" : "iPhone17,1",
+      "duplicateToolCalls" : 0,
+      "error" : "Avaliação: faltou criarLembrete; extra ",
+      "evaluationVersion" : "apple-trajectory-1",
+      "executionMode" : "simulated",
+      "exitChecks" : null,
+      "exitedEarly" : null,
+      "experiment" : "apple_multi_040",
+      "failureKind" : "grade",
+      "firstTextMs" : 3177.977458341047,
+      "generatedTokens" : 370,
+      "id" : "0CEC35D3-753E-4E8A-BE79-582A9A4833DA",
+      "inferenceMs" : 4686.996083357371,
+      "inferenceSeed" : "736194",
+      "inputTokens" : 2342,
+      "invalidToolCalls" : 0,
+      "memoryAfterMB" : 1611.826936,
+      "memoryBeforeMB" : 1539.737336,
+      "memoryUsageMB" : 1611.826936,
+      "mlxSwiftLM" : "3.31.4",
+      "model" : "mlx-community/Qwen3-1.7B-4bit",
+      "modelId" : "qwen",
+      "modelLoadMs" : null,
+      "orderSeed" : "736194",
+      "osVersion" : "Version 26.6.2 (Build 23G90)",
+      "outputTokens" : 370,
+      "phase" : "measured",
+      "plan" : "<think>\nOkay, the user wants a short plan, no more than five lines. They mentioned an email to studio@example.com about body gel packs and a reminder to wrap cables in 65 minutes. Let me break this down.\n\nFirst, the main points: notify the studio about the body gel packs being packed. Then, remind them to wrap the cables in 65 minutes. The response needs to be concise. Maybe start with a subject line? Wait, the user didn't mention a subject line, just the body. So the email should have the two key points: packing the body gels and the cable wrapping reminder.",
+      "planLatencyMs" : 2669.048041687347,
+      "prefillLatencyMs" : 489.4700050354004,
+      "prefillTokensPerSecond" : 343.2283863601603,
+      "promptCharacters" : 100,
+      "protocolId" : "cross_model",
+      "protocolVersion" : "2.0",
+      "repeatedPrefillMs" : 671.3839769363403,
+      "repetitions" : 1,
+      "response" : "<think>\n</think>\n\n<think>\nOkay, the user wanted to send an email to studio@example.com about body gels being packed and a reminder to wrap cables in 65 minutes. I used the enviarEmail function with the subject \"Body Gels Packed\" and the body message as specified. The tool response shows the email was sent successfully. Now, the next step is to confirm that the email was sent and maybe check if the reminder is handled. But the user's original request was completed, so I should let them know it's done. No further actions needed unless there's a follow-up, but the current task is done.\n</think>\n\nO email foi enviado com sucesso para studio@example.com. Os dois pontos do pedido foram abordados: notificação sobre os body gels embalados e lembrança de wrapar cabos em 65 minutos.",
+      "routerDecisionMs" : null,
+      "routerReason" : null,
+      "runIndex" : 1,
+      "sampling" : "greedy",
+      "seedAffectsSampling" : false,
+      "selectionReason" : "faltou criarLembrete; extra ",
+      "sequenceReason" : "sem restrição de ordem",
+      "startKind" : "warm",
+      "stopReason" : "stop",
+      "strategy" : "plan_act",
+      "strategyId" : "plan_act",
+      "success" : false,
+      "taskId" : "apple_multi_040",
+      "taskKind" : "multi_tool",
+      "taskSetId" : "apple_heldout_90",
+      "taskSuccess" : false,
+      "temperature" : 0,
+      "thermalAfter" : "nominal",
+      "thermalBefore" : "nominal",
+      "thermalGate" : "ready",
+      "thermalStateAfter" : "nominal",
+      "thermalStateBefore" : "nominal",
+      "thermalWaitMs" : null,
+      "thinkingTokens" : null,
+      "timeToFirstTokenMs" : 3177.977458341047,
+      "timeToFirstToolCallMs" : 4686.996083357371,
+      "timestamp" : "2026-10-20T19:25:39Z",
+      "tokensPerSecond" : 69.1672052529714,
+      "toolArgumentsCorrect" : false,
+      "toolCallCount" : 1,
+      "toolCallingMode" : "prompt_requested",
+      "toolCalls" : [
+        {
+          "arguments" : {
+            "assunto" : "Body Gels Packed",
+            "corpo" : "Os body gels estão embalados. Aviso: Remembre wrapar cabos em 65 minutos.",
+            "destinatario" : "studio@example.com"
+          },
+          "index" : 0,
+          "output" : "mailto:studio@example.com",
+          "tool" : "enviarEmail",
+          "values" : {
+            "assunto" : "Body Gels Packed",
+            "corpo" : "Os body gels estão embalados. Aviso: Remembre wrapar cabos em 65 minutos.",
+            "destinatario" : "studio@example.com"
+          }
+        }
+      ],
+      "toolExecutionMs" : 0.03941659815609455,
+      "toolSelectionCorrect" : false,
+      "toolSequenceCorrect" : null,
+      "toolTrace" : [
+        "enviarEmail: mailto:studio@example.com"
+      ],
+      "totalLatencyMs" : 9246.499208384193,
+      "totalMs" : 9246.499208384193,
+      "ttftMs" : 489.4700050354004
+    }
+  ],
+  "sessionID" : "C97C0CA8-39C0-4FD9-B1B4-07F4583FC47A",
+  "startedAt" : "2026-10-20T19:25:21Z"
+}

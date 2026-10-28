@@ -1,0 +1,3005 @@
+{
+ "tasks": [
+  {
+   "id": "simple_python_35",
+   "category": "simple_python",
+   "messages": [
+    {
+     "role": "user",
+     "content": "Find an all vegan restaurant in New York that opens until at least 11 PM."
+    }
+   ],
+   "function": [
+    {
+     "name": "vegan_restaurant.find_nearby",
+     "description": "Locate nearby vegan restaurants based on specific criteria like operating hours.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "location": {
+        "type": "string",
+        "description": "The city and state, e.g. New York, NY, you should format it as City, State."
+       },
+       "operating_hours": {
+        "type": "integer",
+        "description": "Preferred latest closing time of the restaurant. E.g. if 11 is given, then restaurants that close at or after 11 PM will be considered. This is in 24 hour format. Default is 24."
+       }
+      },
+      "required": [
+       "location"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "vegan_restaurant.find_nearby": {
+      "location": [
+       "New York, NY"
+      ],
+      "operating_hours": [
+       23
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "simple_python_61",
+   "category": "simple_python",
+   "messages": [
+    {
+     "role": "user",
+     "content": "Predict whether a person with weight 150lbs and height 5ft 10in who is lightly active will get type 2 diabetes."
+    }
+   ],
+   "function": [
+    {
+     "name": "diabetes_prediction",
+     "description": "Predict the likelihood of diabetes type 2 based on a person's weight and height.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "weight": {
+        "type": "integer",
+        "description": "Weight of the person in lbs."
+       },
+       "height": {
+        "type": "integer",
+        "description": "Height of the person in inches."
+       },
+       "activity_level": {
+        "type": "string",
+        "enum": [
+         "sedentary",
+         "lightly active",
+         "moderately active",
+         "very active",
+         "extra active"
+        ],
+        "description": "Physical activity level of the person."
+       }
+      },
+      "required": [
+       "weight",
+       "height",
+       "activity_level"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "diabetes_prediction": {
+      "weight": [
+       150
+      ],
+      "height": [
+       70
+      ],
+      "activity_level": [
+       "lightly active"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "simple_python_76",
+   "category": "simple_python",
+   "messages": [
+    {
+     "role": "user",
+     "content": "Get me the predictions of the evolutionary rate for Homo Sapiens for next 50 years using Darwin model"
+    }
+   ],
+   "function": [
+    {
+     "name": "prediction.evolution",
+     "description": "Predict the evolutionary rate for a specific species for a given timeframe.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "species": {
+        "type": "string",
+        "description": "The species that the evolution rate will be predicted for."
+       },
+       "years": {
+        "type": "integer",
+        "description": "Number of years for the prediction."
+       },
+       "model": {
+        "type": "string",
+        "description": "The model used to make the prediction, options: 'Darwin', 'Lamarck', default is 'Darwin'."
+       }
+      },
+      "required": [
+       "species",
+       "years"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "prediction.evolution": {
+      "species": [
+       "Homo Sapiens",
+       "homo sapiens",
+       "Homo sapiens"
+      ],
+      "years": [
+       50
+      ],
+      "model": [
+       "Darwin"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "simple_python_88",
+   "category": "simple_python",
+   "messages": [
+    {
+     "role": "user",
+     "content": "Calculate the BMI (Body Mass Index) of a person who weighs 70kg and is 1.75m tall."
+    }
+   ],
+   "function": [
+    {
+     "name": "calculate_BMI",
+     "description": "Calculate the Body Mass Index (BMI) given a person's weight and height.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "weight_kg": {
+        "type": "integer",
+        "description": "The weight of the person in kilograms."
+       },
+       "height_m": {
+        "type": "float",
+        "description": "The height of the person in meters."
+       }
+      },
+      "required": [
+       "weight_kg",
+       "height_m"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "calculate_BMI": {
+      "weight_kg": [
+       70
+      ],
+      "height_m": [
+       1.75
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "simple_python_106",
+   "category": "simple_python",
+   "messages": [
+    {
+     "role": "user",
+     "content": "Train a random forest classifier on dataset your_dataset_name with maximum depth of trees as 5, and number of estimators as 100."
+    }
+   ],
+   "function": [
+    {
+     "name": "train_random_forest_classifier",
+     "description": "Train a Random Forest classifier with the specified parameters.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "dataset": {
+        "type": "string",
+        "description": "The dataset to train the classifier on."
+       },
+       "max_depth": {
+        "type": "integer",
+        "description": "The maximum depth of the trees in the forest."
+       },
+       "n_estimators": {
+        "type": "integer",
+        "description": "The number of trees in the forest."
+       }
+      },
+      "required": [
+       "dataset",
+       "max_depth",
+       "n_estimators"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "train_random_forest_classifier": {
+      "dataset": [
+       "your_dataset_name"
+      ],
+      "max_depth": [
+       5
+      ],
+      "n_estimators": [
+       100
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "simple_python_107",
+   "category": "simple_python",
+   "messages": [
+    {
+     "role": "user",
+     "content": "Calculate the Body Mass Index for a person with a weight of 70 kg and a height of 175 cm."
+    }
+   ],
+   "function": [
+    {
+     "name": "calculate_bmi",
+     "description": "Calculate the Body Mass Index (BMI) for a person based on their weight and height.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "weight": {
+        "type": "integer",
+        "description": "The weight of the person in kilograms."
+       },
+       "height": {
+        "type": "integer",
+        "description": "The height of the person in centimeters."
+       },
+       "system": {
+        "type": "string",
+        "description": "The system of units to be used, 'metric' or 'imperial'. Default is 'metric'."
+       }
+      },
+      "required": [
+       "weight",
+       "height"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "calculate_bmi": {
+      "weight": [
+       70
+      ],
+      "height": [
+       175
+      ],
+      "system": [
+       "metric",
+       ""
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "simple_python_219",
+   "category": "simple_python",
+   "messages": [
+    {
+     "role": "user",
+     "content": "What are the coordinates of the neuron in a rat's all part of the brain that produces GABA neurotransmitters?"
+    }
+   ],
+   "function": [
+    {
+     "name": "get_neuron_coordinates",
+     "description": "Retrieve the coordinates of the specified neuron in the rat's brain.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "neuron_type": {
+        "type": "string",
+        "description": "Type of neuron to find. For instance, GABA, Glutamate, etc."
+       },
+       "brain_region": {
+        "type": "string",
+        "description": "The region of the brain to consider.",
+        "default": "All"
+       }
+      },
+      "required": [
+       "neuron_type",
+       "brain_region"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "get_neuron_coordinates": {
+      "neuron_type": [
+       "GABA"
+      ],
+      "brain_region": [
+       "All",
+       "all part of the brain",
+       "entire brain"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "simple_python_316",
+   "category": "simple_python",
+   "messages": [
+    {
+     "role": "user",
+     "content": "Find the current world rank of a Tennis player, Serena Williams."
+    }
+   ],
+   "function": [
+    {
+     "name": "get_sport_ranking",
+     "description": "Retrieve the current world ranking of a sportsperson based on the sport and player's name.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "sport": {
+        "type": "string",
+        "description": "Name of the sport."
+       },
+       "player_name": {
+        "type": "string",
+        "description": "Name of the player."
+       },
+       "gender": {
+        "type": "string",
+        "description": "Gender of the player. This is optional. The possible values are male or female.",
+        "default": "all"
+       }
+      },
+      "required": [
+       "sport",
+       "player_name"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "get_sport_ranking": {
+      "sport": [
+       "Tennis"
+      ],
+      "player_name": [
+       "Serena Williams"
+      ],
+      "gender": [
+       "",
+       "all",
+       "female"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "multiple_16",
+   "category": "multiple",
+   "messages": [
+    {
+     "role": "user",
+     "content": "What's the required minimum population size (Ne) for maintaining the genetic diversity of a wild tiger population for the next 100 generations with a probability of 0.95?"
+    }
+   ],
+   "function": [
+    {
+     "name": "species_distribution_modeling.project_range_shift",
+     "description": "Predict the potential future geographic distribution of a species under a specified climate change scenario.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "species": {
+        "type": "string",
+        "description": "The species of animal."
+       },
+       "climate_scenario": {
+        "type": "string",
+        "description": "The name of the climate change scenario."
+       },
+       "future_time": {
+        "type": "integer",
+        "description": "The future time in years for the prediction.",
+        "default": 100
+       }
+      },
+      "required": [
+       "species",
+       "climate_scenario"
+      ]
+     }
+    },
+    {
+     "name": "population_genetics.calculate_ne",
+     "description": "Calculate the effective population size necessary to maintain genetic diversity in a wild animal population for a specified number of generations with a given probability.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "species": {
+        "type": "string",
+        "description": "The species of wild animal."
+       },
+       "generations": {
+        "type": "integer",
+        "description": "The number of generations for which to maintain the genetic diversity."
+       },
+       "probability": {
+        "type": "float",
+        "description": "The probability of maintaining genetic diversity."
+       }
+      },
+      "required": [
+       "species",
+       "generations",
+       "probability"
+      ]
+     }
+    },
+    {
+     "name": "ecology.calculate_carrying_capacity",
+     "description": "Calculate the maximum population size of the species that the environment can sustain indefinitely.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "habitat_area": {
+        "type": "float",
+        "description": "The area of the habitat in square kilometers."
+       },
+       "species": {
+        "type": "string",
+        "description": "The species of animal."
+       },
+       "productivity": {
+        "type": "float",
+        "description": "The biological productivity of the habitat in animals per square kilometer per year."
+       }
+      },
+      "required": [
+       "habitat_area",
+       "species",
+       "productivity"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "population_genetics.calculate_ne": {
+      "species": [
+       "wild tiger",
+       "tiger"
+      ],
+      "generations": [
+       100
+      ],
+      "probability": [
+       0.95
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "multiple_17",
+   "category": "multiple",
+   "messages": [
+    {
+     "role": "user",
+     "content": "Find the conversion rate from Euro to Dollar at January 1, 2022"
+    }
+   ],
+   "function": [
+    {
+     "name": "currency_conversion.convert",
+     "description": "Converts a specified amount of money from one currency to another at the latest rate.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "from_currency": {
+        "type": "string",
+        "description": "The currency that you want to convert from."
+       },
+       "to_currency": {
+        "type": "string",
+        "description": "The currency that you want to convert to."
+       },
+       "amount": {
+        "type": "float",
+        "description": "The amount of money that you want to convert."
+       }
+      },
+      "required": [
+       "from_currency",
+       "to_currency",
+       "amount"
+      ]
+     }
+    },
+    {
+     "name": "currency_conversion.get_latest_rate",
+     "description": "Get the latest currency conversion rate from one currency to another.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "from_currency": {
+        "type": "string",
+        "description": "The currency that you want to convert from."
+       },
+       "to_currency": {
+        "type": "string",
+        "description": "The currency that you want to convert to."
+       }
+      },
+      "required": [
+       "from_currency",
+       "to_currency"
+      ]
+     }
+    },
+    {
+     "name": "currency_conversion.get_rate",
+     "description": "Get the currency conversion rate from one currency to another at a specified date.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "from_currency": {
+        "type": "string",
+        "description": "The currency that you want to convert from."
+       },
+       "to_currency": {
+        "type": "string",
+        "description": "The currency that you want to convert to."
+       },
+       "date": {
+        "type": "string",
+        "description": "The date at which the conversion rate applies. Default is the current date.",
+        "default": "today"
+       }
+      },
+      "required": [
+       "from_currency",
+       "to_currency"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "currency_conversion.get_rate": {
+      "from_currency": [
+       "EUR",
+       "Euro"
+      ],
+      "to_currency": [
+       "Dollar",
+       "USD"
+      ],
+      "date": [
+       "2022-01-01",
+       "01/01/2022",
+       "1/1/2022",
+       "Jan.1,2022",
+       "January 1, 2022",
+       "2022-1-1"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "multiple_20",
+   "category": "multiple",
+   "messages": [
+    {
+     "role": "user",
+     "content": "What is the price to commission a sculpture made of marble with a size of 3 feet?"
+    }
+   ],
+   "function": [
+    {
+     "name": "sculptor_info.get",
+     "description": "Get information about a specific sculptor.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "name": {
+        "type": "string",
+        "description": "The name of the sculptor."
+       }
+      },
+      "required": [
+       "name"
+      ]
+     }
+    },
+    {
+     "name": "sculpture_price.calculate",
+     "description": "Calculate the estimated price to commission a sculpture based on the material and size.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "material": {
+        "type": "string",
+        "description": "The material used for the sculpture."
+       },
+       "size": {
+        "type": "integer",
+        "description": "The size of the sculpture in feet."
+       },
+       "complexity": {
+        "type": "string",
+        "enum": [
+         "low",
+         "medium",
+         "high"
+        ],
+        "description": "The complexity level of the sculpture. Default is 'medium'.",
+        "default": "medium"
+       }
+      },
+      "required": [
+       "material",
+       "size"
+      ]
+     }
+    },
+    {
+     "name": "sculpture_availability.check",
+     "description": "Check the availability of a specific sculpture in the inventory.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "sculpture_name": {
+        "type": "string",
+        "description": "The name of the sculpture."
+       },
+       "material": {
+        "type": "string",
+        "description": "The material of the sculpture."
+       }
+      },
+      "required": [
+       "sculpture_name",
+       "material"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "sculpture_price.calculate": {
+      "material": [
+       "marble"
+      ],
+      "size": [
+       3
+      ],
+      "complexity": [
+       "medium",
+       ""
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "multiple_30",
+   "category": "multiple",
+   "messages": [
+    {
+     "role": "user",
+     "content": "What is the area of a rectangle with length 12 meters and width 5 meters?"
+    }
+   ],
+   "function": [
+    {
+     "name": "rectangle.area",
+     "description": "Calculate the area of a rectangle with given length and width",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "length": {
+        "type": "integer",
+        "description": "Length of the rectangle"
+       },
+       "width": {
+        "type": "integer",
+        "description": "Width of the rectangle"
+       }
+      },
+      "required": [
+       "length",
+       "width"
+      ]
+     }
+    },
+    {
+     "name": "circle.area",
+     "description": "Calculate the area of a circle with given radius",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "radius": {
+        "type": "float",
+        "description": "Radius of the circle"
+       },
+       "isDiameter": {
+        "type": "boolean",
+        "description": "Whether the given length is the diameter of the circle, default is false",
+        "default": false
+       }
+      },
+      "required": [
+       "radius"
+      ]
+     }
+    },
+    {
+     "name": "triangle.area",
+     "description": "Calculate the area of a triangle with given base and height",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "base": {
+        "type": "float",
+        "description": "Base of the triangle"
+       },
+       "height": {
+        "type": "float",
+        "description": "Height of the triangle"
+       }
+      },
+      "required": [
+       "base",
+       "height"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "rectangle.area": {
+      "length": [
+       12
+      ],
+      "width": [
+       5
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "multiple_68",
+   "category": "multiple",
+   "messages": [
+    {
+     "role": "user",
+     "content": "Can I find a historical fiction book at the New York public library?"
+    }
+   ],
+   "function": [
+    {
+     "name": "library.search_books",
+     "description": "Search for a book in a given library with optional parameters",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "location": {
+        "type": "string",
+        "description": "Name or city of library"
+       },
+       "genre": {
+        "type": "string",
+        "description": "Genre of the book"
+       },
+       "title": {
+        "type": "string",
+        "description": "Title of the book. Default ''"
+       }
+      },
+      "required": [
+       "location",
+       "genre"
+      ]
+     }
+    },
+    {
+     "name": "google.books_search",
+     "description": "Search for a book in the Google Books library with optional parameters",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "genre": {
+        "type": "string",
+        "description": "Genre of the book"
+       },
+       "title": {
+        "type": "string",
+        "description": "Title of the book. Default ''"
+       }
+      },
+      "required": [
+       "genre"
+      ]
+     }
+    },
+    {
+     "name": "openlibrary.books_search",
+     "description": "Search for a book in the Open Library with optional parameters",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "genre": {
+        "type": "string",
+        "description": "Genre of the book"
+       },
+       "title": {
+        "type": "string",
+        "description": "Title of the book. Default ''"
+       }
+      },
+      "required": [
+       "genre"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "library.search_books": {
+      "location": [
+       "New York",
+       "New York, NY",
+       "New York City",
+       "New York City, NY",
+       "NYC",
+       "New York public library"
+      ],
+      "genre": [
+       "Historical Fiction",
+       "historical fiction"
+      ],
+      "title": [
+       ""
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "multiple_117",
+   "category": "multiple",
+   "messages": [
+    {
+     "role": "user",
+     "content": "Calculate the BMI (Body Mass Index) of a person who weighs 70kg and is 1.75m tall."
+    }
+   ],
+   "function": [
+    {
+     "name": "calculate_BMI",
+     "description": "Calculate the Body Mass Index (BMI) given a person's weight and height.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "weight_kg": {
+        "type": "integer",
+        "description": "The weight of the person in kilograms."
+       },
+       "height_m": {
+        "type": "float",
+        "description": "The height of the person in meters."
+       }
+      },
+      "required": [
+       "weight_kg",
+       "height_m"
+      ]
+     }
+    },
+    {
+     "name": "soccer.get_last_match",
+     "description": "Retrieve the details of the last match played by a specified soccer club.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "team_name": {
+        "type": "string",
+        "description": "The name of the soccer club."
+       },
+       "include_stats": {
+        "type": "boolean",
+        "description": "If true, include match statistics like possession, shots on target etc. Default is false."
+       }
+      },
+      "required": [
+       "team_name"
+      ]
+     }
+    },
+    {
+     "name": "hotel_booking",
+     "description": "Books a hotel room given the location, room type, stay duration and any additional preferences.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "location": {
+        "type": "string",
+        "description": "The city where you want to book the hotel."
+       },
+       "room_type": {
+        "type": "string",
+        "description": "Type of the room required. Options: 'single', 'double', 'deluxe', etc."
+       },
+       "duration": {
+        "type": "integer",
+        "description": "The number of nights you want to book the hotel for."
+       },
+       "start_date": {
+        "type": "string",
+        "description": "The date when your stay begins."
+       },
+       "preferences": {
+        "type": "array",
+        "items": {
+         "type": "string",
+         "enum": [
+          "pet_friendly",
+          "gym",
+          "swimming_pool",
+          "free_breakfast",
+          "parking"
+         ]
+        },
+        "description": "Optional preferences of stay at the hotel. Default is empty array."
+       }
+      },
+      "required": [
+       "location",
+       "room_type",
+       "duration",
+       "start_date"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "calculate_BMI": {
+      "weight_kg": [
+       70
+      ],
+      "height_m": [
+       1.75
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "multiple_136",
+   "category": "multiple",
+   "messages": [
+    {
+     "role": "user",
+     "content": "Provide me the official crime rate of violent crime in San Francisco in 2020."
+    }
+   ],
+   "function": [
+    {
+     "name": "get_crime_rate",
+     "description": "Retrieve the official crime rate of a city.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "city": {
+        "type": "string",
+        "description": "The name of the city."
+       },
+       "state": {
+        "type": "string",
+        "description": "The state where the city is located."
+       },
+       "type": {
+        "type": "string",
+        "description": "Optional. The type of crime. Default ''"
+       },
+       "year": {
+        "type": "integer",
+        "description": "Optional. The year for the crime rate data. Defaults to 2024."
+       }
+      },
+      "required": [
+       "city",
+       "state"
+      ]
+     }
+    },
+    {
+     "name": "poker_game_winner",
+     "description": "Identify the winner in a poker game based on the cards.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "players": {
+        "type": "array",
+        "items": {
+         "type": "string"
+        },
+        "description": "Names of the players in a list."
+       },
+       "cards": {
+        "type": "dict",
+        "description": "An object containing the player name as key and the cards as values in a list."
+       },
+       "type": {
+        "type": "string",
+        "description": "Type of poker game. Defaults to 'Texas Holdem'"
+       }
+      },
+      "required": [
+       "players",
+       "cards"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "get_crime_rate": {
+      "city": [
+       "San Francisco",
+       "San Francisco, CA",
+       "SF"
+      ],
+      "state": [
+       "California",
+       "CA"
+      ],
+      "type": [
+       "violent",
+       "Violent"
+      ],
+      "year": [
+       2020
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "multiple_151",
+   "category": "multiple",
+   "messages": [
+    {
+     "role": "user",
+     "content": "Find the most followed person on twitter who tweets about psychology related to behaviour and group dynamics."
+    }
+   ],
+   "function": [
+    {
+     "name": "social_media_analytics.most_followed",
+     "description": "Find the most followed Twitter user related to certain topics.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "topic": {
+        "type": "string",
+        "description": "The main topic of interest."
+       },
+       "sub_topics": {
+        "type": "array",
+        "items": {
+         "type": "string"
+        },
+        "description": "Sub-topics related to main topic, Optional. Default is an empty list."
+       },
+       "region": {
+        "type": "string",
+        "description": "Region of interest for twitter search, Optional. Default is 'global'."
+       }
+      },
+      "required": [
+       "topic"
+      ]
+     }
+    },
+    {
+     "name": "calculate_probability",
+     "description": "Calculate the probability of an event.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "total_outcomes": {
+        "type": "integer",
+        "description": "Total number of possible outcomes."
+       },
+       "favorable_outcomes": {
+        "type": "integer",
+        "description": "Number of outcomes considered as 'successful'."
+       },
+       "round_to": {
+        "type": "integer",
+        "description": "Number of decimal places to round the result to.",
+        "default": 2
+       }
+      },
+      "required": [
+       "total_outcomes",
+       "favorable_outcomes"
+      ]
+     }
+    },
+    {
+     "name": "concert_info.get",
+     "description": "Retrieve information about concerts based on specific genre, location and date.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "location": {
+        "type": "string",
+        "description": "The city where the concert will take place."
+       },
+       "date": {
+        "type": "string",
+        "description": "Time frame to get the concert for."
+       },
+       "genre": {
+        "type": "string",
+        "description": "Genre of the concert.",
+        "enum": [
+         "Pop",
+         "Rock",
+         "Country",
+         "Classical",
+         "Electronic",
+         "Hip-Hop"
+        ]
+       }
+      },
+      "required": [
+       "location",
+       "date",
+       "genre"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "social_media_analytics.most_followed": {
+      "topic": [
+       "psychology",
+       "Psychology"
+      ],
+      "sub_topics": [
+       [
+        "behaviour",
+        "group dynamics"
+       ],
+       [
+        "group dynamics",
+        "behaviour"
+       ]
+      ],
+      "region": [
+       "",
+       "global"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "parallel_63",
+   "category": "parallel",
+   "messages": [
+    {
+     "role": "user",
+     "content": "\"Can you help me find the roots of two quadratic equations? The first equation has coefficients of x squared, x, and the constant term as 5, 6, and 1 respectively. The second equation has coefficients of x squared, x, and the constant term as 3, 2, and 1 respectively. Can you solve these equations using the 'solve_quadratic_equation' function?\""
+    }
+   ],
+   "function": [
+    {
+     "name": "solve_quadratic_equation",
+     "description": "Function solves the quadratic equation and returns its roots.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "a": {
+        "type": "integer",
+        "description": "Coefficient of x squared"
+       },
+       "b": {
+        "type": "integer",
+        "description": "Coefficient of x"
+       },
+       "c": {
+        "type": "integer",
+        "description": "Constant term in the quadratic equation"
+       }
+      },
+      "required": [
+       "a",
+       "b",
+       "c"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "solve_quadratic_equation": {
+      "a": [
+       5
+      ],
+      "b": [
+       6
+      ],
+      "c": [
+       1
+      ]
+     }
+    },
+    {
+     "solve_quadratic_equation": {
+      "a": [
+       3
+      ],
+      "b": [
+       2
+      ],
+      "c": [
+       1
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "parallel_69",
+   "category": "parallel",
+   "messages": [
+    {
+     "role": "user",
+     "content": "\"John is a geometry teacher who is preparing a quiz for his students. He has drawn two triangles on the board. The first triangle has a base of 10 units and a height of 5 units. The second triangle has a base of 8 units and a height of 6 units. John wants to know the total area of the two triangles combined. Can you help him calculate this?\""
+    }
+   ],
+   "function": [
+    {
+     "name": "calculate_triangle_area",
+     "description": "Calculate the area of a triangle using its base and height.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "base": {
+        "type": "integer",
+        "description": "The length of the base of the triangle."
+       },
+       "height": {
+        "type": "integer",
+        "description": "The height of the triangle from the base."
+       }
+      },
+      "required": [
+       "base",
+       "height"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "calculate_triangle_area": {
+      "base": [
+       10
+      ],
+      "height": [
+       5
+      ]
+     }
+    },
+    {
+     "calculate_triangle_area": {
+      "base": [
+       8
+      ],
+      "height": [
+       6
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "parallel_75",
+   "category": "parallel",
+   "messages": [
+    {
+     "role": "user",
+     "content": "What are the prime factors of the numbers 45, 100, and 150?"
+    }
+   ],
+   "function": [
+    {
+     "name": "number_analysis.prime_factors",
+     "description": "Compute the prime factors of a number.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "number": {
+        "type": "integer",
+        "description": "The number to be factored."
+       }
+      },
+      "required": [
+       "number"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "number_analysis.prime_factors": {
+      "number": [
+       45
+      ]
+     }
+    },
+    {
+     "number_analysis.prime_factors": {
+      "number": [
+       100
+      ]
+     }
+    },
+    {
+     "number_analysis.prime_factors": {
+      "number": [
+       150
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "parallel_108",
+   "category": "parallel",
+   "messages": [
+    {
+     "role": "user",
+     "content": "Can you provide a detailed description of the structure and functioning of a neuron cell and then compare it with a less detailed description of a muscle cell in the human body?"
+    }
+   ],
+   "function": [
+    {
+     "name": "biology.get_cell_info",
+     "description": "Retrieve information about the structure and functioning of a specified type of cell",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "cell_type": {
+        "type": "string",
+        "description": "Type of cell you want information about"
+       },
+       "detailed": {
+        "type": "boolean",
+        "description": "Indicate if you want a detailed description of the cell",
+        "default": "false"
+       }
+      },
+      "required": [
+       "cell_type"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "biology.get_cell_info": {
+      "cell_type": [
+       "neuron"
+      ],
+      "detailed": [
+       true
+      ]
+     }
+    },
+    {
+     "biology.get_cell_info": {
+      "cell_type": [
+       "muscle"
+      ],
+      "detailed": [
+       false,
+       ""
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "parallel_120",
+   "category": "parallel",
+   "messages": [
+    {
+     "role": "user",
+     "content": "What would be the predicted forest growth in the Amazon Rainforest and the Boreal Forests of Canada over the next 10 years and 20 years, respectively, if we do not include the impact of human activities?"
+    }
+   ],
+   "function": [
+    {
+     "name": "forest_growth_forecast",
+     "description": "Predicts the forest growth over the next N years based on current trends.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "location": {
+        "type": "string",
+        "description": "The location where you want to predict forest growth."
+       },
+       "years": {
+        "type": "integer",
+        "description": "The number of years for the forecast."
+       },
+       "include_human_impact": {
+        "type": "boolean",
+        "description": "Whether or not to include the impact of human activities in the forecast. If not provided, defaults to false."
+       }
+      },
+      "required": [
+       "location",
+       "years"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "forest_growth_forecast": {
+      "location": [
+       "Amazon Rainforest"
+      ],
+      "years": [
+       10
+      ],
+      "include_human_impact": [
+       false,
+       ""
+      ]
+     }
+    },
+    {
+     "forest_growth_forecast": {
+      "location": [
+       "Boreal Forests of Canada"
+      ],
+      "years": [
+       20
+      ],
+      "include_human_impact": [
+       false,
+       ""
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "parallel_136",
+   "category": "parallel",
+   "messages": [
+    {
+     "role": "user",
+     "content": "What is the shortest distance between New York and Los Angeles using a bus as the preferred mode of public transportation, and then what is the shortest distance if we allow transfer between different modes of transportation?"
+    }
+   ],
+   "function": [
+    {
+     "name": "city_distance.find_shortest",
+     "description": "Calculates the shortest distance between two cities via available public transportation.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "start_city": {
+        "type": "string",
+        "description": "The city you are starting from."
+       },
+       "end_city": {
+        "type": "string",
+        "description": "The city you are heading to."
+       },
+       "transportation": {
+        "type": "string",
+        "description": "Preferred mode of public transportation. Default is 'bus'."
+       },
+       "allow_transfer": {
+        "type": "boolean",
+        "description": "Allows transfer between different transportation if true. default is False"
+       }
+      },
+      "required": [
+       "start_city",
+       "end_city"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "city_distance.find_shortest": {
+      "start_city": [
+       "New York",
+       "New York, NY",
+       "NYC"
+      ],
+      "end_city": [
+       "Los Angeles",
+       "Los Angeles, CA",
+       "LA"
+      ],
+      "transportation": [
+       "bus",
+       ""
+      ],
+      "allow_transfer": [
+       "",
+       false
+      ]
+     }
+    },
+    {
+     "city_distance.find_shortest": {
+      "start_city": [
+       "New York",
+       "New York, NY",
+       "NYC"
+      ],
+      "end_city": [
+       "Los Angeles",
+       "Los Angeles, CA",
+       "LA"
+      ],
+      "transportation": [
+       "bus",
+       ""
+      ],
+      "allow_transfer": [
+       true
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "parallel_190",
+   "category": "parallel",
+   "messages": [
+    {
+     "role": "user",
+     "content": "What is the shortest driving distance from New York City to Los Angeles, and then from Los Angeles to Miami, considering both the shortest and scenic route preferences?"
+    }
+   ],
+   "function": [
+    {
+     "name": "calculate_shortest_distance",
+     "description": "Calculate the shortest driving distance between two locations.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "start_location": {
+        "type": "string",
+        "description": "The starting location for the drive."
+       },
+       "end_location": {
+        "type": "string",
+        "description": "The destination location for the drive."
+       },
+       "route_preference": {
+        "type": "string",
+        "enum": [
+         "Shortest",
+         "Scenic"
+        ],
+        "description": "The preferred type of route."
+       }
+      },
+      "required": [
+       "start_location",
+       "end_location",
+       "route_preference"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "calculate_shortest_distance": {
+      "start_location": [
+       "New York City",
+       "NYC"
+      ],
+      "end_location": [
+       "Los Angeles",
+       "Los Angeles, CA",
+       "LA"
+      ],
+      "route_preference": [
+       "Shortest"
+      ]
+     }
+    },
+    {
+     "calculate_shortest_distance": {
+      "start_location": [
+       "Los Angeles",
+       "Los Angeles, CA",
+       "LA"
+      ],
+      "end_location": [
+       "Miami"
+      ],
+      "route_preference": [
+       "Shortest"
+      ]
+     }
+    },
+    {
+     "calculate_shortest_distance": {
+      "start_location": [
+       "New York City",
+       "NYC"
+      ],
+      "end_location": [
+       "Los Angeles",
+       "Los Angeles, CA",
+       "LA"
+      ],
+      "route_preference": [
+       "Scenic"
+      ]
+     }
+    },
+    {
+     "calculate_shortest_distance": {
+      "start_location": [
+       "Los Angeles",
+       "Los Angeles, CA",
+       "LA"
+      ],
+      "end_location": [
+       "Miami"
+      ],
+      "route_preference": [
+       "Scenic"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "parallel_196",
+   "category": "parallel",
+   "messages": [
+    {
+     "role": "user",
+     "content": "Can you please retrieve the details of two lawsuits for me? The first one has a case number of '12345' and was filed in the 'New York Supreme Court'. I would also like to know the verdict details for this case. The second lawsuit has a case number '67890' and was filed in the 'Los Angeles Superior Court'. I do not need the verdict details for this case."
+    }
+   ],
+   "function": [
+    {
+     "name": "get_lawsuit_details",
+     "description": "Retrieve details of a lawsuit based on its case number and court location.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "case_number": {
+        "type": "string",
+        "description": "Case number of the lawsuit."
+       },
+       "court_location": {
+        "type": "string",
+        "description": "The location of the court where the lawsuit was filed."
+       },
+       "with_verdict": {
+        "type": "boolean",
+        "description": "Flag to include verdict details if available. Default is False"
+       }
+      },
+      "required": [
+       "case_number",
+       "court_location"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "get_lawsuit_details": {
+      "case_number": [
+       "12345"
+      ],
+      "court_location": [
+       "New York Supreme Court",
+       "NY Supreme Court"
+      ],
+      "with_verdict": [
+       true
+      ]
+     }
+    },
+    {
+     "get_lawsuit_details": {
+      "case_number": [
+       "67890"
+      ],
+      "court_location": [
+       "Los Angeles Superior Court",
+       "LA Superior Court"
+      ],
+      "with_verdict": [
+       false,
+       ""
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "parallel_multiple_43",
+   "category": "parallel_multiple",
+   "messages": [
+    {
+     "role": "user",
+     "content": "What is the average price of a 4 ft x 4 ft marble statue in the museum of Philadelphia and 6 ft x 3 ft bronze sculpture in New York museum? "
+    }
+   ],
+   "function": [
+    {
+     "name": "get_sculpture_details",
+     "description": "Retrieves details of a sculpture, such as its material and size, from a museum database.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "museum_location": {
+        "type": "string",
+        "description": "Location of the museum housing the sculpture."
+       },
+       "sculpture_id": {
+        "type": "integer",
+        "description": "Database ID of the sculpture."
+       }
+      },
+      "required": [
+       "museum_location",
+       "sculpture_id"
+      ]
+     }
+    },
+    {
+     "name": "get_artwork_price",
+     "description": "Retrieves the price of a sculpture based on size and material.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "museum_location": {
+        "type": "string",
+        "description": "Location of the museum housing the sculpture."
+       },
+       "sculpture_material": {
+        "type": "string",
+        "description": "Material of the sculpture."
+       },
+       "sculpture_size": {
+        "type": "array",
+        "items": {
+         "type": "integer"
+        },
+        "description": "Dimensions of the sculpture."
+       }
+      },
+      "required": [
+       "museum_location",
+       "sculpture_material",
+       "sculpture_size"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "get_artwork_price": {
+      "museum_location": [
+       "Philadelphia"
+      ],
+      "sculpture_material": [
+       "marble"
+      ],
+      "sculpture_size": [
+       [
+        4,
+        4
+       ]
+      ]
+     }
+    },
+    {
+     "get_artwork_price": {
+      "museum_location": [
+       "New York"
+      ],
+      "sculpture_material": [
+       "bronze"
+      ],
+      "sculpture_size": [
+       [
+        6,
+        3
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "parallel_multiple_54",
+   "category": "parallel_multiple",
+   "messages": [
+    {
+     "role": "user",
+     "content": "In game Battle Reign, change the armor level to 5 and find me a game guide for how to win in snowy weather conditions. Also find me any strategy guides available for game Shadow Fall."
+    }
+   ],
+   "function": [
+    {
+     "name": "BattleReignGameAPI.update_player_equipment",
+     "description": "Modify the player's equipment level for specified attributes",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "attribute": {
+        "type": "string",
+        "description": "The attribute of the equipment to modify."
+       },
+       "level": {
+        "type": "integer",
+        "description": "The level to modify the attribute to."
+       },
+       "playerID": {
+        "type": "integer",
+        "description": "Player ID of the player. Default to 123",
+        "default": 123
+       }
+      },
+      "required": [
+       "attribute",
+       "level"
+      ]
+     }
+    },
+    {
+     "name": "GameGuideAPI.search_guide",
+     "description": "Search for game guides given specific conditions and preferences",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "game": {
+        "type": "string",
+        "description": "Name of the game."
+       },
+       "condition": {
+        "type": "string",
+        "description": "Specific game conditions. (eg: 'snowy weather', 'hard mode').",
+        "default": ""
+       },
+       "type": {
+        "type": "string",
+        "description": "Specific type of guide. (eg: 'strategy', 'walkthrough')",
+        "default": ""
+       }
+      },
+      "required": [
+       "game"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "BattleReignGameAPI.update_player_equipment": {
+      "attribute": [
+       "armor"
+      ],
+      "level": [
+       5
+      ],
+      "playerID": [
+       123,
+       ""
+      ]
+     }
+    },
+    {
+     "GameGuideAPI.search_guide": {
+      "game": [
+       "Battle Reign"
+      ],
+      "condition": [
+       "snowy weather"
+      ],
+      "type": [
+       ""
+      ]
+     }
+    },
+    {
+     "GameGuideAPI.search_guide": {
+      "game": [
+       "Shadow Fall"
+      ],
+      "type": [
+       "strategy"
+      ],
+      "condition": [
+       ""
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "parallel_multiple_61",
+   "category": "parallel_multiple",
+   "messages": [
+    {
+     "role": "user",
+     "content": "\"Could you please help me with a couple of calculations? I have two points in a 2D space, Point A with coordinates [3, 2] and Point B with coordinates [7, 5]. First, I would like to know the Euclidean distance between these two points, rounded to 2 decimal places. Then, I would like to find out the angle between these two points with respect to the x-axis, also rounded to 2 decimal places. After that, I have another set of points, Point C with coordinates [10, 8] and Point D with coordinates [14, 12]. Could you please calculate the Euclidean distance and the angle to the x-axis for these points as well, both rounded to 2 decimal places?\""
+    }
+   ],
+   "function": [
+    {
+     "name": "angleToXAxis.calculate",
+     "description": "Calculate the angle between two points with respect to x-axis.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "pointA": {
+        "type": "array",
+        "items": {
+         "type": "integer"
+        },
+        "description": "Coordinates for Point A."
+       },
+       "pointB": {
+        "type": "array",
+        "items": {
+         "type": "integer"
+        },
+        "description": "Coordinates for Point B."
+       },
+       "rounding": {
+        "type": "integer",
+        "description": "Optional: The number of decimals to round off the result.",
+        "default": 2
+       }
+      },
+      "required": [
+       "pointA",
+       "pointB"
+      ]
+     }
+    },
+    {
+     "name": "EuclideanDistance.calculate",
+     "description": "Calculate the Euclidean distance between two points.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "pointA": {
+        "type": "array",
+        "items": {
+         "type": "integer"
+        },
+        "description": "Coordinates for Point A."
+       },
+       "pointB": {
+        "type": "array",
+        "items": {
+         "type": "integer"
+        },
+        "description": "Coordinates for Point B."
+       },
+       "rounding": {
+        "type": "integer",
+        "description": "Optional: The number of decimals to round off the result.",
+        "default": 2
+       }
+      },
+      "required": [
+       "pointA",
+       "pointB"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "EuclideanDistance.calculate": {
+      "pointA": [
+       [
+        3,
+        2
+       ]
+      ],
+      "pointB": [
+       [
+        7,
+        5
+       ]
+      ],
+      "rounding": [
+       2,
+       ""
+      ]
+     }
+    },
+    {
+     "angleToXAxis.calculate": {
+      "pointA": [
+       [
+        3,
+        2
+       ]
+      ],
+      "pointB": [
+       [
+        7,
+        5
+       ]
+      ],
+      "rounding": [
+       2,
+       ""
+      ]
+     }
+    },
+    {
+     "EuclideanDistance.calculate": {
+      "pointA": [
+       [
+        10,
+        8
+       ]
+      ],
+      "pointB": [
+       [
+        14,
+        12
+       ]
+      ],
+      "rounding": [
+       2,
+       ""
+      ]
+     }
+    },
+    {
+     "angleToXAxis.calculate": {
+      "pointA": [
+       [
+        10,
+        8
+       ]
+      ],
+      "pointB": [
+       [
+        14,
+        12
+       ]
+      ],
+      "rounding": [
+       2,
+       ""
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "parallel_multiple_76",
+   "category": "parallel_multiple",
+   "messages": [
+    {
+     "role": "user",
+     "content": "\"Could you please tell me the selling price of the video game 'The Legend of Zelda: Breath of the Wild' on the Nintendo Switch platform in the United States, and also let me know if the game 'Super Mario Odyssey' is currently on sale on the same platform and region? Additionally, could you fetch the currency used in the United States on the PlayStation platform, and also tell me the selling price of 'God of War' on the PlayStation platform in the United Kingdom?\""
+    }
+   ],
+   "function": [
+    {
+     "name": "video_games.store_currency",
+     "description": "Fetches the currency used in a specific region in a gaming platform store.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "platform": {
+        "type": "string",
+        "description": "The gaming platform e.g. PlayStation, Xbox, Nintendo Switch"
+       },
+       "region": {
+        "type": "string",
+        "description": "The region e.g. United States, United Kingdom, Japan. Default United States",
+        "optional": "True"
+       }
+      },
+      "required": [
+       "platform"
+      ]
+     }
+    },
+    {
+     "name": "video_games.on_sale",
+     "description": "Checks if a particular game is currently on sale in a specific gaming platform store and in a specific region.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "game_title": {
+        "type": "string",
+        "description": "The title of the video game"
+       },
+       "platform": {
+        "type": "string",
+        "description": "The gaming platform e.g. PlayStation, Xbox, Nintendo Switch"
+       },
+       "region": {
+        "type": "string",
+        "description": "The region e.g. United States, United Kingdom, Japan. Default United States",
+        "optional": "True"
+       }
+      },
+      "required": [
+       "game_title",
+       "platform"
+      ]
+     }
+    },
+    {
+     "name": "video_games.store_price",
+     "description": "Fetches the selling price of a specified game in a particular gaming platform store and in a specific region.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "game_title": {
+        "type": "string",
+        "description": "The title of the video game"
+       },
+       "platform": {
+        "type": "string",
+        "description": "The gaming platform e.g. PlayStation, Xbox, Nintendo Switch"
+       },
+       "region": {
+        "type": "string",
+        "description": "The region e.g. United States, United Kingdom, Japan. Default United States",
+        "optional": "True"
+       }
+      },
+      "required": [
+       "game_title",
+       "platform"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "video_games.store_price": {
+      "game_title": [
+       "The Legend of Zelda: Breath of the Wild"
+      ],
+      "platform": [
+       "Nintendo Switch"
+      ],
+      "region": [
+       "United States",
+       ""
+      ]
+     }
+    },
+    {
+     "video_games.on_sale": {
+      "game_title": [
+       "Super Mario Odyssey"
+      ],
+      "platform": [
+       "Nintendo Switch"
+      ],
+      "region": [
+       "United States",
+       ""
+      ]
+     }
+    },
+    {
+     "video_games.store_currency": {
+      "platform": [
+       "PlayStation"
+      ],
+      "region": [
+       "United States",
+       ""
+      ]
+     }
+    },
+    {
+     "video_games.store_price": {
+      "game_title": [
+       "God of War"
+      ],
+      "platform": [
+       "PlayStation"
+      ],
+      "region": [
+       "United Kingdom"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "parallel_multiple_93",
+   "category": "parallel_multiple",
+   "messages": [
+    {
+     "role": "user",
+     "content": "\"Could you tell me the estimated date of the Jurassic geological era and calculate how many years ago it was? Also, could you provide the date of the signing of the Magna Carta and calculate how many years ago that event took place?\""
+    }
+   ],
+   "function": [
+    {
+     "name": "geology.get_era",
+     "description": "Get the estimated date of a geological era.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "era_name": {
+        "type": "string",
+        "description": "The name of the geological era. e.g Ice age"
+       },
+       "calculate_years_ago": {
+        "type": "boolean",
+        "description": "True if years ago is to be calculated. False by default"
+       }
+      },
+      "required": [
+       "era_name"
+      ]
+     }
+    },
+    {
+     "name": "history.get_event_date",
+     "description": "Get the date of an historical event.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "event_name": {
+        "type": "string",
+        "description": "The name of the event."
+       },
+       "calculate_years_ago": {
+        "type": "boolean",
+        "description": "True if years ago is to be calculated. False by default"
+       }
+      },
+      "required": [
+       "event_name"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "geology.get_era": {
+      "era_name": [
+       "Jurassic"
+      ],
+      "calculate_years_ago": [
+       true
+      ]
+     }
+    },
+    {
+     "history.get_event_date": {
+      "event_name": [
+       "signing of the Magna Carta",
+       "Magna Carta"
+      ],
+      "calculate_years_ago": [
+       true
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "parallel_multiple_104",
+   "category": "parallel_multiple",
+   "messages": [
+    {
+     "role": "user",
+     "content": "\"Can you provide me with a 5-day air quality forecast for New York, a 7-day weather forecast for Los Angeles, news articles on 'global warming' for the past 3 days, and a 2-day air quality forecast for Beijing?\""
+    }
+   ],
+   "function": [
+    {
+     "name": "news",
+     "description": "Retrieve news articles for a specific topic.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "topic": {
+        "type": "string",
+        "description": "The topic that you want to get the news for."
+       },
+       "days": {
+        "type": "integer",
+        "description": "Number of past days for which to retrieve the news."
+       }
+      },
+      "required": [
+       "topic",
+       "days"
+      ]
+     }
+    },
+    {
+     "name": "air_quality_forecast",
+     "description": "Retrieve an air quality forecast for a specific location and time frame.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "location": {
+        "type": "string",
+        "description": "The city that you want to get the air quality forecast for."
+       },
+       "days": {
+        "type": "integer",
+        "description": "Number of days for the forecast."
+       }
+      },
+      "required": [
+       "location",
+       "days"
+      ]
+     }
+    },
+    {
+     "name": "weather_forecast",
+     "description": "Retrieve a weather forecast for a specific location and time frame.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "location": {
+        "type": "string",
+        "description": "The city that you want to get the weather for."
+       },
+       "days": {
+        "type": "integer",
+        "description": "Number of days for the forecast."
+       }
+      },
+      "required": [
+       "location",
+       "days"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "air_quality_forecast": {
+      "location": [
+       "New York",
+       "NY"
+      ],
+      "days": [
+       5
+      ]
+     }
+    },
+    {
+     "weather_forecast": {
+      "location": [
+       "Los Angeles",
+       "LA"
+      ],
+      "days": [
+       7
+      ]
+     }
+    },
+    {
+     "news": {
+      "topic": [
+       "global warming"
+      ],
+      "days": [
+       3
+      ]
+     }
+    },
+    {
+     "air_quality_forecast": {
+      "location": [
+       "Beijing"
+      ],
+      "days": [
+       2
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "parallel_multiple_114",
+   "category": "parallel_multiple",
+   "messages": [
+    {
+     "role": "user",
+     "content": "\"Could you please help me order a custom sculpture of a horse made from Marble that is 20 inches in size, then another sculpture of a dog made from Wood that is 15 inches in size, followed by a custom painting of a sunset with the main color being Red that is 30 inches in size, and finally a painting of a cityscape with the main color being Blue that is 25 inches in size?\""
+    }
+   ],
+   "function": [
+    {
+     "name": "sculpture.create_custom",
+     "description": "Order a custom sculpture with your preferred material.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "item": {
+        "type": "string",
+        "description": "The subject of the sculpture, e.g. horse"
+       },
+       "material": {
+        "type": "string",
+        "enum": [
+         "Bronze",
+         "Marble",
+         "Terracotta",
+         "Wood",
+         "Stone"
+        ],
+        "description": "Preferred material for the sculpture."
+       },
+       "size": {
+        "type": "integer",
+        "description": "The desired size for the sculpture in inches. This parameter is optional. Default is 10 inches if not specified."
+       }
+      },
+      "required": [
+       "item",
+       "material"
+      ]
+     }
+    },
+    {
+     "name": "painting.create_custom",
+     "description": "Order a custom painting with your preferred color.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "subject": {
+        "type": "string",
+        "description": "The subject of the painting, e.g. horse"
+       },
+       "color": {
+        "type": "string",
+        "enum": [
+         "Red",
+         "Blue",
+         "Green",
+         "Yellow",
+         "Black"
+        ],
+        "description": "Preferred main color for the painting."
+       },
+       "size": {
+        "type": "integer",
+        "description": "The desired size for the painting in inches. This parameter is optional. Default is 20 inches if not specified."
+       }
+      },
+      "required": [
+       "subject",
+       "color"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "sculpture.create_custom": {
+      "item": [
+       "horse"
+      ],
+      "material": [
+       "Marble"
+      ],
+      "size": [
+       20
+      ]
+     }
+    },
+    {
+     "sculpture.create_custom": {
+      "item": [
+       "dog"
+      ],
+      "material": [
+       "Wood"
+      ],
+      "size": [
+       15
+      ]
+     }
+    },
+    {
+     "painting.create_custom": {
+      "subject": [
+       "sunset"
+      ],
+      "color": [
+       "Red"
+      ],
+      "size": [
+       30
+      ]
+     }
+    },
+    {
+     "painting.create_custom": {
+      "subject": [
+       "cityscape"
+      ],
+      "color": [
+       "Blue"
+      ],
+      "size": [
+       25
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "parallel_multiple_134",
+   "category": "parallel_multiple",
+   "messages": [
+    {
+     "role": "user",
+     "content": "\"Could you please help me with two tasks? First, I'm interested in the field of constitutional law in the United Kingdom and I would like to know the top 5 landmark cases in this field. Second, I have two numbers, 36 and 48, and I need to find out their greatest common divisor. Can you assist with these?\""
+    }
+   ],
+   "function": [
+    {
+     "name": "get_top_cases",
+     "description": "Retrieve a list of the most influential or landmark cases in a specific field of law.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "field_of_law": {
+        "type": "string",
+        "description": "The specific field of law e.g., constitutional law, criminal law, etc."
+       },
+       "top_number": {
+        "type": "integer",
+        "description": "The number of top cases to retrieve."
+       },
+       "country": {
+        "type": "string",
+        "description": "The country where the law cases should be retrieved from. Default is US."
+       }
+      },
+      "required": [
+       "field_of_law",
+       "top_number"
+      ]
+     }
+    },
+    {
+     "name": "math.gcd",
+     "description": "Calculate the greatest common divisor of two integers.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "num1": {
+        "type": "integer",
+        "description": "First number."
+       },
+       "num2": {
+        "type": "integer",
+        "description": "Second number."
+       }
+      },
+      "required": [
+       "num1",
+       "num2"
+      ]
+     }
+    }
+   ],
+   "ground_truth": [
+    {
+     "get_top_cases": {
+      "field_of_law": [
+       "constitutional law"
+      ],
+      "top_number": [
+       5
+      ],
+      "country": [
+       "United Kingdom",
+       "UK"
+      ]
+     }
+    },
+    {
+     "math.gcd": {
+      "num1": [
+       36
+      ],
+      "num2": [
+       48
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "irrelevance_2",
+   "category": "irrelevance",
+   "messages": [
+    {
+     "role": "user",
+     "content": "Solve for the roots of the equation 3x^2 - 2x - 5."
+    }
+   ],
+   "function": [
+    {
+     "name": "distance_calculator.calculate",
+     "description": "Calculate the distance between two geographical coordinates.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "coordinate_1": {
+        "type": "array",
+        "items": {
+         "type": "float"
+        },
+        "description": "The first coordinate, a pair of latitude and longitude."
+       },
+       "coordinate_2": {
+        "type": "array",
+        "items": {
+         "type": "float"
+        },
+        "description": "The second coordinate, a pair of latitude and longitude."
+       }
+      },
+      "required": [
+       "coordinate_1",
+       "coordinate_2"
+      ]
+     }
+    }
+   ],
+   "ground_truth": []
+  },
+  {
+   "id": "irrelevance_22",
+   "category": "irrelevance",
+   "messages": [
+    {
+     "role": "user",
+     "content": "What is the magnetic field at a point located at distance 'r' from a wire carrying current 'I'?"
+    }
+   ],
+   "function": [
+    {
+     "name": "magnetic_field_intensity",
+     "description": "Calculates the magnetic field intensity at a point located at a given distance from a current carrying wire",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "current": {
+        "type": "float",
+        "description": "The current flowing through the wire in Amperes."
+       },
+       "distance": {
+        "type": "float",
+        "description": "The distance from the wire at which magnetic field intensity is required, in meters."
+       },
+       "permeability": {
+        "type": "float",
+        "description": "The permeability of free space, optional, default value is 4*pi*10^-7."
+       }
+      },
+      "required": [
+       "current",
+       "distance"
+      ]
+     }
+    }
+   ],
+   "ground_truth": []
+  },
+  {
+   "id": "irrelevance_30",
+   "category": "irrelevance",
+   "messages": [
+    {
+     "role": "user",
+     "content": "What's the name of a type of cell that has multiple nuclei?"
+    }
+   ],
+   "function": [
+    {
+     "name": "bloodcell_classification",
+     "description": "Identify and categorize different types of blood cells based on given attributes.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "cell_shape": {
+        "type": "string",
+        "description": "The shape of the cell, e.g. round, oval."
+       },
+       "cell_size": {
+        "type": "string",
+        "description": "The size of the cell, e.g. large, medium, small."
+       },
+       "cell_function": {
+        "type": "string",
+        "description": "The function of the cell, e.g. carrying oxygen, fighting infection. Default: 'carry oxygen'.",
+        "optional": true
+       }
+      },
+      "required": [
+       "cell_shape",
+       "cell_size"
+      ]
+     }
+    }
+   ],
+   "ground_truth": []
+  },
+  {
+   "id": "irrelevance_81",
+   "category": "irrelevance",
+   "messages": [
+    {
+     "role": "user",
+     "content": "Can you list some horror movies I can watch?"
+    }
+   ],
+   "function": [
+    {
+     "name": "get_stock_prices",
+     "description": "Fetches the historical prices of a specified stock",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "ticker_symbol": {
+        "type": "string",
+        "description": "The symbol representing the stock."
+       },
+       "start_date": {
+        "type": "string",
+        "description": "The starting date from which to retrieve stock prices. Format: 'yyyy-mm-dd'."
+       },
+       "end_date": {
+        "type": "string",
+        "description": "The ending date until which to retrieve stock prices. Format: 'yyyy-mm-dd'."
+       }
+      },
+      "required": [
+       "ticker_symbol",
+       "start_date",
+       "end_date"
+      ]
+     }
+    }
+   ],
+   "ground_truth": []
+  },
+  {
+   "id": "irrelevance_168",
+   "category": "irrelevance",
+   "messages": [
+    {
+     "role": "user",
+     "content": "Is there any available class at University in Sydney in May?"
+    }
+   ],
+   "function": [
+    {
+     "name": "concert_availability",
+     "description": "Check the availability of concerts based on artist and location.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "artist": {
+        "type": "string",
+        "description": "The name of the artist for the concert."
+       },
+       "location": {
+        "type": "string",
+        "description": "The location of the concert."
+       },
+       "date": {
+        "type": "string",
+        "description": "The date of the concert. Format: 'YYYY-MM'"
+       }
+      },
+      "required": [
+       "artist",
+       "location",
+       "date"
+      ]
+     }
+    }
+   ],
+   "ground_truth": []
+  },
+  {
+   "id": "irrelevance_205",
+   "category": "irrelevance",
+   "messages": [
+    {
+     "role": "user",
+     "content": "Who is the author of the book 'Pride and Prejudice'?"
+    }
+   ],
+   "function": [
+    {
+     "name": "calculate_score",
+     "description": "Calculate the score in a video game based on the number of enemies defeated, coins collected, and power-ups acquired.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "enemies_defeated": {
+        "type": "integer",
+        "description": "The number of enemies the player has defeated."
+       },
+       "coins_collected": {
+        "type": "integer",
+        "description": "The number of coins the player has collected."
+       },
+       "power_ups": {
+        "type": "integer",
+        "description": "The number of power-ups the player has acquired.",
+        "default": 3
+       }
+      },
+      "required": [
+       "enemies_defeated",
+       "coins_collected"
+      ]
+     }
+    }
+   ],
+   "ground_truth": []
+  },
+  {
+   "id": "irrelevance_214",
+   "category": "irrelevance",
+   "messages": [
+    {
+     "role": "user",
+     "content": "Find the best Sushi restaurant in Los Angeles."
+    }
+   ],
+   "function": [
+    {
+     "name": "calculate_tip",
+     "description": "Calculate the total tip amount for a given total bill and tip percentage.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "bill_total": {
+        "type": "float",
+        "description": "The total bill amount."
+       },
+       "tip_percentage": {
+        "type": "float",
+        "description": "The tip percentage."
+       },
+       "split": {
+        "type": "integer",
+        "description": "Number of people the tip is split between. Default is 1."
+       }
+      },
+      "required": [
+       "bill_total",
+       "tip_percentage"
+      ]
+     }
+    }
+   ],
+   "ground_truth": []
+  },
+  {
+   "id": "irrelevance_227",
+   "category": "irrelevance",
+   "messages": [
+    {
+     "role": "user",
+     "content": "When will be sunset in Beijing today?"
+    }
+   ],
+   "function": [
+    {
+     "name": "calculate_sunrise",
+     "description": "Calculate the time of sunrise for a specific date and location.",
+     "parameters": {
+      "type": "dict",
+      "properties": {
+       "location": {
+        "type": "string",
+        "description": "The location for which sunrise time needs to be calculated."
+       },
+       "date": {
+        "type": "string",
+        "description": "The date for which sunrise time needs to be calculated in YYYY-MM-DD format. If not provided, current date is considered. Default: 1998-12-03"
+       },
+       "format": {
+        "type": "string",
+        "description": "Format in which the time should be returned. If not provided, default format 'HH:MM' is considered."
+       }
+      },
+      "required": [
+       "location"
+      ]
+     }
+    }
+   ],
+   "ground_truth": []
+  }
+ ]
+}

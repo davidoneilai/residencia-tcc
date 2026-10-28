@@ -1,0 +1,58 @@
+[
+  {
+    "category": "ambiguous",
+    "n": 10,
+    "direct_sr": 0.9,
+    "direct_mean_ms": 17395.64335415489,
+    "plan_sr": 0.5,
+    "plan_mean_ms": 34578.50190832978,
+    "oracle_sr": 0.9,
+    "oracle_mean_ms": 16525.481549988035,
+    "comp_only_a": 4,
+    "comp_only_b": 0,
+    "comp_both": 5,
+    "comp_neither": 1
+  },
+  {
+    "category": "multi_tool",
+    "n": 15,
+    "direct_sr": 0.26666666666666666,
+    "direct_mean_ms": 52633.229116664734,
+    "plan_sr": 0.2,
+    "plan_mean_ms": 44195.66317498296,
+    "oracle_sr": 0.3333333333333333,
+    "oracle_mean_ms": 38676.55423609928,
+    "comp_only_a": 2,
+    "comp_only_b": 1,
+    "comp_both": 2,
+    "comp_neither": 10
+  },
+  {
+    "category": "sequential",
+    "n": 20,
+    "direct_sr": 0.0,
+    "direct_mean_ms": 122484.00424167921,
+    "plan_sr": 0.1,
+    "plan_mean_ms": 34085.305997915566,
+    "oracle_sr": 0.1,
+    "oracle_mean_ms": 29325.458733332925,
+    "comp_only_a": 0,
+    "comp_only_b": 2,
+    "comp_both": 0,
+    "comp_neither": 18
+  },
+  {
+    "category": "single_tool",
+    "n": 15,
+    "direct_sr": 0.7333333333333333,
+    "direct_mean_ms": 32640.793683341082,
+    "plan_sr": 0.6666666666666666,
+    "plan_mean_ms": 50299.3867499909,
+    "oracle_sr": 0.8666666666666667,
+    "oracle_mean_ms": 31702.77045555801,
+    "comp_only_a": 3,
+    "comp_only_b": 2,
+    "comp_both": 8,
+    "comp_neither": 2
+  }
+]

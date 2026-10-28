@@ -1,0 +1,102 @@
+{
+  "n_results": 540,
+  "finished": true,
+  "mixed_success_cells": 0,
+  "thermal": {
+    "ready": {
+      "n": 94,
+      "success_rate": 0.3723404255319149,
+      "mean_tokens_per_second": 44.501911767089396
+    },
+    "proceed_hot": {
+      "n": 446,
+      "success_rate": 0.3721973094170404,
+      "mean_tokens_per_second": 33.89668439390901
+    }
+  },
+  "prefix_cache": {
+    "n_first": 42,
+    "mean_prefill_first_ms": 2425.5076476505824,
+    "mean_prefill_rest_ms": 881.0697748479115,
+    "policy_first": {
+      "plan_act": 12,
+      "direct": 14,
+      "adaptive": 16
+    },
+    "thermal_first": {
+      "ready": 42
+    },
+    "sibling_success_flips": 0
+  },
+  "failures": {
+    "direct": {
+      "n": 180,
+      "failure_kind": {
+        "no_tool": 39,
+        "grade": 61,
+        "execution": 8
+      },
+      "stop_length": 42,
+      "stop_length_success": 3
+    },
+    "plan_act": {
+      "n": 180,
+      "failure_kind": {
+        "no_tool": 48,
+        "grade": 51,
+        "execution": 21
+      },
+      "stop_length": 63,
+      "stop_length_success": 12
+    },
+    "adaptive": {
+      "n": 180,
+      "failure_kind": {
+        "execution": 21,
+        "grade": 48,
+        "no_tool": 42
+      },
+      "stop_length": 48,
+      "stop_length_success": 3
+    }
+  },
+  "full60": {
+    "n": 60,
+    "success_rate": 0.4,
+    "route_diffs": 0,
+    "success_flips": [
+      {
+        "task_id": "apple_multi_009",
+        "full60_success": true,
+        "variance_success": false,
+        "route_full": "direct",
+        "route_var": "direct",
+        "error_full": "",
+        "error_var": "Avaliação: argumentos de enviarMensagem não batem com o esperado"
+      },
+      {
+        "task_id": "apple_amb_003",
+        "full60_success": true,
+        "variance_success": false,
+        "route_full": "direct",
+        "route_var": "direct",
+        "error_full": "",
+        "error_var": "Contato não encontrado: João."
+      },
+      {
+        "task_id": "apple_multi_004",
+        "full60_success": false,
+        "variance_success": true,
+        "route_full": "direct",
+        "route_var": "direct",
+        "error_full": "Avaliação: sem restrição de ordem",
+        "error_var": ""
+      }
+    ]
+  },
+  "report_corrections": {
+    "adaptive_vs_direct_tasks": "23/60 vs 24/60 (69 vs 72 runs), not 3 tasks",
+    "sequential_plan_winners": 2,
+    "sequential_oracle_runs": 9
+  }
+}

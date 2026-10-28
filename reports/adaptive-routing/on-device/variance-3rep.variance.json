@@ -1,0 +1,35 @@
+[
+  {
+    "policy": "adaptive",
+    "n_tasks": 60,
+    "n_runs": 180,
+    "success_rate": 0.38333333333333336,
+    "mean_task_success": 0.38333333333333336,
+    "mean_latency_ms": 24208.656141202016,
+    "std_latency_ms": 13731.620421554457,
+    "total_latency_ms": 4357558.105416363,
+    "router_overhead_ms": 72.48454249929637
+  },
+  {
+    "policy": "direct",
+    "n_tasks": 60,
+    "n_runs": 180,
+    "success_rate": 0.4,
+    "mean_task_success": 0.4,
+    "mean_latency_ms": 25290.595189583513,
+    "std_latency_ms": 16074.4256153479,
+    "total_latency_ms": 4552307.134125032,
+    "router_overhead_ms": 0
+  },
+  {
+    "policy": "plan_act",
+    "n_tasks": 60,
+    "n_runs": 180,
+    "success_rate": 0.3333333333333333,
+    "mean_task_success": 0.3333333333333333,
+    "mean_latency_ms": 29960.03003471867,
+    "std_latency_ms": 13132.418329793567,
+    "total_latency_ms": 5392805.406249361,
+    "router_overhead_ms": 0
+  }
+]

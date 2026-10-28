@@ -1,4 +1,5 @@
 import json
+import math
 import re
 import threading
 import time
@@ -7,6 +8,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from openai import OpenAI
 
 from metrics import Episode
+from strategies import budget_complete, early_exit_complete
 
 CURRENT = Episode()
 REQUEST_LOG = []
@@ -59,24 +61,36 @@ class VLLMBackend(Backend):
             "inference_ms": elapsed_ms,
         }
 
-    def complete(self, prompt, max_tokens=512):
+    def complete(self, prompt, max_tokens=512, stop=None, logprobs=False):
+        kwargs = {
+            "model": self.model,
+            "prompt": prompt,
+            "temperature": self.temperature,
+            "max_tokens": max_tokens,
+        }
+        if stop:
+            kwargs["stop"] = stop
+        if logprobs:
+            kwargs["logprobs"] = 1
         t0 = time.perf_counter()
-        response = self.client.completions.create(
-            model=self.model,
-            prompt=prompt,
-            temperature=self.temperature,
-            max_tokens=max_tokens,
-        )
+        response = self.client.completions.create(**kwargs)
         elapsed_ms = (time.perf_counter() - t0) * 1000
         usage = response.usage
-        text = response.choices[0].text or ""
-        return {
+        choice = response.choices[0]
+        text = choice.text or ""
+        result = {
             "text": text,
             "tool_calls": _calls_in_text(text),
             "prompt_tokens": usage.prompt_tokens if usage else 0,
             "output_tokens": usage.completion_tokens if usage else 0,
             "inference_ms": elapsed_ms,
+            # vLLM devolve aqui a string de stop que cortou a geração; None em EOS ou limite.
+            "stop": getattr(choice, "stop_reason", None),
         }
+        if logprobs:
+            values = [v for v in (choice.logprobs.token_logprobs if choice.logprobs else []) if v is not None]
+            result["confidence"] = math.exp(sum(values) / len(values)) if values else 0.0
+        return result
 
 
 def _calls_in_text(text):
@@ -195,6 +209,11 @@ def serve_proxy(backend, host, port, strategy):
                     if not prompt.endswith("</think>\n\n"):
                         prompt += "<think>\n\n</think>\n\n"
                     result = backend.complete(prompt, max_tokens=max_tokens)
+                elif strategy.name.startswith("budget"):
+                    result = budget_complete(backend, prompt, strategy.budget, max_tokens)
+                elif strategy.name == "early_exit":
+                    result = early_exit_complete(
+                        backend, prompt, max_tokens, strategy.marker, strategy.threshold)
                 else:
                     result = backend.complete(prompt, max_tokens=max_tokens)
                 payload = _completion_response(result)

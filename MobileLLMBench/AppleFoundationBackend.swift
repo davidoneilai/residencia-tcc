@@ -14,30 +14,37 @@ enum AppleFoundationBackend {
         }
     }
 
-    static func run(_ task: PhoneTask, strategy: Strategy, result: inout BenchmarkResult) async throws {
+    static func run(
+        prompt: String,
+        strategy: Strategy,
+        mode: ExecutionMode = .real,
+        fixtures: SimFixtures = .standard,
+        result: inout BenchmarkResult
+    ) async throws {
         if let reason = unavailableReason { throw BenchError.failed(reason) }
         let started = ProcessInfo.processInfo.systemUptime
         let log = ToolLog()
-        let tools = makeTools(log: log)
+        let tools = makeTools(log: log, world: ToolWorld(fixtures: fixtures, mode: mode))
         result.toolCallingMode = "prompt_requested"
-        let instructions = "Cumpra o pedido chamando exatamente uma ferramenta. Copie os dados do pedido para os argumentos. Não afirme que a ação foi feita sem chamar a ferramenta."
 
         do {
             if strategy == .planAct {
                 let planSession = LanguageModelSession(model: .default)
+                let planStarted = ProcessInfo.processInfo.systemUptime
                 result.plan = try await generate(
                     planSession,
-                    prompt: "\(task.prompt)\n\nEscreva um plano curto, no máximo 5 linhas, para responder. Não chame ferramentas ainda.",
+                    prompt: PhonePrompt.plan(prompt),
                     limit: 128,
                     started: started,
                     result: &result,
                     captureTiming: false
                 )
+                result.planLatencyMs = (ProcessInfo.processInfo.systemUptime - planStarted) * 1000
             }
-            let session = LanguageModelSession(model: .default, tools: tools) { instructions }
-            let prompt = result.plan.map { "\(task.prompt)\n\nPlano:\n\($0)\n\nExecute o pedido chamando uma ferramenta." } ?? task.prompt
+            let session = LanguageModelSession(model: .default, tools: tools) { PhonePrompt.instructions }
+            let action = result.plan.map { PhonePrompt.action(prompt, plan: $0) } ?? prompt
             result.response = try await generate(
-                session, prompt: prompt, limit: 256, started: started, result: &result, captureTiming: true
+                session, prompt: action, limit: 512, started: started, result: &result, captureTiming: true
             )
             if #available(iOS 27.0, *) {
                 result.inputTokens = session.usage.input.totalTokenCount
@@ -51,8 +58,9 @@ enum AppleFoundationBackend {
         result.toolCallCount = marks.count
         result.toolExecutionMs = marks.isEmpty ? nil : marks.reduce(0) { $0 + $1.ms }
         result.toolTrace = marks.map { "\($0.name): \($0.detail)" }
-        if result.error == nil, marks.isEmpty {
-            result.error = "Nenhuma ferramenta foi chamada."
+        result.toolCalls = marks.map { $0.record() }
+        if let first = marks.first {
+            result.inferenceMs = (first.started - started) * 1000
         }
         if let error = result.error { throw BenchError.failed(error) }
     }
