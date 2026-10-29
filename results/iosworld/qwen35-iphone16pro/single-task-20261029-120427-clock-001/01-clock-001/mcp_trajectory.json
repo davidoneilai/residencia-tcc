@@ -1,0 +1,368 @@
+{
+  "provider": "vllm",
+  "model": "qwen35",
+  "apps": [
+    "clock"
+  ],
+  "with_screenshots": false,
+  "with_cua": false,
+  "with_confirmation_tools": false,
+  "tool_use": false,
+  "success": false,
+  "steps": 50,
+  "answer": "",
+  "cache_stats": {
+    "cache_read_tokens": 0
+  },
+  "trajectory": [
+    {
+      "step": 1,
+      "tool": "mcp__clock__launch",
+      "input": {},
+      "result_len": 96
+    },
+    {
+      "step": 2,
+      "tool": "mcp__clock__navigate_to_tab",
+      "input": {
+        "tab": "alarm"
+      },
+      "result_len": 102
+    },
+    {
+      "step": 3,
+      "tool": "mcp__clock__list_alarms",
+      "input": {},
+      "result_len": 99
+    },
+    {
+      "step": 4,
+      "tool": "mcp__clock__add_alarm",
+      "input": {
+        "time": "6:45 AM",
+        "label": "Gym"
+      },
+      "result_len": 186
+    },
+    {
+      "step": 5,
+      "tool": "mcp__clock__save_alarm",
+      "input": {},
+      "result_len": 145
+    },
+    {
+      "step": 6,
+      "tool": "mcp__clock__open_add_alarm",
+      "input": {},
+      "result_len": 78
+    },
+    {
+      "step": 7,
+      "tool": "mcp__clock__save_alarm",
+      "input": {},
+      "result_len": 63
+    },
+    {
+      "step": 8,
+      "tool": "mcp__clock__navigate_to_tab",
+      "input": {
+        "tab": "alarm"
+      },
+      "result_len": 102
+    },
+    {
+      "step": 9,
+      "tool": "mcp__clock__list_alarms",
+      "input": {},
+      "result_len": 115
+    },
+    {
+      "step": 10,
+      "tool": "mcp__clock__navigate_to_tab",
+      "input": {
+        "tab": "alarm"
+      },
+      "result_len": 102
+    },
+    {
+      "step": 11,
+      "tool": "mcp__clock__list_alarms",
+      "input": {},
+      "result_len": 115
+    },
+    {
+      "step": 12,
+      "tool": "mcp__clock__navigate_to_tab",
+      "input": {
+        "tab": "alarm"
+      },
+      "result_len": 102
+    },
+    {
+      "step": 13,
+      "tool": "mcp__clock__list_alarms",
+      "input": {},
+      "result_len": 115
+    },
+    {
+      "step": 14,
+      "tool": "mcp__clock__navigate_to_tab",
+      "input": {
+        "tab": "alarm"
+      },
+      "result_len": 102
+    },
+    {
+      "step": 15,
+      "tool": "mcp__clock__list_alarms",
+      "input": {},
+      "result_len": 115
+    },
+    {
+      "step": 16,
+      "tool": "mcp__clock__navigate_to_tab",
+      "input": {
+        "tab": "alarm"
+      },
+      "result_len": 102
+    },
+    {
+      "step": 17,
+      "tool": "mcp__clock__list_alarms",
+      "input": {},
+      "result_len": 115
+    },
+    {
+      "step": 18,
+      "tool": "mcp__clock__navigate_to_tab",
+      "input": {
+        "tab": "alarm"
+      },
+      "result_len": 102
+    },
+    {
+      "step": 19,
+      "tool": "mcp__clock__list_alarms",
+      "input": {},
+      "result_len": 115
+    },
+    {
+      "step": 20,
+      "tool": "mcp__clock__navigate_to_tab",
+      "input": {
+        "tab": "alarm"
+      },
+      "result_len": 102
+    },
+    {
+      "step": 21,
+      "tool": "mcp__clock__list_alarms",
+      "input": {},
+      "result_len": 115
+    },
+    {
+      "step": 22,
+      "tool": "mcp__clock__navigate_to_tab",
+      "input": {
+        "tab": "alarm"
+      },
+      "result_len": 102
+    },
+    {
+      "step": 23,
+      "tool": "mcp__clock__list_alarms",
+      "input": {},
+      "result_len": 115
+    },
+    {
+      "step": 24,
+      "tool": "mcp__clock__navigate_to_tab",
+      "input": {
+        "tab": "alarm"
+      },
+      "result_len": 102
+    },
+    {
+      "step": 25,
+      "tool": "mcp__clock__list_alarms",
+      "input": {},
+      "result_len": 115
+    },
+    {
+      "step": 26,
+      "tool": "mcp__clock__navigate_to_tab",
+      "input": {
+        "tab": "alarm"
+      },
+      "result_len": 102
+    },
+    {
+      "step": 27,
+      "tool": "mcp__clock__list_alarms",
+      "input": {},
+      "result_len": 115
+    },
+    {
+      "step": 28,
+      "tool": "mcp__clock__navigate_to_tab",
+      "input": {
+        "tab": "alarm"
+      },
+      "result_len": 102
+    },
+    {
+      "step": 29,
+      "tool": "mcp__clock__list_alarms",
+      "input": {},
+      "result_len": 115
+    },
+    {
+      "step": 30,
+      "tool": "mcp__clock__navigate_to_tab",
+      "input": {
+        "tab": "alarm"
+      },
+      "result_len": 102
+    },
+    {
+      "step": 31,
+      "tool": "mcp__clock__list_alarms",
+      "input": {},
+      "result_len": 115
+    },
+    {
+      "step": 32,
+      "tool": "mcp__clock__navigate_to_tab",
+      "input": {
+        "tab": "alarm"
+      },
+      "result_len": 102
+    },
+    {
+      "step": 33,
+      "tool": "mcp__clock__list_alarms",
+      "input": {},
+      "result_len": 115
+    },
+    {
+      "step": 34,
+      "tool": "mcp__clock__navigate_to_tab",
+      "input": {
+        "tab": "alarm"
+      },
+      "result_len": 102
+    },
+    {
+      "step": 35,
+      "tool": "mcp__clock__list_alarms",
+      "input": {},
+      "result_len": 115
+    },
+    {
+      "step": 36,
+      "tool": "mcp__clock__navigate_to_tab",
+      "input": {
+        "tab": "alarm"
+      },
+      "result_len": 102
+    },
+    {
+      "step": 37,
+      "tool": "mcp__clock__list_alarms",
+      "input": {},
+      "result_len": 115
+    },
+    {
+      "step": 38,
+      "tool": "mcp__clock__navigate_to_tab",
+      "input": {
+        "tab": "alarm"
+      },
+      "result_len": 102
+    },
+    {
+      "step": 39,
+      "tool": "mcp__clock__list_alarms",
+      "input": {},
+      "result_len": 115
+    },
+    {
+      "step": 40,
+      "tool": "mcp__clock__navigate_to_tab",
+      "input": {
+        "tab": "alarm"
+      },
+      "result_len": 102
+    },
+    {
+      "step": 41,
+      "tool": "mcp__clock__list_alarms",
+      "input": {},
+      "result_len": 115
+    },
+    {
+      "step": 42,
+      "tool": "mcp__clock__navigate_to_tab",
+      "input": {
+        "tab": "alarm"
+      },
+      "result_len": 102
+    },
+    {
+      "step": 43,
+      "tool": "mcp__clock__list_alarms",
+      "input": {},
+      "result_len": 115
+    },
+    {
+      "step": 44,
+      "tool": "mcp__clock__navigate_to_tab",
+      "input": {
+        "tab": "alarm"
+      },
+      "result_len": 102
+    },
+    {
+      "step": 45,
+      "tool": "mcp__clock__list_alarms",
+      "input": {},
+      "result_len": 115
+    },
+    {
+      "step": 46,
+      "tool": "mcp__clock__navigate_to_tab",
+      "input": {
+        "tab": "alarm"
+      },
+      "result_len": 102
+    },
+    {
+      "step": 47,
+      "tool": "mcp__clock__list_alarms",
+      "input": {},
+      "result_len": 115
+    },
+    {
+      "step": 48,
+      "tool": "mcp__clock__navigate_to_tab",
+      "input": {
+        "tab": "alarm"
+      },
+      "result_len": 102
+    },
+    {
+      "step": 49,
+      "tool": "mcp__clock__list_alarms",
+      "input": {},
+      "result_len": 115
+    },
+    {
+      "step": 50,
+      "tool": "mcp__clock__navigate_to_tab",
+      "input": {
+        "tab": "alarm"
+      },
+      "result_len": 102
+    }
+  ]
+}

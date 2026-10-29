@@ -1,0 +1,1277 @@
+[
+  {
+    "step": 1,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/01/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/01/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__launch",
+        "args": {},
+        "output": "{\"action\": \"launch\", \"ok\": true, \"message\": \"Launched Clock.\", \"ui_after\": \"page='World Clock'\"}",
+        "result": {
+          "action": "launch",
+          "ok": true,
+          "message": "Launched Clock.",
+          "ui_after": "page='World Clock'"
+        },
+        "tool_call_id": "call_ecc393cc67ab49bbb69378ea2bf14444"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/02/screenshot.png"
+  },
+  {
+    "step": 2,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/02/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/02/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__navigate_to_tab",
+        "args": {
+          "tab": "alarm"
+        },
+        "output": "{\"action\": \"navigate_to_tab\", \"args\": {\"tab\": \"alarm\"}, \"ok\": true, \"message\": \"Switched to 'alarm'.\"}",
+        "result": {
+          "action": "navigate_to_tab",
+          "args": {
+            "tab": "alarm"
+          },
+          "ok": true,
+          "message": "Switched to 'alarm'."
+        },
+        "tool_call_id": "call_123bac7c4b24436892a238478e43a450"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/03/screenshot.png"
+  },
+  {
+    "step": 3,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/03/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/03/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__list_alarms",
+        "args": {},
+        "output": "{\"action\": \"list_alarms\", \"alarms\": [\"client_call\", \"lunch\", \"morning_run\", \"wrap_up\"], \"count\": 4}",
+        "result": {
+          "action": "list_alarms",
+          "alarms": [
+            "client_call",
+            "lunch",
+            "morning_run",
+            "wrap_up"
+          ],
+          "count": 4
+        },
+        "tool_call_id": "call_2ae6e956cb7f48bfbc94df5ebd9687f7"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/04/screenshot.png"
+  },
+  {
+    "step": 4,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/04/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/04/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__add_alarm",
+        "args": {
+          "time": "6:45 AM",
+          "label": "Gym"
+        },
+        "output": "{\"action\": \"add_alarm\", \"args\": {\"time\": \"6:45 AM\", \"label\": \"Gym\"}, \"ok\": true, \"message\": \"Added alarm 'Gym' at 6:45 AM. Picker: Expected 3 picker wheels, found 2.. New rows: ['gym']\"}",
+        "result": {
+          "action": "add_alarm",
+          "args": {
+            "time": "6:45 AM",
+            "label": "Gym"
+          },
+          "ok": true,
+          "message": "Added alarm 'Gym' at 6:45 AM. Picker: Expected 3 picker wheels, found 2.. New rows: ['gym']"
+        },
+        "tool_call_id": "call_22c51d1097b24114882173f98aec72db"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/05/screenshot.png"
+  },
+  {
+    "step": 5,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/05/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/05/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__save_alarm",
+        "args": {},
+        "output": "{\"action\": \"save_alarm\", \"ok\": false, \"message\": \"Save button is unavailable in the current UI state; open the Alarm tab/add-alarm sheet first.\"}",
+        "result": {
+          "action": "save_alarm",
+          "ok": false,
+          "message": "Save button is unavailable in the current UI state; open the Alarm tab/add-alarm sheet first."
+        },
+        "tool_call_id": "call_a53e223967dc468db5e40c74b4f8b9f7"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/06/screenshot.png"
+  },
+  {
+    "step": 6,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/06/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/06/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__open_add_alarm",
+        "args": {},
+        "output": "{\"action\": \"open_add_alarm\", \"ok\": true, \"message\": \"Opened add-alarm sheet.\"}",
+        "result": {
+          "action": "open_add_alarm",
+          "ok": true,
+          "message": "Opened add-alarm sheet."
+        },
+        "tool_call_id": "call_afdfe5ecf6254bcda5f9c54bbda58480"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/07/screenshot.png"
+  },
+  {
+    "step": 7,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/07/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/07/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__save_alarm",
+        "args": {},
+        "output": "{\"action\": \"save_alarm\", \"ok\": true, \"message\": \"Alarm saved.\"}",
+        "result": {
+          "action": "save_alarm",
+          "ok": true,
+          "message": "Alarm saved."
+        },
+        "tool_call_id": "call_f8d658957e2a428eb709fcb0e6d63665"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/08/screenshot.png"
+  },
+  {
+    "step": 8,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/08/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/08/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__navigate_to_tab",
+        "args": {
+          "tab": "alarm"
+        },
+        "output": "{\"action\": \"navigate_to_tab\", \"args\": {\"tab\": \"alarm\"}, \"ok\": true, \"message\": \"Switched to 'alarm'.\"}",
+        "result": {
+          "action": "navigate_to_tab",
+          "args": {
+            "tab": "alarm"
+          },
+          "ok": true,
+          "message": "Switched to 'alarm'."
+        },
+        "tool_call_id": "call_656d5af05b794da28e676f9cbb020ebb"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/09/screenshot.png"
+  },
+  {
+    "step": 9,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/09/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/09/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__list_alarms",
+        "args": {},
+        "output": "{\"action\": \"list_alarms\", \"alarms\": [\"alarm\", \"client_call\", \"gym\", \"lunch\", \"morning_run\", \"wrap_up\"], \"count\": 6}",
+        "result": {
+          "action": "list_alarms",
+          "alarms": [
+            "alarm",
+            "client_call",
+            "gym",
+            "lunch",
+            "morning_run",
+            "wrap_up"
+          ],
+          "count": 6
+        },
+        "tool_call_id": "call_cf7d13429bb443b085aac620fd6d2baa"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/10/screenshot.png"
+  },
+  {
+    "step": 10,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/10/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/10/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__navigate_to_tab",
+        "args": {
+          "tab": "alarm"
+        },
+        "output": "{\"action\": \"navigate_to_tab\", \"args\": {\"tab\": \"alarm\"}, \"ok\": true, \"message\": \"Switched to 'alarm'.\"}",
+        "result": {
+          "action": "navigate_to_tab",
+          "args": {
+            "tab": "alarm"
+          },
+          "ok": true,
+          "message": "Switched to 'alarm'."
+        },
+        "tool_call_id": "call_717987ae8b6d4ca8bee32efdf96e5725"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/11/screenshot.png"
+  },
+  {
+    "step": 11,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/11/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/11/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__list_alarms",
+        "args": {},
+        "output": "{\"action\": \"list_alarms\", \"alarms\": [\"alarm\", \"client_call\", \"gym\", \"lunch\", \"morning_run\", \"wrap_up\"], \"count\": 6}",
+        "result": {
+          "action": "list_alarms",
+          "alarms": [
+            "alarm",
+            "client_call",
+            "gym",
+            "lunch",
+            "morning_run",
+            "wrap_up"
+          ],
+          "count": 6
+        },
+        "tool_call_id": "call_68ebfbd57b4e4c00a869b935a15f5048"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/12/screenshot.png"
+  },
+  {
+    "step": 12,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/12/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/12/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__navigate_to_tab",
+        "args": {
+          "tab": "alarm"
+        },
+        "output": "{\"action\": \"navigate_to_tab\", \"args\": {\"tab\": \"alarm\"}, \"ok\": true, \"message\": \"Switched to 'alarm'.\"}",
+        "result": {
+          "action": "navigate_to_tab",
+          "args": {
+            "tab": "alarm"
+          },
+          "ok": true,
+          "message": "Switched to 'alarm'."
+        },
+        "tool_call_id": "call_c9f80af457fe45a894a99c8829ec243f"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/13/screenshot.png"
+  },
+  {
+    "step": 13,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/13/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/13/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__list_alarms",
+        "args": {},
+        "output": "{\"action\": \"list_alarms\", \"alarms\": [\"alarm\", \"client_call\", \"gym\", \"lunch\", \"morning_run\", \"wrap_up\"], \"count\": 6}",
+        "result": {
+          "action": "list_alarms",
+          "alarms": [
+            "alarm",
+            "client_call",
+            "gym",
+            "lunch",
+            "morning_run",
+            "wrap_up"
+          ],
+          "count": 6
+        },
+        "tool_call_id": "call_47411dbdafb047989e660b490f242556"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/14/screenshot.png"
+  },
+  {
+    "step": 14,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/14/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/14/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__navigate_to_tab",
+        "args": {
+          "tab": "alarm"
+        },
+        "output": "{\"action\": \"navigate_to_tab\", \"args\": {\"tab\": \"alarm\"}, \"ok\": true, \"message\": \"Switched to 'alarm'.\"}",
+        "result": {
+          "action": "navigate_to_tab",
+          "args": {
+            "tab": "alarm"
+          },
+          "ok": true,
+          "message": "Switched to 'alarm'."
+        },
+        "tool_call_id": "call_41cda8d12186465d99addd7a381e6b5d"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/15/screenshot.png"
+  },
+  {
+    "step": 15,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/15/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/15/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__list_alarms",
+        "args": {},
+        "output": "{\"action\": \"list_alarms\", \"alarms\": [\"alarm\", \"client_call\", \"gym\", \"lunch\", \"morning_run\", \"wrap_up\"], \"count\": 6}",
+        "result": {
+          "action": "list_alarms",
+          "alarms": [
+            "alarm",
+            "client_call",
+            "gym",
+            "lunch",
+            "morning_run",
+            "wrap_up"
+          ],
+          "count": 6
+        },
+        "tool_call_id": "call_7b6ebcf3905e4fd1a066d63568c2ac83"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/16/screenshot.png"
+  },
+  {
+    "step": 16,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/16/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/16/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__navigate_to_tab",
+        "args": {
+          "tab": "alarm"
+        },
+        "output": "{\"action\": \"navigate_to_tab\", \"args\": {\"tab\": \"alarm\"}, \"ok\": true, \"message\": \"Switched to 'alarm'.\"}",
+        "result": {
+          "action": "navigate_to_tab",
+          "args": {
+            "tab": "alarm"
+          },
+          "ok": true,
+          "message": "Switched to 'alarm'."
+        },
+        "tool_call_id": "call_77803d327e604895b8461a64be96b2f4"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/17/screenshot.png"
+  },
+  {
+    "step": 17,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/17/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/17/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__list_alarms",
+        "args": {},
+        "output": "{\"action\": \"list_alarms\", \"alarms\": [\"alarm\", \"client_call\", \"gym\", \"lunch\", \"morning_run\", \"wrap_up\"], \"count\": 6}",
+        "result": {
+          "action": "list_alarms",
+          "alarms": [
+            "alarm",
+            "client_call",
+            "gym",
+            "lunch",
+            "morning_run",
+            "wrap_up"
+          ],
+          "count": 6
+        },
+        "tool_call_id": "call_304be43a1ef1420aa3b3c3b176f3edac"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/18/screenshot.png"
+  },
+  {
+    "step": 18,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/18/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/18/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__navigate_to_tab",
+        "args": {
+          "tab": "alarm"
+        },
+        "output": "{\"action\": \"navigate_to_tab\", \"args\": {\"tab\": \"alarm\"}, \"ok\": true, \"message\": \"Switched to 'alarm'.\"}",
+        "result": {
+          "action": "navigate_to_tab",
+          "args": {
+            "tab": "alarm"
+          },
+          "ok": true,
+          "message": "Switched to 'alarm'."
+        },
+        "tool_call_id": "call_4031dad330ca414bbf065cac2ad43ddc"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/19/screenshot.png"
+  },
+  {
+    "step": 19,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/19/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/19/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__list_alarms",
+        "args": {},
+        "output": "{\"action\": \"list_alarms\", \"alarms\": [\"alarm\", \"client_call\", \"gym\", \"lunch\", \"morning_run\", \"wrap_up\"], \"count\": 6}",
+        "result": {
+          "action": "list_alarms",
+          "alarms": [
+            "alarm",
+            "client_call",
+            "gym",
+            "lunch",
+            "morning_run",
+            "wrap_up"
+          ],
+          "count": 6
+        },
+        "tool_call_id": "call_9d939f85b5d94973b062b233851a525d"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/20/screenshot.png"
+  },
+  {
+    "step": 20,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/20/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/20/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__navigate_to_tab",
+        "args": {
+          "tab": "alarm"
+        },
+        "output": "{\"action\": \"navigate_to_tab\", \"args\": {\"tab\": \"alarm\"}, \"ok\": true, \"message\": \"Switched to 'alarm'.\"}",
+        "result": {
+          "action": "navigate_to_tab",
+          "args": {
+            "tab": "alarm"
+          },
+          "ok": true,
+          "message": "Switched to 'alarm'."
+        },
+        "tool_call_id": "call_8b2e1a3f7a974fdeb880d22555737424"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/21/screenshot.png"
+  },
+  {
+    "step": 21,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/21/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/21/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__list_alarms",
+        "args": {},
+        "output": "{\"action\": \"list_alarms\", \"alarms\": [\"alarm\", \"client_call\", \"gym\", \"lunch\", \"morning_run\", \"wrap_up\"], \"count\": 6}",
+        "result": {
+          "action": "list_alarms",
+          "alarms": [
+            "alarm",
+            "client_call",
+            "gym",
+            "lunch",
+            "morning_run",
+            "wrap_up"
+          ],
+          "count": 6
+        },
+        "tool_call_id": "call_764d0f2cb343415ea70eff5a9c9f0227"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/22/screenshot.png"
+  },
+  {
+    "step": 22,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/22/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/22/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__navigate_to_tab",
+        "args": {
+          "tab": "alarm"
+        },
+        "output": "{\"action\": \"navigate_to_tab\", \"args\": {\"tab\": \"alarm\"}, \"ok\": true, \"message\": \"Switched to 'alarm'.\"}",
+        "result": {
+          "action": "navigate_to_tab",
+          "args": {
+            "tab": "alarm"
+          },
+          "ok": true,
+          "message": "Switched to 'alarm'."
+        },
+        "tool_call_id": "call_756a90f9e9b34a71bb20eaeeed4ca647"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/23/screenshot.png"
+  },
+  {
+    "step": 23,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/23/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/23/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__list_alarms",
+        "args": {},
+        "output": "{\"action\": \"list_alarms\", \"alarms\": [\"alarm\", \"client_call\", \"gym\", \"lunch\", \"morning_run\", \"wrap_up\"], \"count\": 6}",
+        "result": {
+          "action": "list_alarms",
+          "alarms": [
+            "alarm",
+            "client_call",
+            "gym",
+            "lunch",
+            "morning_run",
+            "wrap_up"
+          ],
+          "count": 6
+        },
+        "tool_call_id": "call_c2119f0668d44e6896572816ff17c3cd"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/24/screenshot.png"
+  },
+  {
+    "step": 24,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/24/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/24/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__navigate_to_tab",
+        "args": {
+          "tab": "alarm"
+        },
+        "output": "{\"action\": \"navigate_to_tab\", \"args\": {\"tab\": \"alarm\"}, \"ok\": true, \"message\": \"Switched to 'alarm'.\"}",
+        "result": {
+          "action": "navigate_to_tab",
+          "args": {
+            "tab": "alarm"
+          },
+          "ok": true,
+          "message": "Switched to 'alarm'."
+        },
+        "tool_call_id": "call_20bfacc9c76f47528c6e664007d015e3"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/25/screenshot.png"
+  },
+  {
+    "step": 25,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/25/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/25/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__list_alarms",
+        "args": {},
+        "output": "{\"action\": \"list_alarms\", \"alarms\": [\"alarm\", \"client_call\", \"gym\", \"lunch\", \"morning_run\", \"wrap_up\"], \"count\": 6}",
+        "result": {
+          "action": "list_alarms",
+          "alarms": [
+            "alarm",
+            "client_call",
+            "gym",
+            "lunch",
+            "morning_run",
+            "wrap_up"
+          ],
+          "count": 6
+        },
+        "tool_call_id": "call_35dd972ef2be4e0f82d1235254271af3"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/26/screenshot.png"
+  },
+  {
+    "step": 26,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/26/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/26/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__navigate_to_tab",
+        "args": {
+          "tab": "alarm"
+        },
+        "output": "{\"action\": \"navigate_to_tab\", \"args\": {\"tab\": \"alarm\"}, \"ok\": true, \"message\": \"Switched to 'alarm'.\"}",
+        "result": {
+          "action": "navigate_to_tab",
+          "args": {
+            "tab": "alarm"
+          },
+          "ok": true,
+          "message": "Switched to 'alarm'."
+        },
+        "tool_call_id": "call_f7f2844510c845298fcfbd8dac08b685"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/27/screenshot.png"
+  },
+  {
+    "step": 27,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/27/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/27/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__list_alarms",
+        "args": {},
+        "output": "{\"action\": \"list_alarms\", \"alarms\": [\"alarm\", \"client_call\", \"gym\", \"lunch\", \"morning_run\", \"wrap_up\"], \"count\": 6}",
+        "result": {
+          "action": "list_alarms",
+          "alarms": [
+            "alarm",
+            "client_call",
+            "gym",
+            "lunch",
+            "morning_run",
+            "wrap_up"
+          ],
+          "count": 6
+        },
+        "tool_call_id": "call_c152253c6f4b413ab2b3a6dc6cface4c"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/28/screenshot.png"
+  },
+  {
+    "step": 28,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/28/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/28/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__navigate_to_tab",
+        "args": {
+          "tab": "alarm"
+        },
+        "output": "{\"action\": \"navigate_to_tab\", \"args\": {\"tab\": \"alarm\"}, \"ok\": true, \"message\": \"Switched to 'alarm'.\"}",
+        "result": {
+          "action": "navigate_to_tab",
+          "args": {
+            "tab": "alarm"
+          },
+          "ok": true,
+          "message": "Switched to 'alarm'."
+        },
+        "tool_call_id": "call_5e62654a7c65452480ddbe7c9fe389c1"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/29/screenshot.png"
+  },
+  {
+    "step": 29,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/29/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/29/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__list_alarms",
+        "args": {},
+        "output": "{\"action\": \"list_alarms\", \"alarms\": [\"alarm\", \"client_call\", \"gym\", \"lunch\", \"morning_run\", \"wrap_up\"], \"count\": 6}",
+        "result": {
+          "action": "list_alarms",
+          "alarms": [
+            "alarm",
+            "client_call",
+            "gym",
+            "lunch",
+            "morning_run",
+            "wrap_up"
+          ],
+          "count": 6
+        },
+        "tool_call_id": "call_28cfbaff21e842698704ab119dda8585"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/30/screenshot.png"
+  },
+  {
+    "step": 30,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/30/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/30/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__navigate_to_tab",
+        "args": {
+          "tab": "alarm"
+        },
+        "output": "{\"action\": \"navigate_to_tab\", \"args\": {\"tab\": \"alarm\"}, \"ok\": true, \"message\": \"Switched to 'alarm'.\"}",
+        "result": {
+          "action": "navigate_to_tab",
+          "args": {
+            "tab": "alarm"
+          },
+          "ok": true,
+          "message": "Switched to 'alarm'."
+        },
+        "tool_call_id": "call_a4826c1480f74a88abc834eae4f8a340"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/31/screenshot.png"
+  },
+  {
+    "step": 31,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/31/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/31/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__list_alarms",
+        "args": {},
+        "output": "{\"action\": \"list_alarms\", \"alarms\": [\"alarm\", \"client_call\", \"gym\", \"lunch\", \"morning_run\", \"wrap_up\"], \"count\": 6}",
+        "result": {
+          "action": "list_alarms",
+          "alarms": [
+            "alarm",
+            "client_call",
+            "gym",
+            "lunch",
+            "morning_run",
+            "wrap_up"
+          ],
+          "count": 6
+        },
+        "tool_call_id": "call_d3b2c8441d0b42bcb34ba4393dfb597e"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/32/screenshot.png"
+  },
+  {
+    "step": 32,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/32/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/32/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__navigate_to_tab",
+        "args": {
+          "tab": "alarm"
+        },
+        "output": "{\"action\": \"navigate_to_tab\", \"args\": {\"tab\": \"alarm\"}, \"ok\": true, \"message\": \"Switched to 'alarm'.\"}",
+        "result": {
+          "action": "navigate_to_tab",
+          "args": {
+            "tab": "alarm"
+          },
+          "ok": true,
+          "message": "Switched to 'alarm'."
+        },
+        "tool_call_id": "call_a35a96219d114ecdb7d84eeef27fc55d"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/33/screenshot.png"
+  },
+  {
+    "step": 33,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/33/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/33/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__list_alarms",
+        "args": {},
+        "output": "{\"action\": \"list_alarms\", \"alarms\": [\"alarm\", \"client_call\", \"gym\", \"lunch\", \"morning_run\", \"wrap_up\"], \"count\": 6}",
+        "result": {
+          "action": "list_alarms",
+          "alarms": [
+            "alarm",
+            "client_call",
+            "gym",
+            "lunch",
+            "morning_run",
+            "wrap_up"
+          ],
+          "count": 6
+        },
+        "tool_call_id": "call_432ff8304d57489e997fcfd6b7e609ad"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/34/screenshot.png"
+  },
+  {
+    "step": 34,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/34/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/34/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__navigate_to_tab",
+        "args": {
+          "tab": "alarm"
+        },
+        "output": "{\"action\": \"navigate_to_tab\", \"args\": {\"tab\": \"alarm\"}, \"ok\": true, \"message\": \"Switched to 'alarm'.\"}",
+        "result": {
+          "action": "navigate_to_tab",
+          "args": {
+            "tab": "alarm"
+          },
+          "ok": true,
+          "message": "Switched to 'alarm'."
+        },
+        "tool_call_id": "call_067143bd21684712ab69c93fec51b7e6"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/35/screenshot.png"
+  },
+  {
+    "step": 35,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/35/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/35/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__list_alarms",
+        "args": {},
+        "output": "{\"action\": \"list_alarms\", \"alarms\": [\"alarm\", \"client_call\", \"gym\", \"lunch\", \"morning_run\", \"wrap_up\"], \"count\": 6}",
+        "result": {
+          "action": "list_alarms",
+          "alarms": [
+            "alarm",
+            "client_call",
+            "gym",
+            "lunch",
+            "morning_run",
+            "wrap_up"
+          ],
+          "count": 6
+        },
+        "tool_call_id": "call_fdc1664927944333bf21b836dc3e51c7"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/36/screenshot.png"
+  },
+  {
+    "step": 36,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/36/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/36/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__navigate_to_tab",
+        "args": {
+          "tab": "alarm"
+        },
+        "output": "{\"action\": \"navigate_to_tab\", \"args\": {\"tab\": \"alarm\"}, \"ok\": true, \"message\": \"Switched to 'alarm'.\"}",
+        "result": {
+          "action": "navigate_to_tab",
+          "args": {
+            "tab": "alarm"
+          },
+          "ok": true,
+          "message": "Switched to 'alarm'."
+        },
+        "tool_call_id": "call_7dc4a47d53374a85a158767c33554b56"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/37/screenshot.png"
+  },
+  {
+    "step": 37,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/37/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/37/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__list_alarms",
+        "args": {},
+        "output": "{\"action\": \"list_alarms\", \"alarms\": [\"alarm\", \"client_call\", \"gym\", \"lunch\", \"morning_run\", \"wrap_up\"], \"count\": 6}",
+        "result": {
+          "action": "list_alarms",
+          "alarms": [
+            "alarm",
+            "client_call",
+            "gym",
+            "lunch",
+            "morning_run",
+            "wrap_up"
+          ],
+          "count": 6
+        },
+        "tool_call_id": "call_9b6a2aa76cd24f9c975d41ff5cf7d50c"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/38/screenshot.png"
+  },
+  {
+    "step": 38,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/38/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/38/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__navigate_to_tab",
+        "args": {
+          "tab": "alarm"
+        },
+        "output": "{\"action\": \"navigate_to_tab\", \"args\": {\"tab\": \"alarm\"}, \"ok\": true, \"message\": \"Switched to 'alarm'.\"}",
+        "result": {
+          "action": "navigate_to_tab",
+          "args": {
+            "tab": "alarm"
+          },
+          "ok": true,
+          "message": "Switched to 'alarm'."
+        },
+        "tool_call_id": "call_946253189d49421b9b93b645497f99fb"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/39/screenshot.png"
+  },
+  {
+    "step": 39,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/39/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/39/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__list_alarms",
+        "args": {},
+        "output": "{\"action\": \"list_alarms\", \"alarms\": [\"alarm\", \"client_call\", \"gym\", \"lunch\", \"morning_run\", \"wrap_up\"], \"count\": 6}",
+        "result": {
+          "action": "list_alarms",
+          "alarms": [
+            "alarm",
+            "client_call",
+            "gym",
+            "lunch",
+            "morning_run",
+            "wrap_up"
+          ],
+          "count": 6
+        },
+        "tool_call_id": "call_9b24f2a3c38d4fe89d63ba1cd30771d5"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/40/screenshot.png"
+  },
+  {
+    "step": 40,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/40/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/40/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__navigate_to_tab",
+        "args": {
+          "tab": "alarm"
+        },
+        "output": "{\"action\": \"navigate_to_tab\", \"args\": {\"tab\": \"alarm\"}, \"ok\": true, \"message\": \"Switched to 'alarm'.\"}",
+        "result": {
+          "action": "navigate_to_tab",
+          "args": {
+            "tab": "alarm"
+          },
+          "ok": true,
+          "message": "Switched to 'alarm'."
+        },
+        "tool_call_id": "call_57988f993a204d05973561703f868646"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/41/screenshot.png"
+  },
+  {
+    "step": 41,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/41/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/41/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__list_alarms",
+        "args": {},
+        "output": "{\"action\": \"list_alarms\", \"alarms\": [\"alarm\", \"client_call\", \"gym\", \"lunch\", \"morning_run\", \"wrap_up\"], \"count\": 6}",
+        "result": {
+          "action": "list_alarms",
+          "alarms": [
+            "alarm",
+            "client_call",
+            "gym",
+            "lunch",
+            "morning_run",
+            "wrap_up"
+          ],
+          "count": 6
+        },
+        "tool_call_id": "call_9bd88cd95ebe4845b50945963d8cb3fb"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/42/screenshot.png"
+  },
+  {
+    "step": 42,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/42/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/42/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__navigate_to_tab",
+        "args": {
+          "tab": "alarm"
+        },
+        "output": "{\"action\": \"navigate_to_tab\", \"args\": {\"tab\": \"alarm\"}, \"ok\": true, \"message\": \"Switched to 'alarm'.\"}",
+        "result": {
+          "action": "navigate_to_tab",
+          "args": {
+            "tab": "alarm"
+          },
+          "ok": true,
+          "message": "Switched to 'alarm'."
+        },
+        "tool_call_id": "call_59a44d0271ee4de7aa16a087dbf8261f"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/43/screenshot.png"
+  },
+  {
+    "step": 43,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/43/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/43/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__list_alarms",
+        "args": {},
+        "output": "{\"action\": \"list_alarms\", \"alarms\": [\"alarm\", \"client_call\", \"gym\", \"lunch\", \"morning_run\", \"wrap_up\"], \"count\": 6}",
+        "result": {
+          "action": "list_alarms",
+          "alarms": [
+            "alarm",
+            "client_call",
+            "gym",
+            "lunch",
+            "morning_run",
+            "wrap_up"
+          ],
+          "count": 6
+        },
+        "tool_call_id": "call_c7ca3b4a1fa249e8a6bb42c531b3df8f"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/44/screenshot.png"
+  },
+  {
+    "step": 44,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/44/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/44/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__navigate_to_tab",
+        "args": {
+          "tab": "alarm"
+        },
+        "output": "{\"action\": \"navigate_to_tab\", \"args\": {\"tab\": \"alarm\"}, \"ok\": true, \"message\": \"Switched to 'alarm'.\"}",
+        "result": {
+          "action": "navigate_to_tab",
+          "args": {
+            "tab": "alarm"
+          },
+          "ok": true,
+          "message": "Switched to 'alarm'."
+        },
+        "tool_call_id": "call_f05cdce6b91e4792a4e70cbef601be0d"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/45/screenshot.png"
+  },
+  {
+    "step": 45,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/45/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/45/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__list_alarms",
+        "args": {},
+        "output": "{\"action\": \"list_alarms\", \"alarms\": [\"alarm\", \"client_call\", \"gym\", \"lunch\", \"morning_run\", \"wrap_up\"], \"count\": 6}",
+        "result": {
+          "action": "list_alarms",
+          "alarms": [
+            "alarm",
+            "client_call",
+            "gym",
+            "lunch",
+            "morning_run",
+            "wrap_up"
+          ],
+          "count": 6
+        },
+        "tool_call_id": "call_abc8f8dd6aa643cd97f4afa0a54faf77"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/46/screenshot.png"
+  },
+  {
+    "step": 46,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/46/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/46/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__navigate_to_tab",
+        "args": {
+          "tab": "alarm"
+        },
+        "output": "{\"action\": \"navigate_to_tab\", \"args\": {\"tab\": \"alarm\"}, \"ok\": true, \"message\": \"Switched to 'alarm'.\"}",
+        "result": {
+          "action": "navigate_to_tab",
+          "args": {
+            "tab": "alarm"
+          },
+          "ok": true,
+          "message": "Switched to 'alarm'."
+        },
+        "tool_call_id": "call_22bad5da7da34d578d5f82c9697837bc"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/47/screenshot.png"
+  },
+  {
+    "step": 47,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/47/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/47/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__list_alarms",
+        "args": {},
+        "output": "{\"action\": \"list_alarms\", \"alarms\": [\"alarm\", \"client_call\", \"gym\", \"lunch\", \"morning_run\", \"wrap_up\"], \"count\": 6}",
+        "result": {
+          "action": "list_alarms",
+          "alarms": [
+            "alarm",
+            "client_call",
+            "gym",
+            "lunch",
+            "morning_run",
+            "wrap_up"
+          ],
+          "count": 6
+        },
+        "tool_call_id": "call_2ac23825a206442496f773dff66c548f"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/48/screenshot.png"
+  },
+  {
+    "step": 48,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/48/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/48/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__navigate_to_tab",
+        "args": {
+          "tab": "alarm"
+        },
+        "output": "{\"action\": \"navigate_to_tab\", \"args\": {\"tab\": \"alarm\"}, \"ok\": true, \"message\": \"Switched to 'alarm'.\"}",
+        "result": {
+          "action": "navigate_to_tab",
+          "args": {
+            "tab": "alarm"
+          },
+          "ok": true,
+          "message": "Switched to 'alarm'."
+        },
+        "tool_call_id": "call_2b71877fb95245858a591d8782ac871e"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/49/screenshot.png"
+  },
+  {
+    "step": 49,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/49/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/49/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__list_alarms",
+        "args": {},
+        "output": "{\"action\": \"list_alarms\", \"alarms\": [\"alarm\", \"client_call\", \"gym\", \"lunch\", \"morning_run\", \"wrap_up\"], \"count\": 6}",
+        "result": {
+          "action": "list_alarms",
+          "alarms": [
+            "alarm",
+            "client_call",
+            "gym",
+            "lunch",
+            "morning_run",
+            "wrap_up"
+          ],
+          "count": 6
+        },
+        "tool_call_id": "call_7b493f7a71034e0b9b2799ed1f1f6fd8"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/50/screenshot.png"
+  },
+  {
+    "step": 50,
+    "screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/50/screenshot.png",
+    "source": "results/single-task-20261029-120427-clock-001/01-clock-001/steps/50/ui.xml",
+    "actions": [
+      {
+        "action": "mcp_tool_call",
+        "tool": "mcp__clock__navigate_to_tab",
+        "args": {
+          "tab": "alarm"
+        },
+        "output": "{\"action\": \"navigate_to_tab\", \"args\": {\"tab\": \"alarm\"}, \"ok\": true, \"message\": \"Switched to 'alarm'.\"}",
+        "result": {
+          "action": "navigate_to_tab",
+          "args": {
+            "tab": "alarm"
+          },
+          "ok": true,
+          "message": "Switched to 'alarm'."
+        },
+        "tool_call_id": "call_d12af944004849c5b019457edaab4c4b"
+      }
+    ],
+    "post_action_screenshot": "results/single-task-20261029-120427-clock-001/01-clock-001/final_state/screenshot.png"
+  }
+]

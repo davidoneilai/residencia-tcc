@@ -1,0 +1,307 @@
+{
+  "apps": [
+    "clock"
+  ],
+  "tool_count": 19,
+  "tools": [
+    {
+      "description": "Launch the Clock app and return its initial UI tree. Returns: Human-readable string with a confirmation line and the accessibility tree from the foreground app.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "name": "mcp__clock__launch",
+      "route": {
+        "app": "clock",
+        "tool": "launch"
+      }
+    },
+    {
+      "description": "Return Clock's UI tree, or ok:false if another app owns the foreground.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "name": "mcp__clock__observe",
+      "route": {
+        "app": "clock",
+        "tool": "observe"
+      }
+    },
+    {
+      "description": "Switch the bottom tab bar to a specific Clock section. Dismisses any add-city / add-alarm overlay first and verifies the tab's content actually rendered. Most action/read tools self-navigate, so call this only when you need to explicitly land on a tab.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "tab": {
+            "description": "one of \"world\" / \"world clock\", \"alarm\" / \"alarms\", \"stopwatch\",\n\"timer\" (case-insensitive). Any other value returns \"Could not switch\ntab: unknown tab ...\" (ok:false).",
+            "type": "string"
+          }
+        },
+        "required": [
+          "tab"
+        ],
+        "type": "object"
+      },
+      "name": "mcp__clock__navigate_to_tab",
+      "route": {
+        "app": "clock",
+        "tool": "navigate_to_tab"
+      }
+    },
+    {
+      "description": "List the cities currently shown in the World Clock tab. Works from any screen \u2014 self-navigates to the World Clock tab and dismisses any open overlay first; no need to pre-navigate. Returns: ``{\"cities\": [<slug>, ...], \"count\": int}`` \u2014 each slug is the city's display name lowercased with spaces->underscores (e.g. \"new_york\"). To add a city pass its display name to `add_world_city`.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "name": "mcp__clock__list_world_cities",
+      "route": {
+        "app": "clock",
+        "tool": "list_world_cities"
+      }
+    },
+    {
+      "description": "Add a city to the World Clock by searching for it and tapping the match. Works from any screen \u2014 self-navigates to the World Clock tab, opens the add-city search sheet, types the name, and selects the matching result.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "city_name": {
+            "description": "the city's DISPLAY name (e.g. \"Tokyo\", \"New York\", \"paris\").\nMatched case-insensitively against the live search results: an exact\nname wins, else a substring match, so partial/lowercased names work.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "city_name"
+        ],
+        "type": "object"
+      },
+      "name": "mcp__clock__add_world_city",
+      "route": {
+        "app": "clock",
+        "tool": "add_world_city"
+      }
+    },
+    {
+      "description": "List the alarms visible in the Alarm tab. Works from any screen \u2014 self-navigates to the Alarm tab and dismisses any overlay first; no need to pre-navigate. Returns: ``{\"alarms\": [<slug>, ...], \"count\": int}`` \u2014 each slug is the alarm's label lowercased with spaces->underscores (\"Wake up\"->\"wake_up\"), or ``idxN`` for an unlabeled alarm (N = row index). Pass either the label or the slug to `toggle_alarm`.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "name": "mcp__clock__list_alarms",
+      "route": {
+        "app": "clock",
+        "tool": "list_alarms"
+      }
+    },
+    {
+      "description": "Toggle an alarm's on/off switch. Works from any screen \u2014 self-navigates to the Alarm tab and dismisses any overlay first.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "label_or_index": {
+            "description": "the alarm's LABEL (case-insensitive; spaces auto-slugged,\ne.g. \"Wake up\"), or its slug / synthetic ``\"idxN\"`` form for an\nunlabeled alarm. Substring matches against alarm rows are accepted.\nGet valid values from `list_alarms()`.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "label_or_index"
+        ],
+        "type": "object"
+      },
+      "name": "mcp__clock__toggle_alarm",
+      "route": {
+        "app": "clock",
+        "tool": "toggle_alarm"
+      }
+    },
+    {
+      "description": "Open the add-alarm sheet (the Alarm tab's + button). Works from any screen \u2014 self-navigates to the Alarm tab and dismisses any overlay first, then waits for the modal to actually appear. After it returns the sheet's time picker and label field are reachable; commit with `save_alarm()` or discard with `cancel_add_alarm()`. For a one-shot create, prefer `add_alarm(time, label)` instead.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "name": "mcp__clock__open_add_alarm",
+      "route": {
+        "app": "clock",
+        "tool": "open_add_alarm"
+      }
+    },
+    {
+      "description": "Create a new alarm end-to-end: open sheet, set time/label, save. Works from any screen \u2014 self-navigates to the Alarm tab, opens the sheet, drives the three UIDatePicker wheels (Hour, Minute, AM/PM), fills the optional label field, and taps Save.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "label": {
+            "default": "",
+            "description": "optional alarm label (e.g. \"Wake up\"); becomes the alarm's slug.\nEmpty string leaves it unlabeled.",
+            "type": "string"
+          },
+          "time": {
+            "description": "clock string. 12-hour form with colon and AM/PM marker\n(\"6:45 AM\", \"11:30 PM\"), OR 24-hour form (\"18:15\"). Other forms\nreturn \"Could not add alarm: bad time ...\" (ok:false).",
+            "type": "string"
+          }
+        },
+        "required": [
+          "time"
+        ],
+        "type": "object"
+      },
+      "name": "mcp__clock__add_alarm",
+      "route": {
+        "app": "clock",
+        "tool": "add_alarm"
+      }
+    },
+    {
+      "description": "Commit the in-flight alarm by tapping the Save bar button. Requires the add-alarm sheet to already be open (call `open_add_alarm()` first) \u2014 this tool does NOT open it; it returns an ok:false envelope if no sheet is up. Use this when you filled the picker/label manually rather than via `add_alarm()`. Dismisses the keyboard before tapping Save.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "name": "mcp__clock__save_alarm",
+      "route": {
+        "app": "clock",
+        "tool": "save_alarm"
+      }
+    },
+    {
+      "description": "Discard the in-flight alarm by tapping the Cancel bar button. Requires the add-alarm sheet to already be open \u2014 this tool does NOT open it and returns an ok:false envelope if no sheet is up. No changes are persisted.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "name": "mcp__clock__cancel_add_alarm",
+      "route": {
+        "app": "clock",
+        "tool": "cancel_add_alarm"
+      }
+    },
+    {
+      "description": "Toggle the stopwatch's start/stop button. Works from any screen \u2014 self-navigates to the Stopwatch tab first. The button is a single toggle: starts a stopped stopwatch (\"Start\"->\"Stop\"), stops a running one (\"Stop\"->\"Start\"). Returns a string with the running state and post-tap display (e.g. \"Stopwatch running. Display: 00:01.23\"), or \"Could not confirm ...\" (ok:false) if the button title did not flip.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "name": "mcp__clock__start_stop_stopwatch",
+      "route": {
+        "app": "clock",
+        "tool": "start_stop_stopwatch"
+      }
+    },
+    {
+      "description": "Tap the polymorphic Lap/Reset button on the stopwatch. Works from any screen \u2014 self-navigates to the Stopwatch tab first. The button acts as Lap when the stopwatch is RUNNING and Reset when STOPPED. Prefer `stopwatch_lap()` / `stopwatch_reset()` for explicit semantics.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "name": "mcp__clock__stopwatch_lap_reset",
+      "route": {
+        "app": "clock",
+        "tool": "stopwatch_lap_reset"
+      }
+    },
+    {
+      "description": "Record a lap split (explicit-semantics wrapper around the Lap/Reset button). Works from any screen \u2014 self-navigates to the Stopwatch tab first. The stopwatch must be RUNNING for this to lap; call `start_stop_stopwatch()` first if it isn't, otherwise the button resets the stopwatch instead.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "name": "mcp__clock__stopwatch_lap",
+      "route": {
+        "app": "clock",
+        "tool": "stopwatch_lap"
+      }
+    },
+    {
+      "description": "Reset the stopwatch to 00:00 (explicit-semantics wrapper around Lap/Reset). Works from any screen \u2014 self-navigates to the Stopwatch tab first. The stopwatch must be STOPPED for this to reset; call `start_stop_stopwatch()` to stop it first if it is running, otherwise the button records a lap.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "name": "mcp__clock__stopwatch_reset",
+      "route": {
+        "app": "clock",
+        "tool": "stopwatch_reset"
+      }
+    },
+    {
+      "description": "Read the stopwatch display string. Works from any screen \u2014 self-navigates to the Stopwatch tab first so the display element is present in the tree. Returns: ``{\"display\": \"MM:SS.cc\" | None}`` \u2014 None if the display could not be read.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "name": "mcp__clock__read_stopwatch",
+      "route": {
+        "app": "clock",
+        "tool": "read_stopwatch"
+      }
+    },
+    {
+      "description": "Toggle the timer's start/pause button. Works from any screen \u2014 self-navigates to the Timer tab first. Starts a paused/stopped timer (\"Start\"->\"Pause\") or pauses a running one. NOTE: there is no MCP tool to SET the timer duration. Start is a guarded no-op while the display reads 00:00:00 (no duration configured); this tool then returns \"Could not start the timer: no duration is set ...\" (ok:false). Set the duration by tapping the clock_timer_duration_picker wheels with generic sim tools first. Returns the running/paused state and post-tap display, or a \"Could not ...\" string (ok:false) when the toggle could not be confirmed.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "name": "mcp__clock__start_stop_timer",
+      "route": {
+        "app": "clock",
+        "tool": "start_stop_timer"
+      }
+    },
+    {
+      "description": "Cancel/reset the active timer back to its configured duration. Works from any screen \u2014 self-navigates to the Timer tab first. Pauses a running timer and restores the display to the duration picked on clock_timer_duration_picker. Returns a string with the post-reset display value.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "name": "mcp__clock__reset_timer",
+      "route": {
+        "app": "clock",
+        "tool": "reset_timer"
+      }
+    },
+    {
+      "description": "Read the timer's current display string. Works from any screen \u2014 self-navigates to the Timer tab first so the display element is present in the tree. Returns: ``{\"display\": \"HH:MM:SS\" | None}`` \u2014 None if the display could not be read.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "name": "mcp__clock__read_timer",
+      "route": {
+        "app": "clock",
+        "tool": "read_timer"
+      }
+    }
+  ]
+}

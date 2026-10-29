@@ -1,0 +1,11 @@
+{
+  "task": "clock-001",
+  "goal": "Set a new alarm for 6:45 AM labeled 'Gym' in the Clock app and confirm it's set.",
+  "status": "ok",
+  "error": null,
+  "steps": 50,
+  "wall_time_seconds": 1217.0,
+  "agent_answer": null,
+  "task_dir": "01-clock-001",
+  "_original_index": 0
+}

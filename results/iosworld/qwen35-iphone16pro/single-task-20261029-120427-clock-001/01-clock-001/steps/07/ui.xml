@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AppiumAUT>
+  <XCUIElementTypeApplication type="XCUIElementTypeApplication" name="Clock" label="Clock" x="0" y="0" width="402" height="874" processId="76237" bundleId="com.iosworld.benchmark.clock">
+    <XCUIElementTypeWindow type="XCUIElementTypeWindow" x="0" y="0" width="402" height="874">
+      <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="0" width="402" height="874">
+        <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="0" width="402" height="874">
+          <XCUIElementTypeOther type="XCUIElementTypeOther" x="-402" y="-874" width="1206" height="2622"/>
+          <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="0" width="402" height="874">
+            <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="0" width="402" height="874">
+              <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="0" width="402" height="874">
+                <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="0" width="402" height="874">
+                  <XCUIElementTypeNavigationBar type="XCUIElementTypeNavigationBar" name="Alarms" x="0" y="62" width="402" height="106">
+                    <XCUIElementTypeButton type="XCUIElementTypeButton" name="Edit" label="Edit" x="20" y="66" width="55" height="36"/>
+                    <XCUIElementTypeButton type="XCUIElementTypeButton" name="Add" label="Add" x="346" y="66" width="36" height="36"/>
+                    <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Alarms" name="Alarms" label="Alarms" x="16" y="119" width="112" height="42"/>
+                  </XCUIElementTypeNavigationBar>
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="0" width="402" height="874">
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="0" width="402" height="874">
+                      <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="0" width="402" height="874">
+                        <XCUIElementTypeTable type="XCUIElementTypeTable" x="0" y="0" width="402" height="874">
+                          <XCUIElementTypeCell type="XCUIElementTypeCell" value="1" name="clock_alarm_row_gym" x="0" y="168" width="402" height="76">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" x="20" y="168" width="362" height="1"/>
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="12:07" name="12:07" label="12:07" x="20" y="179" width="76" height="39"/>
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Gym" name="Gym" label="Gym" x="20" y="217" width="30" height="18"/>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" x="20" y="243" width="362" height="1"/>
+                            <XCUIElementTypeSwitch type="XCUIElementTypeSwitch" value="1" name="clock_alarm_toggle_gym" label="12:07, Gym" x="319" y="192" width="63" height="28"/>
+                          </XCUIElementTypeCell>
+                          <XCUIElementTypeCell type="XCUIElementTypeCell" value="1" name="clock_alarm_row_morning_run" x="0" y="244" width="402" height="76">
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="7:00" name="7:00" label="7:00" x="20" y="255" width="63" height="39"/>
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Morning run, Weekdays" name="Morning run, Weekdays" label="Morning run, Weekdays" x="20" y="293" width="152" height="18"/>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" x="20" y="319" width="362" height="1"/>
+                            <XCUIElementTypeSwitch type="XCUIElementTypeSwitch" value="1" name="clock_alarm_toggle_morning_run" label="7:00, Morning run, Weekdays" x="319" y="268" width="63" height="28"/>
+                          </XCUIElementTypeCell>
+                          <XCUIElementTypeCell type="XCUIElementTypeCell" value="1" name="clock_alarm_row_client_call" x="0" y="320" width="402" height="76">
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="9:30" name="9:30" label="9:30" x="20" y="331" width="66" height="39"/>
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Client call, Weekdays" name="Client call, Weekdays" label="Client call, Weekdays" x="20" y="369" width="137" height="18"/>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" x="20" y="395" width="362" height="1"/>
+                            <XCUIElementTypeSwitch type="XCUIElementTypeSwitch" value="1" name="clock_alarm_toggle_client_call" label="9:30, Client call, Weekdays" x="319" y="344" width="63" height="28"/>
+                          </XCUIElementTypeCell>
+                          <XCUIElementTypeCell type="XCUIElementTypeCell" value="0" name="clock_alarm_row_lunch" x="0" y="396" width="402" height="76">
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="12:30" name="12:30" label="12:30" x="20" y="407" width="78" height="39"/>
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Lunch" name="Lunch" label="Lunch" x="19" y="445" width="41" height="18"/>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" x="20" y="471" width="362" height="1"/>
+                            <XCUIElementTypeSwitch type="XCUIElementTypeSwitch" value="0" name="clock_alarm_toggle_lunch" label="12:30, Lunch" x="319" y="420" width="63" height="28"/>
+                          </XCUIElementTypeCell>
+                          <XCUIElementTypeCell type="XCUIElementTypeCell" value="0" name="clock_alarm_row_wrap_up" x="0" y="472" width="402" height="76">
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="6:15" name="6:15" label="6:15" x="19" y="483" width="61" height="39"/>
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Wrap up, Weekdays" name="Wrap up, Weekdays" label="Wrap up, Weekdays" x="20" y="521" width="128" height="18"/>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" x="20" y="547" width="362" height="1"/>
+                            <XCUIElementTypeSwitch type="XCUIElementTypeSwitch" value="0" name="clock_alarm_toggle_wrap_up" label="6:15, Wrap up, Weekdays" x="319" y="496" width="63" height="28"/>
+                          </XCUIElementTypeCell>
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" value="0%" name="Vertical scroll bar, 1 page" label="Vertical scroll bar, 1 page" x="369" y="168" width="30" height="623">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" x="396" y="490" width="3" height="298"/>
+                          </XCUIElementTypeOther>
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" value="0%" name="Horizontal scroll bar, 1 page" label="Horizontal scroll bar, 1 page" x="62" y="758" width="278" height="30">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" x="59" y="785" width="284" height="3"/>
+                          </XCUIElementTypeOther>
+                        </XCUIElementTypeTable>
+                      </XCUIElementTypeOther>
+                    </XCUIElementTypeOther>
+                  </XCUIElementTypeOther>
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="0" width="402" height="874">
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="0" width="402" height="874"/>
+                  </XCUIElementTypeOther>
+                </XCUIElementTypeOther>
+              </XCUIElementTypeOther>
+            </XCUIElementTypeOther>
+            <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="791" width="402" height="83">
+              <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="0" width="402" height="874">
+                <XCUIElementTypeTabBar type="XCUIElementTypeTabBar" name="Tab Bar" label="Tab Bar" x="0" y="791" width="402" height="83">
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" x="21" y="791" width="360" height="62">
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" x="21" y="791" width="100" height="54"/>
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" x="21" y="791" width="360" height="62">
+                      <XCUIElementTypeButton type="XCUIElementTypeButton" name="clock_tab_world" label="World Clock" x="25" y="795" width="100" height="54">
+                        <XCUIElementTypeImage type="XCUIElementTypeImage" name="globe" label="Globe" x="61" y="801" width="28" height="28"/>
+                      </XCUIElementTypeButton>
+                      <XCUIElementTypeButton type="XCUIElementTypeButton" value="1" name="clock_tab_alarm" label="Alarms" x="109" y="795" width="100" height="54">
+                        <XCUIElementTypeImage type="XCUIElementTypeImage" name="alarm" label="alarm" x="146" y="800" width="27" height="28"/>
+                      </XCUIElementTypeButton>
+                      <XCUIElementTypeButton type="XCUIElementTypeButton" name="clock_tab_stopwatch" label="Stopwatch" x="193" y="795" width="100" height="54">
+                        <XCUIElementTypeImage type="XCUIElementTypeImage" name="stopwatch" label="stopwatch" x="229" y="799" width="28" height="30"/>
+                      </XCUIElementTypeButton>
+                      <XCUIElementTypeButton type="XCUIElementTypeButton" name="clock_tab_timer" label="Timer" x="277" y="795" width="100" height="54">
+                        <XCUIElementTypeImage type="XCUIElementTypeImage" name="timer" label="Timer" x="313" y="801" width="28" height="28"/>
+                      </XCUIElementTypeButton>
+                    </XCUIElementTypeOther>
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" x="109" y="795" width="100" height="54">
+                      <XCUIElementTypeOther type="XCUIElementTypeOther" x="109" y="795" width="100" height="54">
+                        <XCUIElementTypeOther type="XCUIElementTypeOther" x="109" y="795" width="100" height="54"/>
+                        <XCUIElementTypeOther type="XCUIElementTypeOther" x="109" y="795" width="100" height="54">
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" x="109" y="795" width="100" height="54">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" x="109" y="795" width="100" height="54">
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" x="109" y="795" width="100" height="54"/>
+                            </XCUIElementTypeOther>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" x="109" y="795" width="100" height="54"/>
+                          </XCUIElementTypeOther>
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" x="109" y="795" width="100" height="54"/>
+                        </XCUIElementTypeOther>
+                      </XCUIElementTypeOther>
+                    </XCUIElementTypeOther>
+                  </XCUIElementTypeOther>
+                </XCUIElementTypeTabBar>
+              </XCUIElementTypeOther>
+              <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="791" width="402" height="83">
+                <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="791" width="402" height="83">
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="791" width="402" height="83">
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="791" width="402" height="83">
+                      <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="791" width="402" height="83">
+                        <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="791" width="402" height="83"/>
+                      </XCUIElementTypeOther>
+                    </XCUIElementTypeOther>
+                  </XCUIElementTypeOther>
+                </XCUIElementTypeOther>
+              </XCUIElementTypeOther>
+            </XCUIElementTypeOther>
+          </XCUIElementTypeOther>
+        </XCUIElementTypeOther>
+      </XCUIElementTypeOther>
+      <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="0" width="402" height="874">
+        <XCUIElementTypeOther type="XCUIElementTypeOther" x="-402" y="-874" width="1206" height="2622"/>
+        <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="62" width="402" height="812">
+          <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="62" width="402" height="812">
+            <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="62" width="402" height="812">
+              <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="62" width="402" height="812">
+                <XCUIElementTypeNavigationBar type="XCUIElementTypeNavigationBar" name="Add Alarm" x="0" y="78" width="402" height="54">
+                  <XCUIElementTypeButton type="XCUIElementTypeButton" name="Cancel" label="Cancel" x="20" y="82" width="78" height="36"/>
+                  <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Add Alarm" name="Add Alarm" label="Add Alarm" x="159" y="89" width="84" height="22"/>
+                  <XCUIElementTypeButton type="XCUIElementTypeButton" name="Save" label="Save" x="319" y="82" width="63" height="36"/>
+                </XCUIElementTypeNavigationBar>
+                <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="62" width="402" height="812">
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="62" width="402" height="812">
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="62" width="402" height="812">
+                      <XCUIElementTypeDatePicker type="XCUIElementTypeDatePicker" x="0" y="140" width="402" height="216">
+                        <XCUIElementTypePicker type="XCUIElementTypePicker" x="0" y="140" width="402" height="216">
+                          <XCUIElementTypePickerWheel type="XCUIElementTypePickerWheel" value="12 o’clock" x="144" y="102" width="59" height="292"/>
+                          <XCUIElementTypePickerWheel type="XCUIElementTypePickerWheel" value="08 minutes" x="208" y="102" width="50" height="292"/>
+                        </XCUIElementTypePicker>
+                      </XCUIElementTypeDatePicker>
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Label" name="Label" label="Label" x="20" y="380" width="33" height="16"/>
+                      <XCUIElementTypeTextField type="XCUIElementTypeTextField" value="Label" label="" x="20" y="403" width="362" height="45" placeholderValue="Label"/>
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Repeat" name="Repeat" label="Repeat" x="19" y="467" width="44" height="17"/>
+                      <XCUIElementTypeButton type="XCUIElementTypeButton" name="alarm_repeat_button" label="Never" x="20" y="491" width="362" height="45">
+                        <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Never" name="Never" label="Never" x="32" y="503" width="43" height="21"/>
+                      </XCUIElementTypeButton>
+                    </XCUIElementTypeOther>
+                  </XCUIElementTypeOther>
+                </XCUIElementTypeOther>
+                <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="62" width="402" height="812">
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="62" width="402" height="812"/>
+                </XCUIElementTypeOther>
+              </XCUIElementTypeOther>
+            </XCUIElementTypeOther>
+          </XCUIElementTypeOther>
+        </XCUIElementTypeOther>
+      </XCUIElementTypeOther>
+    </XCUIElementTypeWindow>
+    <XCUIElementTypeWindow type="XCUIElementTypeWindow" x="0" y="0" width="402" height="874">
+      <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="0" width="402" height="874">
+        <XCUIElementTypeOther type="XCUIElementTypeOther" x="0" y="0" width="402" height="874"/>
+      </XCUIElementTypeOther>
+    </XCUIElementTypeWindow>
+  </XCUIElementTypeApplication>
+</AppiumAUT>

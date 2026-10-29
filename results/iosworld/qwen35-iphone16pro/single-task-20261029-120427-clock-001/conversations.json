@@ -1,0 +1,21 @@
+[
+  {
+    "iteration": 1,
+    "task": "clock-001",
+    "step": 1,
+    "messages": null,
+    "raw_parsed": {
+      "actions": [
+        {
+          "type": "stop",
+          "answer": ""
+        }
+      ],
+      "summary": "MCP agent (vllm) ran 50 tool calls",
+      "cache_stats": {
+        "cache_read_tokens": 0
+      }
+    },
+    "raw_text": ""
+  }
+]

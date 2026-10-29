@@ -1,0 +1,15 @@
+{
+  "run_dir": ".",
+  "tasks": [
+    {
+      "task": "clock-001",
+      "iteration": 1,
+      "task_dir": "01-clock-001",
+      "status": "ok",
+      "error": null,
+      "agent_answer": null,
+      "run_dir": "."
+    }
+  ],
+  "failed_tasks": 0
+}
