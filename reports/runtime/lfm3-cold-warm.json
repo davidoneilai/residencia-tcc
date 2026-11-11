@@ -1,0 +1,58 @@
+{
+ "lfm3 fria": {
+  "n": 12,
+  "ref_ok": 6,
+  "stack_ok": 6,
+  "only_ref": [],
+  "only_stack": [],
+  "ref_s": 89.5,
+  "stack_s": 74.0,
+  "pct": -17,
+  "ci": [
+   -40.8,
+   7.2
+  ]
+ },
+ "lfm3 quente": {
+  "n": 12,
+  "ref_ok": 6,
+  "stack_ok": 6,
+  "only_ref": [],
+  "only_stack": [],
+  "ref_s": 89.5,
+  "stack_s": 60.6,
+  "pct": -32,
+  "ci": [
+   -53.3,
+   -7.1
+  ]
+ },
+ "qwen fria": {
+  "n": 12,
+  "ref_ok": 4,
+  "stack_ok": 4,
+  "only_ref": [],
+  "only_stack": [],
+  "ref_s": 92.2,
+  "stack_s": 65.1,
+  "pct": -29,
+  "ci": [
+   -48.6,
+   -7.4
+  ]
+ },
+ "qwen quente": {
+  "n": 12,
+  "ref_ok": 4,
+  "stack_ok": 4,
+  "only_ref": [],
+  "only_stack": [],
+  "ref_s": 92.2,
+  "stack_s": 48.8,
+  "pct": -47,
+  "ci": [
+   -62.3,
+   -25.6
+  ]
+ }
+}

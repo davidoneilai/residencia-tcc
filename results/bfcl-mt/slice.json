@@ -1,0 +1,406 @@
+{
+ "frozen_before_execution": true,
+ "bfcl_eval_version": "2026.3.23",
+ "category": "multi_turn_base",
+ "seed": 20261104,
+ "max_turns": 3,
+ "max_gold_calls": 4,
+ "excluded_prior_ids": [
+  "multi_turn_base_187",
+  "multi_turn_base_195",
+  "multi_turn_base_94"
+ ],
+ "excluded_reason": "smoke de 29/10 (Qwen3.5 Direct/NoThink)",
+ "sha256": {
+  "BFCL_v4_multi_turn_base.json": "1a21a995d06fd6f20ba55de7bced30ef953ec35e998f502ec2ecf4d66ef1c43a",
+  "possible_answer/BFCL_v4_multi_turn_base.json": "1fee67823b317571649177dd89d63969feaae4e810cc7448ee55ba797fb7c8fc"
+ },
+ "pool_size": 44,
+ "dev": [
+  "multi_turn_base_11",
+  "multi_turn_base_45",
+  "multi_turn_base_46",
+  "multi_turn_base_76",
+  "multi_turn_base_91",
+  "multi_turn_base_124",
+  "multi_turn_base_155",
+  "multi_turn_base_157",
+  "multi_turn_base_163",
+  "multi_turn_base_169",
+  "multi_turn_base_182",
+  "multi_turn_base_197"
+ ],
+ "test": [
+  "multi_turn_base_4",
+  "multi_turn_base_7",
+  "multi_turn_base_12",
+  "multi_turn_base_13",
+  "multi_turn_base_21",
+  "multi_turn_base_23",
+  "multi_turn_base_29",
+  "multi_turn_base_30",
+  "multi_turn_base_37",
+  "multi_turn_base_42",
+  "multi_turn_base_47",
+  "multi_turn_base_50",
+  "multi_turn_base_57",
+  "multi_turn_base_78",
+  "multi_turn_base_100",
+  "multi_turn_base_101",
+  "multi_turn_base_104",
+  "multi_turn_base_113",
+  "multi_turn_base_115",
+  "multi_turn_base_120",
+  "multi_turn_base_132",
+  "multi_turn_base_133",
+  "multi_turn_base_139",
+  "multi_turn_base_144",
+  "multi_turn_base_147",
+  "multi_turn_base_150",
+  "multi_turn_base_158",
+  "multi_turn_base_159",
+  "multi_turn_base_160",
+  "multi_turn_base_161",
+  "multi_turn_base_176",
+  "multi_turn_base_177"
+ ],
+ "entries": {
+  "multi_turn_base_11": {
+   "turns": 2,
+   "gold_calls": 2,
+   "classes": [
+    "TwitterAPI",
+    "GorillaFileSystem"
+   ]
+  },
+  "multi_turn_base_45": {
+   "turns": 2,
+   "gold_calls": 3,
+   "classes": [
+    "GorillaFileSystem",
+    "MathAPI"
+   ]
+  },
+  "multi_turn_base_46": {
+   "turns": 1,
+   "gold_calls": 4,
+   "classes": [
+    "MessageAPI",
+    "GorillaFileSystem"
+   ]
+  },
+  "multi_turn_base_76": {
+   "turns": 2,
+   "gold_calls": 4,
+   "classes": [
+    "TwitterAPI",
+    "VehicleControlAPI"
+   ]
+  },
+  "multi_turn_base_91": {
+   "turns": 2,
+   "gold_calls": 3,
+   "classes": [
+    "MessageAPI",
+    "VehicleControlAPI"
+   ]
+  },
+  "multi_turn_base_124": {
+   "turns": 3,
+   "gold_calls": 4,
+   "classes": [
+    "TradingBot",
+    "MathAPI"
+   ]
+  },
+  "multi_turn_base_155": {
+   "turns": 2,
+   "gold_calls": 3,
+   "classes": [
+    "TravelAPI"
+   ]
+  },
+  "multi_turn_base_157": {
+   "turns": 3,
+   "gold_calls": 3,
+   "classes": [
+    "MathAPI",
+    "TravelAPI"
+   ]
+  },
+  "multi_turn_base_163": {
+   "turns": 2,
+   "gold_calls": 3,
+   "classes": [
+    "TravelAPI"
+   ]
+  },
+  "multi_turn_base_169": {
+   "turns": 2,
+   "gold_calls": 3,
+   "classes": [
+    "MessageAPI",
+    "TravelAPI"
+   ]
+  },
+  "multi_turn_base_182": {
+   "turns": 2,
+   "gold_calls": 2,
+   "classes": [
+    "TravelAPI"
+   ]
+  },
+  "multi_turn_base_197": {
+   "turns": 3,
+   "gold_calls": 4,
+   "classes": [
+    "MessageAPI",
+    "TravelAPI"
+   ]
+  },
+  "multi_turn_base_4": {
+   "turns": 3,
+   "gold_calls": 3,
+   "classes": [
+    "TwitterAPI",
+    "GorillaFileSystem"
+   ]
+  },
+  "multi_turn_base_7": {
+   "turns": 3,
+   "gold_calls": 4,
+   "classes": [
+    "TwitterAPI",
+    "GorillaFileSystem"
+   ]
+  },
+  "multi_turn_base_12": {
+   "turns": 3,
+   "gold_calls": 4,
+   "classes": [
+    "GorillaFileSystem"
+   ]
+  },
+  "multi_turn_base_13": {
+   "turns": 2,
+   "gold_calls": 3,
+   "classes": [
+    "TwitterAPI",
+    "GorillaFileSystem"
+   ]
+  },
+  "multi_turn_base_21": {
+   "turns": 3,
+   "gold_calls": 4,
+   "classes": [
+    "TwitterAPI",
+    "GorillaFileSystem"
+   ]
+  },
+  "multi_turn_base_23": {
+   "turns": 3,
+   "gold_calls": 4,
+   "classes": [
+    "TicketAPI",
+    "GorillaFileSystem"
+   ]
+  },
+  "multi_turn_base_29": {
+   "turns": 3,
+   "gold_calls": 4,
+   "classes": [
+    "GorillaFileSystem"
+   ]
+  },
+  "multi_turn_base_30": {
+   "turns": 2,
+   "gold_calls": 3,
+   "classes": [
+    "TwitterAPI",
+    "GorillaFileSystem"
+   ]
+  },
+  "multi_turn_base_37": {
+   "turns": 3,
+   "gold_calls": 4,
+   "classes": [
+    "GorillaFileSystem"
+   ]
+  },
+  "multi_turn_base_42": {
+   "turns": 3,
+   "gold_calls": 3,
+   "classes": [
+    "GorillaFileSystem",
+    "MathAPI"
+   ]
+  },
+  "multi_turn_base_47": {
+   "turns": 3,
+   "gold_calls": 4,
+   "classes": [
+    "GorillaFileSystem",
+    "MathAPI"
+   ]
+  },
+  "multi_turn_base_50": {
+   "turns": 1,
+   "gold_calls": 2,
+   "classes": [
+    "VehicleControlAPI"
+   ]
+  },
+  "multi_turn_base_57": {
+   "turns": 2,
+   "gold_calls": 4,
+   "classes": [
+    "VehicleControlAPI",
+    "MathAPI"
+   ]
+  },
+  "multi_turn_base_78": {
+   "turns": 2,
+   "gold_calls": 3,
+   "classes": [
+    "TwitterAPI",
+    "VehicleControlAPI"
+   ]
+  },
+  "multi_turn_base_100": {
+   "turns": 2,
+   "gold_calls": 2,
+   "classes": [
+    "TradingBot"
+   ]
+  },
+  "multi_turn_base_101": {
+   "turns": 3,
+   "gold_calls": 3,
+   "classes": [
+    "MessageAPI",
+    "TradingBot"
+   ]
+  },
+  "multi_turn_base_104": {
+   "turns": 2,
+   "gold_calls": 3,
+   "classes": [
+    "TradingBot"
+   ]
+  },
+  "multi_turn_base_113": {
+   "turns": 2,
+   "gold_calls": 4,
+   "classes": [
+    "MessageAPI",
+    "TradingBot"
+   ]
+  },
+  "multi_turn_base_115": {
+   "turns": 3,
+   "gold_calls": 3,
+   "classes": [
+    "TradingBot"
+   ]
+  },
+  "multi_turn_base_120": {
+   "turns": 3,
+   "gold_calls": 4,
+   "classes": [
+    "TradingBot"
+   ]
+  },
+  "multi_turn_base_132": {
+   "turns": 2,
+   "gold_calls": 3,
+   "classes": [
+    "TradingBot"
+   ]
+  },
+  "multi_turn_base_133": {
+   "turns": 2,
+   "gold_calls": 3,
+   "classes": [
+    "TradingBot",
+    "TicketAPI"
+   ]
+  },
+  "multi_turn_base_139": {
+   "turns": 2,
+   "gold_calls": 2,
+   "classes": [
+    "TwitterAPI",
+    "TradingBot"
+   ]
+  },
+  "multi_turn_base_144": {
+   "turns": 2,
+   "gold_calls": 2,
+   "classes": [
+    "TradingBot",
+    "MathAPI"
+   ]
+  },
+  "multi_turn_base_147": {
+   "turns": 2,
+   "gold_calls": 3,
+   "classes": [
+    "TwitterAPI",
+    "TradingBot"
+   ]
+  },
+  "multi_turn_base_150": {
+   "turns": 2,
+   "gold_calls": 3,
+   "classes": [
+    "TravelAPI"
+   ]
+  },
+  "multi_turn_base_158": {
+   "turns": 3,
+   "gold_calls": 4,
+   "classes": [
+    "TravelAPI"
+   ]
+  },
+  "multi_turn_base_159": {
+   "turns": 3,
+   "gold_calls": 4,
+   "classes": [
+    "TravelAPI"
+   ]
+  },
+  "multi_turn_base_160": {
+   "turns": 3,
+   "gold_calls": 4,
+   "classes": [
+    "TicketAPI",
+    "TravelAPI"
+   ]
+  },
+  "multi_turn_base_161": {
+   "turns": 3,
+   "gold_calls": 3,
+   "classes": [
+    "MathAPI",
+    "TravelAPI"
+   ]
+  },
+  "multi_turn_base_176": {
+   "turns": 2,
+   "gold_calls": 3,
+   "classes": [
+    "TicketAPI",
+    "TravelAPI"
+   ]
+  },
+  "multi_turn_base_177": {
+   "turns": 2,
+   "gold_calls": 2,
+   "classes": [
+    "TicketAPI",
+    "TravelAPI"
+   ]
+  }
+ }
+}

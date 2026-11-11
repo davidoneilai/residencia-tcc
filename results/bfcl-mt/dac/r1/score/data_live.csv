@@ -1,0 +1,6 @@
+Rank,Model,Live Overall Acc,AST Summary,Python Simple AST,Python Multiple AST,Python Parallel AST,Python Parallel Multiple AST,Irrelevance Detection,Relevance Detection
+1,qwen35 dacs-kv (iPhone 16 Pro),0.00%,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+2,qwen35 a-kv (iPhone 16 Pro),0.00%,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+3,qwen35 reason-kv (iPhone 16 Pro),0.00%,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+4,qwen35 dac-kv (iPhone 16 Pro),0.00%,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+5,qwen35 reason-off (iPhone 16 Pro),0.00%,N/A,N/A,N/A,N/A,N/A,N/A,N/A

@@ -1,0 +1,22 @@
+{
+ "pairs": 48,
+ "ref": "dacs-persist-kv",
+ "cand": "dacs-persist-mtp-kv",
+ "ref_ok": 16,
+ "cand_ok": 16,
+ "lost": 0,
+ "won": 0,
+ "mcnemar_p": 1.0,
+ "ref_mean_s": 47.33288313945135,
+ "delta_mean_s": -6.19071323176225,
+ "delta_ci95": [
+  -8.398643419146538,
+  -3.9855497678120932
+ ],
+ "delta_pct": -13.079096013490819,
+ "ref_decode_s": 37.09823271135489,
+ "cand_decode_s": 30.01449426015218,
+ "time_pass": true,
+ "accuracy_pass": true,
+ "pass": true
+}

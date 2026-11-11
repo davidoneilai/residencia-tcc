@@ -201,6 +201,7 @@ enum StudyProtocol {
     static let legacy = "legacy"
     static let bfcl = "bfcl_subset"
     static let slmAST = "slm_bfcl_v4_ast"
+    static let slmPhone = "slm_apple_phone"
 
     static func identify(dataset: String, strategies: [String]) -> String {
         if dataset == "legacy" { return legacy }

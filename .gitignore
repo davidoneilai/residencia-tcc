@@ -9,3 +9,36 @@ sauron/
 .bfcl-venv/
 *.xcconfig
 .env
+# Xcode (projetos em ios/)
+xcuserdata/
+*.xcuserstate
+DerivedData/
+build/
+
+# Travas e estado temporário do bfcl-eval / runner
+**/.file_locks/
+results/bfcl-mt/.run-slice.lock
+
+# Ferramentas locais do assistente
+.claude/
+
+# Claude Code e memória local: nada versionado
+.claude/
+CLAUDE.md
+
+# Travas vazias do BFCL (filelock) e entradas temporárias que o runner regrava a cada tarefa
+**/.file_locks/
+results/**/*.lock
+**/test_case_ids_to_generate.json
+
+# Execuções de diagnóstico e smoke: ficam no disco, fora do git
+results/bfcl-mt/dac/smoke/
+results/bfcl-mt/dac/cache-diag/
+results/bfcl-mt/dac/dac-diag/
+results/bfcl-mt/smoke-system-prefix/
+results/bfcl-nonlive/smoke-*.json
+results/runtime/mtp-pipe-smoke.jsonl
+results/runtime/logs/
+
+# Snapshot da sessão do iPhone puxado durante a execução
+analysis/slm_bfcl/session-current.json

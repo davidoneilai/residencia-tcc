@@ -1,0 +1,5 @@
+// Copie para Google.xcconfig (ignorado pelo git) e preencha com o client ID iOS do Google Cloud.
+// O client ID é amarrado ao bundle (davidoneil.MobileLLMChat).
+GOOGLE_IOS_CLIENT_ID = 000000000000-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com
+// URL scheme = client ID invertido
+GOOGLE_IOS_REVERSED_CLIENT_ID = com.googleusercontent.apps.000000000000-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

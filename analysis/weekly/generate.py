@@ -34,6 +34,174 @@ AGENT_LABEL = {
     "qwen35": "Qwen3.5-2B",
 }
 
+# Links públicos verificados (conferência / arXiv / repositório oficial).
+REFS_USED = [
+    ("BFCL (código e leaderboard)", "https://github.com/ShishirPatil/gorilla/tree/main/berkeley-function-call-leaderboard"),
+    ("Dataset BFCL (Hugging Face)", "https://huggingface.co/datasets/gorilla-llm/Berkeley-Function-Calling-Leaderboard"),
+    ("Patil et al., ICML 2025 (PMLR)", "https://proceedings.mlr.press/v267/patil25a.html"),
+    ("Leaderboard BFCL v4", "https://gorilla.cs.berkeley.edu/leaderboard.html"),
+]
+REFS_NEXT = [
+    ("BFCL Multi-Turn (mesmo repositório; não usado nesta semana)", "https://github.com/ShishirPatil/gorilla/tree/main/berkeley-function-call-leaderboard"),
+    ("ToolSandbox (código)", "https://github.com/apple-aiml-research/ToolSandbox"),
+    ("Lu et al., Findings of NAACL 2025", "https://aclanthology.org/2025.findings-naacl.65/"),
+    ("iOSWorld (código; não usado neste repositório)", "https://github.com/ljang0/iOSWorld"),
+    ("Jang et al., arXiv:2606.09764", "https://arxiv.org/abs/2606.09764"),
+]
+
+
+def load_app_tasks():
+    return {t["id"]: t for t in json.loads((ROOT / "MobileLLMBench" / "BFCLv4AST.json").read_text())["tasks"]}
+
+
+def fmt_json(obj, n=280):
+    text = json.dumps(obj, ensure_ascii=False, separators=(", ", ": "))
+    return text if len(text) <= n else text[: n - 1] + "…"
+
+
+def pick_examples(study):
+    """Três IDs da amostra r1, regra fixa, ordem lexicográfica dentro do filtro."""
+    cell, best, models = study["cell"], study["best_fixed"], study["models"]
+    ids = sorted(cell[(models[0], best[models[0]])])
+
+    def row(m, s, i):
+        return cell[(m, s)][i]
+
+    def ok(m, s, i):
+        return bool(row(m, s, i)["valid"])
+
+    all_best = [i for i in ids if all(ok(m, best[m], i) for m in models)]
+    calling = [i for i in all_best if not i.startswith("irrelevance_")]
+    ex_all = (calling or all_best or [None])[0]
+
+    mini = next(m for m in models if "MiniCPM" in m)
+    hurt = [
+        i for i in ids
+        if i != ex_all and (mini, "direct") in cell and (mini, "nothink") in cell
+        and ok(mini, "nothink", i) and not ok(mini, "direct", i)
+    ]
+    exhausted = [
+        i for i in hurt
+        if row(mini, "direct", i).get("stop") == "length" and not row(mini, "direct", i).get("calls")
+    ]
+    ex_think = (exhausted or hurt or [None])[0]
+
+    qwen = next(m for m in models if m.startswith("Qwen"))
+    misses = [
+        i for i in ids
+        if i not in {ex_all, ex_think} and (qwen, "adaptive_step") in cell
+        and ok(qwen, best[qwen], i) and not ok(qwen, "adaptive_step", i)
+    ]
+    routed_fast = [
+        i for i in misses
+        if row(qwen, "adaptive_step", i).get("executed") != best[qwen]
+        and not row(qwen, "adaptive_step", i).get("calls")
+    ]
+    ex_ad = (routed_fast or misses or [None])[0]
+    return {"all_ok": ex_all, "thinking": ex_think, "adaptive": ex_ad, "mini": mini, "qwen": qwen}
+
+
+def render_one_example(title, task_id, study, catalog, out, models, extra_strats, note):
+    if not task_id:
+        return f"### {title}\n\nNenhum caso na amostra r1 satisfaz o critério. Nenhum exemplo foi inventado.\n"
+    spec = catalog[task_id]
+    prompt = spec["messages"][0]["content"].strip()
+    tools = ", ".join(f"`{f['name']}`" for f in spec["function"])
+    gold = fmt_json(spec["ground_truth"])
+    best = study["best_fixed"]
+    wanted, seen = [], set()
+    for m in models:
+        for s in [best[m], *extra_strats]:
+            if (m, s) not in study["cell"] or (m, s) in seen:
+                continue
+            seen.add((m, s))
+            wanted.append(study["cell"][(m, s)][task_id])
+    lines = [
+        f"| {label(r['m'])} | `{r['strategy_id']}` | `{r['executed']}` | "
+        f"{'válido' if r['valid'] else 'inválido'} | {r.get('failure') or '—'} | "
+        f"{r.get('stop') or '—'} | {r.get('output_tokens') if r.get('output_tokens') is not None else '—'} | "
+        f"{'—' if not r.get('calls') else fmt_json(r.get('calls'))} |"
+        for r in wanted
+    ]
+    graded = rel(out, ROOT / "results/slm-bfcl/main-r1-graded.jsonl")
+    app = rel(out, ROOT / "MobileLLMBench/BFCLv4AST.json")
+    return f"""### {title}
+
+- **ID / categoria:** `{task_id}` / `{spec['category']}` (amostra congelada).
+- **Enunciado (BFCL):** {prompt}
+- **Ferramentas no catálogo:** {tools}.
+- **Chamada esperada (`possible_answer`):** `{gold}`.
+- **Fonte:** [{Path(app).name}]({app}), linhas `{task_id}` em [{Path(graded).name}]({graded}).
+
+| Modelo | Estratégia | Executada | Checker | Falha | `stop` | Tokens out | Chamada produzida |
+|---|---|---|---|---|---|---|---|
+{chr(10).join(lines)}
+
+{note}
+"""
+
+
+def example_note(kind, task_id, study, picked):
+    cell, best = study["cell"], study["best_fixed"]
+    mini, qwen = picked["mini"], picked["qwen"]
+    if kind == "all_ok":
+        return (
+            "Critério: as quatro melhores estratégias fixas acertam (primeiro ID de chamada de função, "
+            "ordem lexicográfica). Distratoras do catálogo não foram usadas nessas quatro condições."
+        )
+    if kind == "thinking":
+        d, n = cell[(mini, "direct")][task_id], cell[(mini, "nothink")][task_id]
+        return (
+            f"Critério: em {label(mini)}, Direct falha e NoThink acerta; entre esses, prefere-se "
+            f"`stop=length` sem chamada (raciocínio esgotou o teto). Aqui Direct: falha `{d.get('failure')}`, "
+            f"`stop={d.get('stop')}`, {d.get('n_calls') or 0} chamada(s), {d.get('output_tokens')} tokens. "
+            f"NoThink: válido, `stop={n.get('stop')}`, {n.get('n_calls') or 0} chamada(s), {n.get('output_tokens')} tokens."
+        )
+    a, f = cell[(qwen, "adaptive_step")][task_id], cell[(qwen, best[qwen])][task_id]
+    return (
+        f"Critério: {label(qwen)} AdaptiveStep erra o que a melhor fixa (`{best[qwen]}`) acerta; "
+        f"prefere-se o caso em que a política executou outra estratégia e não emitiu chamada. "
+        f"AdaptiveStep executou `{a.get('executed')}`: falha `{a.get('failure')}`, `stop={a.get('stop')}`, "
+        f"{a.get('n_calls') or 0} chamada(s). `{best[qwen]}`: válido, {f.get('n_calls') or 0} chamada(s). "
+        "É falha da política neste recorte, não ausência de capacidade do modelo na mesma tarefa."
+    )
+
+
+def render_examples(study, rows, out):
+    catalog = load_app_tasks()
+    picked = pick_examples(study)
+    titles = {
+        "all_ok": "1. Tarefa resolvida pelos quatro modelos (melhor fixa de cada um)",
+        "thinking": "2. A estratégia de raciocínio altera o resultado",
+        "adaptive": "3. A política adaptativa escolhe uma estratégia pior que a melhor fixa",
+    }
+    models = {
+        "all_ok": study["models"],
+        "thinking": [picked["mini"]],
+        "adaptive": [picked["qwen"]],
+    }
+    extra = {
+        "all_ok": [],
+        "thinking": ["direct", "nothink", "ast_router"],
+        "adaptive": ["direct", "nothink", "adaptive_step"],
+    }
+    blocks = [
+        "## Exemplos de tarefas e comportamento dos modelos",
+        "",
+        "Três IDs da amostra de 40. Regras: (1) primeiro ID, ordem lexicográfica, em que as quatro "
+        "melhores fixas acertam (exclui `irrelevance` se houver outro); (2) MiniCPM5 Direct falha e "
+        "NoThink acerta, preferindo `stop=length` sem chamada; (3) Qwen3.5 AdaptiveStep falha e a "
+        "melhor fixa acerta, preferindo roteamento para outra estratégia sem chamada. "
+        "Chamadas e vereditos: JSONL avaliado. Enunciado: JSON congelado do app. Nenhum ID fora da amostra.",
+        "",
+    ]
+    for key in ("all_ok", "thinking", "adaptive"):
+        tid = picked[key]
+        note = example_note(key, tid, study, picked) if tid else ""
+        blocks.append(render_one_example(
+            titles[key], tid, study, catalog, out, models[key], extra[key], note))
+    return "\n".join(blocks)
+
 
 def main():
     parser = argparse.ArgumentParser()
@@ -434,6 +602,16 @@ O gerador deste relatório **não** relança inferência no iPhone. Reavaliar no
 - **Concluído:** rodada 1, **{r1['n']} execuções** medidas e avaliadas ({len(r1['models'])} modelos × políticas aplicáveis × {n} tarefas).
 - **Não concluído:** repetição 2 — {r2['n_complete']}/{r2['n_expected']} modelos. Lacunas não são apresentadas como resultado.
 
+## Escopo científico
+
+O recorte desta semana é **tool calling em turno único** no BFCL v4 AST: o modelo vê o pedido e o catálogo de funções e deve emitir a(s) chamada(s) correta(s) na primeira resposta. O checker oficial (`ast_checker`) compara essa emissão ao `possible_answer`. **As ferramentas não foram executadas** (`executionMode=simulated`). Não há segundo turno, estado de ferramenta nem usuário simulado.
+
+Compararam-se estratégias **fixas** (Direct, NoThink, Budget 64, Plan+Act) e **adaptativas** (AST Router, AdaptiveStep) no mesmo conjunto de 40 tarefas. Os números abaixo descrevem diferenças de acurácia e latência **nessa tarefa de emissão**, no iPhone 16 Pro.
+
+**O que os dados sustentam:** ranking dos quatro SLMs, efeito de ligar ou cortar o raciocínio, e o fato de as políticas adaptativas não superarem a melhor fixa em acurácia neste recorte.
+
+**O que os dados ainda não sustentam:** adaptação *durante* uma trajetória agêntica (vários turnos, resultado de ferramenta realimentando o modelo, diálogo). Isso fica para BFCL Multi-Turn e ToolSandbox; ver [Referências](#referências).
+
 ## Resposta curta (só r1)
 
 1. **Melhor acurácia:** {label(best_acc['model'])} `{best_acc['strategy']}`, {best_acc['acc']}/{best_acc['n']} ({best_acc['acc']/best_acc['n']:.0%}), {best_acc['lat_mean']:.1f} s/tarefa.
@@ -491,6 +669,7 @@ MiniCPM5 AdaptiveStep vs NoThink: {pp(minicpm_as['d_acc'])} pp, {sgn(minicpm_as[
 
 União das melhores fixas: {c['union']}/{n}; interseção: {c['intersection']}/{n}; nenhuma resolve: {c['none']}. Exclusivas: {'; '.join(exclusive) if exclusive else 'nenhuma além das listadas em tables.md'}.
 
+{render_examples(r1, rows, out)}
 ## Repetição 2 (não tratar o bloco como estudo fechado)
 
 Seed de ordem `{((sessions_r2[0]['config'] or {}).get('orderSeed') if sessions_r2 else None) or 'ausente'}`. Greedy / temperature 0; o seed só muda a ordem.
@@ -505,6 +684,17 @@ Seed de ordem `{((sessions_r2[0]['config'] or {}).get('orderSeed') if sessions_r
 - **BFCL v4 AST** pontua a primeira resposta de turno único. **Não avalia interações sequenciais com ferramentas** (não há oráculo de diálogo nem estado entre turnos). ActionAware / ToolSandbox não entram nesta semana.
 - MiniCPM5 e LFM2.5 dependem do parser no Mac para o formato nativo; o pacote `mlx-swift-lm` {s0['mlx']} não cobre esses formatos por completo.
 - A repetição 2 dos outros três modelos **não está concluída** e não deve ser lida como estabilidade geral.
+- **Próximo passo (hipótese, não resultado):** benchmarks com interação sequencial — BFCL Multi-Turn e ToolSandbox — para testar se alguma política adaptativa ajuda quando há estado e resposta de ferramenta.
+
+## Referências
+
+**Usados nesta semana**
+
+{chr(10).join(f'- [{t}]({u})' for t, u in REFS_USED)}
+
+**Previstos para investigação (não avaliados nesta semana)**
+
+{chr(10).join(f'- [{t}]({u})' for t, u in REFS_NEXT)}
 
 ## Reprodutibilidade
 
@@ -693,6 +883,9 @@ def check(week_id):
     for needle in (
         "iPhone", "Mac", "880", "interações sequenciais",
         "ausente", "requireCoolThermal", "ast_router", "adaptive_step",
+        "turno único", "Exemplos de tarefas", "calculate_BMI",
+        "ToolSandbox", "gorilla-llm", "multiple_117", "multiple_16",
+        "population_genetics.calculate_ne", "format_error",
     ):
         assert needle in readme, needle
     r2_status = {a["agent"]: a["status"] for a in json.loads((out / "summary.json").read_text())["r2"]["agents"]}
@@ -707,7 +900,7 @@ def check(week_id):
         if "](" in line and not line.strip().startswith("```"):
             for part in line.split("](")[1:]:
                 target = part.split(")")[0].split()[0]
-                if target.startswith("http") or target.startswith("figures/"):
+                if target.startswith("http") or target.startswith("figures/") or target.startswith("#"):
                     continue
                 path = (out / target).resolve()
                 assert path.exists(), target

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>mobilellmchat</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>mobilellmchat</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>google-sign-in</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>$(GOOGLE_IOS_REVERSED_CLIENT_ID)</string>
+			</array>
+		</dict>
+	</array>
+	<key>GIDClientID</key>
+	<string>$(GOOGLE_IOS_CLIENT_ID)</string>
+	<!-- canOpenURL só responde para schemes declarados aqui. INFOPLIST_KEY_LSApplicationQueriesSchemes
+	     no projeto é ignorado pelo Xcode (chave de array não suportada): o app instalado ficava sem ela,
+	     então Waze, Google Maps e Gmail nunca eram detectados. -->
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>whatsapp</string>
+		<string>waze</string>
+		<string>comgooglemaps</string>
+		<string>googlegmail</string>
+		<string>shortcuts</string>
+	</array>
+</dict>
+</plist>

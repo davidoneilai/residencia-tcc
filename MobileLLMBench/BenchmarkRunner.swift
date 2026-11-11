@@ -30,6 +30,7 @@ final class BenchmarkRunner {
         AdaptiveRouter.selfCheck()
         BudgetController.selfCheck()
         ASTRouter.selfCheck()
+        NonLiveRouter.selfCheck()
         AppleToolBridge.install()
         UIDevice.current.isBatteryMonitoringEnabled = true
         UIApplication.shared.isIdleTimerDisabled = true
@@ -258,24 +259,26 @@ final class BenchmarkRunner {
                 mlx.unload()
                 try await AppleFoundationBackend.run(
                     prompt: prompt, strategy: effectiveStrategy, mode: prepared.mode, fixtures: prepared.fixtures, result: &result)
-            case .qwen, .gemma:
-                try await mlx.run(
-                    agent: agent, prompt: prompt, strategy: effectiveStrategy,
-                    seed: inferenceSeed.flatMap(UInt64.init),
-                    mode: prepared.mode, fixtures: prepared.fixtures, catalog: prepared.catalog,
-                    result: &result
-                ) { message in
-                    log += message + "\n"
-                }
-            case .minicpm5, .lfm25, .gemma4, .qwen35:
-                guard dataset == ASTDataset.id, let ast = ASTDataset.task(experiment) else {
-                    throw BenchError.failed("\(agent.title) só roda no BFCL AST (\(ASTDataset.id)).")
-                }
-                try await mlx.runAST(
-                    agent: agent, task: ast, strategy: effectiveStrategy,
-                    seed: inferenceSeed.flatMap(UInt64.init), result: &result
-                ) { message in
-                    log += message + "\n"
+            case .qwen, .gemma, .minicpm5, .lfm25, .gemma4, .qwen35, .lfm3, .qwen35SFT, .minicpm5SFT, .xlam2SFT:
+                if dataset == ASTDataset.id {
+                    guard let ast = ASTDataset.task(experiment) else {
+                        throw BenchError.failed("Tarefa \(experiment) ausente do BFCL AST.")
+                    }
+                    try await mlx.runAST(
+                        agent: agent, task: ast, strategy: effectiveStrategy,
+                        seed: inferenceSeed.flatMap(UInt64.init), result: &result
+                    ) { message in
+                        log += message + "\n"
+                    }
+                } else {
+                    try await mlx.run(
+                        agent: agent, prompt: prompt, strategy: effectiveStrategy,
+                        seed: inferenceSeed.flatMap(UInt64.init),
+                        mode: prepared.mode, fixtures: prepared.fixtures, catalog: prepared.catalog,
+                        result: &result
+                    ) { message in
+                        log += message + "\n"
+                    }
                 }
             }
         } catch {

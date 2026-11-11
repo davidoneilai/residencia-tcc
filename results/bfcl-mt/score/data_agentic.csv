@@ -1,0 +1,12 @@
+Rank,Model,Agentic Overall Acc,Web Search Summary,Web Search Base,Web Search No Snippet,Memory Summary,Memory KV,Memory Vector,Memory Recursive Summarization
+1,lfm25 adaptive A (iPhone 16 Pro),0.00%,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+2,qwen35 nothink:prefix (iPhone 16 Pro),0.00%,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+3,gemma4 nothink:prefix (iPhone 16 Pro),0.00%,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+4,minicpm5 nothink:prefix (iPhone 16 Pro),0.00%,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+5,qwen35 adaptive A (iPhone 16 Pro),0.00%,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+6,lfm25 direct:prefix (iPhone 16 Pro),0.00%,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+7,gemma4 adaptive A (iPhone 16 Pro),0.00%,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+8,qwen35 direct:prefix (iPhone 16 Pro),0.00%,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+9,gemma4 direct:prefix (iPhone 16 Pro),0.00%,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+10,minicpm5 direct:prefix (iPhone 16 Pro),0.00%,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+11,minicpm5 adaptive A (iPhone 16 Pro),0.00%,N/A,N/A,N/A,N/A,N/A,N/A,N/A

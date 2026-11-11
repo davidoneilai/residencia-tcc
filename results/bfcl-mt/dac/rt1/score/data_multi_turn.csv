@@ -1,0 +1,5 @@
+Rank,Model,Multi Turn Overall Acc,Base,Miss Func,Miss Param,Long Context
+1,qwen35 rt-both-kv (iPhone 16 Pro),16.67%,66.67%,N/A,N/A,N/A
+2,qwen35 rt-draft-kv (iPhone 16 Pro),16.67%,66.67%,N/A,N/A,N/A
+3,qwen35 rt-base-kv (iPhone 16 Pro),16.67%,66.67%,N/A,N/A,N/A
+4,qwen35 rt-persist-kv (iPhone 16 Pro),16.67%,66.67%,N/A,N/A,N/A

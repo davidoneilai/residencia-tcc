@@ -1,0 +1,373 @@
+[
+ {
+  "run": "minicpm5_sft_basetemplate",
+  "template": "base",
+  "base_quant": "4bit-g64",
+  "phase": "no_lora",
+  "thinking": false,
+  "valid": "5/6",
+  "formats": [
+   "minicpm_xml"
+  ],
+  "failed": [
+   "alarm"
+  ],
+  "adapter_tensors": 588,
+  "lora_layers": 42,
+  "scale": 2.0,
+  "probe_equal": true,
+  "compute_dtype": "mlx.core.bfloat16"
+ },
+ {
+  "run": "minicpm5_sft_basetemplate",
+  "template": "base",
+  "base_quant": "4bit-g64",
+  "phase": "no_lora",
+  "thinking": true,
+  "valid": "5/6",
+  "formats": [
+   "None",
+   "minicpm_xml"
+  ],
+  "failed": [
+   "alarm"
+  ],
+  "adapter_tensors": 588,
+  "lora_layers": 42,
+  "scale": 2.0,
+  "probe_equal": true,
+  "compute_dtype": "mlx.core.bfloat16"
+ },
+ {
+  "run": "minicpm5_sft_basetemplate",
+  "template": "base",
+  "base_quant": "4bit-g64",
+  "phase": "lora",
+  "thinking": false,
+  "valid": "5/6",
+  "formats": [
+   "minicpm_xml"
+  ],
+  "failed": [
+   "alarm"
+  ],
+  "adapter_tensors": 588,
+  "lora_layers": 42,
+  "scale": 2.0,
+  "probe_equal": true,
+  "compute_dtype": "mlx.core.bfloat16"
+ },
+ {
+  "run": "minicpm5_sft_basetemplate",
+  "template": "base",
+  "base_quant": "4bit-g64",
+  "phase": "lora",
+  "thinking": true,
+  "valid": "6/6",
+  "formats": [
+   "minicpm_xml"
+  ],
+  "failed": [],
+  "adapter_tensors": 588,
+  "lora_layers": 42,
+  "scale": 2.0,
+  "probe_equal": true,
+  "compute_dtype": "mlx.core.bfloat16"
+ },
+ {
+  "run": "minicpm5_sft_training",
+  "template": "training",
+  "base_quant": "4bit-g64",
+  "phase": "no_lora",
+  "thinking": false,
+  "valid": "5/6",
+  "formats": [
+   "minicpm_xml"
+  ],
+  "failed": [
+   "alarm"
+  ],
+  "adapter_tensors": 588,
+  "lora_layers": 42,
+  "scale": 2.0,
+  "probe_equal": true,
+  "compute_dtype": "mlx.core.bfloat16"
+ },
+ {
+  "run": "minicpm5_sft_training",
+  "template": "training",
+  "base_quant": "4bit-g64",
+  "phase": "no_lora",
+  "thinking": true,
+  "valid": "5/6",
+  "formats": [
+   "None",
+   "minicpm_xml"
+  ],
+  "failed": [
+   "alarm"
+  ],
+  "adapter_tensors": 588,
+  "lora_layers": 42,
+  "scale": 2.0,
+  "probe_equal": true,
+  "compute_dtype": "mlx.core.bfloat16"
+ },
+ {
+  "run": "minicpm5_sft_training",
+  "template": "training",
+  "base_quant": "4bit-g64",
+  "phase": "lora",
+  "thinking": false,
+  "valid": "5/6",
+  "formats": [
+   "minicpm_xml"
+  ],
+  "failed": [
+   "alarm"
+  ],
+  "adapter_tensors": 588,
+  "lora_layers": 42,
+  "scale": 2.0,
+  "probe_equal": true,
+  "compute_dtype": "mlx.core.bfloat16"
+ },
+ {
+  "run": "minicpm5_sft_training",
+  "template": "training",
+  "base_quant": "4bit-g64",
+  "phase": "lora",
+  "thinking": true,
+  "valid": "6/6",
+  "formats": [
+   "minicpm_xml"
+  ],
+  "failed": [],
+  "adapter_tensors": 588,
+  "lora_layers": 42,
+  "scale": 2.0,
+  "probe_equal": true,
+  "compute_dtype": "mlx.core.bfloat16"
+ },
+ {
+  "run": "qwen35_sft_basetemplate",
+  "template": "base",
+  "base_quant": "4bit-g64",
+  "phase": "no_lora",
+  "thinking": false,
+  "valid": "6/6",
+  "formats": [
+   "qwen_xml_function"
+  ],
+  "failed": [],
+  "adapter_tensors": 192,
+  "lora_layers": 24,
+  "scale": 2.0,
+  "probe_equal": true,
+  "compute_dtype": "mlx.core.bfloat16"
+ },
+ {
+  "run": "qwen35_sft_basetemplate",
+  "template": "base",
+  "base_quant": "4bit-g64",
+  "phase": "no_lora",
+  "thinking": true,
+  "valid": "5/6",
+  "formats": [
+   "None",
+   "qwen_xml_function"
+  ],
+  "failed": [
+   "alarm"
+  ],
+  "adapter_tensors": 192,
+  "lora_layers": 24,
+  "scale": 2.0,
+  "probe_equal": true,
+  "compute_dtype": "mlx.core.bfloat16"
+ },
+ {
+  "run": "qwen35_sft_basetemplate",
+  "template": "base",
+  "base_quant": "4bit-g64",
+  "phase": "lora",
+  "thinking": false,
+  "valid": "6/6",
+  "formats": [
+   "qwen_xml_function"
+  ],
+  "failed": [],
+  "adapter_tensors": 192,
+  "lora_layers": 24,
+  "scale": 2.0,
+  "probe_equal": true,
+  "compute_dtype": "mlx.core.bfloat16"
+ },
+ {
+  "run": "qwen35_sft_basetemplate",
+  "template": "base",
+  "base_quant": "4bit-g64",
+  "phase": "lora",
+  "thinking": true,
+  "valid": "6/6",
+  "formats": [
+   "qwen_xml_function"
+  ],
+  "failed": [],
+  "adapter_tensors": 192,
+  "lora_layers": 24,
+  "scale": 2.0,
+  "probe_equal": true,
+  "compute_dtype": "mlx.core.bfloat16"
+ },
+ {
+  "run": "qwen35_sft_bf16_training",
+  "template": "training",
+  "base_quant": "bf16",
+  "phase": "no_lora",
+  "thinking": false,
+  "valid": "6/6",
+  "formats": [
+   "tool_call_json"
+  ],
+  "failed": [],
+  "adapter_tensors": 192,
+  "lora_layers": 24,
+  "scale": 2.0,
+  "probe_equal": true,
+  "compute_dtype": "mlx.core.bfloat16"
+ },
+ {
+  "run": "qwen35_sft_bf16_training",
+  "template": "training",
+  "base_quant": "bf16",
+  "phase": "lora",
+  "thinking": false,
+  "valid": "6/6",
+  "formats": [
+   "tool_call_json"
+  ],
+  "failed": [],
+  "adapter_tensors": 192,
+  "lora_layers": 24,
+  "scale": 2.0,
+  "probe_equal": true,
+  "compute_dtype": "mlx.core.bfloat16"
+ },
+ {
+  "run": "qwen35_sft_training",
+  "template": "training",
+  "base_quant": "4bit-g64",
+  "phase": "no_lora",
+  "thinking": false,
+  "valid": "5/6",
+  "formats": [
+   "None",
+   "tool_call_json"
+  ],
+  "failed": [
+   "weather"
+  ],
+  "adapter_tensors": 192,
+  "lora_layers": 24,
+  "scale": 2.0,
+  "probe_equal": true,
+  "compute_dtype": "mlx.core.bfloat16"
+ },
+ {
+  "run": "qwen35_sft_training",
+  "template": "training",
+  "base_quant": "4bit-g64",
+  "phase": "no_lora",
+  "thinking": true,
+  "valid": "5/6",
+  "formats": [
+   "None",
+   "tool_call_json"
+  ],
+  "failed": [
+   "weather"
+  ],
+  "adapter_tensors": 192,
+  "lora_layers": 24,
+  "scale": 2.0,
+  "probe_equal": true,
+  "compute_dtype": "mlx.core.bfloat16"
+ },
+ {
+  "run": "qwen35_sft_training",
+  "template": "training",
+  "base_quant": "4bit-g64",
+  "phase": "lora",
+  "thinking": false,
+  "valid": "4/6",
+  "formats": [
+   "None",
+   "tool_call_json"
+  ],
+  "failed": [
+   "weather",
+   "parallel"
+  ],
+  "adapter_tensors": 192,
+  "lora_layers": 24,
+  "scale": 2.0,
+  "probe_equal": true,
+  "compute_dtype": "mlx.core.bfloat16"
+ },
+ {
+  "run": "qwen35_sft_training",
+  "template": "training",
+  "base_quant": "4bit-g64",
+  "phase": "lora",
+  "thinking": true,
+  "valid": "4/6",
+  "formats": [
+   "None",
+   "tool_call_json"
+  ],
+  "failed": [
+   "weather",
+   "parallel"
+  ],
+  "adapter_tensors": 192,
+  "lora_layers": 24,
+  "scale": 2.0,
+  "probe_equal": true,
+  "compute_dtype": "mlx.core.bfloat16"
+ },
+ {
+  "run": "xlam2_sft_training",
+  "template": "training(=base)",
+  "base_quant": "4bit-g64",
+  "phase": "no_lora",
+  "thinking": null,
+  "valid": "6/6",
+  "formats": [
+   "bare_json"
+  ],
+  "failed": [],
+  "adapter_tensors": 504,
+  "lora_layers": 36,
+  "scale": 2.0,
+  "probe_equal": true,
+  "compute_dtype": "mlx.core.bfloat16"
+ },
+ {
+  "run": "xlam2_sft_training",
+  "template": "training(=base)",
+  "base_quant": "4bit-g64",
+  "phase": "lora",
+  "thinking": null,
+  "valid": "6/6",
+  "formats": [
+   "bare_json"
+  ],
+  "failed": [],
+  "adapter_tensors": 504,
+  "lora_layers": 36,
+  "scale": 2.0,
+  "probe_equal": true,
+  "compute_dtype": "mlx.core.bfloat16"
+ }
+]

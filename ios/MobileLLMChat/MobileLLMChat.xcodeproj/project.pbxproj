@@ -1,0 +1,635 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		52656171305474EF00C301A3 /* BenchmarkHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = 52656170305474EF00C301A3 /* BenchmarkHelpers */; };
+		52656173305474EF00C301A3 /* IntegrationTestHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = 52656172305474EF00C301A3 /* IntegrationTestHelpers */; };
+		52656175305474EF00C301A3 /* MLXEmbedders in Frameworks */ = {isa = PBXBuildFile; productRef = 52656174305474EF00C301A3 /* MLXEmbedders */; };
+		52656177305474EF00C301A3 /* MLXHuggingFace in Frameworks */ = {isa = PBXBuildFile; productRef = 52656176305474EF00C301A3 /* MLXHuggingFace */; };
+		52656179305474EF00C301A3 /* MLXLLM in Frameworks */ = {isa = PBXBuildFile; productRef = 52656178305474EF00C301A3 /* MLXLLM */; };
+		5265617B305474EF00C301A3 /* MLXLMCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 5265617A305474EF00C301A3 /* MLXLMCommon */; };
+		5265617D305474EF00C301A3 /* MLXVLM in Frameworks */ = {isa = PBXBuildFile; productRef = 5265617C305474EF00C301A3 /* MLXVLM */; };
+		526561803054753D00C301A3 /* HuggingFace in Frameworks */ = {isa = PBXBuildFile; productRef = 5265617F3054753D00C301A3 /* HuggingFace */; };
+		526561833054759300C301A3 /* Hub in Frameworks */ = {isa = PBXBuildFile; productRef = 526561823054759300C301A3 /* Hub */; };
+		526561853054759300C301A3 /* Tokenizers in Frameworks */ = {isa = PBXBuildFile; productRef = 526561843054759300C301A3 /* Tokenizers */; };
+		526561873054759300C301A3 /* Transformers in Frameworks */ = {isa = PBXBuildFile; productRef = 526561863054759300C301A3 /* Transformers */; };
+		G51D000130547EF00C301A3 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = G51D000130547EF00C301A2 /* GoogleSignIn */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A1B2C3D40000000000000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 526561593054736D00C301A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 526561603054736D00C301A3;
+			remoteInfo = MobileLLMChat;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		526561613054736D00C301A3 /* MobileLLMChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileLLMChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B2C3D40000000000000002 /* MobileLLMChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileLLMChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		G51D000130547EF00C301A4 /* Google.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Google.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		526561633054736D00C301A3 /* ../../MobileLLMChat */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "../../MobileLLMChat";
+			sourceTree = "<group>";
+		};
+		A1B2C3D40000000000000003 /* ../../MobileLLMChatTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "../../MobileLLMChatTests";
+			sourceTree = "<group>";
+		};
+		C0DE000130547EF00C301A1 /* ../../MobileLLMCore */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "../../MobileLLMCore";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5265615E3054736D00C301A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				526561833054759300C301A3 /* Hub in Frameworks */,
+				52656179305474EF00C301A3 /* MLXLLM in Frameworks */,
+				52656171305474EF00C301A3 /* BenchmarkHelpers in Frameworks */,
+				52656173305474EF00C301A3 /* IntegrationTestHelpers in Frameworks */,
+				526561853054759300C301A3 /* Tokenizers in Frameworks */,
+				526561803054753D00C301A3 /* HuggingFace in Frameworks */,
+				5265617D305474EF00C301A3 /* MLXVLM in Frameworks */,
+				526561873054759300C301A3 /* Transformers in Frameworks */,
+				52656175305474EF00C301A3 /* MLXEmbedders in Frameworks */,
+				5265617B305474EF00C301A3 /* MLXLMCommon in Frameworks */,
+				52656177305474EF00C301A3 /* MLXHuggingFace in Frameworks */,
+				G51D000130547EF00C301A3 /* GoogleSignIn in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B2C3D40000000000000004 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		526561583054736D00C301A3 = {
+			isa = PBXGroup;
+			children = (
+				C0DE000130547EF00C301A1 /* ../../MobileLLMCore */,
+				526561633054736D00C301A3 /* ../../MobileLLMChat */,
+				A1B2C3D40000000000000003 /* ../../MobileLLMChatTests */,
+				G51D000130547EF00C301A4 /* Google.xcconfig */,
+				526561623054736D00C301A3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		526561623054736D00C301A3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				526561613054736D00C301A3 /* MobileLLMChat.app */,
+				A1B2C3D40000000000000002 /* MobileLLMChatTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		526561603054736D00C301A3 /* MobileLLMChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5265616C3054736F00C301A3 /* Build configuration list for PBXNativeTarget "MobileLLMChat" */;
+			buildPhases = (
+				5265615D3054736D00C301A3 /* Sources */,
+				5265615E3054736D00C301A3 /* Frameworks */,
+				5265615F3054736D00C301A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				526561633054736D00C301A3 /* ../../MobileLLMChat */,
+				C0DE000130547EF00C301A1 /* ../../MobileLLMCore */,
+			);
+			name = MobileLLMChat;
+			packageProductDependencies = (
+				52656170305474EF00C301A3 /* BenchmarkHelpers */,
+				52656172305474EF00C301A3 /* IntegrationTestHelpers */,
+				52656174305474EF00C301A3 /* MLXEmbedders */,
+				52656176305474EF00C301A3 /* MLXHuggingFace */,
+				52656178305474EF00C301A3 /* MLXLLM */,
+				5265617A305474EF00C301A3 /* MLXLMCommon */,
+				5265617C305474EF00C301A3 /* MLXVLM */,
+				5265617F3054753D00C301A3 /* HuggingFace */,
+				526561823054759300C301A3 /* Hub */,
+				526561843054759300C301A3 /* Tokenizers */,
+				526561863054759300C301A3 /* Transformers */,
+				G51D000130547EF00C301A2 /* GoogleSignIn */,
+			);
+			productName = MobileLLMChat;
+			productReference = 526561613054736D00C301A3 /* MobileLLMChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A1B2C3D40000000000000007 /* MobileLLMChatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1B2C3D4000000000000000B /* Build configuration list for PBXNativeTarget "MobileLLMChatTests" */;
+			buildPhases = (
+				A1B2C3D40000000000000005 /* Sources */,
+				A1B2C3D40000000000000004 /* Frameworks */,
+				A1B2C3D40000000000000006 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1B2C3D40000000000000008 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A1B2C3D40000000000000003 /* ../../MobileLLMChatTests */,
+			);
+			name = MobileLLMChatTests;
+			productName = MobileLLMChatTests;
+			productReference = A1B2C3D40000000000000002 /* MobileLLMChatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		526561593054736D00C301A3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2660;
+				LastUpgradeCheck = 2660;
+				TargetAttributes = {
+					526561603054736D00C301A3 = {
+						CreatedOnToolsVersion = 26.6;
+						LastSwiftMigration = 2660;
+					};
+					A1B2C3D40000000000000007 = {
+						CreatedOnToolsVersion = 27.0;
+						TestTargetID = 526561603054736D00C301A3;
+					};
+				};
+			};
+			buildConfigurationList = 5265615C3054736D00C301A3 /* Build configuration list for PBXProject "MobileLLMChat" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 526561583054736D00C301A3;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5265616F305474EF00C301A3 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */,
+				5265617E3054753D00C301A3 /* XCRemoteSwiftPackageReference "swift-huggingface" */,
+				526561813054759300C301A3 /* XCRemoteSwiftPackageReference "swift-transformers" */,
+				G51D000130547EF00C301A1 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 526561623054736D00C301A3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				526561603054736D00C301A3 /* MobileLLMChat */,
+				A1B2C3D40000000000000007 /* MobileLLMChatTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5265615F3054736D00C301A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B2C3D40000000000000006 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5265615D3054736D00C301A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B2C3D40000000000000005 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A1B2C3D40000000000000008 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 526561603054736D00C301A3 /* MobileLLMChat */;
+			targetProxy = A1B2C3D40000000000000001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5265616A3054736F00C301A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = TY9X64DJ8C;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5265616B3054736F00C301A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = TY9X64DJ8C;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5265616D3054736F00C301A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = G51D000130547EF00C301A4 /* Google.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MobileLLMChat.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TY9X64DJ8C;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "../../MobileLLMChat/GoogleSignIn.plist";
+				INFOPLIST_KEY_LSApplicationQueriesSchemes = "whatsapp waze comgooglemaps googlegmail shortcuts";
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "O assistente cria e consulta eventos quando você pede.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "O app busca o telefone na sua agenda quando você pede para achar um contato, ligar ou mandar mensagem.";
+				INFOPLIST_KEY_NSRemindersFullAccessUsageDescription = "O assistente cria lembretes quando você pede.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = davidoneil.MobileLLMChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5265616E3054736F00C301A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = G51D000130547EF00C301A4 /* Google.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MobileLLMChat.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TY9X64DJ8C;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "../../MobileLLMChat/GoogleSignIn.plist";
+				INFOPLIST_KEY_LSApplicationQueriesSchemes = "whatsapp waze comgooglemaps googlegmail shortcuts";
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "O assistente cria e consulta eventos quando você pede.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "O app busca o telefone na sua agenda quando você pede para achar um contato, ligar ou mandar mensagem.";
+				INFOPLIST_KEY_NSRemindersFullAccessUsageDescription = "O assistente cria lembretes quando você pede.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = davidoneil.MobileLLMChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A1B2C3D40000000000000009 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TY9X64DJ8C;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = davidoneil.MobileLLMChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MobileLLMChat.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MobileLLMChat";
+			};
+			name = Debug;
+		};
+		A1B2C3D4000000000000000A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TY9X64DJ8C;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = davidoneil.MobileLLMChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MobileLLMChat.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MobileLLMChat";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5265615C3054736D00C301A3 /* Build configuration list for PBXProject "MobileLLMChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5265616A3054736F00C301A3 /* Debug */,
+				5265616B3054736F00C301A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5265616C3054736F00C301A3 /* Build configuration list for PBXNativeTarget "MobileLLMChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5265616D3054736F00C301A3 /* Debug */,
+				5265616E3054736F00C301A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1B2C3D4000000000000000B /* Build configuration list for PBXNativeTarget "MobileLLMChatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B2C3D40000000000000009 /* Debug */,
+				A1B2C3D4000000000000000A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5265616F305474EF00C301A3 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ml-explore/mlx-swift-lm";
+			requirement = {
+				kind = exactVersion;
+				version = 3.31.4;
+			};
+		};
+		5265617E3054753D00C301A3 /* XCRemoteSwiftPackageReference "swift-huggingface" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/huggingface/swift-huggingface";
+			requirement = {
+				kind = exactVersion;
+				version = 0.10.1;
+			};
+		};
+		526561813054759300C301A3 /* XCRemoteSwiftPackageReference "swift-transformers" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/huggingface/swift-transformers";
+			requirement = {
+				kind = exactVersion;
+				version = 1.3.4;
+			};
+		};
+		G51D000130547EF00C301A1 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		52656170305474EF00C301A3 /* BenchmarkHelpers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5265616F305474EF00C301A3 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */;
+			productName = BenchmarkHelpers;
+		};
+		52656172305474EF00C301A3 /* IntegrationTestHelpers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5265616F305474EF00C301A3 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */;
+			productName = IntegrationTestHelpers;
+		};
+		52656174305474EF00C301A3 /* MLXEmbedders */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5265616F305474EF00C301A3 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */;
+			productName = MLXEmbedders;
+		};
+		52656176305474EF00C301A3 /* MLXHuggingFace */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5265616F305474EF00C301A3 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */;
+			productName = MLXHuggingFace;
+		};
+		52656178305474EF00C301A3 /* MLXLLM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5265616F305474EF00C301A3 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */;
+			productName = MLXLLM;
+		};
+		5265617A305474EF00C301A3 /* MLXLMCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5265616F305474EF00C301A3 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */;
+			productName = MLXLMCommon;
+		};
+		5265617C305474EF00C301A3 /* MLXVLM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5265616F305474EF00C301A3 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */;
+			productName = MLXVLM;
+		};
+		5265617F3054753D00C301A3 /* HuggingFace */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5265617E3054753D00C301A3 /* XCRemoteSwiftPackageReference "swift-huggingface" */;
+			productName = HuggingFace;
+		};
+		526561823054759300C301A3 /* Hub */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 526561813054759300C301A3 /* XCRemoteSwiftPackageReference "swift-transformers" */;
+			productName = Hub;
+		};
+		526561843054759300C301A3 /* Tokenizers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 526561813054759300C301A3 /* XCRemoteSwiftPackageReference "swift-transformers" */;
+			productName = Tokenizers;
+		};
+		526561863054759300C301A3 /* Transformers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 526561813054759300C301A3 /* XCRemoteSwiftPackageReference "swift-transformers" */;
+			productName = Transformers;
+		};
+		G51D000130547EF00C301A2 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = G51D000130547EF00C301A1 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 526561593054736D00C301A3 /* Project object */;
+}

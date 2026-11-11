@@ -1,0 +1,18 @@
+{
+ "chosen": "direct",
+ "rule": "mais acerto; empate -> menor tempo médio",
+ "lmR": {
+  "direct": {
+   "cond": "rt-base-kv",
+   "ok": 6,
+   "mean_s": 89.5285925467809,
+   "n": 12
+  },
+  "nothink": {
+   "cond": "nt-base-kv",
+   "ok": 5,
+   "mean_s": 48.852150559425354,
+   "n": 12
+  }
+ }
+}

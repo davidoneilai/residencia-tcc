@@ -1,0 +1,494 @@
+{
+ "name": "qwen35_sft_basetemplate",
+ "base": "/Users/macbookpro/.claude/jobs/0554fa3f/tmp/lora/hfhome/hub/models--mlx-community--Qwen3.5-2B-4bit/snapshots/674aaa7240b91e8012fcad5d791b7dfe5ba90207",
+ "adapter": "/Users/macbookpro/.claude/jobs/0554fa3f/tmp/lora/hf/qwen35-2b",
+ "base_load_s": 1.5,
+ "compute_dtype": "mlx.core.bfloat16",
+ "base_peak_gb_after_load": 1.06,
+ "base_runs": [
+  {
+   "case": "weather",
+   "thinking": false,
+   "prompt_tokens": 293,
+   "gen_s": 1.41,
+   "peak_gb": 1.51,
+   "parsed_format": "qwen_xml_function",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Paris"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<tool_call>\n<function=get_weather>\n<parameter=city>\nParis\n</parameter>\n</function>\n</tool_call>"
+  },
+  {
+   "case": "weather_tokyo",
+   "thinking": false,
+   "prompt_tokens": 388,
+   "gen_s": 1.48,
+   "peak_gb": 1.65,
+   "parsed_format": "qwen_xml_function",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Tokyo"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<tool_call>\n<function=get_weather>\n<parameter=city>\nTokyo\n</parameter>\n</function>\n</tool_call>"
+  },
+  {
+   "case": "pick_tool",
+   "thinking": false,
+   "prompt_tokens": 403,
+   "gen_s": 2.12,
+   "peak_gb": 1.67,
+   "parsed_format": "qwen_xml_function",
+   "calls": [
+    {
+     "name": "send_email",
+     "arguments": {
+      "to": "bob@example.com",
+      "subject": "Hi",
+      "body": "See you at 6"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<tool_call>\n<function=send_email>\n<parameter=to>\nbob@example.com\n</parameter>\n<parameter=subject>\nHi\n</parameter>\n<parameter=body>\nSee you at 6\n</parameter>\n</function>\n</tool_call>"
+  },
+  {
+   "case": "alarm",
+   "thinking": false,
+   "prompt_tokens": 487,
+   "gen_s": 1.92,
+   "peak_gb": 1.79,
+   "parsed_format": "qwen_xml_function",
+   "calls": [
+    {
+     "name": "create_alarm",
+     "arguments": {
+      "time": "6:45",
+      "label": "Gym"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<tool_call>\n<function=create_alarm>\n<parameter=time>\n6:45\n</parameter>\n<parameter=label>\nGym\n</parameter>\n</function>\n</tool_call>"
+  },
+  {
+   "case": "event",
+   "thinking": false,
+   "prompt_tokens": 428,
+   "gen_s": 2.23,
+   "peak_gb": 1.71,
+   "parsed_format": "qwen_xml_function",
+   "calls": [
+    {
+     "name": "create_event",
+     "arguments": {
+      "title": "Standup",
+      "date": "2026-11-10",
+      "duration_minutes": "30"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<tool_call>\n<function=create_event>\n<parameter=title>\nStandup\n</parameter>\n<parameter=date>\n2026-11-10\n</parameter>\n<parameter=duration_minutes>\n30\n</parameter>\n</function>\n</tool_call>"
+  },
+  {
+   "case": "parallel",
+   "thinking": false,
+   "prompt_tokens": 293,
+   "gen_s": 1.83,
+   "peak_gb": 1.51,
+   "parsed_format": "qwen_xml_function",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Rome"
+     }
+    },
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Madrid"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<tool_call>\n<function=get_weather>\n<parameter=city>\nRome\n</parameter>\n</function>\n</tool_call>\n<tool_call>\n<function=get_weather>\n<parameter=city>\nMadrid\n</parameter>\n</function>\n</tool_call>"
+  },
+  {
+   "case": "weather",
+   "thinking": true,
+   "prompt_tokens": 291,
+   "gen_s": 2.18,
+   "peak_gb": 1.51,
+   "parsed_format": "qwen_xml_function",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Paris"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "The user is asking about the current weather in Paris. I have a weather tool available that can get the current weather for a city. I need to call this tool with \"Paris\" as the city parameter.\n</think>\n\n<tool_call>\n<function=get_weather>\n<parameter=city>\nParis\n</parameter>\n</function>\n</tool_call>"
+  },
+  {
+   "case": "weather_tokyo",
+   "thinking": true,
+   "prompt_tokens": 386,
+   "gen_s": 2.45,
+   "peak_gb": 1.65,
+   "parsed_format": "qwen_xml_function",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Tokyo"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "The user is asking if it's raining in Tokyo. I have a weather tool available that can get the current weather for a city. I need to call this tool with \"Tokyo\" as the city parameter.\n</think>\n\n<tool_call>\n<function=get_weather>\n<parameter=city>\nTokyo\n</parameter>\n</function>\n</tool_call>"
+  },
+  {
+   "case": "pick_tool",
+   "thinking": true,
+   "prompt_tokens": 401,
+   "gen_s": 3.95,
+   "peak_gb": 1.67,
+   "parsed_format": "qwen_xml_function",
+   "calls": [
+    {
+     "name": "send_email",
+     "arguments": {
+      "to": "bob@example.com",
+      "subject": "Hi",
+      "body": "See you at 6"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "The user wants me to send an email with specific parameters:\n- To: bob@example.com\n- Subject: 'Hi'\n- Body: 'See you at 6'\n\nI have the send_email function available which takes:\n- to (recipient address)\n- subject (subject line)\n- body (message body)\n\nAll required parameters are provided, so I can proceed with the email sending.\n</think>\n\n<tool_call>\n<function=send_email>\n<parameter=to>\nbob@example.com\n</parameter>\n<parameter=subject>\nHi\n</parameter>\n<parameter=body>\nSee you at 6\n</parameter>\n</function>\n</tool_call>"
+  },
+  {
+   "case": "alarm",
+   "thinking": true,
+   "prompt_tokens": 485,
+   "gen_s": 6.47,
+   "peak_gb": 1.79,
+   "parsed_format": null,
+   "calls": [],
+   "valid": false,
+   "raw": "The user wants me to create an alarm for 6:45 tomorrow with the label \"Gym\". I need to use the create_alarm function with the time parameter. The time should be in HH:MM format, and tomorrow's date I need to figure out. Since I don't know what today's date is, I'll need to make a reasonable assumption. Let me use a standard format like \"2024-01-15\" or similar. Actually, I should probably use a more generic approach since I don't know the current date. Let me just use a reasonable date format.\n\nActually, looking at the function description, it says \"Time in HH:MM, 24h\" for the time parameter. So I need to format it as HH:MM. For tomorrow, I'll use a reasonable date. Since I don't know the current date, I'll use a standard format. Let me use \"2024-01-15\" as a placeholder, but actually I should probably use a more generic approach. Let me just use \"2024-01-15\" for the date.\n\nWait, I need to think about this more carefully. The user said \""
+  },
+  {
+   "case": "event",
+   "thinking": true,
+   "prompt_tokens": 426,
+   "gen_s": 4.33,
+   "peak_gb": 1.71,
+   "parsed_format": "qwen_xml_function",
+   "calls": [
+    {
+     "name": "create_event",
+     "arguments": {
+      "title": "Standup",
+      "date": "2026-11-10",
+      "duration_minutes": "30"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "The user wants me to create a calendar event for a 30-minute meeting called \"Standup\" on 2026-11-10.\n\nLooking at the create_event function:\n- title: \"Standup\" (required)\n- date: \"2026-11-10\" (required)\n- duration_minutes: 30 (optional)\n\nAll required parameters are provided, so I can create this event.\n</think>\n\n<tool_call>\n<function=create_event>\n<parameter=title>\nStandup\n</parameter>\n<parameter=date>\n2026-11-10\n</parameter>\n<parameter=duration_minutes>\n30\n</parameter>\n</function>\n</tool_call>"
+  },
+  {
+   "case": "parallel",
+   "thinking": true,
+   "prompt_tokens": 291,
+   "gen_s": 2.76,
+   "peak_gb": 1.51,
+   "parsed_format": "qwen_xml_function",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Rome"
+     }
+    },
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Madrid"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "The user is asking for the weather in Rome and in Madrid. I need to use the get_weather function to get this information. I'll need to make two separate calls - one for Rome and one for Madrid.\n</think>\n\n<tool_call>\n<function=get_weather>\n<parameter=city>\nRome\n</parameter>\n</function>\n</tool_call>\n<tool_call>\n<function=get_weather>\n<parameter=city>\nMadrid\n</parameter>\n</function>\n</tool_call>"
+  }
+ ],
+ "adapter_apply_s": 0.04,
+ "adapter_tensors": 192,
+ "lora_keys": [
+  "mlp.down_proj",
+  "mlp.gate_proj",
+  "mlp.up_proj",
+  "self_attn.k_proj",
+  "self_attn.o_proj",
+  "self_attn.q_proj",
+  "self_attn.v_proj"
+ ],
+ "lora_layers": 24,
+ "scale": 2.0,
+ "probe_equal": true,
+ "sft_runs": [
+  {
+   "case": "weather",
+   "thinking": false,
+   "prompt_tokens": 293,
+   "gen_s": 1.34,
+   "peak_gb": 1.5,
+   "parsed_format": "qwen_xml_function",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Paris"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<tool_call>\n<function=get_weather>\n<parameter=city>\nParis\n</parameter>\n</function>\n</tool_call>"
+  },
+  {
+   "case": "weather_tokyo",
+   "thinking": false,
+   "prompt_tokens": 388,
+   "gen_s": 1.57,
+   "peak_gb": 1.62,
+   "parsed_format": "qwen_xml_function",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Tokyo"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<tool_call>\n<function=get_weather>\n<parameter=city>\nTokyo\n</parameter>\n</function>\n</tool_call>"
+  },
+  {
+   "case": "pick_tool",
+   "thinking": false,
+   "prompt_tokens": 403,
+   "gen_s": 2.27,
+   "peak_gb": 1.64,
+   "parsed_format": "qwen_xml_function",
+   "calls": [
+    {
+     "name": "send_email",
+     "arguments": {
+      "to": "bob@example.com",
+      "subject": "Hi",
+      "body": "See you at 6"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<tool_call>\n<function=send_email>\n<parameter=to>\nbob@example.com\n</parameter>\n<parameter=subject>\nHi\n</parameter>\n<parameter=body>\nSee you at 6\n</parameter>\n</function>\n</tool_call>"
+  },
+  {
+   "case": "alarm",
+   "thinking": false,
+   "prompt_tokens": 487,
+   "gen_s": 2.04,
+   "peak_gb": 1.76,
+   "parsed_format": "qwen_xml_function",
+   "calls": [
+    {
+     "name": "create_alarm",
+     "arguments": {
+      "time": "06:45",
+      "label": "Gym"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<tool_call>\n<function=create_alarm>\n<parameter=time>\n06:45\n</parameter>\n<parameter=label>\nGym\n</parameter>\n</function>\n</tool_call>"
+  },
+  {
+   "case": "event",
+   "thinking": false,
+   "prompt_tokens": 428,
+   "gen_s": 2.31,
+   "peak_gb": 1.68,
+   "parsed_format": "qwen_xml_function",
+   "calls": [
+    {
+     "name": "create_event",
+     "arguments": {
+      "title": "Standup",
+      "date": "2026-11-10",
+      "duration_minutes": "30"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<tool_call>\n<function=create_event>\n<parameter=title>\nStandup\n</parameter>\n<parameter=date>\n2026-11-10\n</parameter>\n<parameter=duration_minutes>\n30\n</parameter>\n</function>\n</tool_call>"
+  },
+  {
+   "case": "parallel",
+   "thinking": false,
+   "prompt_tokens": 293,
+   "gen_s": 1.89,
+   "peak_gb": 1.5,
+   "parsed_format": "qwen_xml_function",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Rome"
+     }
+    },
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Madrid"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<tool_call>\n<function=get_weather>\n<parameter=city>\nRome\n</parameter>\n</function>\n</tool_call>\n<tool_call>\n<function=get_weather>\n<parameter=city>\nMadrid\n</parameter>\n</function>\n</tool_call>"
+  },
+  {
+   "case": "weather",
+   "thinking": true,
+   "prompt_tokens": 291,
+   "gen_s": 2.47,
+   "peak_gb": 1.49,
+   "parsed_format": "qwen_xml_function",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Paris"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "The user is asking about the current weather in Paris. I have the appropriate tool \"get_weather\" which can provide this information. The required argument is \"city\", and the user has provided \"Paris\". I can directly call the function with this information.\n</think>\n\n<tool_call>\n<function=get_weather>\n<parameter=city>\nParis\n</parameter>\n</function>\n</tool_call>"
+  },
+  {
+   "case": "weather_tokyo",
+   "thinking": true,
+   "prompt_tokens": 386,
+   "gen_s": 2.16,
+   "peak_gb": 1.62,
+   "parsed_format": "qwen_xml_function",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Tokyo"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "The user is asking if it's raining in Tokyo. I can use the get_weather function to check the current weather for Tokyo.\n</think>\n\n<tool_call>\n<function=get_weather>\n<parameter=city>\nTokyo\n</parameter>\n</function>\n</tool_call>"
+  },
+  {
+   "case": "pick_tool",
+   "thinking": true,
+   "prompt_tokens": 401,
+   "gen_s": 3.28,
+   "peak_gb": 1.64,
+   "parsed_format": "qwen_xml_function",
+   "calls": [
+    {
+     "name": "send_email",
+     "arguments": {
+      "to": "bob@example.com",
+      "subject": "Hi",
+      "body": "See you at 6"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "The user wants me to send an email with specific parameters:\n- to: bob@example.com\n- subject: Hi\n- body: See you at 6\n\nI need to call the send_email function with these required arguments.\n</think>\n\n<tool_call>\n<function=send_email>\n<parameter=to>\nbob@example.com\n</parameter>\n<parameter=subject>\nHi\n</parameter>\n<parameter=body>\nSee you at 6\n</parameter>\n</function>\n</tool_call>"
+  },
+  {
+   "case": "alarm",
+   "thinking": true,
+   "prompt_tokens": 485,
+   "gen_s": 3.97,
+   "peak_gb": 1.75,
+   "parsed_format": "qwen_xml_function",
+   "calls": [
+    {
+     "name": "create_alarm",
+     "arguments": {
+      "time": "06:45",
+      "label": "Gym"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "The user wants to wake up at 6:45 tomorrow with a label \"Gym\". I need to use the create_alarm function with the time parameter. The time should be in HH:MM format, 24h. So \"6:45\" would be \"06:45\" in 24-hour format.\n\nLet me call the function with the required \"time\" parameter.\n</think>\n\n<tool_call>\n<function=create_alarm>\n<parameter=time>\n06:45\n</parameter>\n<parameter=label>\nGym\n</parameter>\n</function>\n</tool_call>"
+  },
+  {
+   "case": "event",
+   "thinking": true,
+   "prompt_tokens": 426,
+   "gen_s": 4.48,
+   "peak_gb": 1.67,
+   "parsed_format": "qwen_xml_function",
+   "calls": [
+    {
+     "name": "create_event",
+     "arguments": {
+      "title": "Standup",
+      "date": "2026-11-10",
+      "duration_minutes": "30"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "The user wants to create a calendar event with the following details:\n- Title: Standup\n- Date: 2026-11-10\n- Duration: 30 minutes\n\nI need to call the create_event function with these parameters.\n\nThe required arguments are \"title\" and \"date\", and I have both. The \"duration_minutes\" is optional but I should include it since it's provided.\n\nLet me call the function:\n</think>\n\n<tool_call>\n<function=create_event>\n<parameter=title>\nStandup\n</parameter>\n<parameter=date>\n2026-11-10\n</parameter>\n<parameter=duration_minutes>\n30\n</parameter>\n</function>\n</tool_call>"
+  },
+  {
+   "case": "parallel",
+   "thinking": true,
+   "prompt_tokens": 291,
+   "gen_s": 2.68,
+   "peak_gb": 1.49,
+   "parsed_format": "qwen_xml_function",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Rome"
+     }
+    },
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Madrid"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "The user is asking for the weather in two cities: Rome and Madrid. I need to call the get_weather function twice, once for Rome and once for Madrid.\n</think>\n\n<tool_call>\n<function=get_weather>\n<parameter=city>\nRome\n</parameter>\n</function>\n</tool_call>\n<tool_call>\n<function=get_weather>\n<parameter=city>\nMadrid\n</parameter>\n</function>\n</tool_call>"
+  }
+ ]
+}

@@ -1,0 +1,264 @@
+{
+ "name": "qwen35_sft_bf16_training",
+ "base": "/Users/macbookpro/.claude/jobs/0554fa3f/tmp/lora/models/mlx-community--Qwen3.5-2B-bf16",
+ "adapter": "/Users/macbookpro/.claude/jobs/0554fa3f/tmp/lora/hf/qwen35-2b",
+ "base_load_s": 3.27,
+ "compute_dtype": "mlx.core.bfloat16",
+ "base_peak_gb_after_load": 3.76,
+ "base_runs": [
+  {
+   "case": "weather",
+   "thinking": false,
+   "prompt_tokens": 180,
+   "gen_s": 3.25,
+   "peak_gb": 3.97,
+   "parsed_format": "tool_call_json",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Paris"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<tool_call>\n{\"name\": \"get_weather\", \"arguments\": {\"city\": \"Paris\"}}\n</tool_call>"
+  },
+  {
+   "case": "weather_tokyo",
+   "thinking": false,
+   "prompt_tokens": 275,
+   "gen_s": 2.05,
+   "peak_gb": 4.03,
+   "parsed_format": "tool_call_json",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Tokyo"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<tool_call>\n{\"name\": \"get_weather\", \"arguments\": {\"city\": \"Tokyo\"}}\n</tool_call>"
+  },
+  {
+   "case": "pick_tool",
+   "thinking": false,
+   "prompt_tokens": 290,
+   "gen_s": 3.16,
+   "peak_gb": 4.04,
+   "parsed_format": "tool_call_json",
+   "calls": [
+    {
+     "name": "send_email",
+     "arguments": {
+      "to": "bob@example.com",
+      "subject": "Hi",
+      "body": "See you at 6"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<tool_call>\n{\"name\": \"send_email\", \"arguments\": {\"to\": \"bob@example.com\", \"subject\": \"Hi\", \"body\": \"See you at 6\"}}\n</tool_call>"
+  },
+  {
+   "case": "alarm",
+   "thinking": false,
+   "prompt_tokens": 374,
+   "gen_s": 2.75,
+   "peak_gb": 4.11,
+   "parsed_format": "tool_call_json",
+   "calls": [
+    {
+     "name": "create_alarm",
+     "arguments": {
+      "time": "6:45",
+      "label": "Gym"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<tool_call>\n{\"name\": \"create_alarm\", \"arguments\": {\"time\": \"6:45\", \"label\": \"Gym\"}}\n</tool_call>"
+  },
+  {
+   "case": "event",
+   "thinking": false,
+   "prompt_tokens": 315,
+   "gen_s": 3.63,
+   "peak_gb": 4.06,
+   "parsed_format": "tool_call_json",
+   "calls": [
+    {
+     "name": "create_event",
+     "arguments": {
+      "title": "Standup",
+      "date": "2026-11-10",
+      "duration_minutes": 30
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<tool_call>\n{\"name\": \"create_event\", \"arguments\": {\"title\": \"Standup\", \"date\": \"2026-11-10\", \"duration_minutes\": 30}}\n</tool_call>"
+  },
+  {
+   "case": "parallel",
+   "thinking": false,
+   "prompt_tokens": 180,
+   "gen_s": 3.23,
+   "peak_gb": 3.97,
+   "parsed_format": "tool_call_json",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Rome"
+     }
+    },
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Madrid"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<tool_call>\n{\"name\": \"get_weather\", \"arguments\": {\"city\": \"Rome\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_weather\", \"arguments\": {\"city\": \"Madrid\"}}\n</tool_call>"
+  }
+ ],
+ "adapter_apply_s": 0.05,
+ "adapter_tensors": 192,
+ "lora_keys": [
+  "mlp.down_proj",
+  "mlp.gate_proj",
+  "mlp.up_proj",
+  "self_attn.k_proj",
+  "self_attn.o_proj",
+  "self_attn.q_proj",
+  "self_attn.v_proj"
+ ],
+ "lora_layers": 24,
+ "scale": 2.0,
+ "probe_equal": true,
+ "sft_runs": [
+  {
+   "case": "weather",
+   "thinking": false,
+   "prompt_tokens": 180,
+   "gen_s": 1.84,
+   "peak_gb": 4.01,
+   "parsed_format": "tool_call_json",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Paris"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<tool_call>\n{\"name\": \"get_weather\", \"arguments\": {\"city\": \"Paris\"}}\n</tool_call>"
+  },
+  {
+   "case": "weather_tokyo",
+   "thinking": false,
+   "prompt_tokens": 275,
+   "gen_s": 2.1,
+   "peak_gb": 4.08,
+   "parsed_format": "tool_call_json",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Tokyo"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<tool_call>\n{\"name\": \"get_weather\", \"arguments\": {\"city\": \"Tokyo\"}}\n</tool_call>"
+  },
+  {
+   "case": "pick_tool",
+   "thinking": false,
+   "prompt_tokens": 290,
+   "gen_s": 3.26,
+   "peak_gb": 4.09,
+   "parsed_format": "tool_call_json",
+   "calls": [
+    {
+     "name": "send_email",
+     "arguments": {
+      "to": "bob@example.com",
+      "subject": "Hi",
+      "body": "See you at 6"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<tool_call>\n{\"name\": \"send_email\", \"arguments\": {\"to\": \"bob@example.com\", \"subject\": \"Hi\", \"body\": \"See you at 6\"}}\n</tool_call>"
+  },
+  {
+   "case": "alarm",
+   "thinking": false,
+   "prompt_tokens": 374,
+   "gen_s": 2.9,
+   "peak_gb": 4.17,
+   "parsed_format": "tool_call_json",
+   "calls": [
+    {
+     "name": "create_alarm",
+     "arguments": {
+      "time": "06:45",
+      "label": "Gym"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<tool_call>\n{\"name\": \"create_alarm\", \"arguments\": {\"time\": \"06:45\", \"label\": \"Gym\"}}\n</tool_call>"
+  },
+  {
+   "case": "event",
+   "thinking": false,
+   "prompt_tokens": 315,
+   "gen_s": 3.68,
+   "peak_gb": 4.11,
+   "parsed_format": "tool_call_json",
+   "calls": [
+    {
+     "name": "create_event",
+     "arguments": {
+      "title": "Standup",
+      "date": "2026-11-10",
+      "duration_minutes": 30
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<tool_call>\n{\"name\": \"create_event\", \"arguments\": {\"title\": \"Standup\", \"date\": \"2026-11-10\", \"duration_minutes\": 30}}\n</tool_call>"
+  },
+  {
+   "case": "parallel",
+   "thinking": false,
+   "prompt_tokens": 180,
+   "gen_s": 3.34,
+   "peak_gb": 4.01,
+   "parsed_format": "tool_call_json",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Rome"
+     }
+    },
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Madrid"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<tool_call>\n{\"name\": \"get_weather\", \"arguments\": {\"city\": \"Rome\"}}\n</tool_call>\n<tool_call>\n{\"name\": \"get_weather\", \"arguments\": {\"city\": \"Madrid\"}}\n</tool_call>"
+  }
+ ]
+}

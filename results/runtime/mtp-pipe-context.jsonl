@@ -1,0 +1,6 @@
+{"index": 26, "context": 256, "mtp_proposed": 44, "mtp_accepted": 33, "mtp_context": 256, "mtp_wasted_rounds": 11, "decode_ms": 1482.450008392334, "mtp_prefill_ms": 15060.059070587158, "thermal_after": "nominal"}
+{"index": 26, "context": 8192, "mtp_proposed": 44, "mtp_accepted": 33, "mtp_context": 8192, "mtp_wasted_rounds": 11, "decode_ms": 1908.9189767837524, "mtp_prefill_ms": 31099.615931510925, "thermal_after": "nominal"}
+{"index": 38, "context": 256, "mtp_proposed": 90, "mtp_accepted": 76, "mtp_context": 256, "mtp_wasted_rounds": 14, "decode_ms": 4676.59604549408, "mtp_prefill_ms": 28301.72598361969, "thermal_after": "nominal"}
+{"index": 38, "context": 8192, "mtp_proposed": 112, "mtp_accepted": 88, "mtp_context": 8192, "mtp_wasted_rounds": 24, "decode_ms": 6394.073963165283, "mtp_prefill_ms": 37961.73191070557, "thermal_after": "nominal"}
+{"index": 22, "context": 256, "mtp_proposed": 276, "mtp_accepted": 222, "mtp_context": 256, "mtp_wasted_rounds": 54, "decode_ms": 15897.320985794067, "mtp_prefill_ms": 20942.08800792694, "thermal_after": "nominal"}
+{"index": 22, "context": 8192, "mtp_proposed": 269, "mtp_accepted": 223, "mtp_context": 8192, "mtp_wasted_rounds": 46, "decode_ms": 15345.907092094421, "mtp_prefill_ms": 29128.281950950623, "thermal_after": "nominal"}

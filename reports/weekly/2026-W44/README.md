@@ -17,6 +17,16 @@ O gerador deste relatório **não** relança inferência no iPhone. Reavaliar no
 - **Concluído:** rodada 1, **880 execuções** medidas e avaliadas (4 modelos × políticas aplicáveis × 40 tarefas).
 - **Não concluído:** repetição 2 — 1/4 modelos. Lacunas não são apresentadas como resultado.
 
+## Escopo científico
+
+O recorte desta semana é **tool calling em turno único** no BFCL v4 AST: o modelo vê o pedido e o catálogo de funções e deve emitir a(s) chamada(s) correta(s) na primeira resposta. O checker oficial (`ast_checker`) compara essa emissão ao `possible_answer`. **As ferramentas não foram executadas** (`executionMode=simulated`). Não há segundo turno, estado de ferramenta nem usuário simulado.
+
+Compararam-se estratégias **fixas** (Direct, NoThink, Budget 64, Plan+Act) e **adaptativas** (AST Router, AdaptiveStep) no mesmo conjunto de 40 tarefas. Os números abaixo descrevem diferenças de acurácia e latência **nessa tarefa de emissão**, no iPhone 16 Pro.
+
+**O que os dados sustentam:** ranking dos quatro SLMs, efeito de ligar ou cortar o raciocínio, e o fato de as políticas adaptativas não superarem a melhor fixa em acurácia neste recorte.
+
+**O que os dados ainda não sustentam:** adaptação *durante* uma trajetória agêntica (vários turnos, resultado de ferramenta realimentando o modelo, diálogo). Isso fica para BFCL Multi-Turn e ToolSandbox; ver [Referências](#referências).
+
 ## Resposta curta (só r1)
 
 1. **Melhor acurácia:** Qwen3.5-2B `direct`, 35/40 (88%), 21.2 s/tarefa.
@@ -107,6 +117,59 @@ MiniCPM5 AdaptiveStep vs NoThink: +0.0 pp, +1.2 s. Qwen3.5 AdaptiveStep vs Direc
 
 União das melhores fixas: 38/40; interseção: 25/40; nenhuma resolve: 2. Exclusivas: Gemma 4 E2B (simple_python_35).
 
+## Exemplos de tarefas e comportamento dos modelos
+
+Três IDs da amostra de 40. Regras: (1) primeiro ID, ordem lexicográfica, em que as quatro melhores fixas acertam (exclui `irrelevance` se houver outro); (2) MiniCPM5 Direct falha e NoThink acerta, preferindo `stop=length` sem chamada; (3) Qwen3.5 AdaptiveStep falha e a melhor fixa acerta, preferindo roteamento para outra estratégia sem chamada. Chamadas e vereditos: JSONL avaliado. Enunciado: JSON congelado do app. Nenhum ID fora da amostra.
+
+### 1. Tarefa resolvida pelos quatro modelos (melhor fixa de cada um)
+
+- **ID / categoria:** `multiple_117` / `multiple` (amostra congelada).
+- **Enunciado (BFCL):** Calculate the BMI (Body Mass Index) of a person who weighs 70kg and is 1.75m tall.
+- **Ferramentas no catálogo:** `calculate_BMI`, `soccer.get_last_match`, `hotel_booking`.
+- **Chamada esperada (`possible_answer`):** `[{"calculate_BMI": {"weight_kg": [70], "height_m": [1.75]}}]`.
+- **Fonte:** [BFCLv4AST.json](../../../MobileLLMBench/BFCLv4AST.json), linhas `multiple_117` em [main-r1-graded.jsonl](../../../results/slm-bfcl/main-r1-graded.jsonl).
+
+| Modelo | Estratégia | Executada | Checker | Falha | `stop` | Tokens out | Chamada produzida |
+|---|---|---|---|---|---|---|---|
+| LFM2.5-2.6B | `direct` | `direct` | válido | — | stop | 128 | [{"calculate_BMI": {"weight_kg": 70, "height_m": 1.75}}] |
+| MiniCPM5-2B | `nothink` | `nothink` | válido | — | stop | 27 | [{"calculate_BMI": {"height_m": 1.75, "weight_kg": 70}}] |
+| Qwen3.5-2B | `direct` | `direct` | válido | — | stop | 125 | [{"calculate_BMI": {"height_m": 1.75, "weight_kg": 70}}] |
+| Gemma 4 E2B | `nothink` | `nothink` | válido | — | stop | 24 | [{"calculate_BMI": {"height_m": 1.75, "weight_kg": 70}}] |
+
+Critério: as quatro melhores estratégias fixas acertam (primeiro ID de chamada de função, ordem lexicográfica). Distratoras do catálogo não foram usadas nessas quatro condições.
+
+### 2. A estratégia de raciocínio altera o resultado
+
+- **ID / categoria:** `parallel_190` / `parallel` (amostra congelada).
+- **Enunciado (BFCL):** What is the shortest driving distance from New York City to Los Angeles, and then from Los Angeles to Miami, considering both the shortest and scenic route preferences?
+- **Ferramentas no catálogo:** `calculate_shortest_distance`.
+- **Chamada esperada (`possible_answer`):** `[{"calculate_shortest_distance": {"start_location": ["New York City", "NYC"], "end_location": ["Los Angeles", "Los Angeles, CA", "LA"], "route_preference": ["Shortest"]}}, {"calculate_shortest_distance": {"start_location": ["Los Angeles", "Los Angeles, CA", "LA"], "end_location"…`.
+- **Fonte:** [BFCLv4AST.json](../../../MobileLLMBench/BFCLv4AST.json), linhas `parallel_190` em [main-r1-graded.jsonl](../../../results/slm-bfcl/main-r1-graded.jsonl).
+
+| Modelo | Estratégia | Executada | Checker | Falha | `stop` | Tokens out | Chamada produzida |
+|---|---|---|---|---|---|---|---|
+| MiniCPM5-2B | `nothink` | `nothink` | válido | — | stop | 151 | [{"calculate_shortest_distance": {"start_location": "New York City", "end_location": "Los Angeles", "route_preference": "Shortest"}}, {"calculate_shortest_distance": {"start_location": "Los Angeles", "end_location": "Miami", "route_preference": "Shortest"}}, {"calculate_shortest… |
+| MiniCPM5-2B | `direct` | `direct` | inválido | format_error | length | 1024 | — |
+| MiniCPM5-2B | `ast_router` | `direct` | inválido | format_error | length | 1024 | — |
+
+Critério: em MiniCPM5-2B, Direct falha e NoThink acerta; entre esses, prefere-se `stop=length` sem chamada (raciocínio esgotou o teto). Aqui Direct: falha `format_error`, `stop=length`, 0 chamada(s), 1024 tokens. NoThink: válido, `stop=stop`, 4 chamada(s), 151 tokens.
+
+### 3. A política adaptativa escolhe uma estratégia pior que a melhor fixa
+
+- **ID / categoria:** `multiple_16` / `multiple` (amostra congelada).
+- **Enunciado (BFCL):** What's the required minimum population size (Ne) for maintaining the genetic diversity of a wild tiger population for the next 100 generations with a probability of 0.95?
+- **Ferramentas no catálogo:** `species_distribution_modeling.project_range_shift`, `population_genetics.calculate_ne`, `ecology.calculate_carrying_capacity`.
+- **Chamada esperada (`possible_answer`):** `[{"population_genetics.calculate_ne": {"species": ["wild tiger", "tiger"], "generations": [100], "probability": [0.95]}}]`.
+- **Fonte:** [BFCLv4AST.json](../../../MobileLLMBench/BFCLv4AST.json), linhas `multiple_16` em [main-r1-graded.jsonl](../../../results/slm-bfcl/main-r1-graded.jsonl).
+
+| Modelo | Estratégia | Executada | Checker | Falha | `stop` | Tokens out | Chamada produzida |
+|---|---|---|---|---|---|---|---|
+| Qwen3.5-2B | `direct` | `direct` | válido | — | stop | 176 | [{"population_genetics.calculate_ne": {"generations": 100, "probability": 0.95, "species": "tiger"}}] |
+| Qwen3.5-2B | `nothink` | `nothink` | inválido | length | length | 1024 | — |
+| Qwen3.5-2B | `adaptive_step` | `nothink` | inválido | length | length | 1024 | — |
+
+Critério: Qwen3.5-2B AdaptiveStep erra o que a melhor fixa (`direct`) acerta; prefere-se o caso em que a política executou outra estratégia e não emitiu chamada. AdaptiveStep executou `nothink`: falha `length`, `stop=length`, 0 chamada(s). `direct`: válido, 1 chamada(s). É falha da política neste recorte, não ausência de capacidade do modelo na mesma tarefa.
+
 ## Repetição 2 (não tratar o bloco como estudo fechado)
 
 Seed de ordem `r2-20261027`. Greedy / temperature 0; o seed só muda a ordem.
@@ -124,6 +187,24 @@ Seed de ordem `r2-20261027`. Greedy / temperature 0; o seed só muda a ordem.
 - **BFCL v4 AST** pontua a primeira resposta de turno único. **Não avalia interações sequenciais com ferramentas** (não há oráculo de diálogo nem estado entre turnos). ActionAware / ToolSandbox não entram nesta semana.
 - MiniCPM5 e LFM2.5 dependem do parser no Mac para o formato nativo; o pacote `mlx-swift-lm` 3.31.4 não cobre esses formatos por completo.
 - A repetição 2 dos outros três modelos **não está concluída** e não deve ser lida como estabilidade geral.
+- **Próximo passo (hipótese, não resultado):** benchmarks com interação sequencial — BFCL Multi-Turn e ToolSandbox — para testar se alguma política adaptativa ajuda quando há estado e resposta de ferramenta.
+
+## Referências
+
+**Usados nesta semana**
+
+- [BFCL (código e leaderboard)](https://github.com/ShishirPatil/gorilla/tree/main/berkeley-function-call-leaderboard)
+- [Dataset BFCL (Hugging Face)](https://huggingface.co/datasets/gorilla-llm/Berkeley-Function-Calling-Leaderboard)
+- [Patil et al., ICML 2025 (PMLR)](https://proceedings.mlr.press/v267/patil25a.html)
+- [Leaderboard BFCL v4](https://gorilla.cs.berkeley.edu/leaderboard.html)
+
+**Previstos para investigação (não avaliados nesta semana)**
+
+- [BFCL Multi-Turn (mesmo repositório; não usado nesta semana)](https://github.com/ShishirPatil/gorilla/tree/main/berkeley-function-call-leaderboard)
+- [ToolSandbox (código)](https://github.com/apple-aiml-research/ToolSandbox)
+- [Lu et al., Findings of NAACL 2025](https://aclanthology.org/2025.findings-naacl.65/)
+- [iOSWorld (código; não usado neste repositório)](https://github.com/ljang0/iOSWorld)
+- [Jang et al., arXiv:2606.09764](https://arxiv.org/abs/2606.09764)
 
 ## Reprodutibilidade
 

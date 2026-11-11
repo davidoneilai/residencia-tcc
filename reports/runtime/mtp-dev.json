@@ -1,0 +1,2394 @@
+[
+ {
+  "run": "mtA",
+  "cond": "dacs-persist-kv",
+  "id": "multi_turn_base_11",
+  "ok": false,
+  "error": "multi_turn:empty_turn_model_response",
+  "latency_s": 39.41617298126221,
+  "steps": 4,
+  "llm_steps": 4,
+  "in_tokens": 26882,
+  "out_tokens": 833,
+  "prefill_s": 14.777601933972619,
+  "prefill_tokens": 6924,
+  "decode_s": 21.205997943878174,
+  "overhead_s": 3.2228606249773293,
+  "ttft_s": [
+   13.642197982226207,
+   0.6730225391002023,
+   1.339147402009985,
+   2.3460946356135537
+  ],
+  "server_s": 39.27162404166302,
+  "peak_mb": 1868.5513191223145,
+  "thermal": [
+   "nominal",
+   "nominal",
+   "nominal",
+   "nominal"
+  ],
+  "capped": 0,
+  "forced": 1,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 1,
+   "turn": 2
+  },
+  "triggers": {
+   "default": 3,
+   "detect_repeat": 1
+  },
+  "recovered_turns": 1,
+  "note_tokens_chars": 294,
+  "loop3": 0
+ },
+ {
+  "run": "mtA",
+  "cond": "dacs-persist-kv",
+  "id": "multi_turn_base_45",
+  "ok": false,
+  "error": "multi_turn:execution_response_mismatch",
+  "latency_s": 46.457610845565796,
+  "steps": 12,
+  "llm_steps": 12,
+  "in_tokens": 84667,
+  "out_tokens": 1007,
+  "prefill_s": 8.872582217954914,
+  "prefill_tokens": 1249,
+  "decode_s": 30.793697834014893,
+  "overhead_s": 6.2070786250333185,
+  "ttft_s": [
+   0.7684558639957686,
+   0.8801030750328209,
+   0.7015910255067865,
+   1.1612911562478985,
+   0.8415790461949655,
+   0.9423399795414298,
+   3.273900048196083,
+   1.232198116267682,
+   1.8928803697344847,
+   1.093079937476432,
+   0.9873851584634394,
+   1.3048570663304417
+  ],
+  "server_s": 46.09240854167001,
+  "peak_mb": 2171.583320617676,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 9,
+   "turn": 2
+  },
+  "triggers": {
+   "default": 10,
+   "detect_repeat": 1,
+   "recovered": 1
+  },
+  "recovered_turns": 1,
+  "note_tokens_chars": 329,
+  "loop3": 0
+ },
+ {
+  "run": "mtA",
+  "cond": "dacs-persist-kv",
+  "id": "multi_turn_base_46",
+  "ok": false,
+  "error": "multi_turn:instance_state_mismatch",
+  "latency_s": 35.27175688743591,
+  "steps": 5,
+  "llm_steps": 5,
+  "in_tokens": 27883,
+  "out_tokens": 440,
+  "prefill_s": 19.784077641721524,
+  "prefill_tokens": 5954,
+  "decode_s": 12.312932133674622,
+  "overhead_s": 2.9148250416692463,
+  "ttft_s": [
+   16.42058888329484,
+   1.385402313353552,
+   1.1910350394828129,
+   0.9910123494410072,
+   2.7108640978185576
+  ],
+  "server_s": 35.112481458330876,
+  "peak_mb": 1973.7218608856201,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 3,
+   "turn": 1
+  },
+  "triggers": {
+   "default": 4,
+   "detect_repeat": 1
+  },
+  "recovered_turns": 1,
+  "note_tokens_chars": 347,
+  "loop3": 0
+ },
+ {
+  "run": "mtA",
+  "cond": "dacs-persist-kv",
+  "id": "multi_turn_base_76",
+  "ok": false,
+  "error": "multi_turn:instance_state_mismatch",
+  "latency_s": 33.934462785720825,
+  "steps": 3,
+  "llm_steps": 3,
+  "in_tokens": 24305,
+  "out_tokens": 864,
+  "prefill_s": 3.044170638662763,
+  "prefill_tokens": 457,
+  "decode_s": 28.41726291179657,
+  "overhead_s": 2.2914600416770554,
+  "ttft_s": [
+   0.9430906007037265,
+   1.6346600008400856,
+   2.7578800787960063
+  ],
+  "server_s": 33.807416916664806,
+  "peak_mb": 2001.3054218292236,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 1,
+   "turn": 1
+  },
+  "triggers": {
+   "default": 3
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtA",
+  "cond": "dacs-persist-kv",
+  "id": "multi_turn_base_91",
+  "ok": true,
+  "error": null,
+  "latency_s": 50.06544804573059,
+  "steps": 8,
+  "llm_steps": 8,
+  "in_tokens": 56371,
+  "out_tokens": 659,
+  "prefill_s": 25.488058755276143,
+  "prefill_tokens": 7665,
+  "decode_s": 20.269246697425842,
+  "overhead_s": 3.8963903750045574,
+  "ttft_s": [
+   20.18907486298849,
+   1.0690056688545155,
+   0.74421929789969,
+   1.1704609430089477,
+   0.8498946738036466,
+   1.3394141831158777,
+   2.9778954789289855,
+   1.044484021680546
+  ],
+  "server_s": 49.81067537498893,
+  "peak_mb": 2110.250545501709,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 6,
+   "turn": 1
+  },
+  "triggers": {
+   "default": 8
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtA",
+  "cond": "dacs-persist-kv",
+  "id": "multi_turn_base_124",
+  "ok": true,
+  "error": null,
+  "latency_s": 38.08968496322632,
+  "steps": 8,
+  "llm_steps": 8,
+  "in_tokens": 57195,
+  "out_tokens": 802,
+  "prefill_s": 8.731726530269952,
+  "prefill_tokens": 1398,
+  "decode_s": 24.29761302471161,
+  "overhead_s": 4.627902208339947,
+  "ttft_s": [
+   0.9150351629286888,
+   1.4209161409453372,
+   1.6846980591217289,
+   1.523662136438361,
+   2.9003821246587904,
+   1.4824338099060697,
+   2.394280761523987,
+   1.0382205430869362
+  ],
+  "server_s": 37.825765833338664,
+  "peak_mb": 2063.1049003601074,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 5,
+   "turn": 2
+  },
+  "triggers": {
+   "default": 8
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtA",
+  "cond": "dacs-persist-kv",
+  "id": "multi_turn_base_155",
+  "ok": false,
+  "error": "multi_turn:execution_response_mismatch",
+  "latency_s": 43.419326066970825,
+  "steps": 4,
+  "llm_steps": 4,
+  "in_tokens": 20022,
+  "out_tokens": 752,
+  "prefill_s": 18.027509817518876,
+  "prefill_tokens": 5395,
+  "decode_s": 23.36572289466858,
+  "overhead_s": 1.8062772916673566,
+  "ttft_s": [
+   14.175963839174074,
+   1.6418517592101125,
+   2.5196055921915104,
+   1.496365918610536
+  ],
+  "server_s": 43.296152583330695,
+  "peak_mb": 1908.9764194488525,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 2,
+   "turn": 1
+  },
+  "triggers": {
+   "default": 4
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtA",
+  "cond": "dacs-persist-kv",
+  "id": "multi_turn_base_157",
+  "ok": true,
+  "error": null,
+  "latency_s": 32.85528230667114,
+  "steps": 6,
+  "llm_steps": 6,
+  "in_tokens": 47409,
+  "out_tokens": 757,
+  "prefill_s": 5.041691828861076,
+  "prefill_tokens": 802,
+  "decode_s": 23.383378982543945,
+  "overhead_s": 4.089860583335394,
+  "ttft_s": [
+   0.8137820362535422,
+   1.0780444045813056,
+   2.8362372374831466,
+   1.048137771038455,
+   1.8409487831013394,
+   1.5144021797386813
+  ],
+  "server_s": 32.64439604166546,
+  "peak_mb": 2083.465135574341,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 3,
+   "turn": 2
+  },
+  "triggers": {
+   "default": 6
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtA",
+  "cond": "dacs-persist-kv",
+  "id": "multi_turn_base_163",
+  "ok": false,
+  "error": "multi_turn:instance_state_mismatch",
+  "latency_s": 97.08007192611694,
+  "steps": 7,
+  "llm_steps": 6,
+  "in_tokens": 32745,
+  "out_tokens": 2614,
+  "prefill_s": 8.2283216724245,
+  "prefill_tokens": 1525,
+  "decode_s": 85.73903393745422,
+  "overhead_s": 2.8134887916748994,
+  "ttft_s": [
+   0.9130123272261699,
+   2.483312856995326,
+   3.270044772521942,
+   1.9672161277630948,
+   1.5064155920772464,
+   0.9018087875156198
+  ],
+  "server_s": 96.8942194166666,
+  "peak_mb": 1976.4982795715332,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 1,
+  "forced": 1,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 3,
+   "turn": 2
+  },
+  "triggers": {
+   "default": 5,
+   "detect_repeat": 1,
+   "recovery_failed_repeat": 1
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 545,
+  "loop3": 0
+ },
+ {
+  "run": "mtA",
+  "cond": "dacs-persist-kv",
+  "id": "multi_turn_base_169",
+  "ok": false,
+  "error": "multi_turn:instance_state_mismatch",
+  "latency_s": 69.5471818447113,
+  "steps": 6,
+  "llm_steps": 6,
+  "in_tokens": 39995,
+  "out_tokens": 1650,
+  "prefill_s": 4.060619866453635,
+  "prefill_tokens": 617,
+  "decode_s": 60.31724810600281,
+  "overhead_s": 4.875309041672153,
+  "ttft_s": [
+   1.1156504335667705,
+   1.2358757970578154,
+   1.8730456066768966,
+   1.7614644547866192,
+   1.088588630213053,
+   1.8613039858246339
+  ],
+  "server_s": 69.34447012500459,
+  "peak_mb": 1734.8986740112305,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 2,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 2,
+   "turn": 3
+  },
+  "triggers": {
+   "default": 4,
+   "detect_repeat": 2
+  },
+  "recovered_turns": 2,
+  "note_tokens_chars": 546,
+  "loop3": 0
+ },
+ {
+  "run": "mtA",
+  "cond": "dacs-persist-kv",
+  "id": "multi_turn_base_182",
+  "ok": true,
+  "error": null,
+  "latency_s": 46.35284161567688,
+  "steps": 6,
+  "llm_steps": 6,
+  "in_tokens": 30703,
+  "out_tokens": 1062,
+  "prefill_s": 6.223153947976243,
+  "prefill_tokens": 1048,
+  "decode_s": 36.2216237783432,
+  "overhead_s": 3.624209083332971,
+  "ttft_s": [
+   0.7871921106707305,
+   1.3015172046143562,
+   1.5708096171365469,
+   2.9537476415280253,
+   2.058000734032248,
+   1.1760957233273075
+  ],
+  "server_s": 46.16350833333854,
+  "peak_mb": 2008.7358131408691,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 3,
+   "turn": 2
+  },
+  "triggers": {
+   "default": 5,
+   "detect_repeat": 1
+  },
+  "recovered_turns": 1,
+  "note_tokens_chars": 300,
+  "loop3": 0
+ },
+ {
+  "run": "mtA",
+  "cond": "dacs-persist-kv",
+  "id": "multi_turn_base_197",
+  "ok": false,
+  "error": "multi_turn:instance_state_mismatch",
+  "latency_s": 91.34911251068115,
+  "steps": 9,
+  "llm_steps": 8,
+  "in_tokens": 58326,
+  "out_tokens": 2245,
+  "prefill_s": 12.58854124602658,
+  "prefill_tokens": 2279,
+  "decode_s": 73.57156896591187,
+  "overhead_s": 4.76966229169193,
+  "ttft_s": [
+   1.168597129675618,
+   2.2496598406505655,
+   2.0952883614299935,
+   3.5516350889738533,
+   2.418892239307752,
+   1.770784713611647,
+   2.735749717685394,
+   1.3675964463836863
+  ],
+  "server_s": 91.08204400000977,
+  "peak_mb": 2066.902841567993,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 4,
+   "turn": 3
+  },
+  "triggers": {
+   "default": 7,
+   "detect_error": 1,
+   "recovery_failed_repeat": 1
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 334,
+  "loop3": 0
+ },
+ {
+  "run": "mtA",
+  "cond": "dacs-persist-mtp-kv",
+  "id": "multi_turn_base_11",
+  "ok": false,
+  "error": "multi_turn:empty_turn_model_response",
+  "latency_s": 19.793222904205322,
+  "steps": 4,
+  "llm_steps": 4,
+  "in_tokens": 26888,
+  "out_tokens": 514,
+  "prefill_s": 2.756974671363423,
+  "prefill_tokens": 361,
+  "decode_s": 14.61599588394165,
+  "overhead_s": 2.1657887083420064,
+  "ttft_s": [
+   0.8281364683061838,
+   0.8287875297537539,
+   1.8902585773830651,
+   1.3755808042624267
+  ],
+  "server_s": 19.65892233332852,
+  "peak_mb": 1806.4871196746826,
+  "thermal": [
+   "nominal",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 1,
+   "turn": 2
+  },
+  "triggers": {
+   "default": 3,
+   "detect_repeat": 1
+  },
+  "recovered_turns": 1,
+  "note_tokens_chars": 294,
+  "loop3": 0
+ },
+ {
+  "run": "mtA",
+  "cond": "dacs-persist-mtp-kv",
+  "id": "multi_turn_base_45",
+  "ok": false,
+  "error": "multi_turn:execution_response_mismatch",
+  "latency_s": 74.552814245224,
+  "steps": 16,
+  "llm_steps": 15,
+  "in_tokens": 107483,
+  "out_tokens": 1219,
+  "prefill_s": 32.54746231218451,
+  "prefill_tokens": 8466,
+  "decode_s": 33.943973898887634,
+  "overhead_s": 7.131755833368516,
+  "ttft_s": [
+   19.598103268224804,
+   1.0704908830230124,
+   1.0075909791121376,
+   1.1919906418188475,
+   0.9597668579372112,
+   0.9434274004379404,
+   3.229647734959144,
+   1.1234278101910604,
+   1.82993723180698,
+   1.0584305281590787,
+   0.9423090518612298,
+   0.9648422068203217,
+   1.1347589440774755,
+   1.219220708044304,
+   3.405273899079475
+  ],
+  "server_s": 74.10116279166687,
+  "peak_mb": 2229.1946544647217,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 11,
+   "turn": 3
+  },
+  "triggers": {
+   "default": 12,
+   "detect_repeat": 1,
+   "recovered": 1,
+   "detect_error": 1,
+   "recovery_failed_repeat": 1
+  },
+  "recovered_turns": 1,
+  "note_tokens_chars": 673,
+  "loop3": 0
+ },
+ {
+  "run": "mtA",
+  "cond": "dacs-persist-mtp-kv",
+  "id": "multi_turn_base_46",
+  "ok": false,
+  "error": "multi_turn:instance_state_mismatch",
+  "latency_s": 17.323914289474487,
+  "steps": 5,
+  "llm_steps": 5,
+  "in_tokens": 27883,
+  "out_tokens": 436,
+  "prefill_s": 4.139335484302137,
+  "prefill_tokens": 538,
+  "decode_s": 10.763722777366638,
+  "overhead_s": 2.1089180000053602,
+  "ttft_s": [
+   0.7447483226496843,
+   0.9704421427086345,
+   1.1028629184365855,
+   0.9132720968773356,
+   2.5169280036352575
+  ],
+  "server_s": 17.166442791676673,
+  "peak_mb": 1971.2843608856201,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 3,
+   "turn": 1
+  },
+  "triggers": {
+   "default": 4,
+   "detect_repeat": 1
+  },
+  "recovered_turns": 1,
+  "note_tokens_chars": 347,
+  "loop3": 0
+ },
+ {
+  "run": "mtA",
+  "cond": "dacs-persist-mtp-kv",
+  "id": "multi_turn_base_76",
+  "ok": false,
+  "error": "multi_turn:instance_state_mismatch",
+  "latency_s": 47.61154508590698,
+  "steps": 4,
+  "llm_steps": 4,
+  "in_tokens": 32598,
+  "out_tokens": 636,
+  "prefill_s": 27.119434261832794,
+  "prefill_tokens": 8434,
+  "decode_s": 17.884122014045715,
+  "overhead_s": 2.3369862499821465,
+  "ttft_s": [
+   24.39539555817464,
+   1.5917015873128548,
+   2.4692586654346087,
+   1.0000647008928354
+  ],
+  "server_s": 47.463692708319286,
+  "peak_mb": 2007.1661739349365,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 2,
+   "turn": 1
+  },
+  "triggers": {
+   "default": 4
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtA",
+  "cond": "dacs-persist-mtp-kv",
+  "id": "multi_turn_base_91",
+  "ok": true,
+  "error": null,
+  "latency_s": 28.321563243865967,
+  "steps": 8,
+  "llm_steps": 8,
+  "in_tokens": 56371,
+  "out_tokens": 656,
+  "prefill_s": 6.483759565591754,
+  "prefill_tokens": 907,
+  "decode_s": 17.656865000724792,
+  "overhead_s": 3.711816249997355,
+  "ttft_s": [
+   0.9598104737524409,
+   0.9615073576133,
+   0.7274999943838338,
+   1.232561754892231,
+   0.8815028189565055,
+   1.348985621079919,
+   2.907535911544983,
+   1.176171883365896
+  ],
+  "server_s": 28.0889532083238,
+  "peak_mb": 2108.6101608276367,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 6,
+   "turn": 1
+  },
+  "triggers": {
+   "default": 8
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtA",
+  "cond": "dacs-persist-mtp-kv",
+  "id": "multi_turn_base_124",
+  "ok": true,
+  "error": null,
+  "latency_s": 53.82441067695618,
+  "steps": 8,
+  "llm_steps": 8,
+  "in_tokens": 57189,
+  "out_tokens": 815,
+  "prefill_s": 28.790316568854905,
+  "prefill_tokens": 8024,
+  "decode_s": 20.384512901306152,
+  "overhead_s": 4.151618250019965,
+  "ttft_s": [
+   20.77076251464314,
+   1.6124009626655607,
+   1.5840420405802433,
+   1.4051847185619408,
+   2.816767049494956,
+   1.2918156588784768,
+   2.3522736187151168,
+   1.1086882553354371
+  ],
+  "server_s": 53.5722807083439,
+  "peak_mb": 2063.2924003601074,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 5,
+   "turn": 2
+  },
+  "triggers": {
+   "default": 8
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtA",
+  "cond": "dacs-persist-mtp-kv",
+  "id": "multi_turn_base_155",
+  "ok": false,
+  "error": "multi_turn:execution_response_mismatch",
+  "latency_s": 25.748860359191895,
+  "steps": 4,
+  "llm_steps": 4,
+  "in_tokens": 20022,
+  "out_tokens": 749,
+  "prefill_s": 4.77535062743118,
+  "prefill_tokens": 704,
+  "decode_s": 19.297448992729187,
+  "overhead_s": 1.4211869166756514,
+  "ttft_s": [
+   0.8097737838907051,
+   1.6100069370804704,
+   2.389595958266,
+   1.3871608648696565
+  ],
+  "server_s": 25.618235958339937,
+  "peak_mb": 1907.0232944488525,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 2,
+   "turn": 1
+  },
+  "triggers": {
+   "default": 4
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtA",
+  "cond": "dacs-persist-mtp-kv",
+  "id": "multi_turn_base_157",
+  "ok": true,
+  "error": null,
+  "latency_s": 58.63348984718323,
+  "steps": 6,
+  "llm_steps": 6,
+  "in_tokens": 47429,
+  "out_tokens": 779,
+  "prefill_s": 31.0065736790566,
+  "prefill_tokens": 8366,
+  "decode_s": 21.6230731010437,
+  "overhead_s": 3.514440208338783,
+  "ttft_s": [
+   26.510633902224072,
+   1.6221065629506484,
+   2.1090798373988946,
+   1.171687835121702,
+   1.73900819694245,
+   1.368497552757617
+  ],
+  "server_s": 58.43356724998739,
+  "peak_mb": 2093.825035095215,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 3,
+   "turn": 2
+  },
+  "triggers": {
+   "default": 6
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtA",
+  "cond": "dacs-persist-mtp-kv",
+  "id": "multi_turn_base_163",
+  "ok": false,
+  "error": "multi_turn:instance_state_mismatch",
+  "latency_s": 81.29460740089417,
+  "steps": 7,
+  "llm_steps": 6,
+  "in_tokens": 32745,
+  "out_tokens": 2636,
+  "prefill_s": 8.534661556543142,
+  "prefill_tokens": 1525,
+  "decode_s": 70.20322299003601,
+  "overhead_s": 2.143564124999102,
+  "ttft_s": [
+   0.9251171867217636,
+   2.3866367611917667,
+   3.187817775309668,
+   1.8704514353885315,
+   1.4158122776862,
+   0.8923902452443144
+  ],
+  "server_s": 81.0642665833293,
+  "peak_mb": 1976.4982795715332,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 1,
+  "forced": 1,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 3,
+   "turn": 2
+  },
+  "triggers": {
+   "default": 5,
+   "detect_repeat": 1,
+   "recovery_failed_repeat": 1
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 545,
+  "loop3": 0
+ },
+ {
+  "run": "mtA",
+  "cond": "dacs-persist-mtp-kv",
+  "id": "multi_turn_base_169",
+  "ok": false,
+  "error": "multi_turn:instance_state_mismatch",
+  "latency_s": 83.13763093948364,
+  "steps": 8,
+  "llm_steps": 8,
+  "in_tokens": 55836,
+  "out_tokens": 1716,
+  "prefill_s": 29.548077570012538,
+  "prefill_tokens": 8205,
+  "decode_s": 49.40369427204132,
+  "overhead_s": 3.701061916675826,
+  "ttft_s": [
+   19.75653765131574,
+   1.8241594706632895,
+   0.9881634725752519,
+   1.3198915457469411,
+   1.6587992849454167,
+   1.7771550363031565,
+   4.580168145497737,
+   1.344264879640832
+  ],
+  "server_s": 82.88446954166284,
+  "peak_mb": 2151.2111110687256,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 1,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 6,
+   "turn": 1
+  },
+  "triggers": {
+   "default": 8
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtA",
+  "cond": "dacs-persist-mtp-kv",
+  "id": "multi_turn_base_182",
+  "ok": true,
+  "error": null,
+  "latency_s": 27.080469608306885,
+  "steps": 5,
+  "llm_steps": 5,
+  "in_tokens": 25058,
+  "out_tokens": 704,
+  "prefill_s": 5.277499554176757,
+  "prefill_tokens": 783,
+  "decode_s": 19.545527935028076,
+  "overhead_s": 1.9557892083321349,
+  "ttft_s": [
+   0.914682109549176,
+   1.265762236675073,
+   1.303770281978359,
+   2.6441111551539507,
+   1.104962979152333
+  ],
+  "server_s": 26.92966554166196,
+  "peak_mb": 2024.4338092803955,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 3,
+   "turn": 1
+  },
+  "triggers": {
+   "default": 5
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtA",
+  "cond": "dacs-persist-mtp-kv",
+  "id": "multi_turn_base_197",
+  "ok": false,
+  "error": "multi_turn:instance_state_mismatch",
+  "latency_s": 71.87389063835144,
+  "steps": 8,
+  "llm_steps": 8,
+  "in_tokens": 56519,
+  "out_tokens": 1998,
+  "prefill_s": 11.201402164842875,
+  "prefill_tokens": 1894,
+  "decode_s": 56.56487190723419,
+  "overhead_s": 3.6311591250050697,
+  "ttft_s": [
+   1.2717548122309381,
+   1.6353252742628683,
+   1.4886070344655309,
+   1.4890058670789585,
+   3.2928219363529934,
+   1.6606137482594931,
+   2.6074250384335755,
+   1.387007578763587
+  ],
+  "server_s": 71.63510166665947,
+  "peak_mb": 2060.0894203186035,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 1,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 5,
+   "turn": 2
+  },
+  "triggers": {
+   "default": 8
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtB",
+  "cond": "dacs-persist-kv",
+  "id": "multi_turn_base_11",
+  "ok": false,
+  "error": "multi_turn:empty_turn_model_response",
+  "latency_s": 31.010871410369873,
+  "steps": 4,
+  "llm_steps": 4,
+  "in_tokens": 26882,
+  "out_tokens": 833,
+  "prefill_s": 2.4751619994203793,
+  "prefill_tokens": 355,
+  "decode_s": 25.475988745689392,
+  "overhead_s": 2.804609791659459,
+  "ttft_s": [
+   0.7806357958979788,
+   0.6697180275150458,
+   1.9303920531019685,
+   1.8990259145648452
+  ],
+  "server_s": 30.86089012499724,
+  "peak_mb": 1806.4873733520508,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 1,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 1,
+   "turn": 2
+  },
+  "triggers": {
+   "default": 3,
+   "detect_repeat": 1
+  },
+  "recovered_turns": 1,
+  "note_tokens_chars": 294,
+  "loop3": 0
+ },
+ {
+  "run": "mtB",
+  "cond": "dacs-persist-kv",
+  "id": "multi_turn_base_45",
+  "ok": false,
+  "error": "multi_turn:execution_response_mismatch",
+  "latency_s": 46.47213935852051,
+  "steps": 12,
+  "llm_steps": 12,
+  "in_tokens": 84667,
+  "out_tokens": 1007,
+  "prefill_s": 8.970021573302802,
+  "prefill_tokens": 1249,
+  "decode_s": 30.657365083694458,
+  "overhead_s": 6.2651781249878695,
+  "ttft_s": [
+   0.7676148617465515,
+   0.9675047968921717,
+   0.6935234389311518,
+   1.2072160574170994,
+   0.8573140744265402,
+   0.9449027452865266,
+   3.248399601674464,
+   1.3139629724173574,
+   1.8740523624510388,
+   1.0885444293162436,
+   0.9710729962826008,
+   1.3010913614489255
+  ],
+  "server_s": 46.11256012499507,
+  "peak_mb": 2171.58376121521,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 9,
+   "turn": 2
+  },
+  "triggers": {
+   "default": 10,
+   "detect_repeat": 1,
+   "recovered": 1
+  },
+  "recovered_turns": 1,
+  "note_tokens_chars": 329,
+  "loop3": 0
+ },
+ {
+  "run": "mtB",
+  "cond": "dacs-persist-kv",
+  "id": "multi_turn_base_46",
+  "ok": false,
+  "error": "multi_turn:instance_state_mismatch",
+  "latency_s": 18.826494216918945,
+  "steps": 5,
+  "llm_steps": 5,
+  "in_tokens": 27883,
+  "out_tokens": 440,
+  "prefill_s": 3.7192940374297905,
+  "prefill_tokens": 538,
+  "decode_s": 12.275865077972412,
+  "overhead_s": 2.568645999999717,
+  "ttft_s": [
+   0.6733931524940999,
+   0.972888391755987,
+   0.9936968534821062,
+   0.9077236163793714,
+   2.740238023317943
+  ],
+  "server_s": 18.658888374993694,
+  "peak_mb": 1971.2847080230713,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 3,
+   "turn": 1
+  },
+  "triggers": {
+   "default": 4,
+   "detect_repeat": 1
+  },
+  "recovered_turns": 1,
+  "note_tokens_chars": 347,
+  "loop3": 0
+ },
+ {
+  "run": "mtB",
+  "cond": "dacs-persist-kv",
+  "id": "multi_turn_base_76",
+  "ok": false,
+  "error": "multi_turn:instance_state_mismatch",
+  "latency_s": 33.63361430168152,
+  "steps": 3,
+  "llm_steps": 3,
+  "in_tokens": 24305,
+  "out_tokens": 864,
+  "prefill_s": 2.986162948946003,
+  "prefill_tokens": 457,
+  "decode_s": 28.38687515258789,
+  "overhead_s": 2.0780910000030417,
+  "ttft_s": [
+   0.8972808848557179,
+   1.6361254662333522,
+   2.5308475978599745
+  ],
+  "server_s": 33.51157816666819,
+  "peak_mb": 2001.3057689666748,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 1,
+   "turn": 1
+  },
+  "triggers": {
+   "default": 3
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtB",
+  "cond": "dacs-persist-kv",
+  "id": "multi_turn_base_91",
+  "ok": true,
+  "error": null,
+  "latency_s": 30.78276824951172,
+  "steps": 8,
+  "llm_steps": 8,
+  "in_tokens": 56371,
+  "out_tokens": 659,
+  "prefill_s": 5.955352092976682,
+  "prefill_tokens": 907,
+  "decode_s": 20.504572987556458,
+  "overhead_s": 3.926474625019182,
+  "ttft_s": [
+   0.8614917445083847,
+   0.8684231346924207,
+   0.6653865517946542,
+   1.2332402626343537,
+   0.760145210151677,
+   1.464979887532536,
+   2.966377563025162,
+   1.0617823636566754
+  ],
+  "server_s": 30.532574499993643,
+  "peak_mb": 2108.61017036438,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 6,
+   "turn": 1
+  },
+  "triggers": {
+   "default": 8
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtB",
+  "cond": "dacs-persist-kv",
+  "id": "multi_turn_base_124",
+  "ok": true,
+  "error": null,
+  "latency_s": 37.211607933044434,
+  "steps": 8,
+  "llm_steps": 8,
+  "in_tokens": 57195,
+  "out_tokens": 802,
+  "prefill_s": 9.181801663180522,
+  "prefill_tokens": 1398,
+  "decode_s": 23.060280203819275,
+  "overhead_s": 4.563403583328181,
+  "ttft_s": [
+   0.9023500043185777,
+   2.0838401659202646,
+   1.5319632998798625,
+   1.5067692397060455,
+   2.8986660912196385,
+   1.4148619209954632,
+   2.3853800670112832,
+   1.0213744574575685
+  ],
+  "server_s": 36.94941604167252,
+  "peak_mb": 2063.1049098968506,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 5,
+   "turn": 2
+  },
+  "triggers": {
+   "default": 8
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtB",
+  "cond": "dacs-persist-kv",
+  "id": "multi_turn_base_155",
+  "ok": false,
+  "error": "multi_turn:execution_response_mismatch",
+  "latency_s": 29.67039942741394,
+  "steps": 4,
+  "llm_steps": 4,
+  "in_tokens": 20022,
+  "out_tokens": 752,
+  "prefill_s": 4.644614578028268,
+  "prefill_tokens": 704,
+  "decode_s": 23.035583972930908,
+  "overhead_s": 1.7631006250085193,
+  "ttft_s": [
+   0.8024676147542777,
+   1.6190885047544725,
+   2.5117212358745746,
+   1.474437847653462
+  ],
+  "server_s": 29.532900583319133,
+  "peak_mb": 1907.0233039855957,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 2,
+   "turn": 1
+  },
+  "triggers": {
+   "default": 4
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtB",
+  "cond": "dacs-persist-kv",
+  "id": "multi_turn_base_157",
+  "ok": true,
+  "error": null,
+  "latency_s": 33.300806283950806,
+  "steps": 6,
+  "llm_steps": 6,
+  "in_tokens": 47409,
+  "out_tokens": 757,
+  "prefill_s": 5.269484545242449,
+  "prefill_tokens": 802,
+  "decode_s": 23.63320517539978,
+  "overhead_s": 4.067637416650541,
+  "ttft_s": [
+   0.7554464306231239,
+   1.4083926483799587,
+   2.7888778990964056,
+   1.0520356475972221,
+   1.8695484506024513,
+   1.4628208855938283
+  ],
+  "server_s": 33.08782116666407,
+  "peak_mb": 2083.464807510376,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 3,
+   "turn": 2
+  },
+  "triggers": {
+   "default": 6
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtB",
+  "cond": "dacs-persist-kv",
+  "id": "multi_turn_base_163",
+  "ok": false,
+  "error": "multi_turn:instance_state_mismatch",
+  "latency_s": 97.00604939460754,
+  "steps": 7,
+  "llm_steps": 6,
+  "in_tokens": 32745,
+  "out_tokens": 2614,
+  "prefill_s": 8.175042019924149,
+  "prefill_tokens": 1525,
+  "decode_s": 85.76191973686218,
+  "overhead_s": 2.7833309583365917,
+  "ttft_s": [
+   0.8703843880211934,
+   2.4760004952622694,
+   3.25494710613566,
+   1.957252485473873,
+   1.4995345598872518,
+   0.900253943480493
+  ],
+  "server_s": 96.81869024999469,
+  "peak_mb": 1976.4979515075684,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 1,
+  "forced": 1,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 3,
+   "turn": 2
+  },
+  "triggers": {
+   "default": 5,
+   "detect_repeat": 1,
+   "recovery_failed_repeat": 1
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 545,
+  "loop3": 0
+ },
+ {
+  "run": "mtB",
+  "cond": "dacs-persist-kv",
+  "id": "multi_turn_base_169",
+  "ok": false,
+  "error": "multi_turn:instance_state_mismatch",
+  "latency_s": 63.55578279495239,
+  "steps": 6,
+  "llm_steps": 6,
+  "in_tokens": 39995,
+  "out_tokens": 1650,
+  "prefill_s": 4.486934189713793,
+  "prefill_tokens": 617,
+  "decode_s": 54.95174586772919,
+  "overhead_s": 3.7979485833639046,
+  "ttft_s": [
+   1.0835328721586848,
+   1.0015759707748657,
+   1.7292550033307634,
+   1.5488842873746762,
+   1.0461481464881217,
+   1.8754864929505857
+  ],
+  "server_s": 63.35063512501074,
+  "peak_mb": 1734.8979949951172,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 2,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 2,
+   "turn": 3
+  },
+  "triggers": {
+   "default": 4,
+   "detect_repeat": 2
+  },
+  "recovered_turns": 2,
+  "note_tokens_chars": 546,
+  "loop3": 0
+ },
+ {
+  "run": "mtB",
+  "cond": "dacs-persist-kv",
+  "id": "multi_turn_base_182",
+  "ok": true,
+  "error": null,
+  "latency_s": 45.05118012428284,
+  "steps": 6,
+  "llm_steps": 6,
+  "in_tokens": 30703,
+  "out_tokens": 1062,
+  "prefill_s": 6.103956818456936,
+  "prefill_tokens": 1048,
+  "decode_s": 35.225634932518005,
+  "overhead_s": 3.445242124995275,
+  "ttft_s": [
+   0.7839632690156577,
+   1.3543202839500736,
+   1.5633080739862635,
+   2.811644414177863,
+   1.9556671955433558,
+   1.0802957067789976
+  ],
+  "server_s": 44.87353791665373,
+  "peak_mb": 2008.7348937988281,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 3,
+   "turn": 2
+  },
+  "triggers": {
+   "default": 5,
+   "detect_repeat": 1
+  },
+  "recovered_turns": 1,
+  "note_tokens_chars": 300,
+  "loop3": 0
+ },
+ {
+  "run": "mtB",
+  "cond": "dacs-persist-kv",
+  "id": "multi_turn_base_197",
+  "ok": false,
+  "error": "multi_turn:instance_state_mismatch",
+  "latency_s": 91.38443493843079,
+  "steps": 9,
+  "llm_steps": 8,
+  "in_tokens": 58326,
+  "out_tokens": 2245,
+  "prefill_s": 12.549761896167183,
+  "prefill_tokens": 2279,
+  "decode_s": 73.52547299861908,
+  "overhead_s": 4.901439708315593,
+  "ttft_s": [
+   1.1959746370557696,
+   2.2458703336305916,
+   2.107463889900828,
+   3.552738607097126,
+   2.4278364972487907,
+   1.783558012022695,
+   2.7301682577381143,
+   1.407591369788861
+  ],
+  "server_s": 91.12947224999516,
+  "peak_mb": 2066.901824951172,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 4,
+   "turn": 3
+  },
+  "triggers": {
+   "default": 7,
+   "detect_error": 1,
+   "recovery_failed_repeat": 1
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 334,
+  "loop3": 0
+ },
+ {
+  "run": "mtB",
+  "cond": "dacs-persist-mtp-kv",
+  "id": "multi_turn_base_11",
+  "ok": false,
+  "error": "multi_turn:empty_turn_model_response",
+  "latency_s": 19.322676181793213,
+  "steps": 4,
+  "llm_steps": 4,
+  "in_tokens": 26888,
+  "out_tokens": 514,
+  "prefill_s": 2.894879744366335,
+  "prefill_tokens": 361,
+  "decode_s": 14.086525082588196,
+  "overhead_s": 2.0886999583162833,
+  "ttft_s": [
+   0.8305156194692245,
+   0.9597846901888261,
+   1.838139158397098,
+   1.35514023462747
+  ],
+  "server_s": 19.184746458333393,
+  "peak_mb": 1806.4877109527588,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 1,
+   "turn": 2
+  },
+  "triggers": {
+   "default": 3,
+   "detect_repeat": 1
+  },
+  "recovered_turns": 1,
+  "note_tokens_chars": 294,
+  "loop3": 0
+ },
+ {
+  "run": "mtB",
+  "cond": "dacs-persist-mtp-kv",
+  "id": "multi_turn_base_45",
+  "ok": false,
+  "error": "multi_turn:execution_response_mismatch",
+  "latency_s": 55.02089238166809,
+  "steps": 16,
+  "llm_steps": 15,
+  "in_tokens": 107483,
+  "out_tokens": 1219,
+  "prefill_s": 13.414010888067423,
+  "prefill_tokens": 1833,
+  "decode_s": 33.40710401535034,
+  "overhead_s": 7.284263333349372,
+  "ttft_s": [
+   0.8460200961635564,
+   0.8592761200779933,
+   1.0284126204860513,
+   1.1335059232733329,
+   1.0139865479286527,
+   0.9318891981529305,
+   3.162688158568926,
+   1.1193634463998023,
+   1.834813459936413,
+   1.0829799372077105,
+   0.947236652355059,
+   0.9658300317169051,
+   1.1362050708194147,
+   1.2212619926067418,
+   3.414804965723306
+  ],
+  "server_s": 54.573655791689816,
+  "peak_mb": 2229.007501602173,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 11,
+   "turn": 3
+  },
+  "triggers": {
+   "default": 12,
+   "detect_repeat": 1,
+   "recovered": 1,
+   "detect_error": 1,
+   "recovery_failed_repeat": 1
+  },
+  "recovered_turns": 1,
+  "note_tokens_chars": 673,
+  "loop3": 0
+ },
+ {
+  "run": "mtB",
+  "cond": "dacs-persist-mtp-kv",
+  "id": "multi_turn_base_46",
+  "ok": false,
+  "error": "multi_turn:instance_state_mismatch",
+  "latency_s": 17.492191076278687,
+  "steps": 5,
+  "llm_steps": 5,
+  "in_tokens": 27883,
+  "out_tokens": 436,
+  "prefill_s": 4.218152438610559,
+  "prefill_tokens": 538,
+  "decode_s": 10.872765183448792,
+  "overhead_s": 2.0885097083446453,
+  "ttft_s": [
+   0.6981067166561843,
+   0.9695334672869649,
+   1.1079656240835902,
+   0.922898352087941,
+   2.6081579868405242
+  ],
+  "server_s": 17.336002083342464,
+  "peak_mb": 1971.2847080230713,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 3,
+   "turn": 1
+  },
+  "triggers": {
+   "default": 4,
+   "detect_repeat": 1
+  },
+  "recovered_turns": 1,
+  "note_tokens_chars": 347,
+  "loop3": 0
+ },
+ {
+  "run": "mtB",
+  "cond": "dacs-persist-mtp-kv",
+  "id": "multi_turn_base_76",
+  "ok": false,
+  "error": "multi_turn:instance_state_mismatch",
+  "latency_s": 23.90510106086731,
+  "steps": 4,
+  "llm_steps": 4,
+  "in_tokens": 32598,
+  "out_tokens": 636,
+  "prefill_s": 3.754560585359286,
+  "prefill_tokens": 523,
+  "decode_s": 17.57686495780945,
+  "overhead_s": 2.305497999994259,
+  "ttft_s": [
+   1.0221624922342016,
+   1.5850979372335132,
+   2.4541921385898604,
+   0.9986060172959697
+  ],
+  "server_s": 23.756725999999617,
+  "peak_mb": 2007.0258960723877,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 2,
+   "turn": 1
+  },
+  "triggers": {
+   "default": 4
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtB",
+  "cond": "dacs-persist-mtp-kv",
+  "id": "multi_turn_base_91",
+  "ok": true,
+  "error": null,
+  "latency_s": 28.106854677200317,
+  "steps": 8,
+  "llm_steps": 8,
+  "in_tokens": 56371,
+  "out_tokens": 656,
+  "prefill_s": 6.368089489071281,
+  "prefill_tokens": 907,
+  "decode_s": 17.625080823898315,
+  "overhead_s": 3.625761374969443,
+  "ttft_s": [
+   0.9230029979662504,
+   1.0101238522911444,
+   0.8393441511216224,
+   1.1579270629226812,
+   0.9400972052535508,
+   1.3342733535610023,
+   2.798562350071734,
+   0.9905198908527382
+  ],
+  "server_s": 27.85966883333458,
+  "peak_mb": 2108.61017036438,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 6,
+   "turn": 1
+  },
+  "triggers": {
+   "default": 8
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtB",
+  "cond": "dacs-persist-mtp-kv",
+  "id": "multi_turn_base_124",
+  "ok": true,
+  "error": null,
+  "latency_s": 33.45296025276184,
+  "steps": 8,
+  "llm_steps": 8,
+  "in_tokens": 57189,
+  "out_tokens": 815,
+  "prefill_s": 9.06769109772722,
+  "prefill_tokens": 1395,
+  "decode_s": 19.811890721321106,
+  "overhead_s": 4.081277625002258,
+  "ttft_s": [
+   1.005474883124407,
+   1.5104594122967683,
+   1.7163270126184216,
+   1.356969605840277,
+   2.8182401998492423,
+   1.293532790026802,
+   2.350058980729955,
+   1.097905838243605
+  ],
+  "server_s": 33.20022929166589,
+  "peak_mb": 2063.1049098968506,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 5,
+   "turn": 2
+  },
+  "triggers": {
+   "default": 8
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtB",
+  "cond": "dacs-persist-mtp-kv",
+  "id": "multi_turn_base_155",
+  "ok": false,
+  "error": "multi_turn:execution_response_mismatch",
+  "latency_s": 25.615375518798828,
+  "steps": 4,
+  "llm_steps": 4,
+  "in_tokens": 20022,
+  "out_tokens": 749,
+  "prefill_s": 4.815817039227113,
+  "prefill_tokens": 704,
+  "decode_s": 19.019808053970337,
+  "overhead_s": 1.5235852916666772,
+  "ttft_s": [
+   0.8574566091847373,
+   1.621101035947504,
+   2.4607361398011562,
+   1.4001085459603928
+  ],
+  "server_s": 25.48550812499161,
+  "peak_mb": 1907.0233039855957,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 2,
+   "turn": 1
+  },
+  "triggers": {
+   "default": 4
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtB",
+  "cond": "dacs-persist-mtp-kv",
+  "id": "multi_turn_base_157",
+  "ok": true,
+  "error": null,
+  "latency_s": 30.51333713531494,
+  "steps": 6,
+  "llm_steps": 6,
+  "in_tokens": 47429,
+  "out_tokens": 779,
+  "prefill_s": 5.760333668622479,
+  "prefill_tokens": 806,
+  "decode_s": 21.05237603187561,
+  "overhead_s": 3.33042104166816,
+  "ttft_s": [
+   0.8851030061632628,
+   1.202073219268641,
+   2.8350126302757417,
+   1.1028761610432412,
+   1.7049827802693471,
+   1.3607069132704055
+  ],
+  "server_s": 30.31649120833754,
+  "peak_mb": 2092.512300491333,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 3,
+   "turn": 2
+  },
+  "triggers": {
+   "default": 6
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtB",
+  "cond": "dacs-persist-mtp-kv",
+  "id": "multi_turn_base_163",
+  "ok": false,
+  "error": "multi_turn:instance_state_mismatch",
+  "latency_s": 81.84191966056824,
+  "steps": 7,
+  "llm_steps": 6,
+  "in_tokens": 32745,
+  "out_tokens": 2636,
+  "prefill_s": 8.55580950381409,
+  "prefill_tokens": 1525,
+  "decode_s": 70.82875514030457,
+  "overhead_s": 2.089160041672585,
+  "ttft_s": [
+   0.9004365252840216,
+   2.3942161121303798,
+   3.22877238131332,
+   1.8709920754190534,
+   1.4044419379570172,
+   0.8461105133828823
+  ],
+  "server_s": 81.65865716664848,
+  "peak_mb": 1976.4979515075684,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 1,
+  "forced": 1,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 3,
+   "turn": 2
+  },
+  "triggers": {
+   "default": 5,
+   "detect_repeat": 1,
+   "recovery_failed_repeat": 1
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 545,
+  "loop3": 0
+ },
+ {
+  "run": "mtB",
+  "cond": "dacs-persist-mtp-kv",
+  "id": "multi_turn_base_169",
+  "ok": false,
+  "error": "multi_turn:instance_state_mismatch",
+  "latency_s": 64.11793971061707,
+  "steps": 8,
+  "llm_steps": 8,
+  "in_tokens": 55836,
+  "out_tokens": 1716,
+  "prefill_s": 10.886396083165891,
+  "prefill_tokens": 1862,
+  "decode_s": 48.69061994552612,
+  "overhead_s": 4.037242833350319,
+  "ttft_s": [
+   1.1459772184680332,
+   1.8392990934153204,
+   1.1729075635957997,
+   1.3579707001772476,
+   1.7299781143083237,
+   1.7323029912440688,
+   4.581891446447116,
+   1.363311788860301
+  ],
+  "server_s": 63.870568250007636,
+  "peak_mb": 2150.6481189727783,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 1,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 6,
+   "turn": 1
+  },
+  "triggers": {
+   "default": 8
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtB",
+  "cond": "dacs-persist-mtp-kv",
+  "id": "multi_turn_base_182",
+  "ok": true,
+  "error": null,
+  "latency_s": 26.367156267166138,
+  "steps": 5,
+  "llm_steps": 5,
+  "in_tokens": 25058,
+  "out_tokens": 704,
+  "prefill_s": 5.234737009406672,
+  "prefill_tokens": 783,
+  "decode_s": 19.006186962127686,
+  "overhead_s": 1.824329333328933,
+  "ttft_s": [
+   0.8886954289337154,
+   1.178478230474866,
+   1.2482538702970487,
+   2.5599337025923887,
+   1.183705110437586
+  ],
+  "server_s": 26.220185791666154,
+  "peak_mb": 2024.432472229004,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 0,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 3,
+   "turn": 1
+  },
+  "triggers": {
+   "default": 5
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ },
+ {
+  "run": "mtB",
+  "cond": "dacs-persist-mtp-kv",
+  "id": "multi_turn_base_197",
+  "ok": false,
+  "error": "multi_turn:instance_state_mismatch",
+  "latency_s": 71.76044535636902,
+  "steps": 8,
+  "llm_steps": 8,
+  "in_tokens": 56519,
+  "out_tokens": 1998,
+  "prefill_s": 11.166144990034809,
+  "prefill_tokens": 1894,
+  "decode_s": 56.27587008476257,
+  "overhead_s": 3.8323354583480977,
+  "ttft_s": [
+   1.2642046124383342,
+   1.62996928391658,
+   1.4905603505685576,
+   1.4944384783448186,
+   3.2972538267058553,
+   1.6677004282246344,
+   2.6077285824358114,
+   1.5466248857483151
+  ],
+  "server_s": 71.51392279166612,
+  "peak_mb": 2060.0883235931396,
+  "thermal": [
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair",
+   "fair"
+  ],
+  "capped": 0,
+  "forced": 1,
+  "repeat_cut": 0,
+  "reused_from": {
+   "system": 1,
+   "conv": 5,
+   "turn": 2
+  },
+  "triggers": {
+   "default": 8
+  },
+  "recovered_turns": 0,
+  "note_tokens_chars": 0,
+  "loop3": 0
+ }
+]

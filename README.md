@@ -1,52 +1,137 @@
-# Inferência adaptativa de LLMs em dispositivos móveis
+# Agentes de LLM pequenos, rápidos, no iPhone
 
-Residência / TCC. Pergunta central: estratégias de inferência (sem thinking, orçamento de tokens, plano+ação, roteadores adaptativos) reduzem a latência de tarefas agênticas em LLMs pequenos **rodando no iPhone** sem perder qualidade?
+Este repositório é o TCC da residência: **como fazer um modelo de linguagem pequeno (SLM, ~2B parâmetros) usar
+ferramentas, em tarefas de vários passos, rodando inteiro no iPhone, e rápido.**
 
-## Para a banca: por onde começar
+## O resultado principal
 
-1. **[Relatórios semanais](reports/weekly/README.md)**: linha do tempo das 8 semanas, com link para a evidência de cada uma.
-2. **[Semana 8 (2026-W44)](reports/weekly/2026-W44/README.md)**: relatório mais recente, gerado por script a partir dos dados, com [manifesto de reprodutibilidade](reports/weekly/2026-W44/MANIFEST.md).
+Montamos uma **pilha de runtime**, com o *prefixo persistente* mais a *DAC com guardas de decode*. Nas 32 tarefas
+TEST do BFCL Multi-Turn, nunca usadas para ajustar nada, ela deixou três SLMs **31% a 63% mais rápidos por tarefa**
+no iPhone 16 Pro, **sem perda significativa de acerto**. O protocolo e os hashes do código foram congelados antes da
+execução.
 
-## Onde a inferência e a avaliação acontecem
+![Tempo por tarefa no TEST](reports/runtime/figures/test-latency.png)
 
-| Etapa | Máquina | Código |
+| Modelo | Antes (s/tarefa) | Com a pilha (s/tarefa) | Ganho | Acerto antes → depois |
+|---|---|---|---|---|
+| Qwen3.5-2B (com raciocínio) | 83,0 | **48,0** | **−42%** (IC95% −48 a −25 s) | 8/32 → 7/32 |
+| MiniCPM5-2B (sem raciocínio) | 62,5 | **23,3** | **−63%** (IC95% −50 a −31 s) | 9/32 → 9/32 |
+| Gemma 4 E2B (sem raciocínio) | 16,0 | **11,0** | **−31%** (IC95% −5,6 a −4,5 s) | 2/32 → 2/32 |
+
+*"Com a pilha" = catálogo de ferramentas já visto, o caso normal num app. Na primeira vez de um catálogo, o ganho é
+de 15% a 25%.*
+
+**Relatório completo:** [`reports/runtime/README.md`](reports/runtime/README.md). Lá estão a explicação da técnica,
+o caminho até ela, os resultados negativos e como reproduzir.
+
+## A ideia em 30 segundos
+
+Um agente faz vários passos por tarefa. Em cada passo, o modelo **lê** o prompt (prefill) e **escreve** a resposta
+(decode). Com o cache incremental, que já é a nossa referência, sobravam dois gargalos:
+
+1. **Ler de novo o catálogo de ferramentas** (~4,7 mil tokens, ~9–15 s) no começo de cada tarefa.
+   → **Prefixo persistente:** o estado do modelo depois de ler "sistema + ferramentas" é gravado em disco e
+   recarregado em ~15–70 ms. A saída é idêntica à sem prefixo.
+2. **Raciocínio e laços que não terminam**, quase sempre nas tarefas que o modelo vai errar.
+   → **DAC + guardas:** fecha o raciocínio em 512 tokens, corta chamadas repetidas e dá ao modelo uma única chance de
+   sair de um laço antes de encerrar o turno.
+
+Cada peça ataca um gargalo diferente, e por isso os ganhos se somam: sem raciocínio (Gemma 4, MiniCPM5), o ganho vem
+do prefixo; com muito raciocínio (LFM2.5), vem da DAC; o Qwen3.5 tem os dois. No DEV, a pilha também acelerou o
+**LFM3-1.7B** (−32%), o modelo que mais acertou até agora: 6/12, contra 4/12 do Qwen3.5 no mesmo build.
+
+## Como chegamos aqui
+
+| Fase | O que foi feito | Onde |
 |---|---|---|
-| Inferência | iPhone 16 Pro, MLX Swift (`mlx-swift-lm` 3.31.4) e Apple Foundation Models | [`MobileLLMBench/`](MobileLLMBench) |
-| Inferência de referência | GPU NVIDIA B200 (vLLM), semana 4 | [`mobile-adaptive-inference/`](mobile-adaptive-inference/README.md) |
-| Avaliação e análise | Mac (Python; `ast_checker` oficial do `bfcl-eval` no BFCL) | [`analysis/`](analysis/README.md) |
+| Semanas 1–4 | Revisão bibliográfica; fatia BFCL em GPU (vLLM) | [semanário](reports/weekly/README.md), [GPU](mobile-adaptive-inference/results/relatorio-bfcl.md) |
+| Semanas 5–7 | App iOS, ferramentas reais do iPhone, roteamento adaptativo Direct × Plan+Act | entrega 08/10 (no git: `git show 5d75709:docs/entrega_2026-10-08.txt`), [roteamento](reports/adaptive-routing/v3/REPORT.md) |
+| Semana 8 | Quatro SLMs × BFCL v4 AST (turno único), 880 execuções | [relatório](reports/weekly/2026-W44/README.md) |
+| Nov/2026 | BFCL Non-Live: Direct × Reasoning e orçamentos de raciocínio | [reports/bfcl-nonlive/](reports/bfcl-nonlive/) |
+| Nov/2026 | **BFCL Multi-Turn no iPhone: cache, DAC, prefixo persistente, pilha, TEST** | **[reports/runtime/](reports/runtime/README.md)**, [reports/dac/](reports/dac/) |
+| Nov/2026 | LoRA de SFT agêntico do autor: integrado e medido (piora o acerto no BFCL-MT; ver o relatório) | [reports/runtime/](reports/runtime/README.md#o-que-não-funcionou-e-entra-no-tcc-como-resultado-negativo) |
 
-## Estrutura
+A semana 1 teve um MVP Android (LiteRT), que foi retirado deste repositório porque o trabalho seguiu só no iPhone. Ele
+continua no histórico do git: `git log -- AndroidLLMBench`. O mesmo vale para a antiga pasta `docs/` (plano de 29/09 e
+entrega de 08/10): `git log -- docs`.
 
-| Pasta | Conteúdo |
+## Onde está cada coisa
+
+| O que procurar | Caminho |
 |---|---|
-| `MobileLLMBench/` | Fontes do app iOS (runner, backends MLX/Apple, estratégias, roteadores, datasets) |
-| `MobileLLMBenchTests/` | Testes XCTest do app |
-| `results/` | Sessões brutas exportadas do iPhone. **Não editar.** |
-| `reports/` | Relatórios por estudo, cada um com as sessões e os resumos usados |
-| `reports/weekly/` | Relatórios semanais para a banca |
-| `analysis/` | Scripts de avaliação e análise (rodam no Mac) |
-| `mobile-adaptive-inference/` | Experimentos em GPU com vLLM e benchmarks oficiais |
-| `AndroidLLMBench/` | MVP Android (semana 1) |
-| `docs/` | Plano inicial e entregas |
+| **Estudo principal (técnica, resultados, protocolos)** | [`reports/runtime/`](reports/runtime/README.md) |
+| Estudo DAC (laços, recuperação, diagnósticos de cache e decode) | [`reports/dac/`](reports/dac/) |
+| Relatórios semanais e anteriores | [`reports/weekly/`](reports/weekly/README.md), [`reports/`](reports/) |
+| Resultados brutos (não editar) | [`results/`](results/); BFCL Multi-Turn em `results/bfcl-mt/dac/<rodada>/` |
+| Scripts de análise e runners (Mac) | [`analysis/`](analysis/README.md); runtime em [`analysis/runtime/`](analysis/runtime/chains/README.md) |
+| Fontes dos apps iOS | [`MobileLLMCore/`](MobileLLMCore), [`MobileLLMBench/`](MobileLLMBench), [`MobileLLMChat/`](MobileLLMChat) |
 
-## Reproduzir as análises (sem iPhone)
+Inferência: iPhone 16 Pro. Harness, simulador de ferramentas, avaliação e gráficos: Mac.
+
+## Reproduzir (sem iPhone)
 
 ```bash
-python3 analysis/weekly/generate.py --check     # recalcula a Semana 8 e valida números e links
-python3 analysis/slm_bfcl/analyze.py results/slm-bfcl/main-r1-graded.jsonl
+# TEST final: tabelas, frio × quente e figura, a partir dos resultados gravados
+BENCH_SLM=qwen35 .bfcl-venv/bin/python analysis/bfcl_mt/analyze_dac.py reports/runtime/test-qwen35.md tqA tqB \
+  --conds rt-base-kv,dacs-persist-kv --ref rt-base-kv
+python3 analysis/runtime/cold_warm.py reports/runtime/test-qwen35.json rt-base-kv dacs-persist-kv tqA tqB
+python3 analysis/runtime/figures.py
+
+# Relatório da Semana 8
+python3 analysis/weekly/generate.py --check
 ```
 
-Para reavaliar sessões do BFCL com o checker oficial, use o ambiente `.bfcl-venv` (`pip install bfcl-eval==2026.3.23`), descrito no [manifesto](reports/weekly/2026-W44/MANIFEST.md). Para rodar novas sessões no aparelho: `IPHONE_UDID=<udid> analysis/slm_bfcl/run_sessions.sh ...` (o UDID não fica versionado).
+Ambiente BFCL: `.bfcl-venv` com `pip install bfcl-eval==2026.3.23`. Para rodar no aparelho, veja as cadeias em
+[`analysis/runtime/chains/`](analysis/runtime/chains/README.md). O progresso aparece na aba **Ao vivo** do app.
+
+## Limitações
+
+- **Acerto baixo:** SLMs de 2B acertam 2 a 9 das 32 tarefas Multi-Turn. A pilha acelera sem piorar, mas não sobe o
+  acerto.
+- **Uma rodada por condição no TEST;** comparações sempre pareadas na mesma sessão, por causa da térmica.
+- **O ganho "quente" supõe catálogo de ferramentas repetido** (natural num app; no BFCL cada tarefa traz o seu).
+- **Próximos passos possíveis:** TEST do LFM3-1.7B no build novo (o DEV já foi feito); escolher o modelo por tarefa (Qwen3.5
+  e MiniCPM5 acertam tarefas diferentes); um SFT com trajetórias com estado.
 
 ## Dados não versionados
 
-- `Google.xcconfig` (Client ID do Google Sign-In) e qualquer `*.xcconfig`/`.env`.
-- O projeto Xcode (`MobileLLMBench.xcodeproj`) fica em um repositório separado; este repositório tem os fontes que ele compila.
-- Conversas do chat guardadas no iPhone (`Chat/conversations.json`): são uso pessoal, não experimento.
+- `Google.xcconfig` / `*.xcconfig` / `.env`
+- Estado de usuário do Xcode (`xcuserdata/`) e `DerivedData/`; os projetos em si estão em `ios/`
+- Cabeça MTP do Qwen3.5 (tensores `mtp.*` do checkpoint oficial, copiados para o app)
+- Conversas do chat no iPhone (`Chat/conversations.json`)
+- Pesos dos modelos (baixados do Hugging Face pelo app na primeira execução)
 
 ---
 
-# App iOS: MobileLLMBench
+# Apps iOS: MobileLLMBench e MobileLLMChat
+
+Desde 2026-11-05 são dois apps separados, cada um com o próprio projeto Xcode (em `ios/`), que compartilham uma pasta de fontes:
+
+| Pasta neste repo | Vai para | Conteúdo |
+| --- | --- | --- |
+| `MobileLLMCore/` | os dois apps | Backends (MLX e Apple Foundation Models), catálogo de modelos e estratégias, tools do sistema (`ToolRegistry`, `SystemTools`), roteador adaptativo, budget, `ThinkingFilter` |
+| `MobileLLMBench/` | `ios/MobileLLMBench/` (mlx-swift-lm 3.31.4) e `ios/MobileLLMBench-mlxmain/` (mlx-swift-lm `main`) | Runner, matriz de experimentos, datasets Apple/BFCL, servidor OpenAI para o Mac, abas Executar, Ao vivo e Resultados |
+| `MobileLLMChat/` | `ios/MobileLLMChat/` | Assistente de chat (`ChatView`, `ChatStore`, `AgentCoordinator`, tools de agenda, Google Calendar) |
+| `MobileLLMBenchTests/`, `MobileLLMChatTests/` | o respectivo projeto | Testes de cada app |
+
+Os projetos referenciam as pastas da raiz por grupos sincronizados (`../../MobileLLMCore` etc., sem Swift Package), então um arquivo em `MobileLLMCore/` compila em todos. Regra: nada em `MobileLLMCore/` pode importar tipos de `MobileLLMBench/` ou `MobileLLMChat/`.
+
+## Como compilar
+
+| Projeto | Biblioteca MLX | Para quê |
+| --- | --- | --- |
+| `ios/MobileLLMBench/MobileLLMBench.xcodeproj` | `mlx-swift-lm` 3.31.4 | build dos estudos até o TEST da pilha (2026-11-09/10) |
+| `ios/MobileLLMBench-mlxmain/MobileLLMBench.xcodeproj` | `mlx-swift-lm` `ec4c966a` (`main`), flag `MLX_LM_MAIN` | LFM3 e a especulação MTP em pipeline (`MTPHead.swift`, `MTPPipeline.swift`, `MLXCompat.swift`) |
+| `ios/MobileLLMChat/MobileLLMChat.xcodeproj` | `mlx-swift-lm` 3.31.4 | chat agêntico |
+
+- **Assinatura:** troque o `DEVELOPMENT_TEAM` e o bundle ID para os seus.
+- **Chat:** copie `ios/MobileLLMChat/Google.xcconfig.example` para `Google.xcconfig` (o git ignora esse arquivo) e
+  preencha o client ID iOS do Google. Sem ele, só o login Google fica desligado.
+- **Build `mlxmain` pela linha de comando:** `xcodebuild -project ios/MobileLLMBench-mlxmain/MobileLLMBench.xcodeproj
+  -scheme MobileLLMBench -destination "id=<UDID>" -allowProvisioningUpdates -skipMacroValidation
+  -skipPackagePluginValidation build`.
+- **Cabeça MTP (só no `mlxmain`):** copie os tensores `mtp.*` do checkpoint oficial `Qwen/Qwen3.5-2B`, com o
+  `config.json`, para `Documents/mtp/qwen35/` do app (`model.safetensors`).
 
 A primeira versão (semana 5) comparou **direto** e **plano e ação** em três modelos: o `SystemLanguageModel` da Apple, `mlx-community/Qwen3-1.7B-4bit` e `mlx-community/gemma-4-e2b-it-4bit` (os dois últimos pelo MLX, `mlx-swift-lm` 3.31.4). Depois o app ganhou o protocolo 2, os datasets Apple e BFCL, estratégias de raciocínio, roteadores adaptativos e o chat agêntico (ver os relatórios em `reports/`).
 
@@ -56,11 +141,13 @@ A primeira versão (semana 5) comparou **direto** e **plano e ação** em três 
 | --- | --- | --- |
 | `ligar` | `tel:` | Abre o Telefone e disca |
 | `ligarFaceTime` | `facetime-audio:` | Abre o FaceTime áudio |
-| `enviarEmail` | `mailto:` | Abre o Mail com a mensagem preenchida |
+| `enviarEmail` | Gmail API (chat, conta Google) ou `googlegmail://` / `mailto:` | No chat envia direto pelo Gmail; sem conta, abre o Gmail ou Mail preenchido |
 | `enviarMensagem` | `sms:` | Abre o Mensagens com o texto preenchido |
 | `criarEvento` | EventKit | Grava um evento |
 | `criarLembrete` | EventKit | Grava um lembrete |
-| `abrirRota` | `https://maps.apple.com` | Abre uma rota de carro |
+| `abrirRota` | Waze / Google Maps / Apple Mapas (preferência do usuário) | Abre a navegação de carro já iniciada |
+| `abrirApp` (só chat) | Links universais | Abre Instagram, Spotify, YouTube, Uber, X, TikTok, Telegram, LinkedIn, Netflix em perfil, busca ou destino |
+| `rodarAtalho` (só chat) | `shortcuts://x-callback-url` | Roda um atalho do app Atalhos cadastrado nos ajustes do chat |
 | `abrirSafari` | `https` | Abre a página no Safari |
 | `buscarContato` | agenda sintética | Devolve o número de Ana, Bruno ou Carla; não lê os contatos do aparelho |
 
@@ -124,4 +211,3 @@ O iOS não expõe potência para o app. Cada execução abre um intervalo `task`
 
 Essa parte é manual: nenhum script lê o trace.
 
-O MVP Android continua em [AndroidLLMBench](AndroidLLMBench/README.md).

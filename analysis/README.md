@@ -1,5 +1,23 @@
 # Análise offline
 
+## Runtime no iPhone (estudo principal, `reports/runtime/`)
+
+Rodam no Mac; só `run_eval.py`, `microbench.py` e as cadeias falam com o iPhone.
+
+| Script | O que faz |
+|---|---|
+| `runtime/run_eval.py` | Uma rodada BFCL Multi-Turn no iPhone: entradas × condições, ordem girada, espera térmica, retomada, progresso na aba Ao vivo |
+| `bfcl_mt/bfcl.py` | Registra no `bfcl-eval` cada condição (`rt-base-kv`, `dacs-persist-kv`, `nt-*`…) por modelo; `generate` e `evaluate` |
+| `bfcl_mt/dac.py` | Política DAC (nota + tentativa extra na 2ª repetição/erro) e o trace por passo |
+| `bfcl_mt/analyze_dac.py` | Tabelas por condição, pareado com McNemar e IC bootstrap; grava `<saída>.json` por execução (`BENCH_SLM=<modelo>`) |
+| `runtime/cold_warm.py` | Pilha fria (rodada A) e quente (rodada B) contra a referência da rodada A |
+| `runtime/figures.py` | Figura do TEST (`reports/runtime/figures/test-latency.{png,svg}`) |
+| `runtime/microbench.py` | Microbenchmarks: custo por passada, rascunho da gramática, prefixo frio/quente |
+| `runtime/lora_check.py` | Confere a aplicação do LoRA (runtime × fundido pelo PEFT, 4 bits × bf16) no Mac |
+| `runtime/chains/` | Scripts que encadearam as rodadas no iPhone ([README](runtime/chains/README.md)) |
+
+## App (protocolo 2, estudos anteriores)
+
 Lê o JSON exportado pelo app, inclusive o array antigo sem os campos do protocolo 2.
 
 ```bash

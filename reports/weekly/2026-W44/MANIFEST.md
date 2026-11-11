@@ -1,6 +1,6 @@
 # Manifesto de reprodutibilidade — 2026-W44
 
-Gerado em 2026-10-28T12:29:37Z UTC por `analysis/weekly/generate.py`.
+Gerado em 2026-10-28T13:00:11Z UTC por `analysis/weekly/generate.py`.
 Este arquivo descreve como os números da semana foram obtidos. **Não** relança inferência.
 
 ## Separação de máquinas
@@ -25,7 +25,7 @@ Este arquivo descreve como os números da semana foram obtidos. **Não** relanç
 | Warmup | True |
 | `requireCoolThermal` | False |
 | Python do gerador | 3.11.9 |
-| Git HEAD | `50a59e1bac02b9c3c3e5afc4edde4d4bd497209a` |
+| Git HEAD | `5d75709f57de5836d689bedb4bd2754079b49730` |
 
 ## Amostra BFCL
 
@@ -63,7 +63,7 @@ SHA-256 das fontes oficiais: ver [selection.json](../../slm-bfcl/selection.json)
 |---|---|---|
 | `results/slm-bfcl/main-r1-graded.jsonl` | `5f3cd4ad0510…` | 846357 |
 | `analysis/weekly/weeks/2026-W44.json` | `41d1d140eb79…` | 919 |
-| `analysis/weekly/generate.py` | `3272b2c02046…` | 33088 |
+| `analysis/weekly/generate.py` | `c292e6771245…` | 42768 |
 | `reports/slm-bfcl/selection.json` | `2dc2b65ac903…` | 3178 |
 | `reports/slm-bfcl/REPORT.md` | `5b81820bee41…` | 12451 |
 | `MobileLLMBench/BFCLv4AST.json` | `918a3f5516a4…` | 69009 |
@@ -86,7 +86,7 @@ Digests SHA-256 completos:
 {
  "results/slm-bfcl/main-r1-graded.jsonl": "5f3cd4ad05104d1b1398758a54402c7a962020ef41ac07c6d393c4c4204ff41e",
  "analysis/weekly/weeks/2026-W44.json": "41d1d140eb795fcae537a304660c25cc40a22651277216f602e5f650332ff775",
- "analysis/weekly/generate.py": "3272b2c0204693b8da50ec891220dd6cd21cb51b09326872976bc2f515fdbf1a",
+ "analysis/weekly/generate.py": "c292e67712450257be4a13664a2e438afb6c5bca7f0d119093fabfe85c31e0be",
  "reports/slm-bfcl/selection.json": "2dc2b65ac903e18d18b02c1202b8a85887ca8055d702f9a6021a5a25bb6519b4",
  "reports/slm-bfcl/REPORT.md": "5b81820bee41828ca8471272c2890392e5bb546ed534bd472766538770dde614",
  "MobileLLMBench/BFCLv4AST.json": "918a3f5516a4e5e3fefbf48df4a570f99037b702d13214f3daf68e00af2667ca",

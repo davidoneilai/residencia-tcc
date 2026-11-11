@@ -271,14 +271,32 @@ enum ExperimentPresets {
             repetitions: 3, requireCoolThermal: false)
     }
 
+    /// SLMs nas tools do iPhone (ligar, mensagem, e-mail, calendário, contato). Sem tarefas novas.
+    static func slmPhone(agents: [Agent], strategies: [Strategy]?, ids: [String]?, repetitions: Int, seed: String) -> ExperimentPreset {
+        let usable = agents.filter(Agent.slms.contains)
+        let policies = strategies ?? [.direct, .noThink, .actionAware]
+        var preset = fill(
+            agents: usable, ids: ids ?? AppleDataset.stepPilotIDs, strategies: policies,
+            shuffle: true, seed: seed, protocolId: StudyProtocol.slmPhone,
+            taskSetId: "apple_step_pilot_\(ids?.count ?? AppleDataset.stepPilotIDs.count)",
+            repetitions: repetitions, dataset: "apple_step",
+            categories: ["single_tool", "multi_tool", "sequential"])
+        preset.config.warmup = true
+        preset.config.thermalTimeoutSeconds = 0
+        preset.config.recoverySeconds = 0
+        return preset
+    }
+
     /// Um modelo por sessão (sem trocar pesos entre jobs); ordem embaralhada com seed fixa.
-    static func slmAST(agents: [Agent], strategies: [Strategy]?, ids: [String]?, repetitions: Int, seed: String) -> ExperimentPreset {
+    static func slmAST(
+        agents: [Agent], strategies: [Strategy]?, ids: [String]?, repetitions: Int, seed: String, taskSetId: String? = nil
+    ) -> ExperimentPreset {
         let usable = agents.filter(Agent.slms.contains)
         let policies = strategies ?? Strategy.allCases.filter { s in usable.contains { s.supports($0) } }
         var preset = fill(
             agents: usable, ids: ids ?? ASTDataset.tasks.map(\.id), strategies: policies,
             shuffle: true, seed: seed, protocolId: StudyProtocol.slmAST,
-            taskSetId: "bfcl_v4_ast_frozen_\(ids?.count ?? ASTDataset.tasks.count)",
+            taskSetId: taskSetId ?? "bfcl_v4_ast_frozen_\(ids?.count ?? ASTDataset.tasks.count)",
             repetitions: repetitions, dataset: ASTDataset.id,
             categories: ["simple_python", "multiple", "parallel", "parallel_multiple", "irrelevance"])
         preset.config.warmup = true

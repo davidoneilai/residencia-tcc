@@ -2,29 +2,45 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var runner: BenchmarkRunner
-    @State private var chat: ChatStore
     @State private var autoStarted = false
+    @State private var server: InferenceServer?
+    @State private var tab = 0
 
     init() {
-        let runner = BenchmarkRunner()
-        _runner = State(initialValue: runner)
-        _chat = State(initialValue: ChatStore(mlx: runner.mlx))
+        // O roteador adaptativo lê o tipo dos argumentos de launch só no bench.
+        AdaptiveRouter.defaultKind = LaunchAutomation.routerKind
+        _runner = State(initialValue: BenchmarkRunner())
     }
 
     var body: some View {
-        TabView {
-            ChatView(store: chat, runner: runner)
-                .tabItem { Label("Chat", systemImage: "bubble.left.and.bubble.right") }
+        TabView(selection: $tab) {
             execution
                 .tabItem { Label("Executar", systemImage: "play") }
-            LiveExecutionView(runner: runner)
+                .tag(0)
+            LiveExecutionView(runner: runner, server: server)
                 .tabItem { Label("Ao vivo", systemImage: "waveform.path.ecg") }
+                .tag(1)
             ResultsView(runner: runner)
                 .tabItem { Label("Resultados", systemImage: "chart.bar") }
+                .tag(2)
+        }
+        // O primeiro aviso do bench do Mac abre a aba Ao vivo.
+        .onChange(of: server?.progress == nil) { _, missing in
+            if !missing { tab = 1 }
         }
         .task {
             LaunchAutomation.writeDiagnostics()
+            UIApplication.shared.isIdleTimerDisabled = true
+            if server == nil {
+                let server = InferenceServer(mlx: runner.mlx)
+                server.start(port: LaunchAutomation.servePort ?? 8080)
+                self.server = server
+            }
             guard !autoStarted else { return }
+            if LaunchAutomation.servePort != nil {
+                autoStarted = true
+                return
+            }
             if LaunchAutomation.resumeSession {
                 autoStarted = true
                 await runner.resume()
@@ -43,6 +59,10 @@ struct ContentView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 12) {
                 Text("Mobile LLM Bench").font(.title)
+                if let server {
+                    Text("Servidor OpenAI: \(server.status) · \(server.served) respostas")
+                        .font(.headline)
+                }
                 MatrixSetupView(runner: runner)
                 if runner.running {
                     Button("Cancelar") { runner.cancel() }

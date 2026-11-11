@@ -1,0 +1,109 @@
+== qwen35
+{
+ "fria (A)": {
+  "n": 32,
+  "ref_ok": 8,
+  "stack_ok": 7,
+  "only_ref": [
+   "23",
+   "161"
+  ],
+  "only_stack": [
+   "12"
+  ],
+  "ref_s": 83.0,
+  "stack_s": 62.2,
+  "delta_s": -20.8,
+  "ci95": [
+   -34.2,
+   -9.6
+  ],
+  "delta_pct": -25
+ },
+ "quente (B)": {
+  "n": 32,
+  "ref_ok": 8,
+  "stack_ok": 7,
+  "only_ref": [
+   "23",
+   "161"
+  ],
+  "only_stack": [
+   "12"
+  ],
+  "ref_s": 83.0,
+  "stack_s": 48.0,
+  "delta_s": -35.0,
+  "ci95": [
+   -47.9,
+   -25.4
+  ],
+  "delta_pct": -42
+ }
+}
+== minicpm5
+{
+ "fria (A)": {
+  "n": 32,
+  "ref_ok": 9,
+  "stack_ok": 9,
+  "only_ref": [],
+  "only_stack": [],
+  "ref_s": 62.5,
+  "stack_s": 49.8,
+  "delta_s": -12.7,
+  "ci95": [
+   -30.0,
+   12.0
+  ],
+  "delta_pct": -20
+ },
+ "quente (B)": {
+  "n": 32,
+  "ref_ok": 9,
+  "stack_ok": 9,
+  "only_ref": [],
+  "only_stack": [],
+  "ref_s": 62.5,
+  "stack_s": 23.3,
+  "delta_s": -39.2,
+  "ci95": [
+   -49.5,
+   -31.2
+  ],
+  "delta_pct": -63
+ }
+}
+== gemma4
+{
+ "fria (A)": {
+  "n": 32,
+  "ref_ok": 2,
+  "stack_ok": 2,
+  "only_ref": [],
+  "only_stack": [],
+  "ref_s": 16.0,
+  "stack_s": 13.7,
+  "delta_s": -2.4,
+  "ci95": [
+   -3.2,
+   -1.6
+  ],
+  "delta_pct": -15
+ },
+ "quente (B)": {
+  "n": 32,
+  "ref_ok": 2,
+  "stack_ok": 2,
+  "only_ref": [],
+  "only_stack": [],
+  "ref_s": 16.0,
+  "stack_s": 11.0,
+  "delta_s": -5.0,
+  "ci95": [
+   -5.6,
+   -4.5
+  ],
+  "delta_pct": -31
+ }
+}

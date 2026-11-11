@@ -1,0 +1,37 @@
+{
+ "adapter": "/Users/macbookpro/.claude/jobs/0554fa3f/tmp/lora/hf/qwen35-2b",
+ "pairs": 96,
+ "scale": 2.0,
+ "prompt_tokens": 6787,
+ "fused_tensors": 96,
+ "runtime_tensors": 192,
+ "conversion: runtime_bf16 vs fused_bf16": {
+  "max_abs_logit_diff": 0.2188,
+  "top1_equal": true,
+  "greedy_prefix_equal": 45,
+  "of": 64
+ },
+ "quantization: runtime_q4 vs fused_bf16": {
+  "max_abs_logit_diff": 4.2656,
+  "top1_equal": true,
+  "greedy_prefix_equal": 13,
+  "of": 64
+ },
+ "lora effect: fused_bf16 vs base_bf16": {
+  "max_abs_logit_diff": 8.0,
+  "top1_equal": true,
+  "greedy_prefix_equal": 2,
+  "of": 64
+ },
+ "control: base_q4 vs base_bf16 (sem LoRA)": {
+  "max_abs_logit_diff": 6.5156,
+  "top1_equal": true,
+  "greedy_prefix_equal": 2,
+  "of": 64
+ },
+ "texts": {
+  "base_bf16": "The user is asking me to help them acquire 100 shares of AAPL stock at the prevailing market price. This is a trading request that requires me to:\n\n1. First, I need to get the current stock information for AAPL to find the prevailing market price\n2. Then I need to place",
+  "fused_bf16": "The user wants to buy 100 shares of AAPL stock at the current market price. I need to use the place_order function for this.\n\nLooking at the required arguments for place_order:\n- amount (number of shares to trade) - user specified 100 shares\n- order_type (",
+  "runtime_q4": "The user wants to buy 100 shares of AAPL at the prevailing market price. I need to use the place_order function for this.\n\nLet me check the required arguments for place_order:\n- amount: Number of shares to trade (100)\n- order_type: Type of the order"
+ }
+}

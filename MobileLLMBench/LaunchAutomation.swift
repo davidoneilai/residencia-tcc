@@ -8,6 +8,7 @@ import Foundation
 /// - `{"run":"resume"}`
 /// - `{"run":"adaptive-step-pilot"}`
 /// - `{"run":"action-aware-pilot"}`
+/// - `{"run":"serve","port":8080}`
 enum LaunchAutomation {
     private nonisolated(unsafe) static var cachedFile: [String: Any]?
     private nonisolated(unsafe) static var fileLoaded = false
@@ -37,6 +38,12 @@ enum LaunchAutomation {
     }
 
     static var resumeSession: Bool { runName == "resume" }
+
+    /// `{"run":"serve","port":8080}`: endpoint OpenAI-compatível para harnesses públicos no Mac.
+    static var servePort: UInt16? {
+        guard runName == "serve" else { return nil }
+        return (loadFileIfNeeded()?["port"] as? NSNumber).map(\.uint16Value) ?? 8080
+    }
 
     static var taskLimit: Int? {
         for arg in arguments {
@@ -83,15 +90,25 @@ enum LaunchAutomation {
             return ExperimentPresets.adaptiveStepPilot()
         case "action-aware-pilot":
             return ExperimentPresets.actionAwarePilot()
+        case "slm-phone":
+            let file = loadFileIfNeeded() ?? [:]
+            return ExperimentPresets.slmPhone(
+                agents: (file["agents"] as? [String] ?? []).compactMap(Agent.init(rawValue:)),
+                strategies: (file["strategies"] as? [String])?.compactMap(Strategy.init(rawValue:)),
+                ids: file["taskIDs"] as? [String],
+                repetitions: (file["repetitions"] as? Int) ?? 1,
+                seed: (file["seed"] as? String) ?? "phone-20261028")
         case "bfcl-ast":
-            // {"run":"bfcl-ast","agents":["qwen35"],"strategies":["direct"],"taskIDs":[...],"repetitions":1,"seed":"20261027"}
+            // {"run":"bfcl-ast","agents":["qwen35"],"strategies":["direct"],"taskIDs":[...],"repetitions":1,"seed":"20261027",
+            //  "taskSetId":"bfcl_v4_nonlive_pilot_40"}
             let file = loadFileIfNeeded() ?? [:]
             return ExperimentPresets.slmAST(
                 agents: (file["agents"] as? [String] ?? []).compactMap(Agent.init(rawValue:)),
                 strategies: (file["strategies"] as? [String])?.compactMap(Strategy.init(rawValue:)),
                 ids: file["taskIDs"] as? [String],
                 repetitions: (file["repetitions"] as? Int) ?? 1,
-                seed: (file["seed"] as? String) ?? "20261027")
+                seed: (file["seed"] as? String) ?? "20261027",
+                taskSetId: file["taskSetId"] as? String)
         default:
             return nil
         }

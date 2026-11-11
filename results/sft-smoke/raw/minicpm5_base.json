@@ -1,0 +1,494 @@
+{
+ "name": "minicpm5_sft_basetemplate",
+ "base": "/Users/macbookpro/.claude/jobs/0554fa3f/tmp/lora/models/openbmb--MiniCPM5-2B-MLX",
+ "adapter": "/Users/macbookpro/.claude/jobs/0554fa3f/tmp/lora/hf/minicpm5-2b",
+ "base_load_s": 0.61,
+ "compute_dtype": "mlx.core.bfloat16",
+ "base_peak_gb_after_load": 1.42,
+ "base_runs": [
+  {
+   "case": "weather",
+   "thinking": false,
+   "prompt_tokens": 232,
+   "gen_s": 1.21,
+   "peak_gb": 1.79,
+   "parsed_format": "minicpm_xml",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Paris"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<function name=\"get_weather\"><param name=\"city\">Paris</param></function>"
+  },
+  {
+   "case": "weather_tokyo",
+   "thinking": false,
+   "prompt_tokens": 326,
+   "gen_s": 1.45,
+   "peak_gb": 1.89,
+   "parsed_format": "minicpm_xml",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Tokyo"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<function name=\"get_weather\"><param name=\"city\">Tokyo</param></function>"
+  },
+  {
+   "case": "pick_tool",
+   "thinking": false,
+   "prompt_tokens": 341,
+   "gen_s": 1.9,
+   "peak_gb": 1.91,
+   "parsed_format": "minicpm_xml",
+   "calls": [
+    {
+     "name": "send_email",
+     "arguments": {
+      "to": "bob@example.com",
+      "subject": "Hi",
+      "body": "See you at 6"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<function name=\"send_email\"><param name=\"to\">bob@example.com</param><param name=\"subject\">Hi</param><param name=\"body\">See you at 6</param></function>"
+  },
+  {
+   "case": "alarm",
+   "thinking": false,
+   "prompt_tokens": 426,
+   "gen_s": 2.0,
+   "peak_gb": 2.03,
+   "parsed_format": "minicpm_xml",
+   "calls": [
+    {
+     "name": "create_alarm",
+     "arguments": {
+      "time": "18:45",
+      "label": "Gym"
+     }
+    }
+   ],
+   "valid": false,
+   "raw": "<function name=\"create_alarm\"><param name=\"time\">18:45</param><param name=\"label\">Gym</param></function>"
+  },
+  {
+   "case": "event",
+   "thinking": false,
+   "prompt_tokens": 364,
+   "gen_s": 2.04,
+   "peak_gb": 1.94,
+   "parsed_format": "minicpm_xml",
+   "calls": [
+    {
+     "name": "create_event",
+     "arguments": {
+      "title": "Standup",
+      "date": "2026-11-10",
+      "duration_minutes": "30"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<function name=\"create_event\"><param name=\"title\">Standup</param><param name=\"date\">2026-11-10</param><param name=\"duration_minutes\">30</param></function>"
+  },
+  {
+   "case": "parallel",
+   "thinking": false,
+   "prompt_tokens": 232,
+   "gen_s": 1.56,
+   "peak_gb": 1.79,
+   "parsed_format": "minicpm_xml",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Rome"
+     }
+    },
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Madrid"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<function name=\"get_weather\"><param name=\"city\">Rome</param></function>\n<function name=\"get_weather\"><param name=\"city\">Madrid</param></function>"
+  },
+  {
+   "case": "weather",
+   "thinking": true,
+   "prompt_tokens": 230,
+   "gen_s": 3.12,
+   "peak_gb": 1.79,
+   "parsed_format": "minicpm_xml",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Paris"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "Okay, the user is asking about the current weather in Paris. Let me check the available tools. There's a function called get_weather that takes a city name. So I need to call that with Paris as the city. Let me make sure the parameters are correct. The required parameter is city, which is Paris. So I'll use the tool.\n</think>\n\n<function name=\"get_weather\"><param name=\"city\">Paris</param></function>"
+  },
+  {
+   "case": "weather_tokyo",
+   "thinking": true,
+   "prompt_tokens": 324,
+   "gen_s": 3.49,
+   "peak_gb": 1.89,
+   "parsed_format": "minicpm_xml",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Tokyo"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "Okay, the user is asking if it's raining in Tokyo. Let me check the available tools. There's get_weather which can get current weather for a city. So I should call get_weather with city as Tokyo. Then, based on the result, determine if it's raining. Wait, the function returns the current weather, so I need to get that data first. Let me make the tool call.\n</think>\n\n<function name=\"get_weather\"><param name=\"city\">Tokyo</param></function>"
+  },
+  {
+   "case": "pick_tool",
+   "thinking": true,
+   "prompt_tokens": 339,
+   "gen_s": 4.65,
+   "peak_gb": 1.91,
+   "parsed_format": "minicpm_xml",
+   "calls": [
+    {
+     "name": "send_email",
+     "arguments": {
+      "to": "bob@example.com",
+      "subject": "Hi",
+      "body": "See you at 6"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "Okay, the user wants to send an email to bob@example.com with the subject 'Hi' and the body 'See you at 6'. Let me check the available tools. There's the send_email function. The parameters required are to, subject, and body. All three are provided here. So I should call send_email with those values. Let me make sure the parameters match. To: bob@example.com, subject: 'Hi', body: 'See you at 6'. Yep, that's all. Need to structure the tool call correctly.\n</think>\n\n<function name=\"send_email\"><param name=\"to\">bob@example.com</param><param name=\"subject\">Hi</param><param name=\"body\">See you at 6</param></function>"
+  },
+  {
+   "case": "alarm",
+   "thinking": true,
+   "prompt_tokens": 424,
+   "gen_s": 7.57,
+   "peak_gb": 2.02,
+   "parsed_format": null,
+   "calls": [],
+   "valid": false,
+   "raw": "Okay, the user wants to wake up at 6:45 tomorrow, labeled as Gym. Let me check the available tools. There's create_alarm which takes time and label. The time needs to be in HH:MM 24h format. Tomorrow's 6:45 would be 18:45? Wait, no, 6:45 AM is 06:45. Wait, the user says \"6:45 tomorrow\". So the time parameter should be 06:45. Wait, but the function create_alarm requires time in HH:MM 24h. So 6:45 AM is 06:45. But the user says \"Wake me up at 6:45 tomorrow\". So the time is 06:45. Wait, but the function's time parameter is the time for the alarm, so the user wants the alarm set for 6:45 tomorrow. Wait, but the function create_alarm probably sets the alarm for a specific time, but does it handle future dates? Wait, the parameters for create_alarm only have time and label. Wait, the description says \"Create an alarm on the phone.\" The parameters are time (HH:MM 24h) and optional label. So"
+  },
+  {
+   "case": "event",
+   "thinking": true,
+   "prompt_tokens": 362,
+   "gen_s": 7.11,
+   "peak_gb": 1.94,
+   "parsed_format": "minicpm_xml",
+   "calls": [
+    {
+     "name": "create_event",
+     "arguments": {
+      "title": "Standup",
+      "date": "2026-11-10",
+      "duration_minutes": "30"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "Okay, let's see. The user wants to put a 30-minute meeting called Standup on 2026-11-10 in their calendar. I need to figure out which tool to use. The available tools are create_alarm and create_event. The user is talking about a calendar event, so create_event is the right one. Let me check the parameters for create_event. It requires title, date, and duration_minutes. The user provided the title \"Standup\", date \"2026-11-10\", and duration 30 minutes. So I should call create_event with those parameters. Wait, the required fields are title and date, duration is optional but the user mentioned 30 minutes, so include that. Let me make sure the date is in the correct format YYYY-MM-DD. Yes, 2026-11-10 is correct. So the function call should be create_event with title \"Standup\", date \"2026-11-10\", duration_minutes 30.\n</think>\n\n<function name=\"create_event\"><param name=\"title\">Standup</param><param name=\"date\">2026-11-10</param><param name=\"duration_minutes\">30</param></function>"
+  },
+  {
+   "case": "parallel",
+   "thinking": true,
+   "prompt_tokens": 230,
+   "gen_s": 4.45,
+   "peak_gb": 1.79,
+   "parsed_format": "minicpm_xml",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Rome"
+     }
+    },
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Madrid"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "Okay, the user is asking about the weather in Rome and Madrid. I need to use the get_weather function for each city. Let me check the tools provided. The function get_weather takes a city name. So I should call it for Rome and then for Madrid. Wait, the parameters require the city, so I need to make two separate calls. Let me structure the tool calls properly.\n\nFirst, call get_weather for Rome. Then another call for Madrid. Make sure the arguments are correct. The tool allows calling multiple functions, so I'll generate two tool_call entries.\n</think>\n\n<function name=\"get_weather\"><param name=\"city\">Rome</param></function>\n<function name=\"get_weather\"><param name=\"city\">Madrid</param></function>"
+  }
+ ],
+ "adapter_apply_s": 0.1,
+ "adapter_tensors": 588,
+ "lora_keys": [
+  "mlp.down_proj",
+  "mlp.gate_proj",
+  "mlp.up_proj",
+  "self_attn.k_proj",
+  "self_attn.o_proj",
+  "self_attn.q_proj",
+  "self_attn.v_proj"
+ ],
+ "lora_layers": 42,
+ "scale": 2.0,
+ "probe_equal": true,
+ "sft_runs": [
+  {
+   "case": "weather",
+   "thinking": false,
+   "prompt_tokens": 232,
+   "gen_s": 1.3,
+   "peak_gb": 1.71,
+   "parsed_format": "minicpm_xml",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Paris"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<function name=\"get_weather\"><param name=\"city\">Paris</param></function>"
+  },
+  {
+   "case": "weather_tokyo",
+   "thinking": false,
+   "prompt_tokens": 326,
+   "gen_s": 1.6,
+   "peak_gb": 1.79,
+   "parsed_format": "minicpm_xml",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Tokyo"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<function name=\"get_weather\"><param name=\"city\">Tokyo</param></function>"
+  },
+  {
+   "case": "pick_tool",
+   "thinking": false,
+   "prompt_tokens": 341,
+   "gen_s": 2.14,
+   "peak_gb": 1.8,
+   "parsed_format": "minicpm_xml",
+   "calls": [
+    {
+     "name": "send_email",
+     "arguments": {
+      "to": "bob@example.com",
+      "subject": "Hi",
+      "body": "See you at 6"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<function name=\"send_email\"><param name=\"to\">bob@example.com</param><param name=\"subject\">Hi</param><param name=\"body\">See you at 6</param></function>"
+  },
+  {
+   "case": "alarm",
+   "thinking": false,
+   "prompt_tokens": 426,
+   "gen_s": 2.21,
+   "peak_gb": 1.88,
+   "parsed_format": "minicpm_xml",
+   "calls": [
+    {
+     "name": "create_alarm",
+     "arguments": {
+      "time": "18:45",
+      "label": "Gym"
+     }
+    }
+   ],
+   "valid": false,
+   "raw": "<function name=\"create_alarm\"><param name=\"time\">18:45</param><param name=\"label\">Gym</param></function>"
+  },
+  {
+   "case": "event",
+   "thinking": false,
+   "prompt_tokens": 364,
+   "gen_s": 2.3,
+   "peak_gb": 1.83,
+   "parsed_format": "minicpm_xml",
+   "calls": [
+    {
+     "name": "create_event",
+     "arguments": {
+      "title": "Standup",
+      "date": "2026-11-10",
+      "duration_minutes": "30"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<function name=\"create_event\"><param name=\"title\">Standup</param><param name=\"date\">2026-11-10</param><param name=\"duration_minutes\">30</param></function>"
+  },
+  {
+   "case": "parallel",
+   "thinking": false,
+   "prompt_tokens": 232,
+   "gen_s": 1.74,
+   "peak_gb": 1.71,
+   "parsed_format": "minicpm_xml",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Rome"
+     }
+    },
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Madrid"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "<function name=\"get_weather\"><param name=\"city\">Rome</param></function>\n<function name=\"get_weather\"><param name=\"city\">Madrid</param></function>"
+  },
+  {
+   "case": "weather",
+   "thinking": true,
+   "prompt_tokens": 230,
+   "gen_s": 2.04,
+   "peak_gb": 1.71,
+   "parsed_format": "minicpm_xml",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Paris"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "The user wants to know the current weather in Paris. I'll use the get_weather function to get this information.\n</think>\n\n<function name=\"get_weather\"><param name=\"city\">Paris</param></function>"
+  },
+  {
+   "case": "weather_tokyo",
+   "thinking": true,
+   "prompt_tokens": 324,
+   "gen_s": 5.35,
+   "peak_gb": 1.79,
+   "parsed_format": "minicpm_xml",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Tokyo"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "Okay, the user is asking if it's raining in Tokyo. Let me check the available functions. There's a function called get_weather that can get the current weather for a city. The required argument is the city name, which in this case is Tokyo. So I should call get_weather with city set to Tokyo.\n\nWait, the function description says \"Get the current weather for a city.\" So using that function will give the current weather, which includes whether it's raining. Let me make sure the parameters are correct. The required argument is \"city\", so yes, Tokyo is the city. Let me call the function.\n</think>\n\n<function name=\"get_weather\"><param name=\"city\">Tokyo</param></function>"
+  },
+  {
+   "case": "pick_tool",
+   "thinking": true,
+   "prompt_tokens": 339,
+   "gen_s": 3.32,
+   "peak_gb": 1.8,
+   "parsed_format": "minicpm_xml",
+   "calls": [
+    {
+     "name": "send_email",
+     "arguments": {
+      "to": "bob@example.com",
+      "subject": "Hi",
+      "body": "See you at 6"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "The user wants to send an email to bob@example.com with the subject \"Hi\" and the body \"See you at 6\". I have the necessary information to call the send_email function.\n</think>\n\n<function name=\"send_email\"><param name=\"to\">bob@example.com</param><param name=\"subject\">Hi</param><param name=\"body\">See you at 6</param></function>"
+  },
+  {
+   "case": "alarm",
+   "thinking": true,
+   "prompt_tokens": 424,
+   "gen_s": 8.58,
+   "peak_gb": 1.88,
+   "parsed_format": "minicpm_xml",
+   "calls": [
+    {
+     "name": "create_alarm",
+     "arguments": {
+      "time": "06:45",
+      "label": "Gym"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "Okay, the user wants to set an alarm for 6:45 tomorrow labeled \"Gym\". Let me check the available functions. There's create_alarm which requires time and optionally a label. The time needs to be in HH:MM 24h format. The user said 6:45, so that's 06:45. The label is \"Gym\". So I should call create_alarm with time \"06:45\" and label \"Gym\". Wait, but the function parameters require \"time\" as a string in HH:MM, 24h. So 6:45 is 06:45. The date part isn't specified, but the function might handle the next day. Wait, the function's parameters don't have a date field, so it's probably for the next day. Let me confirm the function definition: create_alarm has required \"time\" and optional \"label\". So the call would be create_alarm with time \"06:45\" and label \"Gym\". That should work.\n</think>\n\n<function name=\"create_alarm\"><param name=\"time\">06:45</param><param name=\"label\">Gym</param></function>"
+  },
+  {
+   "case": "event",
+   "thinking": true,
+   "prompt_tokens": 362,
+   "gen_s": 6.47,
+   "peak_gb": 1.82,
+   "parsed_format": "minicpm_xml",
+   "calls": [
+    {
+     "name": "create_event",
+     "arguments": {
+      "title": "Standup",
+      "date": "2026-11-10",
+      "duration_minutes": "30"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "Okay, the user wants to put a 30-minute meeting called \"Standup\" on 2026-11-10 in their calendar. Let me check the available functions. There's create_event which requires title, date, and duration_minutes. The required fields are title and date, and duration_minutes is optional but the user specified 30 minutes. So I need to call create_event with title \"Standup\", date \"2026-11-10\", and duration_minutes 30. Let me make sure the date format is correct as YYYY-MM-DD. Yes, 2026-11-10 is correct. So the function call should be create_event with those parameters.\n</think>\n\n<function name=\"create_event\"><param name=\"title\">Standup</param><param name=\"date\">2026-11-10</param><param name=\"duration_minutes\">30</param></function>"
+  },
+  {
+   "case": "parallel",
+   "thinking": true,
+   "prompt_tokens": 230,
+   "gen_s": 5.24,
+   "peak_gb": 1.71,
+   "parsed_format": "minicpm_xml",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Rome"
+     }
+    },
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Madrid"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "Okay, the user is asking about the weather in Rome and Madrid. Let me check the available functions. There's a function called get_weather that takes a city name. So I need to call this function for both cities.\n\nFirst, I'll call get_weather for Rome. Then, I'll call it for Madrid. Let me make sure the parameters are correct. The function requires \"city\" as an argument, so I'll provide each city name.\n\nWait, the user might have a typo, but the function should handle it. Let me structure the tool calls properly.\n</think>\n\n<function name=\"get_weather\"><param name=\"city\">Rome</param></function>\n<function name=\"get_weather\"><param name=\"city\">Madrid</param></function>"
+  }
+ ]
+}

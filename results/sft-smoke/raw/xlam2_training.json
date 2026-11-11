@@ -1,0 +1,264 @@
+{
+ "name": "xlam2_sft_training",
+ "base": "/Users/macbookpro/.claude/jobs/0554fa3f/tmp/lora/models/xLAM-2-3b-fc-r-4bit",
+ "adapter": "/Users/macbookpro/.claude/jobs/0554fa3f/tmp/lora/hf/xlam2-3b",
+ "base_load_s": 1.25,
+ "compute_dtype": "mlx.core.bfloat16",
+ "base_peak_gb_after_load": 1.74,
+ "base_runs": [
+  {
+   "case": "weather",
+   "thinking": null,
+   "prompt_tokens": 272,
+   "gen_s": 1.96,
+   "peak_gb": 2.15,
+   "parsed_format": "bare_json",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Paris"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "[{\"name\": \"get_weather\", \"arguments\": {\"city\": \"Paris\"}}]"
+  },
+  {
+   "case": "weather_tokyo",
+   "thinking": null,
+   "prompt_tokens": 407,
+   "gen_s": 2.35,
+   "peak_gb": 2.26,
+   "parsed_format": "bare_json",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Tokyo"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "[{\"name\": \"get_weather\", \"arguments\": {\"city\": \"Tokyo\"}}]"
+  },
+  {
+   "case": "pick_tool",
+   "thinking": null,
+   "prompt_tokens": 422,
+   "gen_s": 3.04,
+   "peak_gb": 2.28,
+   "parsed_format": "bare_json",
+   "calls": [
+    {
+     "name": "send_email",
+     "arguments": {
+      "to": "bob@example.com",
+      "subject": "Hi",
+      "body": "See you at 6"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "[{\"name\": \"send_email\", \"arguments\": {\"to\": \"bob@example.com\", \"subject\": \"Hi\", \"body\": \"See you at 6\"}}]"
+  },
+  {
+   "case": "alarm",
+   "thinking": null,
+   "prompt_tokens": 537,
+   "gen_s": 3.21,
+   "peak_gb": 2.25,
+   "parsed_format": "bare_json",
+   "calls": [
+    {
+     "name": "create_alarm",
+     "arguments": {
+      "time": "06:45",
+      "label": "Gym"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "[{\"name\": \"create_alarm\", \"arguments\": {\"time\": \"06:45\", \"label\": \"Gym\"}}]"
+  },
+  {
+   "case": "event",
+   "thinking": null,
+   "prompt_tokens": 452,
+   "gen_s": 3.33,
+   "peak_gb": 2.32,
+   "parsed_format": "bare_json",
+   "calls": [
+    {
+     "name": "create_event",
+     "arguments": {
+      "title": "Standup",
+      "date": "2026-11-10",
+      "duration_minutes": 30
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "[{\"name\": \"create_event\", \"arguments\": {\"title\": \"Standup\", \"date\": \"2026-11-10\", \"duration_minutes\": 30}}]"
+  },
+  {
+   "case": "parallel",
+   "thinking": null,
+   "prompt_tokens": 272,
+   "gen_s": 2.41,
+   "peak_gb": 2.15,
+   "parsed_format": "bare_json",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Rome"
+     }
+    },
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Madrid"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "[{\"name\": \"get_weather\", \"arguments\": {\"city\": \"Rome\"}}, {\"name\": \"get_weather\", \"arguments\": {\"city\": \"Madrid\"}}]"
+  }
+ ],
+ "adapter_apply_s": 0.1,
+ "adapter_tensors": 504,
+ "lora_keys": [
+  "mlp.down_proj",
+  "mlp.gate_proj",
+  "mlp.up_proj",
+  "self_attn.k_proj",
+  "self_attn.o_proj",
+  "self_attn.q_proj",
+  "self_attn.v_proj"
+ ],
+ "lora_layers": 36,
+ "scale": 2.0,
+ "probe_equal": true,
+ "sft_runs": [
+  {
+   "case": "weather",
+   "thinking": null,
+   "prompt_tokens": 272,
+   "gen_s": 1.98,
+   "peak_gb": 2.13,
+   "parsed_format": "bare_json",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Paris"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "[{\"name\": \"get_weather\", \"arguments\": {\"city\": \"Paris\"}}]"
+  },
+  {
+   "case": "weather_tokyo",
+   "thinking": null,
+   "prompt_tokens": 407,
+   "gen_s": 2.56,
+   "peak_gb": 2.29,
+   "parsed_format": "bare_json",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Tokyo"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "[{\"name\": \"get_weather\", \"arguments\": {\"city\": \"Tokyo\"}}]"
+  },
+  {
+   "case": "pick_tool",
+   "thinking": null,
+   "prompt_tokens": 422,
+   "gen_s": 3.31,
+   "peak_gb": 2.31,
+   "parsed_format": "bare_json",
+   "calls": [
+    {
+     "name": "send_email",
+     "arguments": {
+      "to": "bob@example.com",
+      "subject": "Hi",
+      "body": "See you at 6"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "[{\"name\": \"send_email\", \"arguments\": {\"to\": \"bob@example.com\", \"subject\": \"Hi\", \"body\": \"See you at 6\"}}]"
+  },
+  {
+   "case": "alarm",
+   "thinking": null,
+   "prompt_tokens": 537,
+   "gen_s": 3.47,
+   "peak_gb": 2.35,
+   "parsed_format": "bare_json",
+   "calls": [
+    {
+     "name": "create_alarm",
+     "arguments": {
+      "time": "06:45",
+      "label": "Gym"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "[{\"name\": \"create_alarm\", \"arguments\": {\"time\": \"06:45\", \"label\": \"Gym\"}}]"
+  },
+  {
+   "case": "event",
+   "thinking": null,
+   "prompt_tokens": 452,
+   "gen_s": 3.66,
+   "peak_gb": 2.33,
+   "parsed_format": "bare_json",
+   "calls": [
+    {
+     "name": "create_event",
+     "arguments": {
+      "title": "Standup",
+      "date": "2026-11-10",
+      "duration_minutes": 30
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "[{\"name\": \"create_event\", \"arguments\": {\"title\": \"Standup\", \"date\": \"2026-11-10\", \"duration_minutes\": 30}}]"
+  },
+  {
+   "case": "parallel",
+   "thinking": null,
+   "prompt_tokens": 272,
+   "gen_s": 2.66,
+   "peak_gb": 2.13,
+   "parsed_format": "bare_json",
+   "calls": [
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Rome"
+     }
+    },
+    {
+     "name": "get_weather",
+     "arguments": {
+      "city": "Madrid"
+     }
+    }
+   ],
+   "valid": true,
+   "raw": "[{\"name\": \"get_weather\", \"arguments\": {\"city\": \"Rome\"}}, {\"name\": \"get_weather\", \"arguments\": {\"city\": \"Madrid\"}}]"
+  }
+ ]
+}

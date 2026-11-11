@@ -46,7 +46,7 @@ Não houve mudança extensiva de backend nesta etapa.
 
 ## 4. Benchmark de chat (40 tarefas)
 
-Arquivo: `MobileLLMBenchTests/ChatBenchSuite.swift` (separado do 360).
+Arquivo: `MobileLLMChatTests/ChatBenchSuite.swift` (antes em `MobileLLMBenchTests/`) (separado do 360).
 
 Categorias: noTool (6), singleQuery (8), singleReminder (8), sequential (8), ambiguous (6), confirmCancel (2), recovery (2).
 
